@@ -1,9 +1,10 @@
 import { Container } from '@sushiswap/ui'
+import { TableOfContentsBlock } from 'components/TableOfContentsBlock'
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { ArticleEntity, ComponentSharedMedia, ComponentSharedRichText } from '../.mesh'
+import { ArticleEntity, ComponentSharedMedia, ComponentSharedRichText, ComponentSharedTableOfContents } from '../.mesh'
 import {
   ArticleAuthors,
   ArticleFooter,
@@ -68,16 +69,27 @@ const ArticlePage: FC<ArticlePage> = ({ article, latestArticles, preview }) => {
       <ArticleSeo article={article?.attributes} />
       <PreviewBanner show={preview} />
       <Breadcrumb />
-      <Container maxWidth="2xl" className="px-4 mx-auto my-16">
-        <main>
+      <Container maxWidth={article?.attributes?.staticTableOfContents ? '4xl' : '2xl'} className="px-4 mx-auto my-16">
+        <main className="flex md:space-x-6">
           <article className="relative pt-10">
             <ArticleHeader article={article} />
             <ArticleAuthors article={article} />
-            <div className="mt-12 prose !prose-invert prose-slate">
+            {/*ToC on Mobile*/}
+            {article?.attributes?.staticTableOfContents && (
+              <div className="block w-full mt-12 md:hidden">
+                <TableOfContentsBlock block={article.attributes.staticTableOfContents} type="block" />
+              </div>
+            )}
+            <div className="prose !prose-invert prose-slate">
               {article?.attributes?.blocks?.map((block, i) => {
                 // @ts-ignore
                 if (block?.__typename === 'ComponentSharedRichText') {
                   return <RichTextBlock block={block as ComponentSharedRichText} key={i} />
+                }
+
+                // @ts-ignore
+                if (block?.__typename === 'ComponentSharedTableOfContents') {
+                  return <TableOfContentsBlock block={block as ComponentSharedTableOfContents} type="block" key={i} />
                 }
 
                 // @ts-ignore
@@ -94,6 +106,12 @@ const ArticlePage: FC<ArticlePage> = ({ article, latestArticles, preview }) => {
             <ArticleLinks article={article} />
             <ArticleFooter articles={latestArticles} />
           </article>
+          {/*ToC on Desktop*/}
+          {article?.attributes?.staticTableOfContents && (
+            <div className="sticky top-20 min-w-[256px] h-min md:block hidden">
+              <TableOfContentsBlock block={article.attributes.staticTableOfContents} type="static" />
+            </div>
+          )}
         </main>
       </Container>
     </>

@@ -51,6 +51,13 @@ query articleAndMoreArticles($filters: ArticleFiltersInput, $filters_ne: Article
                         }
                     }
                 }
+                staticTableOfContents {
+                    header
+                    entries {
+                        key
+                        text
+                    }
+                }
                 blocks {
                     __typename
                     ... on ComponentSharedDivider {
@@ -73,6 +80,7 @@ query articleAndMoreArticles($filters: ArticleFiltersInput, $filters_ne: Article
                         }
                     }
                     ... on ComponentSharedRichText {
+                        key
                         body
                     }
                     ... on ComponentSharedSlider {
@@ -88,6 +96,13 @@ query articleAndMoreArticles($filters: ArticleFiltersInput, $filters_ne: Article
                                     provider_metadata
                                 }
                             }
+                        }
+                    }
+                    ... on ComponentSharedTableOfContents {
+                        header
+                        entries {
+                            key
+                            text
                         }
                     }
                 }
