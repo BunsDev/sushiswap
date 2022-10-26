@@ -1,6 +1,6 @@
 {
   "name": "soulswap-prettier-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Soul Prettier Config",
   "keywords": [
     "soulswap",
@@ -25,15 +25,15 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "postinstall": "pnpm build"
+    "postinstall": "yarn build"
   },
   "jest": {
     "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
-    "soulswap-typescript-config": "workspace:*",
     "@types/prettier": "2.x",
     "prettier": "2.x",
+    "soulswap-typescript-config": "workspace:*",
     "tsup": "6.x",
     "typescript": "4.8.2"
   },
