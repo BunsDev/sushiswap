@@ -1,7 +1,7 @@
 {
   "name": "soulswap-redux-localstorage",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.2",
+  "private": false,
   "description": "Redux Local Storage",
   "keywords": [
     "redux",
@@ -9,19 +9,12 @@
     "local storage"
   ],
   "license": "MIT",
-  "author": "Ramin Erfani <ramin@sushi.com>",
+  "author": "0xBuns",
   "main": "./index.ts",
   "source": "./index.ts",
   "dependencies": {},
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "soulswap-chain": "workspace:*",
-    "soulswap-currency": "workspace:*",
-    "soulswap-eslint-config": "workspace:*",
-    "soulswap-jest-config": "workspace:*",
-    "soulswap-prettier-config": "workspace:*",
-    "soulswap-typescript-config": "workspace:*",
-    "soulswap-ui": "workspace:*",
     "@types/node": "^17.0.30",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
@@ -30,14 +23,21 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.1",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-prettier-config": "^0.1.1",
+    "soulswap-typescript-config": "workspace:*",
+    "soulswap-ui": "workspace:*",
     "typescript": "4.8.2"
   },
   "peerDependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "soulswap-chain": "workspace:*",
-    "soulswap-currency": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.1"
+    "react-redux": "^8.0.1",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*"
   }
 }
