@@ -1,6 +1,6 @@
 {
   "name": "soulswap-hooks",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "description": "Soul Hooks",
   "keywords": [
@@ -30,18 +30,18 @@
     "react-responsive": "9.0.0-beta.10"
   },
   "devDependencies": {
-    "soulswap-currency": "workspace:*",
-    "soulswap-eslint-config": "workspace:*",
-    "soulswap-jest-config": "workspace:*",
-    "soulswap-math": "workspace:*",
-    "soulswap-prettier-config": "workspace:*",
-    "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "jest": "^28.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "soulswap-currency": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-math": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "typescript": "4.8.2"
   },
   "peerDependencies": {
