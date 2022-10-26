@@ -1,4 +1,4 @@
-# @sushiswap/prettier-config
+# @soulswap/prettier-config
 
 ## 0.1.1
 

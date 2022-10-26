@@ -78,7 +78,7 @@ https://pnpm.io/installation
 - `@sushiswap/eslint-config`
 - `@sushiswap/hardhat-config`
 - `@sushiswap/prettier-config`
-- `@sushiswap/typescript-config`
+- `soulswap-typescript-config`
 - `@sushiswap/redux-logs`
 - `@sushiswap/redux-token-lists`
 - `@sushiswap/stargate`

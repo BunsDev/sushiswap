@@ -1,5 +1,5 @@
 {
   "exclude": ["node_modules"],
-  "extends": "@sushiswap/typescript-config/base.json",
+  "extends": "soulswap-typescript-config/base.json",
   "include": ["."]
 }

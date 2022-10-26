@@ -52,7 +52,7 @@
     "@sushiswap/eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-virtualized-auto-sizer": "^1.0.1",

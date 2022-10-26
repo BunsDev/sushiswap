@@ -56,7 +56,7 @@
     "@sushiswap/eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.30",
     "@types/numeral": "^2.0.2",
     "@types/react": "^18.0.0",

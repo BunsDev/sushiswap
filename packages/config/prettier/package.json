@@ -1,20 +1,20 @@
 {
-  "name": "@sushiswap/prettier-config",
-  "version": "0.1.1",
-  "description": "Sushi Prettier Config",
+  "name": "@soulswap/prettier-config",
+  "version": "0.0.1",
+  "description": "Soul Prettier Config",
   "keywords": [
-    "sushi",
+    "soulswap",
     "config",
     "prettier"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/config/prettier"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "@0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",
@@ -28,10 +28,10 @@
     "postinstall": "pnpm build"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "@soulswap/jest-config/node"
   },
   "devDependencies": {
-    "@sushiswap/typescript-config": "workspace:*",
+    "@soulswap/typescript-config": "workspace:*",
     "@types/prettier": "2.x",
     "prettier": "2.x",
     "tsup": "6.x",

@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/math",
+  "name": "@soulswap/math",
   "version": "0.1.0",
   "description": "Sushi Math",
   "keywords": [
@@ -42,7 +42,7 @@
     "@sushiswap/eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@types/big.js": "^6.1.3",
     "@types/jest": "^27.5.1",
     "eslint": "^8.20.0",

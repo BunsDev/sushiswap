@@ -49,7 +49,7 @@
     "@sushiswap/eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@sushiswap/graph-config": "workspace:*",
     "@swc/core": "^1.2.249",
     "@swc/helpers": "^0.4.11",

@@ -1,14 +1,14 @@
 {
-  "name": "@sushiswap/eslint-config",
+  "name": "@soulswap/eslint-config",
   "version": "0.1.1",
-  "description": "Sushi Config",
+  "description": "Soul Config",
   "keywords": [
-    "sushi",
+    "soul",
     "config",
     "eslint"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "index.js",
   "files": [
     "index.js",

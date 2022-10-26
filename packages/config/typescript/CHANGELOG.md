@@ -1,4 +1,4 @@
-# @sushiswap/typescript-config
+# @soulswap/typescript-config
 
 ## 0.1.0
 

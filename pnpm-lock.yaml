@@ -45,7 +45,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@vercel/node': ^2.2.0
       date-fns: 2.x
       ioredis: 5.x
@@ -57,7 +57,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
 
   apis/path-finder:
     specifiers:
@@ -66,7 +66,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/tines': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/lodash.flatmap': ^4.5.7
       '@vercel/node': ^1.14.1
       lodash.flatmap: ^4.5.0
@@ -79,7 +79,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/lodash.flatmap': 4.5.7
 
   apis/token-list:
@@ -89,7 +89,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@vercel/node': ^2.2.0
     dependencies:
       '@sushiswap/chainlink-token-list': 0.1.0
@@ -99,14 +99,14 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
 
   apis/token-logo:
     specifiers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@vercel/node': ^2.2.0
     dependencies:
       '@vercel/node': 2.5.0
@@ -114,7 +114,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
 
   apis/token-price:
     specifiers:
@@ -122,7 +122,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@vercel/node': ^2.2.0
       date-fns: 2.x
       ioredis: 5.x
@@ -135,7 +135,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
 
   apps/_root:
     specifiers:
@@ -154,7 +154,7 @@ importers:
       '@sushiswap/redux-token-lists': workspace:*
       '@sushiswap/sushi-data': 1.0.26
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@tanstack/react-query': ^4.0.10
@@ -217,7 +217,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.31
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -243,7 +243,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/redux-localstorage': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@tanstack/react-table': 8.5.0
@@ -307,7 +307,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -329,7 +329,7 @@ importers:
       '@sushiswap/hooks': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@tailwindcss/typography': ^0.5.2
       '@types/node': 17.0.30
@@ -379,7 +379,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.30
       '@types/qs': 6.9.7
       '@types/react': 18.0.15
@@ -422,7 +422,7 @@ importers:
       '@sushiswap/sushixswap': workspace:*
       '@sushiswap/tines': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@typechain/ethers-v5': ^10.0.0
@@ -496,7 +496,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -535,7 +535,7 @@ importers:
       '@sushiswap/redux-localstorage': workspace:*
       '@sushiswap/redux-token-lists': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@tanstack/react-table': 8.5.0
@@ -612,7 +612,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/numeral': 2.0.2
       '@types/react': 18.0.15
@@ -662,7 +662,7 @@ importers:
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/redux-localstorage': workspace:*
       '@sushiswap/redux-token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@tanstack/react-table': 8.0.0-alpha.87
@@ -775,7 +775,7 @@ importers:
       '@sushiswap/graph-config': link:../../packages/config/graph
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.30
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -805,7 +805,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/redux-token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@tanstack/react-table': ^8.5.13
       '@types/node': ^17.0.30
@@ -849,7 +849,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -892,7 +892,7 @@ importers:
       '@sushiswap/redux-localstorage': workspace:*
       '@sushiswap/redux-token-lists': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@tanstack/react-table': ^8.5.15
@@ -964,7 +964,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -996,7 +996,7 @@ importers:
       '@sushiswap/graph-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@types/node': ^17.0.30
@@ -1068,7 +1068,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-slider': 1.3.1
@@ -1110,7 +1110,7 @@ importers:
       '@sushiswap/redux-token-lists': workspace:*
       '@sushiswap/tines': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/validate': workspace:*
       '@sushiswap/wagmi': workspace:*
@@ -1188,7 +1188,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/numeral': 2.0.2
       '@types/react': 18.0.15
@@ -1230,7 +1230,7 @@ importers:
       '@sushiswap/sushixswap': workspace:*
       '@sushiswap/tines': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@typechain/ethers-v5': ^10.0.0
@@ -1301,7 +1301,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -1324,7 +1324,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@typechain/ethers-v5': ^10.0.0
       '@types/node': ^17.0.30
@@ -1365,7 +1365,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -1380,7 +1380,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       eslint: 8.x
       hardhat: 2.x
       prettier: 2.x
@@ -1390,7 +1390,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       eslint: 8.20.0
       hardhat: 2.10.1_typescript@4.8.2
       prettier: 2.7.1
@@ -1405,7 +1405,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/redux-token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@types/node': ^17.0.30
       '@types/react': ^18.0.0
@@ -1435,7 +1435,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -1449,7 +1449,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@types/node': 17.0.25
@@ -1478,7 +1478,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.25
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -1496,7 +1496,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi': workspace:*
       '@types/node': ^17.0.30
@@ -1533,7 +1533,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -1558,7 +1558,7 @@ importers:
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/tines': workspace:*
       '@sushiswap/trident': 1.0.0-canary.48
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.33
       eslint: ^8.20.0
       tiny-invariant: ^1.2.0
@@ -1581,7 +1581,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/node': 17.0.45
       eslint: 8.25.0
       tsup: 6.2.0_typescript@4.8.2
@@ -1592,7 +1592,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       eslint: ^8.20.0
       jest: ^28.1.0
@@ -1601,7 +1601,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       eslint: 8.20.0
       jest: 28.1.3
@@ -1614,7 +1614,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       jest: ^28.1.0
       tsup: ^6.2.0
@@ -1626,7 +1626,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       jest: 28.1.3
       tsup: 6.2.0_typescript@4.8.2
@@ -1643,7 +1643,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/log': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.31
       '@types/numeral': ^2.0.2
       chalk: ^4.1.2
@@ -1672,7 +1672,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/node': 17.0.45
       '@types/numeral': 2.0.2
       chalk: 4.1.2
@@ -1720,7 +1720,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       tsup: 6.x
       typescript: 4.8.2
     dependencies:
@@ -1729,7 +1729,7 @@ importers:
       '@sushiswap/eslint-config': link:../eslint
       '@sushiswap/jest-config': link:../jest
       '@sushiswap/prettier-config': link:../prettier
-      '@sushiswap/typescript-config': link:../typescript
+      'soulswap-typescript-config': link:../typescript
       tsup: 6.2.0_typescript@4.8.2
       typescript: 4.8.2
 
@@ -1742,7 +1742,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tenderly/hardhat-tenderly': 1.x
       '@typechain/ethers-v5': 10.x
       '@typechain/hardhat': 6.x
@@ -1773,7 +1773,7 @@ importers:
       '@sushiswap/eslint-config': link:../eslint
       '@sushiswap/jest-config': link:../jest
       '@sushiswap/prettier-config': link:../prettier
-      '@sushiswap/typescript-config': link:../typescript
+      'soulswap-typescript-config': link:../typescript
       '@types/node': 17.0.45
       ethers: 5.7.1
       hardhat: 2.10.1_typescript@4.8.2
@@ -1796,13 +1796,13 @@ importers:
 
   packages/config/prettier:
     specifiers:
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/prettier': 2.x
       prettier: 2.x
       tsup: 6.x
       typescript: 4.8.2
     devDependencies:
-      '@sushiswap/typescript-config': link:../typescript
+      'soulswap-typescript-config': link:../typescript
       '@types/prettier': 2.6.4
       prettier: 2.7.1
       tsup: 6.2.0_typescript@4.8.2
@@ -1817,7 +1817,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       tsup: 6.x
       typescript: 4.8.2
     dependencies:
@@ -1826,7 +1826,7 @@ importers:
       '@sushiswap/eslint-config': link:../eslint
       '@sushiswap/jest-config': link:../jest
       '@sushiswap/prettier-config': link:../prettier
-      '@sushiswap/typescript-config': link:../typescript
+      'soulswap-typescript-config': link:../typescript
       tsup: 6.2.0_typescript@4.8.2
       typescript: 4.8.2
 
@@ -1836,7 +1836,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       jest: ^28.1.0
       tsup: ^6.2.0
@@ -1847,7 +1847,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       jest: 28.1.3
       tsup: 6.2.0_typescript@4.8.2
@@ -1862,7 +1862,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/math': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       '@types/lodash.flatmap': ^4.5.7
       '@types/react': ^18.0.0
@@ -1885,7 +1885,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@types/lodash.flatmap': 4.5.7
       '@types/react': 18.0.15
@@ -1902,7 +1902,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       '@types/numeral': ^2.0.2
       eslint: ^8.20.0
@@ -1919,7 +1919,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@types/numeral': 2.0.2
       eslint: 8.26.0
@@ -1950,7 +1950,7 @@ importers:
       '@sushiswap/graph-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/wagmi-config': workspace:*
       '@types/jest': ^27.5.1
       '@types/numeral': ^2.0.2
@@ -1993,7 +1993,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@types/numeral': 2.0.2
       eslint: 8.20.0
@@ -2011,7 +2011,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/math': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
@@ -2032,7 +2032,7 @@ importers:
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/math': link:../math
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -2047,7 +2047,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       '@types/node': ^16.11.33
       chalk: ^4.0.0
@@ -2064,7 +2064,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@types/node': 16.11.45
       eslint: 8.20.0
@@ -2077,7 +2077,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/big.js': ^6.1.3
       '@types/jest': ^27.5.1
       big.js: ^6.1.1
@@ -2099,7 +2099,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/big.js': 6.1.5
       '@types/jest': 27.5.2
       eslint: 8.25.0
@@ -2112,7 +2112,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
       eslint: ^8.20.0
@@ -2125,7 +2125,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       eslint: 8.20.0
@@ -2143,7 +2143,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@types/node': ^17.0.30
       '@types/react': ^18.0.0
@@ -2161,7 +2161,7 @@ importers:
       '@sushiswap/eslint-config': link:../../config/eslint
       '@sushiswap/jest-config': link:../../config/jest
       '@sushiswap/prettier-config': link:../../config/prettier
-      '@sushiswap/typescript-config': link:../../config/typescript
+      'soulswap-typescript-config': link:../../config/typescript
       '@sushiswap/ui': link:../../ui
       '@types/node': 17.0.45
       '@types/react': 18.0.15
@@ -2180,7 +2180,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.30
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
@@ -2196,7 +2196,7 @@ importers:
       '@sushiswap/eslint-config': link:../../config/eslint
       '@sushiswap/jest-config': link:../../config/jest
       '@sushiswap/prettier-config': link:../../config/prettier
-      '@sushiswap/typescript-config': link:../../config/typescript
+      'soulswap-typescript-config': link:../../config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -2220,7 +2220,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.30
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
@@ -2253,7 +2253,7 @@ importers:
       '@sushiswap/jest-config': link:../../config/jest
       '@sushiswap/prettier-config': link:../../config/prettier
       '@sushiswap/token-lists': link:../../token-lists
-      '@sushiswap/typescript-config': link:../../config/typescript
+      'soulswap-typescript-config': link:../../config/typescript
       '@types/node': 17.0.45
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -2271,7 +2271,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/math': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       eslint: ^8.20.0
       jest: ^28.1.0
@@ -2285,7 +2285,7 @@ importers:
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/math': link:../math
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       eslint: 8.20.0
       jest: 28.1.3
@@ -2300,7 +2300,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.35
       '@types/seedrandom': ^3.0.1
       eslint: ^8.20.0
@@ -2314,7 +2314,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/node': 17.0.45
       '@types/seedrandom': 3.0.2
       eslint: 8.20.0
@@ -2330,7 +2330,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/math': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       '@uniswap/token-lists': ^1.0.0-beta.29
       eslint: ^8.20.0
@@ -2344,7 +2344,7 @@ importers:
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/math': link:../math
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       '@uniswap/token-lists': 1.0.0-beta.30
       eslint: 8.20.0
@@ -2366,7 +2366,7 @@ importers:
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/token-lists': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tailwindcss/aspect-ratio': ^0.4.0
       '@tailwindcss/forms': ^0.5.1
       '@tailwindcss/line-clamp': ^0.4.0
@@ -2431,7 +2431,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       '@types/react-virtualized-auto-sizer': 1.0.1
@@ -2449,7 +2449,7 @@ importers:
       '@sushiswap/eslint-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/jest': ^27.5.1
       jest: ^28.1.0
       tsup: ^6.2.0
@@ -2458,7 +2458,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@types/jest': 27.5.2
       jest: 28.1.3
       tsup: 6.2.0_typescript@4.8.2
@@ -2491,7 +2491,7 @@ importers:
       '@sushiswap/sushixswap': workspace:*
       '@sushiswap/tines': workspace:*
       '@sushiswap/trident': 1.0.0-canary.48
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/ui': workspace:*
       '@sushiswap/wagmi-config': workspace:*
       '@tanstack/react-query': ^4.0.10
@@ -2541,7 +2541,7 @@ importers:
       '@sushiswap/eslint-config': link:../config/eslint
       '@sushiswap/jest-config': link:../config/jest
       '@sushiswap/prettier-config': link:../config/prettier
-      '@sushiswap/typescript-config': link:../config/typescript
+      'soulswap-typescript-config': link:../config/typescript
       '@typechain/ethers-v5': 10.1.0_ivywm4bmdoa7s2eypp32vignw4
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -2564,7 +2564,7 @@ importers:
       '@sushiswap/hardhat-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.33
       ethers: ^5.7.0
       hardhat: ^2.9.5
@@ -2581,7 +2581,7 @@ importers:
       '@sushiswap/hardhat-config': link:../../packages/config/hardhat
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       ethers: 5.7.1
       hardhat: 2.10.1_s5ojjbx2isjkawqptqpitvy25q
@@ -2608,7 +2608,7 @@ importers:
       '@sushiswap/prettier-config': workspace:*
       '@sushiswap/stargate': workspace:*
       '@sushiswap/sushiswap': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tenderly/hardhat-tenderly': ^1.0.13
       '@types/node': ^17.0.33
       ethers: ^5.7.0
@@ -2634,7 +2634,7 @@ importers:
       '@sushiswap/prettier-config': link:../../packages/config/prettier
       '@sushiswap/stargate': link:../../packages/stargate
       '@sushiswap/sushiswap': link:../sushiswap
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@tenderly/hardhat-tenderly': 1.1.4_hardhat@2.10.1
       '@types/node': 17.0.45
       ethers: 5.7.1
@@ -2657,7 +2657,7 @@ importers:
       '@sushiswap/hardhat-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.33
       ethers: ^5.7.0
       hardhat: ^2.9.5
@@ -2678,7 +2678,7 @@ importers:
       '@sushiswap/hardhat-config': link:../../packages/config/hardhat
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@types/node': 17.0.45
       ethers: 5.7.1
       hardhat: 2.10.1_s5ojjbx2isjkawqptqpitvy25q
@@ -2696,7 +2696,7 @@ importers:
       '@sushiswap/hardhat-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tenderly/hardhat-tenderly': ^1.0.13
       '@types/node': ^17.0.33
       hardhat: ^2.9.5
@@ -2711,7 +2711,7 @@ importers:
       '@sushiswap/hardhat-config': link:../../packages/config/hardhat
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@tenderly/hardhat-tenderly': 1.1.4_hardhat@2.10.1
       '@types/node': 17.0.45
       hardhat: 2.10.1_s5ojjbx2isjkawqptqpitvy25q
@@ -2729,7 +2729,7 @@ importers:
       '@sushiswap/hardhat-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tenderly/hardhat-tenderly': ^1.0.13
       '@types/node': ^17.0.33
       hardhat: ^2.9.5
@@ -2745,7 +2745,7 @@ importers:
       '@sushiswap/hardhat-config': link:../../packages/config/hardhat
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@tenderly/hardhat-tenderly': 1.1.4_hardhat@2.10.1
       '@types/node': 17.0.45
       hardhat: 2.10.1_s5ojjbx2isjkawqptqpitvy25q
@@ -2772,7 +2772,7 @@ importers:
       '@sushiswap/stargate': workspace:*
       '@sushiswap/sushiswap': workspace:*
       '@sushiswap/tines': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@tenderly/hardhat-tenderly': ^1.0.13
       '@types/chai': ^4.3.3
       '@types/node': ^17.0.33
@@ -2802,7 +2802,7 @@ importers:
       '@sushiswap/stargate': link:../../packages/stargate
       '@sushiswap/sushiswap': link:../sushiswap
       '@sushiswap/tines': link:../../packages/tines
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@tenderly/hardhat-tenderly': 1.1.4_hardhat@2.10.1
       '@types/chai': 4.3.3
       '@types/node': 17.0.45
@@ -2833,7 +2833,7 @@ importers:
       '@sushiswap/graph-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@sushiswap/wagmi-config': workspace:*
       '@swc/core': ^1.2.249
       '@swc/helpers': ^0.4.11
@@ -2873,7 +2873,7 @@ importers:
       '@sushiswap/eslint-config': link:../../packages/config/eslint
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@swc/core': 1.2.249
       '@swc/helpers': 0.4.11
       '@types/express': 4.17.13
@@ -2906,7 +2906,7 @@ importers:
       '@sushiswap/graph-config': workspace:*
       '@sushiswap/jest-config': workspace:*
       '@sushiswap/prettier-config': workspace:*
-      '@sushiswap/typescript-config': workspace:*
+      'soulswap-typescript-config': workspace:*
       '@swc/core': ^1.2.249
       '@swc/helpers': ^0.4.11
       '@types/express': ^4.17.13
@@ -2938,7 +2938,7 @@ importers:
       '@sushiswap/graph-config': link:../../packages/config/graph
       '@sushiswap/jest-config': link:../../packages/config/jest
       '@sushiswap/prettier-config': link:../../packages/config/prettier
-      '@sushiswap/typescript-config': link:../../packages/config/typescript
+      'soulswap-typescript-config': link:../../packages/config/typescript
       '@swc/core': 1.2.249
       '@swc/helpers': 0.4.11
       '@types/express': 4.17.13

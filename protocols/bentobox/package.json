@@ -36,7 +36,7 @@
     "@sushiswap/hardhat-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.33",
     "ethers": "^5.7.0",
     "hardhat": "^2.9.5",

@@ -1,25 +1,25 @@
 {
-  "name": "@sushiswap/jest-config",
+  "name": "@soulswap/jest-config",
   "version": "0.1.0",
-  "description": "Sushi Jest Config",
+  "description": "Soul Jest Config",
   "keywords": [
-    "sushi",
+    "soul",
     "jest",
     "config"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/config/jest"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "@0xBuns",
   "files": [
     "node.js"
   ],
   "devDependencies": {
-    "@sushiswap/eslint-config": "workspace:*",
+    "@soulswap/eslint-config": "workspace:*",
     "@types/node": "^17.0.34"
   }
 }

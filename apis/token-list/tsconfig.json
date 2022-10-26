@@ -3,6 +3,6 @@
     "resolveJsonModule": true,
   },
   "exclude": ["node_modules"],
-  "extends": "@sushiswap/typescript-config/node16.json",
+  "extends": "soulswap-typescript-config/node16.json",
   "include": ["."]
 }

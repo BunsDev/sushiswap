@@ -40,7 +40,7 @@
     "@sushiswap/hardhat-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
-    "@sushiswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@tenderly/hardhat-tenderly": "^1.0.13",
     "@types/node": "^17.0.33",
     "hardhat": "^2.9.5",
