@@ -1,6 +1,6 @@
 {
   "name": "soulswap-math",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Soul Math",
   "keywords": [
     "soul",
@@ -39,14 +39,14 @@
     "toformat": "^2.0.0"
   },
   "devDependencies": {
-    "soulswap-eslint-config": "workspace:*",
-    "soulswap-jest-config": "workspace:*",
-    "soulswap-prettier-config": "workspace:*",
-    "soulswap-typescript-config": "workspace:*",
     "@types/big.js": "^6.1.3",
     "@types/jest": "^27.5.1",
     "eslint": "^8.20.0",
     "jest": "^28.1.0",
+    "soulswap-eslint-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "tsup": "^6.2.0",
     "typescript": "4.8.2"
   }
