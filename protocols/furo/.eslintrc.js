@@ -1,1 +1,1 @@
-module.exports = require('@sushiswap/eslint-config/hardhat')
+module.exports = require('soulswap-eslint-config/hardhat')

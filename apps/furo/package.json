@@ -76,7 +76,7 @@
     "@graphprotocol/client-add-source-name": "latest",
     "@graphprotocol/client-auto-pagination": "latest",
     "@graphprotocol/client-cli": "2.2.15",
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/graph-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",

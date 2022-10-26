@@ -33,7 +33,7 @@
     "@sushiswap/chain": "workspace:*"
   },
   "devDependencies": {
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

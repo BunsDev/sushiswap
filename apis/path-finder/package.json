@@ -17,7 +17,7 @@
     "lodash.flatmap": "^4.5.0"
   },
   "devDependencies": {
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

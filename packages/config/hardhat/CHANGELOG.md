@@ -1,4 +1,4 @@
-# @sushiswap/hardhat-config
+# soulswap-hardhat-config
 
 ## 0.1.1
 

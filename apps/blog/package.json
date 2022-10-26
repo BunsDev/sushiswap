@@ -32,7 +32,7 @@
     "@graphql-mesh/cli": "^0.75.3",
     "@graphql-mesh/graphql": "^0.29.5",
     "@heroicons/react": "^1.0.0",
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/hardhat-config",
+  "name": "soulswap-hardhat-config",
   "version": "0.1.1",
   "description": "Sushi Hardhat Config",
   "keywords": [
@@ -44,7 +44,7 @@
     "typechain": "8.x"
   },
   "devDependencies": {
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

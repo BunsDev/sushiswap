@@ -75,8 +75,8 @@ https://pnpm.io/installation
 - `@sushiswap/graph-client`
 - `@sushiswap/hooks`
 - `@sushiswap/math`
-- `@sushiswap/eslint-config`
-- `@sushiswap/hardhat-config`
+- `soulswap-eslint-config`
+- `soulswap-hardhat-config`
 - `@sushiswap/prettier-config`
 - `soulswap-typescript-config`
 - `@sushiswap/redux-logs`

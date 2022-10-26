@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "@sushiswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@sushiswap/jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
