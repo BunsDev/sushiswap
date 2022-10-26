@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/wagmi-config",
   "version": "0.1.0",
-  "description": "Sushi Wagmi Config",
+  "description": "Soul Wagmi Config",
   "keywords": [
-    "sushi",
+    "soul",
     "wagmi",
     "config"
   ],
@@ -14,7 +14,7 @@
     "directory": "packages/config/wagmi"
   },
   "license": "MIT",
-  "author": "LufyCZ <me@lufy.cz>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",
@@ -27,14 +27,14 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@sushiswap/chain": "workspace:*"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "tsup": "6.x",

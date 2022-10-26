@@ -1,20 +1,20 @@
 {
-  "name": "@sushiswap/graph-config",
+  "name": "soulswap-graph-config",
   "version": "0.1.0",
-  "description": "Sushi Graph Config",
+  "description": "Soul Graph Config",
   "keywords": [
-    "sushi",
+    "soul",
     "graph",
     "config"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://www.soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/config/graph"
   },
   "license": "MIT",
-  "author": "LufyCZ <me@lufy.cz>",
+  "author": "0xBuns",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "source": "./src/index.ts",
@@ -27,15 +27,15 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
-    "@sushiswap/chain": "workspace:*"
+    "soulswap-chain": "workspace:*"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "tsup": "6.x",
     "typescript": "4.8.2"

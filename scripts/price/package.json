@@ -4,7 +4,7 @@
   "private": true,
   "description": "Price script",
   "keywords": [
-    "sushi",
+    "soul",
     "price",
     "script"
   ],
@@ -33,7 +33,7 @@
     "validate": "graphclient validate"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "2.2.15",
@@ -47,7 +47,7 @@
     "@sushiswap/chain": "workspace:*",
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@sushiswap/graph-config": "workspace:*",

@@ -11,7 +11,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next && rm -rf .swc && rm -rf .graphclient && rm -rf typechain"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.30",

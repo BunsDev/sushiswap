@@ -1,9 +1,9 @@
 {
   "name": "soulswap-hardhat-config",
   "version": "0.1.1",
-  "description": "Sushi Hardhat Config",
+  "description": "Soul Hardhat Config",
   "keywords": [
-    "sushi",
+    "soul",
     "config",
     "hardhat"
   ],
@@ -27,7 +27,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@0.3.0-beta.13",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "17.x",

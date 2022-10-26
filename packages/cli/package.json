@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/cli",
   "version": "0.1.7",
-  "description": "Sushi CLI",
+  "description": "Soul CLI",
   "keywords": [
-    "sushi",
+    "soul",
     "cli"
   ],
   "license": "MIT",
@@ -26,7 +26,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@sushiswap/graph-client": "workspace:*",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.31",

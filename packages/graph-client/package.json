@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/graph-client",
   "version": "0.2.2",
-  "description": "Sushi Graph Client",
+  "description": "Soul Graph Client",
   "keywords": [
-    "sushi",
+    "soul",
     "graph",
     "client"
   ],
@@ -31,7 +31,7 @@
     "validate": "graphclient validate"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@graphprotocol/client-cli": "2.2.15",
@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

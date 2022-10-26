@@ -1,4 +1,4 @@
-# @soulswap/jest-config
+# soulswap-jest-config
 
 ## 0.1.0
 

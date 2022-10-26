@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/currency",
   "version": "0.0.3",
-  "description": "Sushi Currency",
+  "description": "Soul Currency",
   "keywords": [
-    "sushi",
+    "soul",
     "currency",
     "token",
     "native"
@@ -30,7 +30,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@ethersproject/address": "^5.7.0",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

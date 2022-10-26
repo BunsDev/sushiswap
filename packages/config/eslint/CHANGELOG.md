@@ -1,4 +1,4 @@
-# @soulswap/eslint-config
+# soulswap-eslint-config
 
 ## 0.1.1
 

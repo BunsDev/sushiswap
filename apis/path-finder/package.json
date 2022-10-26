@@ -2,9 +2,9 @@
   "name": "path-finder-api",
   "version": "0.0.0",
   "private": true,
-  "description": "Sushi Path Finder API",
+  "description": "Soul Path Finder API",
   "keywords": [
-    "sushi",
+    "soul",
     "path finder",
     "api"
   ],
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/lodash.flatmap": "^4.5.7"

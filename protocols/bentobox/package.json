@@ -34,7 +34,7 @@
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-hardhat-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.33",

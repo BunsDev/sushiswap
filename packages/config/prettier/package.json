@@ -28,10 +28,10 @@
     "postinstall": "pnpm build"
   },
   "jest": {
-    "preset": "@soulswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
-    "@soulswap/typescript-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "@types/prettier": "2.x",
     "prettier": "2.x",
     "tsup": "6.x",

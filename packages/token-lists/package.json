@@ -2,9 +2,9 @@
   "name": "@sushiswap/token-lists",
   "version": "0.0.0",
   "private": true,
-  "description": "Sushi Token Lists",
+  "description": "Soul Token Lists",
   "keywords": [
-    "sushi",
+    "soul",
     "token list"
   ],
   "license": "MIT",
@@ -23,14 +23,14 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
     "@sushiswap/currency": "workspace:*",
     "@sushiswap/math": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

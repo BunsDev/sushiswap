@@ -28,7 +28,7 @@
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "@sushiswap/hooks": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "@sushiswap/token-lists": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

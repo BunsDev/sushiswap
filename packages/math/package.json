@@ -1,9 +1,9 @@
 {
-  "name": "@soulswap/math",
+  "name": "soulswap-math",
   "version": "0.1.0",
-  "description": "Sushi Math",
+  "description": "Soul Math",
   "keywords": [
-    "sushi",
+    "soul",
     "math"
   ],
   "repository": {
@@ -29,7 +29,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "big.js": "^6.1.1",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/big.js": "^6.1.3",

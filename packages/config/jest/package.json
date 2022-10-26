@@ -1,6 +1,6 @@
 {
-  "name": "@soulswap/jest-config",
-  "version": "0.1.0",
+  "name": "soulswap-jest-config",
+  "version": "0.0.1",
   "description": "Soul Jest Config",
   "keywords": [
     "soul",
@@ -19,7 +19,7 @@
     "node.js"
   ],
   "devDependencies": {
-    "@soulswap/eslint-config": "workspace:*",
+    "soulswap-eslint-config": "workspace:*",
     "@types/node": "^17.0.34"
   }
 }

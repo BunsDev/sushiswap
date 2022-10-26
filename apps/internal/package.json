@@ -35,7 +35,7 @@
     "@graphprotocol/client-auto-pagination": "latest",
     "@graphprotocol/client-cli": "2.2.15",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.30",

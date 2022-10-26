@@ -1,7 +1,7 @@
 {
   "name": "@sushiswap/sushixswap",
   "version": "0.1.0",
-  "description": "SushiXSwap",
+  "description": "SoulXSwap",
   "keywords": [
     "sushixswap",
     "cross-chain swaps"
@@ -46,7 +46,7 @@
     "soulswap-eslint-config": "workspace:*",
     "@sushiswap/amm": "workspace:*",
     "soulswap-hardhat-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "@sushiswap/stargate": "workspace:*",
     "@sushiswap/sushiswap": "workspace:*",

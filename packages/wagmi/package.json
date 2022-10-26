@@ -2,9 +2,9 @@
   "name": "@sushiswap/wagmi",
   "version": "0.0.0",
   "private": true,
-  "description": "Sushi Wagmi",
+  "description": "Soul Wagmi",
   "keywords": [
-    "sushi",
+    "soul",
     "wagmi"
   ],
   "license": "MIT",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@typechain/ethers-v5": "^10.1.0",

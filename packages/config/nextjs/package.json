@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/nextjs-config",
   "version": "0.1.0",
-  "description": "Sushi Next.js Config",
+  "description": "Soul Next.js Config",
   "keywords": [
-    "sushi",
+    "soul",
     "nextjs",
     "config"
   ],

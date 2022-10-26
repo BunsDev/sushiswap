@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/convert",
   "version": "0.1.1",
-  "description": "Sushi Convert",
+  "description": "Soul Convert",
   "keywords": [
-    "sushi",
+    "soul",
     "convert"
   ],
   "repository": {
@@ -29,14 +29,14 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@sushiswap/currency": "workspace:*"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

@@ -2,9 +2,9 @@
   "name": "node-16-example",
   "version": "0.0.0",
   "private": true,
-  "description": "Sushi Node16 Example",
+  "description": "Soul Node16 Example",
   "keywords": [
-    "sushi",
+    "soul",
     "config",
     "hardhat"
   ],
@@ -31,11 +31,11 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "eslint": "8.x",

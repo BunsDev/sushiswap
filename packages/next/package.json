@@ -2,9 +2,9 @@
   "name": "@sushiswap/next",
   "version": "0.0.0",
   "private": true,
-  "description": "Sushi Next.js",
+  "description": "Soul Next.js",
   "keywords": [
-    "sushi",
+    "soul",
     "next.js"
   ],
   "license": "MIT",
@@ -18,7 +18,7 @@
   "dependencies": {},
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/react": "^18.0.0",

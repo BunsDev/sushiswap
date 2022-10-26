@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/log",
   "version": "0.1.0",
-  "description": "Sushi Log",
+  "description": "Soul Log",
   "keywords": [
-    "sushi",
+    "soul",
     "log"
   ],
   "repository": {
@@ -29,7 +29,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@sushiswap/chain": "workspace:*",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

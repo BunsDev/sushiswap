@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/format",
   "version": "0.1.0",
-  "description": "Sushi Format",
+  "description": "Soul Format",
   "keywords": [
-    "sushi",
+    "soul",
     "format"
   ],
   "repository": {
@@ -29,7 +29,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@ethersproject/address": "^5.7.0",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

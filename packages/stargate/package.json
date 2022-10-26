@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/stargate",
   "version": "0.1.0",
-  "description": "Sushi Stargate",
+  "description": "Soul Stargate",
   "keywords": [
-    "sushi",
+    "soul",
     "stargate"
   ],
   "license": "MIT",
@@ -27,13 +27,13 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
     "@sushiswap/chain": "workspace:*",
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/math": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",

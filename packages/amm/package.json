@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/amm",
   "version": "0.1.1",
-  "description": "Sushi AMM",
+  "description": "Soul AMM",
   "keywords": [
-    "sushi",
+    "soul",
     "amm"
   ],
   "repository": {
@@ -28,7 +28,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.33",

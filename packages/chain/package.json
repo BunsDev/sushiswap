@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/chain",
   "version": "0.1.0",
-  "description": "Sushi Chain",
+  "description": "Soul Chain",
   "keywords": [
-    "sushi",
+    "soul",
     "chain"
   ],
   "license": "MIT",
@@ -24,11 +24,11 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

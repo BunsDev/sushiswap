@@ -4,7 +4,7 @@
   "private": true,
   "description": "Farms script",
   "keywords": [
-    "sushi",
+    "soul",
     "farms",
     "script"
   ],
@@ -33,7 +33,7 @@
     "validate": "graphclient validate"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@sushiswap/chain": "workspace:*",
@@ -55,7 +55,7 @@
     "@graphql-mesh/transform-rename": "latest",
     "@graphql-mesh/transform-type-merging": "latest",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@swc/core": "^1.2.249",

@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/sushiswap",
   "version": "0.1.0",
-  "description": "SushiSwap",
+  "description": "SoulSwap",
   "keywords": [
-    "sushi",
+    "soul",
     "swap"
   ],
   "homepage": "https://github.com/sushiswap/sushiswap/protocols/sushiswap#readme",
@@ -38,7 +38,7 @@
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-hardhat-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@tenderly/hardhat-tenderly": "^1.0.13",

@@ -1,9 +1,9 @@
 {
   "name": "@sushiswap/validate",
   "version": "0.1.0",
-  "description": "Sushi Validate",
+  "description": "Soul Validate",
   "keywords": [
-    "sushi",
+    "soul",
     "validate"
   ],
   "repository": {
@@ -29,12 +29,12 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {},
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

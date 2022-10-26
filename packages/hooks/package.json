@@ -1,5 +1,5 @@
 {
-  "name": "@soulswap/hooks",
+  "name": "soulswap-hooks",
   "version": "0.0.0",
   "private": false,
   "description": "Soul Hooks",
@@ -21,7 +21,7 @@
     "test": "jest --passWithNoTests"
   },
   "jest": {
-    "preset": "@sushiswap/jest-config/node"
+    "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
     "@ethersproject/address": "^5.7.0",
@@ -32,9 +32,9 @@
   "devDependencies": {
     "@sushiswap/currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
-    "@sushiswap/jest-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
     "@sushiswap/math": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@types/react": "^18.0.0",
