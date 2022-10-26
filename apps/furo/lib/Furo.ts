@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI } from 'soulswap-math'
 
 import { FuroStatus, FuroType } from './enums'
 import { toToken } from './mapper'

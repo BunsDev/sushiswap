@@ -1,4 +1,4 @@
-import { WNATIVE_ADDRESS } from '@sushiswap/currency'
+import { WNATIVE_ADDRESS } from 'soulswap-currency'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/dist/types'
 

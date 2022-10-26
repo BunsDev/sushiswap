@@ -1,16 +1,16 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero } from '@ethersproject/constants'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Type } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Type } from 'soulswap-currency'
 import {
   computeConstantProductPoolAddress,
   computeStablePoolAddress,
   ConstantProductPool,
   Fee,
   StablePool,
-} from '@sushiswap/amm'
-import { Button, Dots } from '@sushiswap/ui'
+} from 'soulswap-amm'
+import { Button, Dots } from 'soulswap-ui'
 import {
   Approve,
   BENTOBOX_ADDRESS,
@@ -20,7 +20,7 @@ import {
   useConstantProductPoolFactoryContract,
   useStablePoolFactoryContract,
   useTridentRouterContract,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react'
 import { ProviderRpcError, useAccount, useDeprecatedSendTransaction, useNetwork, UserRejectedRequestError } from 'wagmi'
 

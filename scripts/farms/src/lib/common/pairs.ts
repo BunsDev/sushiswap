@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { SUBGRAPH_HOST, SUSHISWAP_SUBGRAPH_NAME, TRIDENT_SUBGRAPH_NAME } from '@sushiswap/graph-config'
+import { ChainId } from 'soulswap-chain'
+import { SUBGRAPH_HOST, SUSHISWAP_SUBGRAPH_NAME, TRIDENT_SUBGRAPH_NAME } from 'soulswap-graph-config'
 import { BigNumber } from 'ethers'
 import { Farm } from 'src/types'
 

@@ -33,7 +33,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -75,7 +75,7 @@ jobs:
 #       - name: setup pnpm config
 #         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 #       - name: install dependencies
-#         run: pnpm install
+#         run: yarn install
 #       - name: create and publish versions
 #         uses: changesets/action@v1
 #         with:

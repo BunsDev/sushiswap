@@ -1,10 +1,10 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Amount, Native } from '@sushiswap/currency'
-import { calculateSlippageAmount } from '@sushiswap/amm'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { Percent } from '@sushiswap/math'
-import { Button, Dots } from '@sushiswap/ui'
+import { Amount, Native } from 'soulswap-currency'
+import { calculateSlippageAmount } from 'soulswap-amm'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { Percent } from 'soulswap-math'
+import { Button, Dots } from 'soulswap-ui'
 import {
   Approve,
   calculateGasMargin,
@@ -14,7 +14,7 @@ import {
   usePair,
   useSushiSwapRouterContract,
   useTotalSupply,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import { FC, useCallback, useMemo, useState } from 'react'
 import { ProviderRpcError, useAccount, useDeprecatedSendTransaction, useNetwork, UserRejectedRequestError } from 'wagmi'
 

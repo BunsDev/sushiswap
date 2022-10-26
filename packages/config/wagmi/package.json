@@ -30,12 +30,12 @@
     "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
-    "@sushiswap/chain": "workspace:*"
+    "soulswap-chain": "workspace:*"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "tsup": "6.x",
     "typescript": "4.8.2"

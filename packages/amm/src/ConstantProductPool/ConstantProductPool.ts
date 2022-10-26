@@ -1,6 +1,6 @@
-import { Amount, Price, Share, Token } from '@sushiswap/currency'
-import { JSBI, ONE, sqrt, ZERO } from '@sushiswap/math'
-import EXPORTS from '@sushiswap/trident/exports/all.json'
+import { Amount, Price, Share, Token } from 'soulswap-currency'
+import { JSBI, ONE, sqrt, ZERO } from 'soulswap-math'
+import EXPORTS from 'soulswap-trident/exports/all.json'
 import invariant from 'tiny-invariant'
 
 import { InsufficientInputAmountError, InsufficientReservesError } from '../errors'

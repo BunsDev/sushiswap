@@ -1,4 +1,4 @@
-import { Amount, tryParseAmount, Type } from '@sushiswap/currency'
+import { Amount, tryParseAmount, Type } from 'soulswap-currency'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { createContext, Dispatch, FC, ReactNode, SetStateAction, useContext, useMemo, useState } from 'react'
 

@@ -1,4 +1,4 @@
-import { useIsMounted } from '@sushiswap/hooks'
+import { useIsMounted } from 'soulswap-hooks'
 import { FC, ReactElement } from 'react'
 
 interface MountedController {

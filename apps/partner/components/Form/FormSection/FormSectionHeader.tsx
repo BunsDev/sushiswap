@@ -1,4 +1,4 @@
-import { Typography } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 export interface FormSectionHeaderProps {

@@ -24,7 +24,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsc -w",
     "lint": "TIMING=1 eslint src --fix",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "yarn build",
     "test": "jest --passWithNoTests"
   },
   "jest": {
@@ -35,18 +35,18 @@
     "@ethersproject/address": "^5.7.0",
     "@ethersproject/bignumber": "^5.7.0",
     "@ethersproject/solidity": "^5.7.0",
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/math": "workspace:*",
-    "@sushiswap/tines": "workspace:*",
-    "@sushiswap/trident": "1.0.0-canary.48",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-math": "workspace:*",
+    "soulswap-tines": "workspace:*",
+    "soulswap-trident": "1.0.0-canary.48",
     "tiny-invariant": "^1.2.0",
     "tiny-warning": "^1.0.3"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.33",
     "eslint": "^8.20.0",

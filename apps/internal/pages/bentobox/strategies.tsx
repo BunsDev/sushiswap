@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import stringify from 'fast-json-stable-stringify'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 

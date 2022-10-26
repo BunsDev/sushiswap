@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { JSBI } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { JSBI } from 'soulswap-math'
 import invariant from 'tiny-invariant'
 
 import { Native } from './Native'

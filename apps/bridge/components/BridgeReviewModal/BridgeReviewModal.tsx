@@ -1,6 +1,6 @@
 import { Signature } from '@ethersproject/bytes'
-import { Button, Dots } from '@sushiswap/ui'
-import { Approve, BENTOBOX_ADDRESS, getSushiXSwapContractConfig } from '@sushiswap/wagmi'
+import { Button, Dots } from 'soulswap-ui'
+import { Approve, BENTOBOX_ADDRESS, getSushiXSwapContractConfig } from 'soulswap-wagmi'
 import React, { FC, ReactNode, useCallback, useState } from 'react'
 import { useAccount } from 'wagmi'
 

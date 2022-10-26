@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { tryParseAmount, Type } from '@sushiswap/currency'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { classNames, Currency as UICurrency, DEFAULT_INPUT_UNSTYLED, Input, Skeleton, Typography } from '@sushiswap/ui'
+import { tryParseAmount, Type } from 'soulswap-currency'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { classNames, Currency as UICurrency, DEFAULT_INPUT_UNSTYLED, Input, Skeleton, Typography } from 'soulswap-ui'
 import { FC, useCallback, useMemo, useRef, useState } from 'react'
 import { useAccount } from 'wagmi'
 

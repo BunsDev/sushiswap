@@ -1,1 +1,1 @@
-module.exports = require('@sushiswap/prettier-config')
+module.exports = require('soulswap-prettier-config')

@@ -1,6 +1,6 @@
-import bentoBoxExports from '@sushiswap/bentobox/exports.json'
-import { BentoBoxV1 } from '@sushiswap/bentobox/typechain'
-import { ChainId } from '@sushiswap/chain'
+import bentoBoxExports from 'soulswap-bentobox/exports.json'
+import { BentoBoxV1 } from 'soulswap-bentobox/typechain'
+import { ChainId } from 'soulswap-chain'
 import { useContract, useProvider } from 'wagmi'
 
 // TODO: Move to deployments

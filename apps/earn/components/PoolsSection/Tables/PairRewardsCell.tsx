@@ -1,5 +1,5 @@
-import { SUSHI } from '@sushiswap/currency'
-import { Currency } from '@sushiswap/ui'
+import { SUSHI } from 'soulswap-currency'
+import { Currency } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { ICON_SIZE } from './contants'

@@ -1,8 +1,8 @@
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero } from '@ethersproject/constants'
 import { BaseContract } from '@ethersproject/contracts'
-import { Amount, Share, Type } from '@sushiswap/currency'
-import { FuroStreamRouter, FuroVestingRouter } from '@sushiswap/furo/typechain'
+import { Amount, Share, Type } from 'soulswap-currency'
+import { FuroStreamRouter, FuroVestingRouter } from 'soulswap-furo/typechain'
 
 interface Batch<T> {
   contract: T

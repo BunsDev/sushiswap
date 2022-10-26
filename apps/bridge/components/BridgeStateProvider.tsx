@@ -1,6 +1,6 @@
 import { Signature } from '@ethersproject/bytes'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Price, Token, tryParseAmount, Type as Currency, Type } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Price, Token, tryParseAmount, Type as Currency, Type } from 'soulswap-currency'
 import { createContext, FC, ReactNode, useContext, useMemo, useReducer } from 'react'
 import { SendTransactionResult } from 'wagmi/actions'
 

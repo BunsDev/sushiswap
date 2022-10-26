@@ -1,10 +1,10 @@
 import { ExclamationIcon, ExternalLinkIcon } from '@heroicons/react/outline'
-import chain from '@sushiswap/chain'
-import { Token } from '@sushiswap/currency'
-import { shortenAddress } from '@sushiswap/format'
-import { Button, classNames, Overlay, SlideIn, Typography } from '@sushiswap/ui'
-import CopyHelper from '@sushiswap/ui/copy/Copy'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import chain from 'soulswap-chain'
+import { Token } from 'soulswap-currency'
+import { shortenAddress } from 'soulswap-format'
+import { Button, classNames, Overlay, SlideIn, Typography } from 'soulswap-ui'
+import CopyHelper from 'soulswap-ui/copy/Copy'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import React, { FC, useMemo, useState } from 'react'
 
 interface TokenSelectorImportRow {

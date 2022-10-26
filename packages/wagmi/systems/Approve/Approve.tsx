@@ -1,5 +1,5 @@
-import { useIsMounted } from '@sushiswap/hooks'
-import { classNames, NotificationData } from '@sushiswap/ui'
+import { useIsMounted } from 'soulswap-hooks'
+import { classNames, NotificationData } from 'soulswap-ui'
 import React, { Children, cloneElement, FC, isValidElement, ReactElement, ReactNode, useMemo, useReducer } from 'react'
 
 import { ApprovalState } from '../../hooks'

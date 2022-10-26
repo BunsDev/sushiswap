@@ -1,6 +1,6 @@
 import { getAddress } from '@ethersproject/address'
-import { Currency } from '@sushiswap/currency'
-import { Percent } from '@sushiswap/math'
+import { Currency } from 'soulswap-currency'
+import { Percent } from 'soulswap-math'
 import invariant from 'tiny-invariant'
 import warning from 'tiny-warning'
 

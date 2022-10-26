@@ -1,5 +1,5 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { Typography } from '@sushiswap/ui'
+import { Amount, Type } from 'soulswap-currency'
+import { Typography } from 'soulswap-ui'
 import { format } from 'date-fns'
 import React, { FC, ReactNode } from 'react'
 

@@ -1,4 +1,4 @@
-# @sushiswap/wagmi-config
+# soulswap-wagmi-config
 
 ## 0.1.0
 
@@ -8,11 +8,11 @@
 
 ### Patch Changes
 
-- @sushiswap/chain@0.1.0
+- soulswap-chain@0.1.0
 
 ## 0.0.1
 
 ### Patch Changes
 
 - Updated dependencies [a38f2e6a]
-  - @sushiswap/chain@0.1.0
+  - soulswap-chain@0.1.0

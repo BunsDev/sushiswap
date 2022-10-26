@@ -1,12 +1,12 @@
-# @sushiswap/amm
+# soulswap-amm
 
 ## 0.1.1
 
 ### Patch Changes
 
 - Updated dependencies [e0b880fe]
-  - @sushiswap/currency@0.0.3
-  - @sushiswap/tines@1.0.3
+  - soulswap-currency@0.0.3
+  - soulswap-tines@1.0.3
 
 ## 0.1.0
 

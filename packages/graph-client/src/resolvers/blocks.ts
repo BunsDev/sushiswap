@@ -1,4 +1,4 @@
-import { BLOCKS_SUBGRAPH_NAME, SUBGRAPH_HOST } from '@sushiswap/graph-config'
+import { BLOCKS_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 import { addSeconds, getUnixTime, startOfHour, startOfMinute, startOfSecond, subDays } from 'date-fns'
 
 import { Block, QueryResolvers, Resolvers } from '../../.graphclient'

@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI, minimum, Percent } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI, minimum, Percent } from 'soulswap-math'
 
 import { FuroStatus, VestingType } from './enums'
 import { Furo } from './Furo'

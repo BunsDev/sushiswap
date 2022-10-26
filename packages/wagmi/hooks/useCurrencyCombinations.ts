@@ -1,4 +1,4 @@
-import { getCurrencyCombinations, Token, Type } from '@sushiswap/currency'
+import { getCurrencyCombinations, Token, Type } from 'soulswap-currency'
 import { useMemo } from 'react'
 
 export function useCurrencyCombinations(chainId?: number, currencyA?: Type, currencyB?: Type): [Token, Token][] {

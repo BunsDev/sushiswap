@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { Typography } from '@sushiswap/ui'
+import { ChainId } from 'soulswap-chain'
+import { Typography } from 'soulswap-ui'
 import {
   getCoreRowModel,
   getSortedRowModel,

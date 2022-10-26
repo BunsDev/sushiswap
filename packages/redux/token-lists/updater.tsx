@@ -1,6 +1,6 @@
 import { BaseProvider } from '@ethersproject/providers'
-import { ChainId } from '@sushiswap/chain'
-import { useInterval, useIsWindowVisible } from '@sushiswap/hooks'
+import { ChainId } from 'soulswap-chain'
+import { useInterval, useIsWindowVisible } from 'soulswap-hooks'
 import { getVersionUpgrade, minVersionBump, VersionUpgrade } from '@uniswap/token-lists'
 import { useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'

@@ -1,5 +1,5 @@
-import { formatPercent } from '@sushiswap/format'
-import { Typography } from '@sushiswap/ui'
+import { formatPercent } from 'soulswap-format'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { FarmRewardsAvailableTooltip } from '../../../../FarmRewardsAvailableTooltip'

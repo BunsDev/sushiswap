@@ -1,7 +1,7 @@
-import { Amount } from '@sushiswap/currency'
-import { formatUSD } from '@sushiswap/format'
-import { Typography } from '@sushiswap/ui'
-import { usePrices } from '@sushiswap/wagmi'
+import { Amount } from 'soulswap-currency'
+import { formatUSD } from 'soulswap-format'
+import { Typography } from 'soulswap-ui'
+import { usePrices } from 'soulswap-wagmi'
 import { FC, useMemo } from 'react'
 
 import { useTokensFromKashiPair } from '../../lib/hooks'

@@ -1,10 +1,10 @@
 import { AddressZero } from '@ethersproject/constants'
 import { SearchIcon } from '@heroicons/react/outline'
 import { XCircleIcon } from '@heroicons/react/solid'
-import chain from '@sushiswap/chain'
-import { Token, Type } from '@sushiswap/currency'
-import { FundSource, useIsSmScreen } from '@sushiswap/hooks'
-import { Fraction } from '@sushiswap/math'
+import chain from 'soulswap-chain'
+import { Token, Type } from 'soulswap-currency'
+import { FundSource, useIsSmScreen } from 'soulswap-hooks'
+import { Fraction } from 'soulswap-math'
 import {
   classNames,
   Currency,
@@ -16,7 +16,7 @@ import {
   NetworkIcon,
   SlideIn,
   Typography,
-} from '@sushiswap/ui'
+} from 'soulswap-ui'
 import React, { FC, useCallback } from 'react'
 
 import { BalanceMap } from '../../hooks/useBalance/types'

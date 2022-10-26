@@ -1,6 +1,6 @@
 import { isAddress } from '@ethersproject/address'
-import { Amount, Token, Type } from '@sushiswap/currency'
-import { Fraction } from '@sushiswap/math'
+import { Amount, Token, Type } from 'soulswap-currency'
+import { Fraction } from 'soulswap-math'
 import { useMemo } from 'react'
 
 import { FundSource } from './useFundSourceToggler'

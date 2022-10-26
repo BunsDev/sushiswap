@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 
 export const SUSHISWAP_CHAINS: Array<number> = [
   // ChainId.ARBITRUM,

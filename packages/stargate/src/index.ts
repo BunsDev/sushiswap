@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { Currency, Token, USDC, USDC_ADDRESS, USDT, USDT_ADDRESS } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Currency, Token, USDC, USDC_ADDRESS, USDT, USDT_ADDRESS } from 'soulswap-currency'
 
 // Ethereum: 101
 // BNB: 102

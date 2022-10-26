@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 
 export const KASHI_ADDRESS = {
   [ChainId.ETHEREUM]: '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42',
@@ -61,7 +61,7 @@ import {
   WBTC_ADDRESS,
   WETH9_ADDRESS,
   XSUSHI_ADDRESS,
-} from '@sushiswap/currency'
+} from 'soulswap-currency'
 
 export const DEFAULT_MARKETS = [
   WETH9_ADDRESS,

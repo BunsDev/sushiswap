@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import chains, { ChainId } from '@sushiswap/chain'
-import { NetworkIcon, Typography } from '@sushiswap/ui'
+import chains, { ChainId } from 'soulswap-chain'
+import { NetworkIcon, Typography } from 'soulswap-ui'
 import React, { FC, useCallback, useState } from 'react'
 
 import { NetworkSelectorOverlay } from './NetworkSelectorOverlay'

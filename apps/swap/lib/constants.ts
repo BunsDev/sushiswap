@@ -1,4 +1,4 @@
-import { Chef } from '@sushiswap/wagmi'
+import { Chef } from 'soulswap-wagmi'
 
 export const L2_DEADLINE_FROM_NOW = 60 * 5
 

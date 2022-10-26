@@ -1,5 +1,5 @@
-import chain, { chains } from '@sushiswap/chain'
-import { NetworkIcon } from '@sushiswap/ui'
+import chain, { chains } from 'soulswap-chain'
+import { NetworkIcon } from 'soulswap-ui'
 import { FC, ReactNode } from 'react'
 import { useWaitForTransaction } from 'wagmi'
 

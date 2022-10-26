@@ -2,14 +2,14 @@ import { Signature } from '@ethersproject/bytes'
 import { AddressZero } from '@ethersproject/constants'
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronDownIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import chains, { Chain, ChainId } from '@sushiswap/chain'
-import { Amount, Currency, Native, Price, tryParseAmount } from '@sushiswap/currency'
-import { TradeType } from '@sushiswap/amm'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { JSBI, Percent, ZERO } from '@sushiswap/math'
-import { isStargateBridgeToken, STARGATE_BRIDGE_TOKENS, STARGATE_CONFIRMATION_SECONDS } from '@sushiswap/stargate'
-import { App, Button, classNames, Dialog, Dots, Loader, NetworkIcon, SlideIn, Tooltip, Typography } from '@sushiswap/ui'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import chains, { Chain, ChainId } from 'soulswap-chain'
+import { Amount, Currency, Native, Price, tryParseAmount } from 'soulswap-currency'
+import { TradeType } from 'soulswap-amm'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { JSBI, Percent, ZERO } from 'soulswap-math'
+import { isStargateBridgeToken, STARGATE_BRIDGE_TOKENS, STARGATE_CONFIRMATION_SECONDS } from 'soulswap-stargate'
+import { App, Button, classNames, Dialog, Dots, Loader, NetworkIcon, SlideIn, Tooltip, Typography } from 'soulswap-ui'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import {
   Approve,
   BENTOBOX_ADDRESS,
@@ -20,7 +20,7 @@ import {
   useSushiXSwapContract,
   useSushiXSwapContractWithProvider,
   Wallet,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import {
   Caption,
   ConfirmationComponentController,

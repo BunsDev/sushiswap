@@ -1,9 +1,9 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 import 'styles/index.css'
 
-import { ChainId } from '@sushiswap/chain'
-import { App, ThemeProvider, ToastContainer } from '@sushiswap/ui'
-import { client } from '@sushiswap/wagmi'
+import { ChainId } from 'soulswap-chain'
+import { App, ThemeProvider, ToastContainer } from 'soulswap-ui'
+import { client } from 'soulswap-wagmi'
 import { Updater as TokenListsUpdater } from 'lib/state/TokenListsUpdater'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'

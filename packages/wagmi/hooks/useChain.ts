@@ -1,4 +1,4 @@
-import { Chain, chains } from '@sushiswap/chain'
+import { Chain, chains } from 'soulswap-chain'
 import { useMemo } from 'react'
 
 export const useChain = (chainId: number): Chain => {

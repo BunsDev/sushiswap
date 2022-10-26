@@ -1,4 +1,4 @@
-import { Button } from '@sushiswap/ui'
+import { Button } from 'soulswap-ui'
 import { Dispatch, FC, SetStateAction, useCallback } from 'react'
 
 import { CategoryEntity } from '../.mesh'

@@ -1,4 +1,4 @@
-import { EXCHANGE_SUBGRAPH_NAME, SUBGRAPH_HOST } from '@sushiswap/graph-config'
+import { EXCHANGE_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 import request from 'graphql-request'
 
 import { pager } from '../pager'

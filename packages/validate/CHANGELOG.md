@@ -1,4 +1,4 @@
-# @sushiswap/validate
+# soulswap-validate
 
 ## 0.1.0
 

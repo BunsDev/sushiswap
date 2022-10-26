@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { ConstantProductRPool, RPool, RToken, StableSwapRPool } from '@sushiswap/tines'
+import { ConstantProductRPool, RPool, RToken, StableSwapRPool } from 'soulswap-tines'
 
 import { ConstantProductPool } from '../ConstantProductPool'
 import { Fee } from '../Fee'

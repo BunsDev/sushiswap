@@ -1,5 +1,5 @@
-import { formatUSD } from '@sushiswap/format'
-import { classNames, Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { classNames, Typography } from 'soulswap-ui'
 import { format } from 'date-fns'
 import ReactECharts from 'echarts-for-react'
 import { EChartsOption } from 'echarts-for-react/lib/types'

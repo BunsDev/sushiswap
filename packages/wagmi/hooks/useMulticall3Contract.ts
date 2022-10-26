@@ -1,4 +1,4 @@
-import { otherChains } from '@sushiswap/wagmi-config'
+import { otherChains } from 'soulswap-wagmi-config'
 import { allChains, useContract, useProvider } from 'wagmi'
 
 const chains = [...allChains, ...otherChains]

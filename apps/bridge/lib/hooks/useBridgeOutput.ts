@@ -1,4 +1,4 @@
-import { Price, tryParseAmount } from '@sushiswap/currency'
+import { Price, tryParseAmount } from 'soulswap-currency'
 import { useMemo } from 'react'
 
 import { BridgeState } from '../../components'

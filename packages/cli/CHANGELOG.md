@@ -1,32 +1,32 @@
-# @sushiswap/cli
+# soulswap-cli
 
 ## 0.1.7
 
 ### Patch Changes
 
 - Updated dependencies [624d7fc2]
-  - @sushiswap/graph-client@0.2.2
+  - soulswap-graph-client@0.2.2
 
 ## 0.1.6
 
 ### Patch Changes
 
 - Updated dependencies [e0b880fe]
-  - @sushiswap/currency@0.0.3
+  - soulswap-currency@0.0.3
 
 ## 0.1.5
 
 ### Patch Changes
 
 - Updated dependencies [19cbeef0]
-  - @sushiswap/graph-client@0.2.1
+  - soulswap-graph-client@0.2.1
 
 ## 0.1.4
 
 ### Patch Changes
 
 - Updated dependencies [0ec96030]
-  - @sushiswap/graph-client@0.2.0
+  - soulswap-graph-client@0.2.0
 
 ## 0.1.3
 
@@ -34,21 +34,21 @@
 
 - 12704de8: only include cli dist and generate js for graph client
 - Updated dependencies [12704de8]
-  - @sushiswap/graph-client@0.1.3
+  - soulswap-graph-client@0.1.3
 
 ## 0.1.2
 
 ### Patch Changes
 
 - Updated dependencies [8b4fca0d]
-  - @sushiswap/graph-client@0.1.2
+  - soulswap-graph-client@0.1.2
 
 ## 0.1.1
 
 ### Patch Changes
 
 - Updated dependencies [8220f0ca]
-  - @sushiswap/graph-client@0.1.1
+  - soulswap-graph-client@0.1.1
 
 ## 0.1.0
 
@@ -59,4 +59,4 @@
 ### Patch Changes
 
 - Updated dependencies [9a829011]
-  - @sushiswap/graph-client@0.1.0
+  - soulswap-graph-client@0.1.0

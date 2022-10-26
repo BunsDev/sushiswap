@@ -1,7 +1,7 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { FundSource } from '@sushiswap/hooks'
-import { useBalance } from '@sushiswap/wagmi'
+import { Amount, Type } from 'soulswap-currency'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { FundSource } from 'soulswap-hooks'
+import { useBalance } from 'soulswap-wagmi'
 import { createContext, FC, ReactNode, useContext, useMemo } from 'react'
 import { useAccount } from 'wagmi'
 

@@ -3,7 +3,7 @@ import {
   SUSHISWAP_ENABLED_NETWORKS,
   SUSHISWAP_SUBGRAPH_NAME,
   TRIDENT_ENABLED_NETWORKS,
-} from '@sushiswap/graph-config'
+} from 'soulswap-graph-config'
 
 import { Bundle, QueryResolvers } from '../../../.graphclient'
 

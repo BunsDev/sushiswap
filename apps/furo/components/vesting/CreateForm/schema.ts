@@ -1,6 +1,6 @@
 import { getAddress } from '@ethersproject/address'
-import { Token, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
+import { Token, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
 import * as yup from 'yup'
 import Reference from 'yup/lib/Reference'
 import { Maybe, Message } from 'yup/lib/types'

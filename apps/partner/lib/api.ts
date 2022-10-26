@@ -1,7 +1,7 @@
-import { ChainId } from '@sushiswap/chain'
-import { Native } from '@sushiswap/currency'
-import { EXCHANGE_SUBGRAPH_NAME, GRAPH_HOST, TRIDENT_SUBGRAPH_NAME } from '@sushiswap/graph-config'
-import { getProvider } from '@sushiswap/wagmi'
+import { ChainId } from 'soulswap-chain'
+import { Native } from 'soulswap-currency'
+import { EXCHANGE_SUBGRAPH_NAME, GRAPH_HOST, TRIDENT_SUBGRAPH_NAME } from 'soulswap-graph-config'
+import { getProvider } from 'soulswap-wagmi'
 import { Contract } from 'ethers'
 import { erc20ABI } from 'wagmi'
 

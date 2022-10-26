@@ -7,7 +7,7 @@ import {
   JsonRpcProvider,
   WebSocketProvider,
 } from '@ethersproject/providers'
-import chains, { ChainId } from '@sushiswap/chain'
+import chains, { ChainId } from 'soulswap-chain'
 
 const providerCache: Partial<Record<ChainId, BaseProvider>> = {}
 const websocketProviderCache: Partial<Record<ChainId, WebSocketProvider>> = {}

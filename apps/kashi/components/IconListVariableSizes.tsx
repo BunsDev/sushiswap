@@ -1,5 +1,5 @@
-import { Type } from '@sushiswap/currency'
-import { Currency } from '@sushiswap/ui'
+import { Type } from 'soulswap-currency'
+import { Currency } from 'soulswap-ui'
 import { FC } from 'react'
 
 interface IconListVariableSizesProps {

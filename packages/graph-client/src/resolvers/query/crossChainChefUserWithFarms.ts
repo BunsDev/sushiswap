@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 
 import { getBuiltGraphSDK, QueryResolvers, UserWithFarm } from '../../../.graphclient'
 import { getTokenBalances } from '../../fetchers'

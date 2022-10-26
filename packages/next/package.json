@@ -19,7 +19,7 @@
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

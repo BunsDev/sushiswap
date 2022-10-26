@@ -1,4 +1,4 @@
-import { NetworkIcon } from '@sushiswap/ui'
+import { NetworkIcon } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { ICON_SIZE } from '../../contants'

@@ -1,4 +1,4 @@
-import { useIsMounted } from '@sushiswap/hooks'
+import { useIsMounted } from 'soulswap-hooks'
 import { FC } from 'react'
 import { useAccount } from 'wagmi'
 

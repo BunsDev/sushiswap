@@ -1,4 +1,4 @@
-import { Typography } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { BorrowTable } from './BorrowTable'

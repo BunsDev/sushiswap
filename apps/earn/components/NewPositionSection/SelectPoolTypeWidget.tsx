@@ -1,8 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react'
-import { ChainId } from '@sushiswap/chain'
-import { Tab, Tooltip, Typography } from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
-import { PoolFinderType } from '@sushiswap/wagmi'
+import { ChainId } from 'soulswap-chain'
+import { Tab, Tooltip, Typography } from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
+import { PoolFinderType } from 'soulswap-wagmi'
 import React, { FC, memo } from 'react'
 
 import { TRIDENT_ENABLED_NETWORKS } from '../../config'

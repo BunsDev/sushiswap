@@ -1,4 +1,4 @@
-import { Fee } from '@sushiswap/amm'
+import { Fee } from 'soulswap-amm'
 import { FC, useEffect } from 'react'
 
 import { useStablePool } from '../../hooks'

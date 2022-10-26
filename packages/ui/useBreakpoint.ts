@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@sushiswap/hooks' // Your tailwind config
+import { useMediaQuery } from 'soulswap-hooks' // Your tailwind config
 
 import tailwindConfig from './tailwind.js'
 

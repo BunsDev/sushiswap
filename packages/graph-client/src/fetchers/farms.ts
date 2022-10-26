@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 
 // TODO: Move API to OpenAPI, use graph-mesh to fetch
 export interface Farm {

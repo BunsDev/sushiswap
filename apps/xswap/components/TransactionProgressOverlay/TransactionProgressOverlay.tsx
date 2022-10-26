@@ -1,6 +1,6 @@
-import { Amount, Token, Type } from '@sushiswap/currency'
-import { STARGATE_CONFIRMATION_SECONDS } from '@sushiswap/stargate'
-import { classNames, Dialog, Typography } from '@sushiswap/ui'
+import { Amount, Token, Type } from 'soulswap-currency'
+import { STARGATE_CONFIRMATION_SECONDS } from 'soulswap-stargate'
+import { classNames, Dialog, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { TransactionProgressStepper } from './TransactionProgressStepper'

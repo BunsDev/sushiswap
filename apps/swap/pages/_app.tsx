@@ -1,7 +1,7 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 
-import { App, ThemeProvider, ToastContainer } from '@sushiswap/ui'
-import { client } from '@sushiswap/wagmi'
+import { App, ThemeProvider, ToastContainer } from 'soulswap-ui'
+import { client } from 'soulswap-wagmi'
 import { SUPPORTED_CHAIN_IDS } from 'config'
 // import { Updaters as MulticallUpdaters } from 'lib/state/MulticallUpdaters'
 import { Updaters as TokenListsUpdaters } from 'lib/state/TokenListsUpdaters'

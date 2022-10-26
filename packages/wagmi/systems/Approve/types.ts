@@ -1,4 +1,4 @@
-import { ButtonProps, NotificationData } from '@sushiswap/ui'
+import { ButtonProps, NotificationData } from 'soulswap-ui'
 import { ReactElement } from 'react'
 
 import { ApprovalState } from '../../hooks'

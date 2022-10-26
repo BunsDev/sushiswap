@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { CHAIN_NAME } from '@sushiswap/graph-config'
-import { Button, Dialog, NetworkIcon, Typography } from '@sushiswap/ui'
+import { ChainId } from 'soulswap-chain'
+import { CHAIN_NAME } from 'soulswap-graph-config'
+import { Button, Dialog, NetworkIcon, Typography } from 'soulswap-ui'
 import { SUPPORTED_CHAINS } from 'config'
 import React, { FC, useState } from 'react'
 

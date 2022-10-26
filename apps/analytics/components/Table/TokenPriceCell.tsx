@@ -1,6 +1,6 @@
-import { formatUSD } from '@sushiswap/format'
-import { Bundle } from '@sushiswap/graph-client/.graphclient'
-import { Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { Bundle } from 'soulswap-graph-client/.graphclient'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 import useSWR from 'swr'
 

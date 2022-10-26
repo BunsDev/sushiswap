@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react'
-import { classNames } from '@sushiswap/ui'
+import { classNames } from 'soulswap-ui'
 import React, { FC, ReactElement } from 'react'
 
 import { DefaultButtonInterface } from './DefaultButton'

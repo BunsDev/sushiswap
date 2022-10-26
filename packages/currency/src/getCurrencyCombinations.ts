@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import flatMap from 'lodash.flatmap'
 
 import { BCT, DAI, FRAX, FXS, KLIMA, LUSD, MIM, USDC, USDT, WBTC, WETH9, WNATIVE } from './constants'

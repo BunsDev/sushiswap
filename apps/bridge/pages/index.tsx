@@ -1,11 +1,11 @@
 import { ArrowRightIcon } from '@heroicons/react/solid'
-import { ChainId } from '@sushiswap/chain'
-import { tryParseAmount } from '@sushiswap/currency'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { STARGATE_BRIDGE_TOKENS } from '@sushiswap/stargate'
-import { Button, Loader, Typography } from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
-import { Checker, Web3Input } from '@sushiswap/wagmi'
+import { ChainId } from 'soulswap-chain'
+import { tryParseAmount } from 'soulswap-currency'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { STARGATE_BRIDGE_TOKENS } from 'soulswap-stargate'
+import { Button, Loader, Typography } from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
+import { Checker, Web3Input } from 'soulswap-wagmi'
 import {
   BridgeReviewModal,
   BridgeStateProvider,

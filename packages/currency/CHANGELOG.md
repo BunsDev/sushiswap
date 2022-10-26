@@ -1,4 +1,4 @@
-# @sushiswap/currency
+# soulswap-currency
 
 ## 0.0.3
 
@@ -11,11 +11,11 @@
 ### Patch Changes
 
 - Updated dependencies [ec80ff75]
-  - @sushiswap/math@0.1.0
+  - soulswap-math@0.1.0
 
 ## 0.0.1
 
 ### Patch Changes
 
 - Updated dependencies [a38f2e6a]
-  - @sushiswap/chain@0.1.0
+  - soulswap-chain@0.1.0

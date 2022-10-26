@@ -1,7 +1,7 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid'
-import chains, { ChainId } from '@sushiswap/chain'
-import { Currency } from '@sushiswap/currency'
-import { WrappedTokenInfo } from '@sushiswap/token-lists'
+import chains, { ChainId } from 'soulswap-chain'
+import { Currency } from 'soulswap-currency'
+import { WrappedTokenInfo } from 'soulswap-token-lists'
 import Image, { ImageProps } from 'next/image'
 import { FC, useEffect, useMemo, useState } from 'react'
 

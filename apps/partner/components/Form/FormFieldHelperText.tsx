@@ -1,5 +1,5 @@
-import { Typography } from '@sushiswap/ui'
-import { classNames } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
+import { classNames } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 export interface FormFieldHelperTextProps extends React.HTMLProps<HTMLDivElement> {

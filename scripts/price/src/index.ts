@@ -1,7 +1,7 @@
 import 'dotenv/config'
 
-import { ChainId } from '@sushiswap/chain'
-import { TRIDENT_ENABLED_NETWORKS, TRIDENT_SUBGRAPH_NAME } from '@sushiswap/graph-config'
+import { ChainId } from 'soulswap-chain'
+import { TRIDENT_ENABLED_NETWORKS, TRIDENT_SUBGRAPH_NAME } from 'soulswap-graph-config'
 import { getUnixTime } from 'date-fns'
 import stringify from 'fast-json-stable-stringify'
 

@@ -1,4 +1,4 @@
-import { Breadcrumb, BreadcrumbLink, Typography } from '@sushiswap/ui'
+import { Breadcrumb, BreadcrumbLink, Typography } from 'soulswap-ui'
 import { Layout } from 'components'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'

@@ -2,7 +2,7 @@ import { defaultAbiCoder } from '@ethersproject/abi'
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
 import { AddressZero, Zero } from '@ethersproject/constants'
 import { PayableOverrides } from '@ethersproject/contracts'
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 
 import { KashiMediumRiskLendingPairV1 } from './KashiPair'
 
@@ -32,10 +32,10 @@ enum Action {
 }
 
 import { getAddress } from '@ethersproject/address'
-import { Amount, Currency, Share, WNATIVE_ADDRESS } from '@sushiswap/currency'
-import { KashiPairMediumRiskV1 as KashiPairMediumRiskV1Contract } from '@sushiswap/kashi/typechain'
-import { PromiseOrValue } from '@sushiswap/kashi/typechain/common'
-import { calculateGasMargin } from '@sushiswap/wagmi'
+import { Amount, Currency, Share, WNATIVE_ADDRESS } from 'soulswap-currency'
+import { KashiPairMediumRiskV1 as KashiPairMediumRiskV1Contract } from 'soulswap-kashi/typechain'
+import { PromiseOrValue } from 'soulswap-kashi/typechain/common'
+import { calculateGasMargin } from 'soulswap-wagmi'
 import { Signature } from 'ethers'
 import { UserRejectedRequestError } from 'wagmi'
 

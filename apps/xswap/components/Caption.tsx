@@ -1,4 +1,4 @@
-import { classNames, Link, SushiIcon } from '@sushiswap/ui'
+import { classNames, Link, SushiIcon } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { Theme } from '../types'

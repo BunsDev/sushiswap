@@ -1,8 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react'
-import { ChainId } from '@sushiswap/chain'
-import { Fee } from '@sushiswap/amm'
-import { Tab, Tooltip, Typography } from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
+import { ChainId } from 'soulswap-chain'
+import { Fee } from 'soulswap-amm'
+import { Tab, Tooltip, Typography } from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
 import React, { FC, memo } from 'react'
 
 import { TRIDENT_ENABLED_NETWORKS } from '../../config'

@@ -1,4 +1,4 @@
-import { App, AppType } from '@sushiswap/ui'
+import { App, AppType } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 export const Header: FC = () => {

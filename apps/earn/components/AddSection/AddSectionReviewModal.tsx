@@ -1,8 +1,8 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Price, Type } from '@sushiswap/currency'
-import { Dialog, Typography } from '@sushiswap/ui'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Price, Type } from 'soulswap-currency'
+import { Dialog, Typography } from 'soulswap-ui'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import { FC, ReactNode, useMemo } from 'react'
 
 import { useTokenAmountDollarValues } from '../../lib/hooks'

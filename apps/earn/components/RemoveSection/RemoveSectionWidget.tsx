@@ -1,10 +1,10 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Native, Type } from '@sushiswap/currency'
-import { formatUSD } from '@sushiswap/format'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { ZERO } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Native, Type } from 'soulswap-currency'
+import { formatUSD } from 'soulswap-format'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { ZERO } from 'soulswap-math'
 import {
   AppearOnMount,
   Button,
@@ -13,8 +13,8 @@ import {
   DEFAULT_INPUT_UNSTYLED,
   Input,
   Typography,
-} from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
+} from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
 import { FC, Fragment, ReactNode, useState } from 'react'
 import { useAccount } from 'wagmi'
 

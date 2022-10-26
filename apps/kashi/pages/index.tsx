@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { Button, NetworkIcon, Typography } from '@sushiswap/ui'
+import { ChainId } from 'soulswap-chain'
+import { Button, NetworkIcon, Typography } from 'soulswap-ui'
 import { Layout, MarketsSection } from 'components'
 import { DEFAULT_MARKETS, SUPPORTED_CHAIN_IDS } from 'config'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'

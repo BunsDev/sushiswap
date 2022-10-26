@@ -1,4 +1,4 @@
-# @sushiswap/log
+# soulswap-log
 
 ## 0.1.0
 

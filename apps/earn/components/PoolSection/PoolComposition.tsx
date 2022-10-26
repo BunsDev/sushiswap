@@ -1,7 +1,7 @@
-import { Native } from '@sushiswap/currency'
-import { formatUSD } from '@sushiswap/format'
-import { AppearOnMount, Currency, Table, Typography } from '@sushiswap/ui'
-import { usePrices } from '@sushiswap/wagmi'
+import { Native } from 'soulswap-currency'
+import { formatUSD } from 'soulswap-format'
+import { AppearOnMount, Currency, Table, Typography } from 'soulswap-ui'
+import { usePrices } from 'soulswap-wagmi'
 import { FC } from 'react'
 
 import { useTokensFromPair } from '../../lib/hooks'

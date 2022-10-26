@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { useMemo } from 'react'
 import { useProvider } from 'wagmi'
 import { getContract, ReadContractConfig } from 'wagmi/actions'

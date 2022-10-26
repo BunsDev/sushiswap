@@ -1,5 +1,5 @@
 import { getAddress } from '@ethersproject/address'
-import { JSBI } from '@sushiswap/math'
+import { JSBI } from 'soulswap-math'
 import invariant from 'tiny-invariant'
 
 import { Currency } from './Currency'

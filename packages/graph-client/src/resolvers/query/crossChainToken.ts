@@ -1,11 +1,11 @@
-import { chainName, chainShortName } from '@sushiswap/chain'
+import { chainName, chainShortName } from 'soulswap-chain'
 import {
   SUBGRAPH_HOST,
   SUSHISWAP_ENABLED_NETWORKS,
   SUSHISWAP_SUBGRAPH_NAME,
   TRIDENT_ENABLED_NETWORKS,
   TRIDENT_SUBGRAPH_NAME,
-} from '@sushiswap/graph-config'
+} from 'soulswap-graph-config'
 
 import { QueryResolvers, Token } from '../../../.graphclient'
 import { FarmAPI } from '../../farm'

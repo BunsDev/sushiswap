@@ -1,10 +1,10 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { ChainId, chainShortName } from '@sushiswap/chain'
-import { tryParseAmount, Type } from '@sushiswap/currency'
-import { ConstantProductPool, Pair, StablePool } from '@sushiswap/amm'
-import { FundSource } from '@sushiswap/hooks'
-import { AppearOnMount, BreadcrumbLink, Button, Container, Dots, Loader } from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
+import { ChainId, chainShortName } from 'soulswap-chain'
+import { tryParseAmount, Type } from 'soulswap-currency'
+import { ConstantProductPool, Pair, StablePool } from 'soulswap-amm'
+import { FundSource } from 'soulswap-hooks'
+import { AppearOnMount, BreadcrumbLink, Button, Container, Dots, Loader } from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
 import {
   Checker,
   ConstantProductPoolState,
@@ -13,7 +13,7 @@ import {
   PoolFinderType,
   StablePoolState,
   Web3Input,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import {
   AddSectionMyPosition,
   AddSectionReviewModalLegacy,

@@ -1,6 +1,6 @@
 import { getAddress } from '@ethersproject/address'
-import { Amount, Price, Share, Token } from '@sushiswap/currency'
-import { JSBI, maximum, minimum, Percent, ZERO } from '@sushiswap/math'
+import { Amount, Price, Share, Token } from 'soulswap-currency'
+import { JSBI, maximum, minimum, Percent, ZERO } from 'soulswap-math'
 import { KASHI_ADDRESS } from 'config'
 
 import { computePairAddress } from './computePairAddress'

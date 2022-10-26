@@ -1,4 +1,4 @@
-# @sushiswap/graph-config
+# soulswap-graph-config
 
 ## 0.1.0
 
@@ -8,4 +8,4 @@
 
 ### Patch Changes
 
-- @sushiswap/chain@0.1.0
+- soulswap-chain@0.1.0

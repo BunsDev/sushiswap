@@ -1,4 +1,4 @@
-import tridentExports from '@sushiswap/trident/exports/all.json'
+import tridentExports from 'soulswap-trident/exports/all.json'
 import { useContract, useSigner } from 'wagmi'
 
 // TODO: exports should be in protocol folder

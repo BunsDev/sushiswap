@@ -1,4 +1,4 @@
-import { ButtonProps } from '@sushiswap/ui'
+import { ButtonProps } from 'soulswap-ui'
 import React, { cloneElement, FC, ReactElement, ReactNode } from 'react'
 
 export interface CustomProps {

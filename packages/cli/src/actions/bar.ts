@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { getBuiltGraphSDK } from '@sushiswap/graph-client'
-import log from '@sushiswap/log'
+import { ChainId } from 'soulswap-chain'
+import { getBuiltGraphSDK } from 'soulswap-graph-client'
+import log from 'soulswap-log'
 import { getUnixTime, subMonths, subYears } from 'date-fns'
 import numeral from 'numeral'
 
@@ -9,7 +9,7 @@ type Arguments = {
 }
 
 export async function bar(args: Arguments) {
-  // const { getBuiltGraphSDK } = await import('@sushiswap/graph-client/.graphclient')
+  // const { getBuiltGraphSDK } = await import('soulswap-graph-client/.graphclient')
   const sdk = getBuiltGraphSDK({ chainId: ChainId.ETHEREUM })
 
   const oneMonthAgo = getUnixTime(subMonths(new Date(), 1))

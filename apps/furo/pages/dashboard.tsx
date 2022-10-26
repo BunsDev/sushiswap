@@ -1,6 +1,6 @@
 import { XCircleIcon } from '@heroicons/react/outline'
-import { Dots, Loader, Typography, WalletIcon } from '@sushiswap/ui'
-import { useWalletState } from '@sushiswap/wagmi'
+import { Dots, Loader, Typography, WalletIcon } from 'soulswap-ui'
+import { useWalletState } from 'soulswap-wagmi'
 import { BackgroundVector, Dashboard, Layout } from 'components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

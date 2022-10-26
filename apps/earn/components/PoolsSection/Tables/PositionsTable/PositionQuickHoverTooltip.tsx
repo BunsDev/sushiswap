@@ -1,6 +1,6 @@
-import { formatPercent, formatUSD } from '@sushiswap/format'
-import { UserWithFarm } from '@sushiswap/graph-client/.graphclient'
-import { Button, Chip, Currency, Link, Typography } from '@sushiswap/ui'
+import { formatPercent, formatUSD } from 'soulswap-format'
+import { UserWithFarm } from 'soulswap-graph-client/.graphclient'
+import { Button, Chip, Currency, Link, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { useTokensFromPair } from '../../../../lib/hooks'

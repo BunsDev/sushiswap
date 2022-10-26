@@ -1,4 +1,4 @@
-import { WNATIVE_ADDRESS } from '@sushiswap/currency'
+import { WNATIVE_ADDRESS } from 'soulswap-currency'
 import { useContract, useProvider } from 'wagmi'
 
 import WETH9_ABI from '../abis/weth9.json'

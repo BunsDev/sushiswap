@@ -1,5 +1,5 @@
 import { isAddress } from '@ethersproject/address'
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { getToken } from 'lib'
 import type { NextApiRequest, NextApiResponse } from 'next'
 

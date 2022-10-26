@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { createContext, FC, ReactNode, useCallback, useContext, useState } from 'react'
 
 import { SUPPORTED_CHAIN_IDS } from '../config'

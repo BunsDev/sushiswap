@@ -1,4 +1,4 @@
-import { DAI, DAI_ADDRESS, USDC, USDC_ADDRESS, USDT, USDT_ADDRESS, WNATIVE, WNATIVE_ADDRESS } from '@sushiswap/currency'
+import { DAI, DAI_ADDRESS, USDC, USDC_ADDRESS, USDT, USDT_ADDRESS, WNATIVE, WNATIVE_ADDRESS } from 'soulswap-currency'
 
 import { CHAINLINK_PRICE_FEED_MAP, CHAINLINK_SUPPORTED_CHAIN_IDS } from '../src'
 describe('price feed mappings', () => {

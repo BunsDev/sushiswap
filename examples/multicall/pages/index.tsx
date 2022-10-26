@@ -1,4 +1,4 @@
-import chain from '@sushiswap/chain'
+import chain from 'soulswap-chain'
 
 import { useCurrentBlockTimestampMultichain } from '../hooks'
 

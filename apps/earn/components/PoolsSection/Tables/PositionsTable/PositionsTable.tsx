@@ -1,5 +1,5 @@
-import { UserWithFarm } from '@sushiswap/graph-client/.graphclient'
-import { GenericTable, useBreakpoint } from '@sushiswap/ui'
+import { UserWithFarm } from 'soulswap-graph-client/.graphclient'
+import { GenericTable, useBreakpoint } from 'soulswap-ui'
 import { getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import stringify from 'fast-json-stable-stringify'
 import React, { FC, useCallback, useEffect, useState } from 'react'

@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
-import { classNames } from '@sushiswap/ui'
+import { classNames } from 'soulswap-ui'
 import { FC } from 'react'
 
 interface Pagination {

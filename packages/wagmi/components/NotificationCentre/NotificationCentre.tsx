@@ -1,5 +1,5 @@
 import { BellIcon, XIcon } from '@heroicons/react/solid'
-import { Button, Drawer, IconButton, Typography } from '@sushiswap/ui'
+import { Button, Drawer, IconButton, Typography } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 import { NotificationGroup } from './NotificationGroup'

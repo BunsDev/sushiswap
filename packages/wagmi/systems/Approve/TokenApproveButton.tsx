@@ -1,6 +1,6 @@
 import { Transition } from '@headlessui/react'
-import { Amount, Currency } from '@sushiswap/currency'
-import { Badge, Button, classNames, Currency as CurrencyFromUi, IconButton, Tooltip, Typography } from '@sushiswap/ui'
+import { Amount, Currency } from 'soulswap-currency'
+import { Badge, Button, classNames, Currency as CurrencyFromUi, IconButton, Tooltip, Typography } from 'soulswap-ui'
 import { FC, memo, useEffect } from 'react'
 
 import { ApprovalState, useERC20ApproveCallback } from '../../hooks'

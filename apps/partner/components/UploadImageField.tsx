@@ -1,5 +1,5 @@
 import { DocumentAddIcon, DocumentDownloadIcon, ExclamationIcon } from '@heroicons/react/outline'
-import { classNames, Typography } from '@sushiswap/ui'
+import { classNames, Typography } from 'soulswap-ui'
 import { FormType } from 'pages'
 import React, { FC, useCallback } from 'react'
 import { DropzoneOptions, useDropzone } from 'react-dropzone'

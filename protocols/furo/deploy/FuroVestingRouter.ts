@@ -1,4 +1,4 @@
-import { BENTOBOX_ADDRESS, WNATIVE_ADDRESS } from '@sushiswap/core-sdk'
+import { BENTOBOX_ADDRESS, WNATIVE_ADDRESS } from 'soulswap-core-sdk'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/types'
 

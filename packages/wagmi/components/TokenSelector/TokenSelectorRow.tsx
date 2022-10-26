@@ -1,8 +1,8 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { FundSource, useInViewport } from '@sushiswap/hooks'
-import { Fraction, ZERO } from '@sushiswap/math'
-import { classNames, Typography } from '@sushiswap/ui'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import { Amount, Type } from 'soulswap-currency'
+import { FundSource, useInViewport } from 'soulswap-hooks'
+import { Fraction, ZERO } from 'soulswap-math'
+import { classNames, Typography } from 'soulswap-ui'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import React, { CSSProperties, FC, memo, useCallback, useRef } from 'react'
 
 interface TokenSelectorRow {

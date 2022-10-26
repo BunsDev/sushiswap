@@ -1,7 +1,7 @@
 import { CheckIcon } from '@heroicons/react/outline'
-import chains, { ChainId } from '@sushiswap/chain'
-import { useIsSmScreen } from '@sushiswap/hooks'
-import { classNames, NetworkIcon, Overlay, SlideIn, Typography } from '@sushiswap/ui'
+import chains, { ChainId } from 'soulswap-chain'
+import { useIsSmScreen } from 'soulswap-hooks'
+import { classNames, NetworkIcon, Overlay, SlideIn, Typography } from 'soulswap-ui'
 import { SUPPORTED_CHAIN_IDS } from 'config'
 import React, { FC, useCallback, useRef } from 'react'
 

@@ -1,6 +1,6 @@
 import { Listbox } from '@headlessui/react'
-import chains, { ChainId } from '@sushiswap/chain'
-import { classNames, NetworkIcon, Select, Typography } from '@sushiswap/ui'
+import chains, { ChainId } from 'soulswap-chain'
+import { classNames, NetworkIcon, Select, Typography } from 'soulswap-ui'
 import React, { FC, ReactNode, useMemo } from 'react'
 import { useNetwork, useSwitchNetwork } from 'wagmi'
 

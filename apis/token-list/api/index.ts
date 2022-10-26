@@ -1,4 +1,4 @@
-import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
+import DEFAULT_TOKEN_LIST from 'soulswap-default-token-list'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 export default (request: VercelRequest, response: VercelResponse) => {

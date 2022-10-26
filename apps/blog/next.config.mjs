@@ -1,7 +1,7 @@
 import transpileModules from 'next-transpile-modules'
 import { withAxiom } from 'next-axiom'
 
-const withTranspileModules = transpileModules(['@sushiswap/ui'])
+const withTranspileModules = transpileModules(['soulswap-ui'])
 
 // @ts-check
 /** @type {import('next').NextConfig} */

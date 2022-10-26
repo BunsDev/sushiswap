@@ -6,8 +6,8 @@ import {
   ERROR_INPUT_CLASSNAME,
   Input,
   Loader,
-} from '@sushiswap/ui'
-import { AddressProps } from '@sushiswap/ui/input/Address'
+} from 'soulswap-ui'
+import { AddressProps } from 'soulswap-ui/input/Address'
 import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 
 import { Account } from '../Account'

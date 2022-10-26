@@ -1,9 +1,9 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import { ChainId } from '@sushiswap/chain'
-import { useIsMounted } from '@sushiswap/hooks'
-import { GasPrice } from '@sushiswap/redux-localstorage'
-import { classNames, DEFAULT_INPUT_UNSTYLED, GasIcon, Input, Tab, Tooltip, Typography } from '@sushiswap/ui'
+import { ChainId } from 'soulswap-chain'
+import { useIsMounted } from 'soulswap-hooks'
+import { GasPrice } from 'soulswap-redux-localstorage'
+import { classNames, DEFAULT_INPUT_UNSTYLED, GasIcon, Input, Tab, Tooltip, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 import { useFeeData } from 'wagmi'
 

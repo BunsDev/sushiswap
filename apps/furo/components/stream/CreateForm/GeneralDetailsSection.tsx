@@ -1,5 +1,5 @@
-import { Form, Input } from '@sushiswap/ui'
-import { Web3Input } from '@sushiswap/wagmi'
+import { Form, Input } from 'soulswap-ui'
+import { Web3Input } from 'soulswap-wagmi'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import { CreateStreamFormData } from '../types'

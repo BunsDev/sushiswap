@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Token } from '@sushiswap/currency'
-import { findSingleRouteExactIn as TinesFindSingleRouteExactIn, MultiRoute, RToken } from '@sushiswap/tines'
+import { Token } from 'soulswap-currency'
+import { findSingleRouteExactIn as TinesFindSingleRouteExactIn, MultiRoute, RToken } from 'soulswap-tines'
 
 import { Pair } from '../Pair'
 import { Pool } from '../Pool'

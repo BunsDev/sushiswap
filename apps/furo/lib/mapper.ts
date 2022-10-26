@@ -1,6 +1,6 @@
 import { AddressZero } from '@ethersproject/constants'
-import { ChainId } from '@sushiswap/chain'
-import { Native, Token } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Native, Token } from 'soulswap-currency'
 
 import { Token as TokenDTO } from '.graphclient'
 

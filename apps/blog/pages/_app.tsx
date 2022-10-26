@@ -1,8 +1,8 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 import '../index.css'
 
 import { Cloudinary } from '@cloudinary/url-gen'
-import { App, ThemeProvider } from '@sushiswap/ui'
+import { App, ThemeProvider } from 'soulswap-ui'
 import type { AppContext, AppProps } from 'next/app'
 import { default as NextApp } from 'next/app'
 import Head from 'next/head'

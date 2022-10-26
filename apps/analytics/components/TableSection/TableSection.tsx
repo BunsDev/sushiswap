@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react'
-import { classNames, Network } from '@sushiswap/ui'
+import { classNames, Network } from 'soulswap-ui'
 import { FC, useCallback } from 'react'
 
 import { SUPPORTED_CHAIN_IDS } from '../../config'

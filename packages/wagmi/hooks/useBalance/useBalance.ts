@@ -1,9 +1,9 @@
 import { isAddress } from '@ethersproject/address'
 import { AddressZero } from '@ethersproject/constants'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Native, Token, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
-import { JSBI, ZERO } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Native, Token, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
+import { JSBI, ZERO } from 'soulswap-math'
 import { useMemo } from 'react'
 import { erc20ABI, useBalance as useWagmiBalance, useContractReads } from 'wagmi'
 

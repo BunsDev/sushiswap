@@ -1,10 +1,10 @@
-import { ChainId, chainName } from '@sushiswap/chain'
+import { ChainId, chainName } from 'soulswap-chain'
 import {
   MASTERCHEF_V1_SUBGRAPH_NAME,
   MASTERCHEF_V2_SUBGRAPH_NAME,
   MINICHEF_SUBGRAPH_NAME,
   SUBGRAPH_HOST,
-} from '@sushiswap/graph-config'
+} from 'soulswap-graph-config'
 
 import { getBuiltGraphSDK, QueryResolvers } from '../../../.graphclient'
 

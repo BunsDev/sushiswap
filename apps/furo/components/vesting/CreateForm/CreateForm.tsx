@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Button, Form } from '@sushiswap/ui'
+import { Button, Form } from 'soulswap-ui'
 import { FC, useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useAccount, useNetwork } from 'wagmi'

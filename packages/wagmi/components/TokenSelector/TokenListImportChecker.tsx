@@ -1,5 +1,5 @@
-import { Token } from '@sushiswap/currency'
-import { Dialog } from '@sushiswap/ui'
+import { Token } from 'soulswap-currency'
+import { Dialog } from 'soulswap-ui'
 import React, { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useTokens } from '../../hooks/useTokens'

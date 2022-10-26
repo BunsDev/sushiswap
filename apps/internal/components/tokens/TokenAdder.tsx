@@ -1,6 +1,6 @@
 import { XIcon } from '@heroicons/react/solid'
-import { Token as TokenEntity } from '@sushiswap/currency'
-import { CheckIcon, Currency, Loader, Menu, Typography } from '@sushiswap/ui'
+import { Token as TokenEntity } from 'soulswap-currency'
+import { CheckIcon, Currency, Loader, Menu, Typography } from 'soulswap-ui'
 import stringify from 'fast-json-stable-stringify'
 import { Token, TokenLogo } from 'lib'
 import Image from 'next/image'

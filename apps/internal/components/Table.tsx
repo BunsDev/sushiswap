@@ -1,4 +1,4 @@
-import { classNames, Table } from '@sushiswap/ui'
+import { classNames, Table } from 'soulswap-ui'
 import { ColumnDef, flexRender, Table as TableType } from '@tanstack/react-table'
 
 interface GenericTable<T> {

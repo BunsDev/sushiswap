@@ -15,13 +15,13 @@
   "dependencies": {},
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/currency": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
-    "@sushiswap/ui": "workspace:*",
+    "soulswap-ui": "workspace:*",
     "@types/node": "^17.0.30",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
@@ -34,8 +34,8 @@
   },
   "peerDependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/currency": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.1"

@@ -1,6 +1,6 @@
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256, pack } from '@ethersproject/solidity'
-import { Token } from '@sushiswap/currency'
+import { Token } from 'soulswap-currency'
 
 import { INIT_CODE_HASH } from './constants'
 

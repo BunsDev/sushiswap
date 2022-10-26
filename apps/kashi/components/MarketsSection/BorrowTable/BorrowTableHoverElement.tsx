@@ -1,5 +1,5 @@
-import { formatUSD } from '@sushiswap/format'
-import { Currency, Link, NetworkIcon, Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { Currency, Link, NetworkIcon, Typography } from 'soulswap-ui'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import React, { FC, useMemo } from 'react'
 import useSWR from 'swr'

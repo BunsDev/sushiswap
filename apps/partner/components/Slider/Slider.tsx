@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react'
-import { classNames, Typography } from '@sushiswap/ui'
+import { classNames, Typography } from 'soulswap-ui'
 import { FC, forwardRef, Key } from 'react'
 import ReactSlider, { ReactSliderProps } from 'react-slider'
 

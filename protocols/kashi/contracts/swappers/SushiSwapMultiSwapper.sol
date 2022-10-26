@@ -6,8 +6,8 @@ pragma experimental ABIEncoderV2;
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringERC20.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "../libraries/UniswapV2Library.sol";
-import "@sushiswap/core/contracts/uniswapv2/libraries/TransferHelper.sol";
-import "@sushiswap/bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-core/contracts/uniswapv2/libraries/TransferHelper.sol";
+import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
 
 contract SushiSwapMultiSwapper {
     using BoringERC20 for IERC20;

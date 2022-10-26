@@ -1,5 +1,5 @@
 import { CogIcon } from '@heroicons/react/outline'
-import { Dialog, IconButton, Overlay, SlideIn } from '@sushiswap/ui'
+import { Dialog, IconButton, Overlay, SlideIn } from 'soulswap-ui'
 import { FC, useState } from 'react'
 
 import { CustomTokensOverlay } from './CustomTokensOverlay'

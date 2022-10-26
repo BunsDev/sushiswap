@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@heroicons/react/solid'
-import { formatPercent } from '@sushiswap/format'
-import { AppearOnMount, BreadcrumbLink, Container, Link, Typography } from '@sushiswap/ui'
+import { formatPercent } from 'soulswap-format'
+import { AppearOnMount, BreadcrumbLink, Container, Link, Typography } from 'soulswap-ui'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { FC } from 'react'

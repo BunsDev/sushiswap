@@ -1,4 +1,4 @@
-import { Percent } from '@sushiswap/math'
+import { Percent } from 'soulswap-math'
 import { FC } from 'react'
 
 interface YieldIndicatorProps {

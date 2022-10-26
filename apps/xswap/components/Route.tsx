@@ -1,8 +1,8 @@
 import { DotsHorizontalIcon } from '@heroicons/react/solid'
-import { Amount, Token, Type } from '@sushiswap/currency'
-import { STARGATE_TOKEN } from '@sushiswap/stargate'
-import { Badge, Chip, NetworkIcon, Tooltip, Typography } from '@sushiswap/ui'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import { Amount, Token, Type } from 'soulswap-currency'
+import { STARGATE_TOKEN } from 'soulswap-stargate'
+import { Badge, Chip, NetworkIcon, Tooltip, Typography } from 'soulswap-ui'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import { FC } from 'react'
 
 import { UseTradeOutput } from '../lib/hooks'

@@ -1,5 +1,5 @@
-import { formatPercent } from '@sushiswap/format'
-import { AppearOnMount, BreadcrumbLink } from '@sushiswap/ui'
+import { formatPercent } from 'soulswap-format'
+import { AppearOnMount, BreadcrumbLink } from 'soulswap-ui'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { FC } from 'react'

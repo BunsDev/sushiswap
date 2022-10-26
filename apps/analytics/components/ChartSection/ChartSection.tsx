@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { usePoolFilters } from 'components/PoolsFiltersProvider'
 import stringify from 'fast-json-stable-stringify'
 import { FC, useMemo } from 'react'

@@ -1,4 +1,4 @@
-import { Pair, Token } from '@sushiswap/graph-client/.graphclient'
+import { Pair, Token } from 'soulswap-graph-client/.graphclient'
 
 export interface CellProps {
   row: Pair

@@ -1,4 +1,4 @@
-import { WrappedTokenInfo } from '@sushiswap/token-lists'
+import { WrappedTokenInfo } from 'soulswap-token-lists'
 import { TokenList } from '@uniswap/token-lists'
 
 import { Mutable, TokenAddressMap } from './types'

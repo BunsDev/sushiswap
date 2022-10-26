@@ -1,6 +1,6 @@
 import transpileModules from 'next-transpile-modules'
 
-const withTranspileModules = transpileModules(['@sushiswap/ui', '@sushiswap/redux-token-lists', '@sushiswap/chain'])
+const withTranspileModules = transpileModules(['soulswap-ui', 'soulswap-redux-token-lists', 'soulswap-chain'])
 
 // @ts-check
 /** @type {import('next').NextConfig} */

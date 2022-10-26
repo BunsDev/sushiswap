@@ -1,5 +1,5 @@
-import { formatUSD } from '@sushiswap/format'
-import { Typography, useBreakpoint } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { Typography, useBreakpoint } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { PairWithAlias } from '../../../types'

@@ -27,11 +27,11 @@
   },
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/math": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-math": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@uniswap/token-lists": "^1.0.0-beta.29",
@@ -42,8 +42,8 @@
   },
   "peerDependencies": {
     "@ethersproject/address": "^5.7.0",
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/math": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-math": "workspace:*",
     "@uniswap/token-lists": "^1.0.0-beta.29"
   }
 }

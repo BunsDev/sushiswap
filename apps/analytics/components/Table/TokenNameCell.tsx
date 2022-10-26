@@ -1,4 +1,4 @@
-import { Currency, Typography } from '@sushiswap/ui'
+import { Currency, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { useTokenFromToken } from '../../lib/hooks'

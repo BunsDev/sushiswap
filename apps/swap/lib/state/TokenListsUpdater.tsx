@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { useProvider } from 'wagmi'
 
 import { tokenLists } from './token-lists'

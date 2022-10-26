@@ -1,4 +1,4 @@
-import CHAINLINK_TOKEN_LIST from '@sushiswap/chainlink-token-list'
+import CHAINLINK_TOKEN_LIST from 'soulswap-chainlink-token-list'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 export default (request: VercelRequest, response: VercelResponse) => {

@@ -1,5 +1,5 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { Button, classNames, Typography } from '@sushiswap/ui'
+import { Button, classNames, Typography } from 'soulswap-ui'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 
 import { stepConfigurations } from '../CreateForm'

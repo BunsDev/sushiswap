@@ -2,7 +2,7 @@
 /** @type {import('tailwindcss').Config} */
 const tailwindConfig = {
   darkMode: 'media',
-  presets: [require('@sushiswap/ui/tailwind')],
+  presets: [require('soulswap-ui/tailwind')],
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',

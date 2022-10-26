@@ -1,4 +1,4 @@
-import { createTokenLists } from '@sushiswap/redux-token-lists'
+import { createTokenLists } from 'soulswap-redux-token-lists'
 
 // Create a token lists instance with default settings
 export const tokenLists = createTokenLists()

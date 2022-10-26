@@ -1,9 +1,9 @@
 import { ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/outline'
 import { CurrencyDollarIcon } from '@heroicons/react/solid'
-import { Token } from '@sushiswap/currency'
-import { useIsMounted } from '@sushiswap/hooks'
-import { Currency, Overlay, SlideIn, Tooltip, Typography } from '@sushiswap/ui'
-import { TokenSelectorCustomTokenRow } from '@sushiswap/wagmi'
+import { Token } from 'soulswap-currency'
+import { useIsMounted } from 'soulswap-hooks'
+import { Currency, Overlay, SlideIn, Tooltip, Typography } from 'soulswap-ui'
+import { TokenSelectorCustomTokenRow } from 'soulswap-wagmi'
 import React, { FC, useMemo, useState } from 'react'
 
 import { useAllCustomTokens } from '../../lib/state/storage'

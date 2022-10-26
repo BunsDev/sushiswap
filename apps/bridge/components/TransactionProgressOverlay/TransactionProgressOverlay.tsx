@@ -1,5 +1,5 @@
-import { STARGATE_CONFIRMATION_SECONDS } from '@sushiswap/stargate'
-import { classNames, Dialog, Typography } from '@sushiswap/ui'
+import { STARGATE_CONFIRMATION_SECONDS } from 'soulswap-stargate'
+import { classNames, Dialog, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { useBridgeState } from '../BridgeStateProvider'

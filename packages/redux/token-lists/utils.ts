@@ -1,7 +1,7 @@
 import { Contract } from '@ethersproject/contracts'
 import { namehash } from '@ethersproject/hash'
 import { BaseProvider } from '@ethersproject/providers'
-import { WrappedTokenInfo } from '@sushiswap/token-lists'
+import { WrappedTokenInfo } from 'soulswap-token-lists'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import schema from '@uniswap/token-lists/src/tokenlist.schema.json'
 // @ts-ignore

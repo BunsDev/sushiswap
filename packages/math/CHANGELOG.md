@@ -1,4 +1,4 @@
-# @sushiswap/math
+# soulswap-math
 
 ## 0.1.0
 

@@ -1,5 +1,5 @@
 import { CheckIcon } from '@heroicons/react/solid'
-import chains, { ChainId } from '@sushiswap/chain'
+import chains, { ChainId } from 'soulswap-chain'
 import { FC } from 'react'
 
 import { classNames, NetworkIcon, Typography } from '..'

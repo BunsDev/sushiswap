@@ -1,7 +1,7 @@
 // @ts-check
 /** @type {import('tailwindcss').Config} */
 const tailwindConfig = {
-  presets: [require('@sushiswap/ui/tailwind')],
+  presets: [require('soulswap-ui/tailwind')],
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',

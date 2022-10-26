@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { IMasterChef, MasterChef } from '@sushiswap/core'
-import MasterChefV1ABI from '@sushiswap/core/abi/MasterChef.json'
+import { ChainId } from 'soulswap-chain'
+import { IMasterChef, MasterChef } from 'soulswap-core'
+import MasterChefV1ABI from 'soulswap-core/abi/MasterChef.json'
 import { readContract, ReadContractConfig, readContracts, ReadContractsConfig } from '@wagmi/core'
 
 import { MASTERCHEF_ADDRESS } from '../../../config'

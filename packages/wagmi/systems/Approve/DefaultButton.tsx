@@ -1,4 +1,4 @@
-import { classNames } from '@sushiswap/ui'
+import { classNames } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 export interface DefaultButtonInterface {

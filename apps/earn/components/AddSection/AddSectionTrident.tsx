@@ -1,14 +1,14 @@
-import { tryParseAmount } from '@sushiswap/currency'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
-import { Button, Dots } from '@sushiswap/ui'
+import { tryParseAmount } from 'soulswap-currency'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
+import { Button, Dots } from 'soulswap-ui'
 import {
   Checker,
   ConstantProductPoolState,
   StablePoolState,
   useConstantProductPool,
   useStablePool,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import { FC, useCallback, useMemo, useState } from 'react'
 
 import { useTokensFromPair } from '../../lib/hooks'

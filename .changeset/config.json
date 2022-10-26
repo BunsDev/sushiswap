@@ -31,14 +31,14 @@
       "token-price-api",
       "farms-script",
       "price-script",
-      "@sushiswap/next",
-      "@sushiswap/redux-token-lists",
-      "@sushiswap/redux-localstorage",
-      "@sushiswap/redux-logs",
-      "@sushiswap/token-lists",
-      "@sushiswap/ui",
-      "@sushiswap/wagmi",
-      "@sushiswap/furo",
-      "@sushiswap/kashi"
+      "soulswap-next",
+      "soulswap-redux-token-lists",
+      "soulswap-redux-localstorage",
+      "soulswap-redux-logs",
+      "soulswap-token-lists",
+      "soulswap-ui",
+      "soulswap-wagmi",
+      "soulswap-furo",
+      "soulswap-kashi"
     ]
   }

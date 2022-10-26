@@ -1,4 +1,4 @@
-import { Typography } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { FC } from 'react'
 

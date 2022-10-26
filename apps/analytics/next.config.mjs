@@ -7,10 +7,10 @@ import transpileModules from 'next-transpile-modules'
 // })
 
 const withTranspileModules = transpileModules([
-  '@sushiswap/redux-localstorage',
-  '@sushiswap/wagmi',
-  '@sushiswap/ui',
-  '@sushiswap/graph-client',
+  'soulswap-redux-localstorage',
+  'soulswap-wagmi',
+  'soulswap-ui',
+  'soulswap-graph-client',
 ])
 
 // @ts-check

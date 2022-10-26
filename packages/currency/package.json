@@ -26,7 +26,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "TIMING=1 eslint src --fix",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "yarn build",
     "test": "jest --passWithNoTests"
   },
   "jest": {
@@ -35,15 +35,15 @@
   "dependencies": {
     "@ethersproject/address": "^5.7.0",
     "@ethersproject/units": "^5.7.0",
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/math": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-math": "workspace:*",
     "lodash.flatmap": "^4.5.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@types/lodash.flatmap": "^4.5.7",

@@ -1,5 +1,5 @@
-import { chainsL2 } from '@sushiswap/chain'
-import { useCurrentBlockTimestamp } from '@sushiswap/wagmi'
+import { chainsL2 } from 'soulswap-chain'
+import { useCurrentBlockTimestamp } from 'soulswap-wagmi'
 import { useMemo } from 'react'
 
 import { L2_DEADLINE_FROM_NOW } from '../constants'

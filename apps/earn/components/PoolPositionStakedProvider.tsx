@@ -1,6 +1,6 @@
-import { Amount, Currency, Token } from '@sushiswap/currency'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { Chef, useMasterChef } from '@sushiswap/wagmi'
+import { Amount, Currency, Token } from 'soulswap-currency'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { Chef, useMasterChef } from 'soulswap-wagmi'
 import { createContext, FC, ReactNode, useContext, useMemo } from 'react'
 
 import { CHEF_TYPE_MAP } from '../lib/constants'

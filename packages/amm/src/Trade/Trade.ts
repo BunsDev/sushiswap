@@ -1,6 +1,6 @@
-import { Amount, Price, Type as Currency } from '@sushiswap/currency'
-import { Fraction, JSBI, ONE, Percent, ZERO } from '@sushiswap/math'
-import { MultiRoute, RToken } from '@sushiswap/tines'
+import { Amount, Price, Type as Currency } from 'soulswap-currency'
+import { Fraction, JSBI, ONE, Percent, ZERO } from 'soulswap-math'
+import { MultiRoute, RToken } from 'soulswap-tines'
 import invariant from 'tiny-invariant'
 
 import { TradeType as Type } from './TradeType'

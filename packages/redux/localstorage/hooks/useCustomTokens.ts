@@ -1,4 +1,4 @@
-import { Token } from '@sushiswap/currency'
+import { Token } from 'soulswap-currency'
 import { useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 

@@ -1,7 +1,7 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 
-import { App, AppType, ThemeProvider, ToastContainer } from '@sushiswap/ui'
-import { client } from '@sushiswap/wagmi'
+import { App, AppType, ThemeProvider, ToastContainer } from 'soulswap-ui'
+import { client } from 'soulswap-wagmi'
 import { SUPPORTED_CHAIN_IDS } from 'config'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'

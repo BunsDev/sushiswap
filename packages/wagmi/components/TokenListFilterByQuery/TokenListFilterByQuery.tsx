@@ -1,8 +1,8 @@
 import { isAddress } from '@ethersproject/address'
-import { ChainId } from '@sushiswap/chain'
-import { Native, Token, Type } from '@sushiswap/currency'
-import { filterTokens, FundSource, tokenComparator, useDebounce, useSortedTokensByQuery } from '@sushiswap/hooks'
-import { Fraction } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Native, Token, Type } from 'soulswap-currency'
+import { filterTokens, FundSource, tokenComparator, useDebounce, useSortedTokensByQuery } from 'soulswap-hooks'
+import { Fraction } from 'soulswap-math'
 import { FC, RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import { useToken } from 'wagmi'
 

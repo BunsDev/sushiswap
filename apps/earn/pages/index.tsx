@@ -1,5 +1,5 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { Button, Link, OnsenIcon } from '@sushiswap/ui'
+import { Button, Link, OnsenIcon } from 'soulswap-ui'
 import { SUPPORTED_CHAIN_IDS } from 'config'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { FC, useMemo } from 'react'

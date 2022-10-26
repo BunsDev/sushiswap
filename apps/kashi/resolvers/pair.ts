@@ -1,4 +1,4 @@
-import { chainName, chainShortName } from '@sushiswap/chain'
+import { chainName, chainShortName } from 'soulswap-chain'
 import { KASHI_SUBGRAPH_HOST, KASHI_SUBGRAPH_NAME } from 'config'
 
 import { KashiPair, QueryResolvers } from '.graphclient'

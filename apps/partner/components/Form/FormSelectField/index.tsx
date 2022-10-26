@@ -1,4 +1,4 @@
-import { classNames, Typography } from '@sushiswap/ui'
+import { classNames, Typography } from 'soulswap-ui'
 import { FormType } from 'pages'
 import React, { FC, ReactElement, useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'

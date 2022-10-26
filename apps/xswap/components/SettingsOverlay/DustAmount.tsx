@@ -1,5 +1,5 @@
 import { CashIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import { Switch, Tooltip, Typography } from '@sushiswap/ui'
+import { Switch, Tooltip, Typography } from 'soulswap-ui'
 import { useState } from 'react'
 
 export const DustAmount = () => {

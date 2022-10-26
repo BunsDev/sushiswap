@@ -1,5 +1,5 @@
 import { ChevronLeftIcon } from '@heroicons/react/solid'
-import { Container, Typography } from '@sushiswap/ui'
+import { Container, Typography } from 'soulswap-ui'
 import Link from 'next/link'
 import { FC } from 'react'
 

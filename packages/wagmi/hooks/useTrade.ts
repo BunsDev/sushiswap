@@ -7,10 +7,10 @@ import {
   Trade,
   TradeType,
   Version as TradeVersion,
-} from '@sushiswap/amm'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Type as Currency, WNATIVE } from '@sushiswap/currency'
-import { RouteStatus } from '@sushiswap/tines'
+} from 'soulswap-amm'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Type as Currency, WNATIVE } from 'soulswap-currency'
+import { RouteStatus } from 'soulswap-tines'
 import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
 import { useFeeData } from 'wagmi'

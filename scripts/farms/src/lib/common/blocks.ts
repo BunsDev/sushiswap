@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { BLOCKS_SUBGRAPH_NAME, SUBGRAPH_HOST } from '@sushiswap/graph-config'
+import { ChainId } from 'soulswap-chain'
+import { BLOCKS_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 import { getUnixTime, subDays } from 'date-fns'
 
 interface Block {
@@ -8,7 +8,7 @@ interface Block {
 }
 
 const getBlock = async (timestamp: number | undefined = undefined, chainId: ChainId): Promise<Block | undefined> => {
-  const { getBuiltGraphSDK } = await import('@sushiswap/graph-client/.graphclient')
+  const { getBuiltGraphSDK } = await import('soulswap-graph-client/.graphclient')
   const subgraphName = BLOCKS_SUBGRAPH_NAME[chainId]
   if (!subgraphName) return
   const sdk = getBuiltGraphSDK({ subgraphHost: SUBGRAPH_HOST[chainId], subgraphName: subgraphName })

@@ -1,6 +1,6 @@
 import { Interface } from '@ethersproject/abi'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Token } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Token } from 'soulswap-currency'
 import IUniswapV2PairArtifact from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
 import { useContractRead } from 'wagmi'

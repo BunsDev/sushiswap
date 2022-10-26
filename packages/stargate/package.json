@@ -23,19 +23,19 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "TIMING=1 eslint src --fix",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "yarn build",
     "test": "jest --passWithNoTests"
   },
   "jest": {
     "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/currency": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/math": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-math": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "eslint": "^8.20.0",

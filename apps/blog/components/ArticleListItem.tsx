@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@sushiswap/ui'
+import { Chip, Typography } from 'soulswap-ui'
 import { format } from 'date-fns'
 import { FC } from 'react'
 

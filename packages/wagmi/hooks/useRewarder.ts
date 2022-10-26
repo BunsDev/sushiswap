@@ -1,4 +1,4 @@
-import { Amount, Token } from '@sushiswap/currency'
+import { Amount, Token } from 'soulswap-currency'
 import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
 import { useContractRead, useContractReads } from 'wagmi'

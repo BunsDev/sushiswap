@@ -4,7 +4,7 @@ Sushi CLI
 
 ## Build
 
-`pnpm build`
+`yarn build`
 
 ## Install
 

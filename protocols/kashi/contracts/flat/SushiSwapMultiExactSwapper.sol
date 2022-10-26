@@ -51,7 +51,7 @@ library BoringMath {
     }
 }
 
-// File @sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
 // License-Identifier: GPL-3.0
 
 interface IUniswapV2Pair {
@@ -170,7 +170,7 @@ library UniswapV2Library {
     }
 }
 
-// File @sushiswap/bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.2
+// File soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.2
 // License-Identifier: MIT
 
 interface IBentoBoxV1 {

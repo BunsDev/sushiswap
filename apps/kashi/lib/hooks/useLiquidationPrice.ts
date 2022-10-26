@@ -1,7 +1,7 @@
-import { Amount, Price, Type } from '@sushiswap/currency'
-import { Trade, TradeType, Version } from '@sushiswap/amm'
-import { Fraction, Percent, ZERO } from '@sushiswap/math'
-import { usePrices } from '@sushiswap/wagmi'
+import { Amount, Price, Type } from 'soulswap-currency'
+import { Trade, TradeType, Version } from 'soulswap-amm'
+import { Fraction, Percent, ZERO } from 'soulswap-math'
+import { usePrices } from 'soulswap-wagmi'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { useMemo } from 'react'
 

@@ -1,4 +1,4 @@
-# @sushiswap/bentobox
+# soulswap-bentobox
 
 ## 0.5.0
 

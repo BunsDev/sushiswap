@@ -8,9 +8,9 @@ import {
   Trade,
   TradeType,
   Version as TradeVersion,
-} from '@sushiswap/amm'
-import { Amount, Type as Currency, WNATIVE } from '@sushiswap/currency'
-import { MultiRoute, RouteStatus } from '@sushiswap/tines'
+} from 'soulswap-amm'
+import { Amount, Type as Currency, WNATIVE } from 'soulswap-currency'
+import { MultiRoute, RouteStatus } from 'soulswap-tines'
 import {
   PairState,
   useBentoBoxTotals,
@@ -18,7 +18,7 @@ import {
   useGetConstantProductPools,
   useGetStablePools,
   usePairs,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import {
   AMM_ENABLED_NETWORKS,
   CONSTANT_PRODUCT_POOL_FACTORY_ADDRESS,

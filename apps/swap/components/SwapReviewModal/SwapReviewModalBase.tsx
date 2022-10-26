@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { Amount, Price, Type } from '@sushiswap/currency'
-import { Dialog, Typography } from '@sushiswap/ui'
-import { Icon } from '@sushiswap/ui/currency/Icon'
+import { Amount, Price, Type } from 'soulswap-currency'
+import { Dialog, Typography } from 'soulswap-ui'
+import { Icon } from 'soulswap-ui/currency/Icon'
 import { FC, ReactNode, useMemo } from 'react'
 
 import { useTokenAmountDollarValues } from '../../lib/hooks'

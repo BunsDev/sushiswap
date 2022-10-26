@@ -1,4 +1,4 @@
-import { Type } from '@sushiswap/currency'
+import { Type } from 'soulswap-currency'
 import {
   classNames,
   DEFAULT_INPUT_CLASSNAME,
@@ -6,7 +6,7 @@ import {
   ERROR_INPUT_CLASSNAME,
   Input,
   Typography,
-} from '@sushiswap/ui'
+} from 'soulswap-ui'
 import React, { FC, useRef } from 'react'
 
 export type CurrencyInputBase = {

@@ -1,7 +1,7 @@
-import { formatUSD } from '@sushiswap/format'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { Button, Currency, Typography, useBreakpoint } from '@sushiswap/ui'
-import { Checker } from '@sushiswap/wagmi'
+import { formatUSD } from 'soulswap-format'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { Button, Currency, Typography, useBreakpoint } from 'soulswap-ui'
+import { Checker } from 'soulswap-wagmi'
 import { FC } from 'react'
 
 import { usePoolPositionRewards } from '../PoolPositionRewardsProvider'

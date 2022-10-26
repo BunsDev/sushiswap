@@ -1,6 +1,6 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { FundSource } from '@sushiswap/hooks'
-import { Button, classNames, Typography } from '@sushiswap/ui'
+import { FundSource } from 'soulswap-hooks'
+import { Button, classNames, Typography } from 'soulswap-ui'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 
 import { CreateMultipleStreamFormData } from '../types'

@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react'
-import { useIsMounted } from '@sushiswap/hooks'
+import { useIsMounted } from 'soulswap-hooks'
 import { ElementType, FC, Fragment, ReactNode } from 'react'
 
 interface AppearOnMount {

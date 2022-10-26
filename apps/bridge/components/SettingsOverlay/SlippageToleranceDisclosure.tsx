@@ -1,6 +1,6 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import { AdjustmentsIcon, ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import { classNames, DEFAULT_INPUT_UNSTYLED, Input, Tab, Tooltip, Typography } from '@sushiswap/ui'
+import { classNames, DEFAULT_INPUT_UNSTYLED, Input, Tab, Tooltip, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { useSettings } from '../../lib/state/storage'

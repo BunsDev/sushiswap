@@ -1,4 +1,4 @@
-import { Backdrop, Breadcrumb, BreadcrumbLink, classNames, Container, MaxWidth } from '@sushiswap/ui'
+import { Backdrop, Breadcrumb, BreadcrumbLink, classNames, Container, MaxWidth } from 'soulswap-ui'
 import React from 'react'
 
 type Props = {

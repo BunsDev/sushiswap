@@ -19,7 +19,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsc -w",
     "generate": "ls chains.json || curl 'https://chainid.network/chains.json' > chains.json",
-    "preinstall": "pnpm run generate",
+    "preinstall": "yarn run generate",
     "lint": "TIMING=1 eslint ./index.ts --fix",
     "test": "jest --passWithNoTests"
   },
@@ -29,7 +29,7 @@
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "eslint": "^8.20.0",

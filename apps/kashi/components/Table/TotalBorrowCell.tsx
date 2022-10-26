@@ -1,5 +1,5 @@
-import { Percent } from '@sushiswap/math'
-import { Typography } from '@sushiswap/ui'
+import { Percent } from 'soulswap-math'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { CellProps } from './types'

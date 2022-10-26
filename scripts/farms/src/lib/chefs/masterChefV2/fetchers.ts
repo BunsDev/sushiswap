@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { MasterChefV2 } from '@sushiswap/core'
-import MasterChefV2ABI from '@sushiswap/core/abi/MasterChefV2.json'
+import { ChainId } from 'soulswap-chain'
+import { MasterChefV2 } from 'soulswap-core'
+import MasterChefV2ABI from 'soulswap-core/abi/MasterChefV2.json'
 import { readContract, ReadContractConfig, readContracts, ReadContractsConfig } from '@wagmi/core'
 import { BigNumber } from 'ethers'
 

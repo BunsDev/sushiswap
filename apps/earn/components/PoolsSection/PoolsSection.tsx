@@ -1,6 +1,6 @@
 import { Tab } from '@headlessui/react'
-import { UserWithFarm } from '@sushiswap/graph-client/.graphclient'
-import { Chip, classNames } from '@sushiswap/ui'
+import { UserWithFarm } from 'soulswap-graph-client/.graphclient'
+import { Chip, classNames } from 'soulswap-ui'
 import { FC, useState } from 'react'
 import useSWR from 'swr'
 import { useAccount } from 'wagmi'

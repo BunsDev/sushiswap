@@ -1,4 +1,4 @@
-import { Button, Link } from '@sushiswap/ui'
+import { Button, Link } from 'soulswap-ui'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { useRouter } from 'next/router'
 import { FC } from 'react'

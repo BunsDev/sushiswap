@@ -1,6 +1,6 @@
 import { ChevronDoubleDownIcon, LogoutIcon } from '@heroicons/react/outline'
-import { ChainId } from '@sushiswap/chain'
-import { shortenAddress } from '@sushiswap/format'
+import { ChainId } from 'soulswap-chain'
+import { shortenAddress } from 'soulswap-format'
 import {
   AppearOnMount,
   Button as UIButton,
@@ -13,7 +13,7 @@ import {
   MetamaskIcon,
   Typography,
   WalletConnectIcon,
-} from '@sushiswap/ui'
+} from 'soulswap-ui'
 import React, { ReactNode } from 'react'
 import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi'
 

@@ -1,9 +1,9 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import {
   getSushiSwapKlimaRouterContractConfig,
   getSushiSwapRouterContractConfig,
   getTridentRouterContractConfig,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import { AMM_ENABLED_NETWORKS, TRIDENT_ENABLED_NETWORKS } from 'config'
 import { Contract } from 'ethers'
 import { useMemo } from 'react'

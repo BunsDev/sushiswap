@@ -22,13 +22,13 @@ library BoringMath {
     }
 }
 
-// File @sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol@v1.4.2
 // License-Identifier: GPL-3.0
 interface IUniswapV2Factory {
     function getPair(address tokenA, address tokenB) external view returns (address pair);
 }
 
-// File @sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
 // License-Identifier: GPL-3.0
 interface IUniswapV2Pair {
     function token0() external view returns (address);
@@ -56,7 +56,7 @@ interface IERC20 {
 
 }
 
-// File @sushiswap/bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.0
+// File soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.0
 // License-Identifier: MIT
 interface IBentoBoxV1 {
     function deposit(

@@ -1,5 +1,5 @@
 import { parseUnits } from '@ethersproject/units'
-import { JSBI } from '@sushiswap/math'
+import { JSBI } from 'soulswap-math'
 
 import { Amount } from './Amount'
 import { Type } from './Type'

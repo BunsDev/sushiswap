@@ -1,4 +1,4 @@
-import { classNames } from '@sushiswap/ui'
+import { classNames } from 'soulswap-ui'
 import { DEFAULT_FORM_FIELD_CLASSNAMES } from 'components/Form'
 import FormFieldHelperText from 'components/Form/FormFieldHelperText'
 import { FormType } from 'pages'

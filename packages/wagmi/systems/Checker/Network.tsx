@@ -1,5 +1,5 @@
-import { Chain } from '@sushiswap/chain'
-import { Button } from '@sushiswap/ui'
+import { Chain } from 'soulswap-chain'
+import { Button } from 'soulswap-ui'
 import { FC, ReactElement } from 'react'
 import { useNetwork, useSwitchNetwork } from 'wagmi'
 

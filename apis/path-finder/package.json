@@ -11,15 +11,15 @@
   "license": "MIT",
   "author": "0xBuns",
   "dependencies": {
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/tines": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-tines": "workspace:*",
     "@vercel/node": "^1.14.1",
     "lodash.flatmap": "^4.5.0"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/lodash.flatmap": "^4.5.7"
   }

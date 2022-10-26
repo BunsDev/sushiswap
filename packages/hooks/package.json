@@ -30,10 +30,10 @@
     "react-responsive": "9.0.0-beta.10"
   },
   "devDependencies": {
-    "@sushiswap/currency": "workspace:*",
+    "soulswap-currency": "workspace:*",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/math": "workspace:*",
+    "soulswap-math": "workspace:*",
     "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",

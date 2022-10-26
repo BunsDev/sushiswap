@@ -8,7 +8,7 @@ https://pnpm.io/installation
 
 ### Install
 
-`pnpm install`
+`yarn install`
 
 ### Dev
 
@@ -63,29 +63,29 @@ https://pnpm.io/installation
 
 `git checkout -b feature/example-app`
 
-<!-- `pnpm exec @sushiswap/cli create-app example-app` -->
+<!-- `pnpm exec soulswap-cli create-app example-app` -->
 
 ## Packages
 
-- `@sushiswap/chain`
-- `@sushiswap/cli`
-- `@sushiswap/currency`
-- `@sushiswap/amm`
-- `@sushiswap/format`
-- `@sushiswap/graph-client`
-- `@sushiswap/hooks`
-- `@sushiswap/math`
+- `soulswap-chain`
+- `soulswap-cli`
+- `soulswap-currency`
+- `soulswap-amm`
+- `soulswap-format`
+- `soulswap-graph-client`
+- `soulswap-hooks`
+- `soulswap-math`
 - `soulswap-eslint-config`
 - `soulswap-hardhat-config`
-- `@sushiswap/prettier-config`
+- `soulswap-prettier-config`
 - `soulswap-typescript-config`
-- `@sushiswap/redux-logs`
-- `@sushiswap/redux-token-lists`
-- `@sushiswap/stargate`
-- `@sushiswap/tines`
-- `@sushiswap/token-lists`
-- `@sushiswap/ui`
-- `@sushiswap/wagmi`
+- `soulswap-redux-logs`
+- `soulswap-redux-token-lists`
+- `soulswap-stargate`
+- `soulswap-tines`
+- `soulswap-token-lists`
+- `soulswap-ui`
+- `soulswap-wagmi`
 
 ### Creating a new package
 
@@ -93,12 +93,12 @@ https://pnpm.io/installation
 
 ## Protocols
 
-- `@sushiswap/bentobox`
-- `@sushiswap/furo`
-- `@sushiswap/kashi`
-- `@sushiswap/miso`
-- `@sushiswap/sushiswap`
-- `@sushiswap/sushixswap`
+- `soulswap-bentobox`
+- `soulswap-furo`
+- `soulswap-kashi`
+- `soulswap-miso`
+- `soulswap-sushiswap`
+- `soulswap-sushixswap`
 
 ### Creating a new protocol
 

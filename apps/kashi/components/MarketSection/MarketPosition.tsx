@@ -1,4 +1,4 @@
-import { Currency, Dialog, Typography } from '@sushiswap/ui'
+import { Currency, Dialog, Typography } from 'soulswap-ui'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { FC, useCallback, useState } from 'react'
 

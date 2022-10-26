@@ -1,5 +1,5 @@
-import { chainShortName } from '@sushiswap/chain'
-import { Token } from '@sushiswap/currency'
+import { chainShortName } from 'soulswap-chain'
+import { Token } from 'soulswap-currency'
 import { UseQueryOptions } from '@tanstack/react-query'
 import { useMemo } from 'react'
 import { useQuery } from 'wagmi'

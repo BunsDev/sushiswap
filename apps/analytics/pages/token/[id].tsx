@@ -1,4 +1,4 @@
-import { Token as GraphToken } from '@sushiswap/graph-client/.graphclient'
+import { Token as GraphToken } from 'soulswap-graph-client/.graphclient'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { FC } from 'react'

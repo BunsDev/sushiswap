@@ -1,5 +1,5 @@
 import { SafeConnector } from '@gnosis.pm/safe-apps-wagmi'
-import { otherChains } from '@sushiswap/wagmi-config'
+import { otherChains } from 'soulswap-wagmi-config'
 import { BigNumber } from 'ethers'
 import { allChains, Chain, configureChains, createClient, CreateClientConfig } from 'wagmi'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'

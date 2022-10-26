@@ -1,8 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import { InformationCircleIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { Percent } from '@sushiswap/math'
-import { classNames, Tooltip, Typography } from '@sushiswap/ui'
+import { Percent } from 'soulswap-math'
+import { classNames, Tooltip, Typography } from 'soulswap-ui'
 import { Rate, Route, useTrade } from 'components'
 import React, { FC, useMemo, useState } from 'react'
 

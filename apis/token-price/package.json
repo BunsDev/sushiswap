@@ -6,7 +6,7 @@
     "lint": "TIMING=1 eslint --fix ."
   },
   "dependencies": {
-    "@sushiswap/chain": "workspace:*",
+    "soulswap-chain": "workspace:*",
     "@vercel/node": "^2.2.0",
     "date-fns": "2.x",
     "ioredis": "5.x"
@@ -14,7 +14,7 @@
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*"
   }
 }

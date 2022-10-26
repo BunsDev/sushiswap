@@ -1,4 +1,4 @@
-import { BENTOBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from '@sushiswap/graph-config'
+import { BENTOBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 
 import { Resolvers, SubgraphStatus } from '.graphclient'
 import { getBuiltGraphSDK } from '.graphclient'

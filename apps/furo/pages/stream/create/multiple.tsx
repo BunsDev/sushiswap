@@ -1,4 +1,4 @@
-import { Breadcrumb, BreadcrumbLink } from '@sushiswap/ui'
+import { Breadcrumb, BreadcrumbLink } from 'soulswap-ui'
 import { Layout } from 'components'
 import { CreateMultipleForm } from 'components/stream'
 import { NextSeo } from 'next-seo'

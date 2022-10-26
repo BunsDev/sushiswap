@@ -1,6 +1,6 @@
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI } from '@sushiswap/math'
-import { getBentoBoxContractConfig, getFuroVestingContractConfig } from '@sushiswap/wagmi'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI } from 'soulswap-math'
+import { getBentoBoxContractConfig, getFuroVestingContractConfig } from 'soulswap-wagmi'
 import { useMemo } from 'react'
 import { useContractRead } from 'wagmi'
 export function useVestingBalance(chainId?: number, vestingId?: string, token?: Token): Amount<Token> | undefined {

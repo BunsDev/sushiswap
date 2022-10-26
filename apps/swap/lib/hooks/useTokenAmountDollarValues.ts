@@ -1,6 +1,6 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { ZERO } from '@sushiswap/math'
-import { usePrices } from '@sushiswap/wagmi'
+import { Amount, Type } from 'soulswap-currency'
+import { ZERO } from 'soulswap-math'
+import { usePrices } from 'soulswap-wagmi'
 import { useMemo } from 'react'
 
 interface Params {

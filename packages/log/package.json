@@ -25,21 +25,21 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "TIMING=1 eslint src --fix",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "yarn build",
     "test": "jest --passWithNoTests"
   },
   "jest": {
     "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
-    "@sushiswap/chain": "workspace:*",
+    "soulswap-chain": "workspace:*",
     "chalk": "^4.0.0",
     "isomorphic-unfetch": "^3.1.0"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@types/node": "^16.11.33",

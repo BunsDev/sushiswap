@@ -1,6 +1,6 @@
 import { Signature, splitSignature } from '@ethersproject/bytes'
 import { AddressZero, HashZero } from '@ethersproject/constants'
-import { NotificationData } from '@sushiswap/ui'
+import { NotificationData } from 'soulswap-ui'
 import { useCallback, useMemo, useState } from 'react'
 import {
   useAccount,

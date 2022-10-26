@@ -1,11 +1,11 @@
 import transpileModules from 'next-transpile-modules'
 
 const withTranspileModules = transpileModules([
-  '@sushiswap/redux-token-lists',
-  '@sushiswap/redux-localstorage',
-  '@sushiswap/chain',
-  '@sushiswap/wagmi',
-  '@sushiswap/ui',
+  'soulswap-redux-token-lists',
+  'soulswap-redux-localstorage',
+  'soulswap-chain',
+  'soulswap-wagmi',
+  'soulswap-ui',
 ])
 
 // @ts-check

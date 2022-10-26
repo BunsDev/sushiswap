@@ -1,6 +1,6 @@
-import { formatPercent } from '@sushiswap/format'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { classNames, Currency as UICurrency, Typography } from '@sushiswap/ui'
+import { formatPercent } from 'soulswap-format'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { classNames, Currency as UICurrency, Typography } from 'soulswap-ui'
 import React, { FC } from 'react'
 
 import { incentiveRewardToToken } from '../../../lib/functions'

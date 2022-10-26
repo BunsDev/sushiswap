@@ -1,5 +1,5 @@
-import { Breadcrumb, ProgressBar, ProgressColor } from '@sushiswap/ui'
-import { getFuroStreamContractConfig, useWalletState } from '@sushiswap/wagmi'
+import { Breadcrumb, ProgressBar, ProgressColor } from 'soulswap-ui'
+import { getFuroStreamContractConfig, useWalletState } from 'soulswap-wagmi'
 import {
   BackgroundVector,
   CancelModal,

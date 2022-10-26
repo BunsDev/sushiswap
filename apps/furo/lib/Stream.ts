@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI, Percent } from '@sushiswap/math'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI, Percent } from 'soulswap-math'
 
 import { Furo } from './Furo'
 import { type Rebase as RebaseDTO, type Stream as StreamDTO } from '.graphclient'

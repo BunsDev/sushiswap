@@ -1,4 +1,4 @@
-import { UserWithFarm } from '@sushiswap/graph-client/.graphclient'
+import { UserWithFarm } from 'soulswap-graph-client/.graphclient'
 import { ColumnDef } from '@tanstack/react-table'
 import React from 'react'
 

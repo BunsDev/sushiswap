@@ -1,6 +1,6 @@
 import { AddressZero, MaxUint256 } from '@ethersproject/constants'
-import { Amount, Currency } from '@sushiswap/currency'
-import { NotificationData } from '@sushiswap/ui'
+import { Amount, Currency } from 'soulswap-currency'
+import { NotificationData } from 'soulswap-ui'
 import { Contract } from 'ethers'
 import { useCallback, useMemo } from 'react'
 import {

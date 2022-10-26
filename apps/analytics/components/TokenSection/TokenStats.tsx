@@ -1,6 +1,6 @@
-import { formatNumber, formatUSD } from '@sushiswap/format'
-import { Token as GraphToken } from '@sushiswap/graph-client/.graphclient'
-import { Typography } from '@sushiswap/ui'
+import { formatNumber, formatUSD } from 'soulswap-format'
+import { Token as GraphToken } from 'soulswap-graph-client/.graphclient'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 interface TokenStatsProps {

@@ -1,4 +1,4 @@
-import { Chain } from '@sushiswap/chain'
+import { Chain } from 'soulswap-chain'
 import { FC } from 'react'
 
 import { Loader, NotificationData } from '..'

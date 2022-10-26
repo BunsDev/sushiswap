@@ -1,6 +1,6 @@
-import { formatUSD } from '@sushiswap/format'
-import { Button, Currency, Dialog, Typography } from '@sushiswap/ui'
-import { Checker } from '@sushiswap/wagmi'
+import { formatUSD } from 'soulswap-format'
+import { Button, Currency, Dialog, Typography } from 'soulswap-ui'
+import { Checker } from 'soulswap-wagmi'
 import { FC, useCallback } from 'react'
 
 import { PairWithAlias } from '../../../types'

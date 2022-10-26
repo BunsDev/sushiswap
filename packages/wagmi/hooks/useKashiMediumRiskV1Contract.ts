@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import kashiExports from '@sushiswap/kashi/exports.json'
-import { KashiPairMediumRiskV1 } from '@sushiswap/kashi/typechain'
+import { ChainId } from 'soulswap-chain'
+import kashiExports from 'soulswap-kashi/exports.json'
+import { KashiPairMediumRiskV1 } from 'soulswap-kashi/typechain'
 import { useContract, useProvider } from 'wagmi'
 
 export const KASHI_ADDRESS = {

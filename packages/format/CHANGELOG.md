@@ -1,4 +1,4 @@
-# @sushiswap/format
+# soulswap-format
 
 ## 0.1.0
 

@@ -1,7 +1,7 @@
-import { Amount, Token } from '@sushiswap/currency'
-import { Incentive, Pair } from '@sushiswap/graph-client/.graphclient'
-import { Chef, RewarderType, useMasterChef } from '@sushiswap/wagmi'
-import { useRewarder } from '@sushiswap/wagmi/hooks/useRewarder'
+import { Amount, Token } from 'soulswap-currency'
+import { Incentive, Pair } from 'soulswap-graph-client/.graphclient'
+import { Chef, RewarderType, useMasterChef } from 'soulswap-wagmi'
+import { useRewarder } from 'soulswap-wagmi/hooks/useRewarder'
 import { createContext, FC, ReactNode, useCallback, useContext, useMemo, useState } from 'react'
 import { ProviderRpcError, useAccount, UserRejectedRequestError } from 'wagmi'
 

@@ -29,19 +29,19 @@
     "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
-    "@sushiswap/graph-client": "workspace:*",
-    "@sushiswap/graph-config": "workspace:*",
-    "@sushiswap/format": "workspace:*",
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/log": "workspace:*",
+    "soulswap-graph-client": "workspace:*",
+    "soulswap-graph-config": "workspace:*",
+    "soulswap-format": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-currency": "workspace:*",
+    "soulswap-log": "workspace:*",
     "isomorphic-unfetch": "^3.1.0",
     "graphql": "16.6.0"
   },
   "devDependencies": {
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@types/node": "^17.0.31",
     "@types/numeral": "^2.0.2",

@@ -11,8 +11,8 @@ import {
   UploadIcon,
   XIcon,
 } from '@heroicons/react/solid'
-import chains, { ChainId } from '@sushiswap/chain'
-import { Token } from '@sushiswap/currency'
+import chains, { ChainId } from 'soulswap-chain'
+import { Token } from 'soulswap-currency'
 import {
   Badge,
   classNames,
@@ -25,7 +25,7 @@ import {
   NotificationData,
   TimeAgo,
   Typography,
-} from '@sushiswap/ui'
+} from 'soulswap-ui'
 import React, { FC } from 'react'
 import { useWaitForTransaction } from 'wagmi'
 

@@ -1,8 +1,8 @@
 import 'dotenv/config'
 import './lib/wagmi'
 
-import { ChainId } from '@sushiswap/chain'
-import { MINICHEF_SUBGRAPH_NAME } from '@sushiswap/graph-config'
+import { ChainId } from 'soulswap-chain'
+import { MINICHEF_SUBGRAPH_NAME } from 'soulswap-graph-config'
 import { getUnixTime } from 'date-fns'
 import stringify from 'fast-json-stable-stringify'
 

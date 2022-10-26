@@ -1,7 +1,7 @@
 import '../index.css'
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 
-import { App, ThemeProvider } from '@sushiswap/ui'
+import { App, ThemeProvider } from 'soulswap-ui'
 import { Header } from 'components/Header'
 import type { AppProps } from 'next/app'
 import { FC } from 'react'

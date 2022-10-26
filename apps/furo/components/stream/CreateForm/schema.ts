@@ -1,5 +1,5 @@
-import { Token, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
+import { Token, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
 import { getAddress } from 'ethers/lib/utils'
 import * as yup from 'yup'
 import Reference from 'yup/lib/Reference'

@@ -1,5 +1,5 @@
-import { formatUSD } from '@sushiswap/format'
-import { Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { TokenCellProps } from './types'

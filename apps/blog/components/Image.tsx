@@ -1,4 +1,4 @@
-import { classNames } from '@sushiswap/ui'
+import { classNames } from 'soulswap-ui'
 import NextImage from 'next/image'
 import { FC } from 'react'
 

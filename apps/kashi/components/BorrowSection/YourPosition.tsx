@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from '@heroicons/react/outline'
-import { Price, tryParseAmount } from '@sushiswap/currency'
-import { formatUSD } from '@sushiswap/format'
-import { classNames, Typography } from '@sushiswap/ui'
-import { usePrices } from '@sushiswap/wagmi'
+import { Price, tryParseAmount } from 'soulswap-currency'
+import { formatUSD } from 'soulswap-format'
+import { classNames, Typography } from 'soulswap-ui'
+import { usePrices } from 'soulswap-wagmi'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { FC, ReactNode, useMemo } from 'react'
 

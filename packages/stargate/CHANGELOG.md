@@ -1,4 +1,4 @@
-# @sushiswap/stargate
+# soulswap-stargate
 
 ## 0.1.0
 

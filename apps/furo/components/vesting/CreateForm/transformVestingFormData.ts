@@ -1,5 +1,5 @@
-import { Native, Token, tryParseAmount } from '@sushiswap/currency'
-import { Fraction, JSBI, ZERO } from '@sushiswap/math'
+import { Native, Token, tryParseAmount } from 'soulswap-currency'
+import { Fraction, JSBI, ZERO } from 'soulswap-math'
 
 import { CreateVestingFormData, CreateVestingFormDataTransformed } from '../types'
 

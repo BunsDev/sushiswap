@@ -1,4 +1,4 @@
-import { Type } from '@sushiswap/currency'
+import { Type } from 'soulswap-currency'
 import React, { CSSProperties, FC, memo, ReactElement, useCallback } from 'react'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { FixedSizeList } from 'react-window'

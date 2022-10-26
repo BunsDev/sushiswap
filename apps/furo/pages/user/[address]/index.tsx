@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { BackgroundVector, Layout } from 'components'
 import { getUserStreams, getUserVestings } from 'lib'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'

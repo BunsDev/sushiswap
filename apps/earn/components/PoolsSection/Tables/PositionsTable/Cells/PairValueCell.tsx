@@ -1,6 +1,6 @@
-import { formatUSD } from '@sushiswap/format'
-import { useInViewport } from '@sushiswap/hooks'
-import { Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { useInViewport } from 'soulswap-hooks'
+import { Typography } from 'soulswap-ui'
 import { FC, useRef } from 'react'
 
 import { PoolPositionProvider } from '../../../../PoolPositionProvider'

@@ -1,6 +1,6 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 
-import { client } from '@sushiswap/wagmi'
+import { client } from 'soulswap-wagmi'
 import type { AppProps } from 'next/app'
 import NextHead from 'next/head'
 import { FC } from 'react'

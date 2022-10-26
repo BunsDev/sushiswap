@@ -1,8 +1,8 @@
-import chains from '@sushiswap/chain'
-import { Native, Token } from '@sushiswap/currency'
-import { formatPercent, formatUSD } from '@sushiswap/format'
-import { Token as GraphToken } from '@sushiswap/graph-client/.graphclient'
-import { Currency, Link, Table, Tooltip, Typography } from '@sushiswap/ui'
+import chains from 'soulswap-chain'
+import { Native, Token } from 'soulswap-currency'
+import { formatPercent, formatUSD } from 'soulswap-format'
+import { Token as GraphToken } from 'soulswap-graph-client/.graphclient'
+import { Currency, Link, Table, Tooltip, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { FarmRewardsAvailableTooltip } from '../FarmRewardsAvailableTooltip'

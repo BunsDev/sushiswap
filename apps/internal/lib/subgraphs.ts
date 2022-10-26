@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import {
   BENTOBOX_SUBGRAPH_NAME,
   BLOCKS_SUBGRAPH_NAME,
@@ -9,7 +9,7 @@ import {
   MINICHEF_SUBGRAPH_NAME,
   SUBGRAPH_HOST,
   TRIDENT_SUBGRAPH_NAME,
-} from '@sushiswap/graph-config'
+} from 'soulswap-graph-config'
 
 import { getBuiltGraphSDK } from '.graphclient'
 

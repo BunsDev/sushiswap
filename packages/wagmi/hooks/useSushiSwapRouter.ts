@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import sushiswapExports from '@sushiswap/sushiswap/exports.json'
+import { ChainId } from 'soulswap-chain'
+import sushiswapExports from 'soulswap-sushiswap/exports.json'
 import { useMemo } from 'react'
 import { useSigner } from 'wagmi'
 import { getContract } from 'wagmi/actions'

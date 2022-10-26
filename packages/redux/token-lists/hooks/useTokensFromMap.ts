@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { Token } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Token } from 'soulswap-currency'
 import { useMemo } from 'react'
 
 import { ChainTokenMap } from '../types'

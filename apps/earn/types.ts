@@ -1,6 +1,6 @@
-import { Token } from '@sushiswap/currency'
-import { Pair } from '@sushiswap/graph-client/.graphclient'
-import { Chef, Incentive } from '@sushiswap/wagmi'
+import { Token } from 'soulswap-currency'
+import { Pair } from 'soulswap-graph-client/.graphclient'
+import { Chef, Incentive } from 'soulswap-wagmi'
 
 export interface PairWithFarmRewards extends Pair {
   incentives: Incentive<Token>[]

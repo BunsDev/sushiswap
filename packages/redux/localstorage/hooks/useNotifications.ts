@@ -5,7 +5,7 @@ import {
   createSuccessToast,
   createToast,
   NotificationData,
-} from '@sushiswap/ui'
+} from 'soulswap-ui'
 import stringify from 'fast-json-stable-stringify'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

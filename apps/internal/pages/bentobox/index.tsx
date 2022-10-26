@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { formatNumber } from '@sushiswap/format'
+import { ChainId } from 'soulswap-chain'
+import { formatNumber } from 'soulswap-format'
 import { Kpis } from 'components/Kpi'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 

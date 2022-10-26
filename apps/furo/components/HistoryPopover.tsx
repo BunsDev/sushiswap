@@ -1,4 +1,4 @@
-import { Button, HistoryIcon, Tooltip, Typography } from '@sushiswap/ui'
+import { Button, HistoryIcon, Tooltip, Typography } from 'soulswap-ui'
 import { format } from 'date-fns'
 import { Stream, Transaction, Vesting } from 'lib'
 import { FC, memo, useMemo } from 'react'

@@ -1,4 +1,4 @@
-import { ChainId, chainName } from '@sushiswap/chain'
+import { ChainId, chainName } from 'soulswap-chain'
 import { FC, ReactElement, useCallback, useMemo } from 'react'
 
 import { NetworkIcon } from '../icons'

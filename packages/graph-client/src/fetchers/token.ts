@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { otherChains } from '@sushiswap/wagmi-config'
+import { ChainId } from 'soulswap-chain'
+import { otherChains } from 'soulswap-wagmi-config'
 import { allChains, configureChains, createClient, readContract } from '@wagmi/core'
 import { erc20ABI } from '@wagmi/core'
 import { alchemyProvider } from '@wagmi/core/providers/alchemy'

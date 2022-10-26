@@ -1,5 +1,5 @@
 import { CheckIcon, XIcon } from '@heroicons/react/outline'
-import { Form, Input, Switch } from '@sushiswap/ui'
+import { Form, Input, Switch } from 'soulswap-ui'
 import { CurrencyInput } from 'components'
 import { FC } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'

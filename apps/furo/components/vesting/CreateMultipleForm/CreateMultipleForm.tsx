@@ -8,11 +8,11 @@ import {
   TableIcon,
 } from '@heroicons/react/outline'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Chain } from '@sushiswap/chain'
-import { Amount, Native, Token, Type } from '@sushiswap/currency'
-import { shortenAddress } from '@sushiswap/format'
-import { FundSource } from '@sushiswap/hooks'
-import log from '@sushiswap/log'
+import { Chain } from 'soulswap-chain'
+import { Amount, Native, Token, Type } from 'soulswap-currency'
+import { shortenAddress } from 'soulswap-format'
+import { FundSource } from 'soulswap-hooks'
+import log from 'soulswap-log'
 import {
   Button,
   classNames,
@@ -25,8 +25,8 @@ import {
   Table,
   Tooltip,
   Typography,
-} from '@sushiswap/ui'
-import { Approve, BENTOBOX_ADDRESS, useBentoBoxTotals, useFuroVestingRouterContract, usePrices } from '@sushiswap/wagmi'
+} from 'soulswap-ui'
+import { Approve, BENTOBOX_ADDRESS, useBentoBoxTotals, useFuroVestingRouterContract, usePrices } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import { useNotifications } from 'lib/state/storage'
 import Link from 'next/link'

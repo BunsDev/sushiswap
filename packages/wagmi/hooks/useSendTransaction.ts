@@ -1,6 +1,6 @@
 import { ErrorCode } from '@ethersproject/logger'
 import { TransactionRequest } from '@ethersproject/providers'
-import { createErrorToast } from '@sushiswap/ui'
+import { createErrorToast } from 'soulswap-ui'
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { ProviderRpcError, usePrepareSendTransaction, useSendTransaction as useSendTransaction_ } from 'wagmi'
 import { SendTransactionArgs, SendTransactionResult } from 'wagmi/actions'

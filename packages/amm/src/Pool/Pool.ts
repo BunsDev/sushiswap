@@ -1,5 +1,5 @@
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI } from '@sushiswap/math'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI } from 'soulswap-math'
 
 import { Fee } from '../Fee'
 

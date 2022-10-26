@@ -1,4 +1,4 @@
-import { WrappedTokenInfo } from '@sushiswap/token-lists'
+import { WrappedTokenInfo } from 'soulswap-token-lists'
 import type { TokenList } from '@uniswap/token-lists'
 
 export type TokenAddressMap = ChainTokenMap

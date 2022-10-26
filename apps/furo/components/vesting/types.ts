@@ -1,6 +1,6 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
-import { JSBI } from '@sushiswap/math'
+import { Amount, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
+import { JSBI } from 'soulswap-math'
 
 export type StepConfig = {
   label: string

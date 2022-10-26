@@ -1,7 +1,7 @@
 import { Disclosure, Transition } from '@headlessui/react'
-import chains, { ChainId } from '@sushiswap/chain'
-import { classNames, Network, NetworkIcon, Typography } from '@sushiswap/ui'
-import { Widget } from '@sushiswap/ui/widget'
+import chains, { ChainId } from 'soulswap-chain'
+import { classNames, Network, NetworkIcon, Typography } from 'soulswap-ui'
+import { Widget } from 'soulswap-ui/widget'
 import React, { FC, memo } from 'react'
 
 import { SUPPORTED_CHAIN_IDS } from '../../config'

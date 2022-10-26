@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon, ExclamationCircleIcon, XCircleIcon } from '@heroicons/react/solid'
-import { CircleIcon, classNames, Loader, Tooltip, Typography } from '@sushiswap/ui'
+import { CircleIcon, classNames, Loader, Tooltip, Typography } from 'soulswap-ui'
 import Link from 'next/link'
 import { FC, ReactNode } from 'react'
 

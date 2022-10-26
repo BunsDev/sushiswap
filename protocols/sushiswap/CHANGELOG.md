@@ -1,4 +1,4 @@
-# @sushiswap/sushiswap
+# soulswap-sushiswap
 
 ## 0.1.0
 

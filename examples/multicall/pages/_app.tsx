@@ -1,4 +1,4 @@
-import '@sushiswap/ui/index.css'
+import 'soulswap-ui/index.css'
 
 import type { AppProps } from 'next/app'
 import { FC, useMemo } from 'react'

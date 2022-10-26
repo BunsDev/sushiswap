@@ -1,6 +1,6 @@
 import { AddressZero } from '@ethersproject/constants'
-import { Type as Currency } from '@sushiswap/currency'
-import { JSBI } from '@sushiswap/math'
+import { Type as Currency } from 'soulswap-currency'
+import { JSBI } from 'soulswap-math'
 import { useMemo } from 'react'
 import { useContractReads } from 'wagmi'
 import { UseContractReadsConfig } from 'wagmi/dist/declarations/src/hooks/contracts/useContractReads'

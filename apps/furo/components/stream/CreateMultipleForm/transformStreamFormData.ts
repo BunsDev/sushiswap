@@ -1,4 +1,4 @@
-import { Native, Token, tryParseAmount } from '@sushiswap/currency'
+import { Native, Token, tryParseAmount } from 'soulswap-currency'
 
 import { CreateStreamFormDataTransformed, CreateStreamFormDataValidated } from '../types'
 

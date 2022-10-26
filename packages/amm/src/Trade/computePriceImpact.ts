@@ -1,5 +1,5 @@
-import { Amount, Price, Type as Currency } from '@sushiswap/currency'
-import { Percent } from '@sushiswap/math'
+import { Amount, Price, Type as Currency } from 'soulswap-currency'
+import { Percent } from 'soulswap-math'
 
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.

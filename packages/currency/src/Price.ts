@@ -1,4 +1,4 @@
-import { BigintIsh, Fraction, JSBI, Rounding } from '@sushiswap/math'
+import { BigintIsh, Fraction, JSBI, Rounding } from 'soulswap-math'
 import invariant from 'tiny-invariant'
 
 import { Amount } from './Amount'

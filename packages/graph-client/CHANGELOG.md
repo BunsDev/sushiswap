@@ -1,4 +1,4 @@
-# @sushiswap/graph-client
+# soulswap-graph-client
 
 ## 0.2.2
 

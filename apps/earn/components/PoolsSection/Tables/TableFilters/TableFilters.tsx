@@ -1,6 +1,6 @@
 import { XIcon } from '@heroicons/react/outline'
 import { CheckIcon } from '@heroicons/react/solid'
-import { classNames, Network, Select, Switch, Typography } from '@sushiswap/ui'
+import { classNames, Network, Select, Switch, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { SUPPORTED_CHAIN_IDS } from '../../../../config'

@@ -1,6 +1,6 @@
 import { SearchIcon } from '@heroicons/react/outline'
-import { useDebounce } from '@sushiswap/hooks'
-import { Button, Container } from '@sushiswap/ui'
+import { useDebounce } from 'soulswap-hooks'
+import { Button, Container } from 'soulswap-ui'
 import { BlogSeo } from 'components/Seo/BlogSeo'
 import { InferGetServerSidePropsType } from 'next'
 import { FC, useState } from 'react'

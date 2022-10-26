@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Price, Token, USDC_ADDRESS, WETH9, WETH9_ADDRESS } from '@sushiswap/currency'
-import EXPORTS from '@sushiswap/trident/exports/all.json'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Price, Token, USDC_ADDRESS, WETH9, WETH9_ADDRESS } from 'soulswap-currency'
+import EXPORTS from 'soulswap-trident/exports/all.json'
 
 import { InsufficientInputAmountError } from '../errors'
 import { computeConstantProductPoolAddress } from './computeConstantProductPoolAddress'

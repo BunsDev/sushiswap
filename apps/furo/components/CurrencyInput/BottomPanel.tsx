@@ -1,5 +1,5 @@
-import { Amount, Currency } from '@sushiswap/currency'
-import { Loader, Typography } from '@sushiswap/ui'
+import { Amount, Currency } from 'soulswap-currency'
+import { Loader, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 interface BottomPanel {

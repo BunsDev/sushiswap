@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid'
-import { Button } from '@sushiswap/ui'
+import { Button } from 'soulswap-ui'
 import { format } from 'date-fns'
 import { FC } from 'react'
 

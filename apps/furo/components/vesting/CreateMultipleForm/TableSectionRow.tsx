@@ -1,8 +1,8 @@
 import { Disclosure, Listbox } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon, PencilIcon, XIcon } from '@heroicons/react/outline'
 import { DuplicateIcon, MinusCircleIcon } from '@heroicons/react/solid'
-import { Token, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
+import { Token, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
 import {
   Button,
   classNames,
@@ -14,8 +14,8 @@ import {
   Select,
   Switch,
   Typography,
-} from '@sushiswap/ui'
-import { TokenSelector, Web3Input } from '@sushiswap/wagmi'
+} from 'soulswap-ui'
+import { TokenSelector, Web3Input } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import React, { FC, useState } from 'react'
 import { Control, Controller, useFormContext, useWatch } from 'react-hook-form'

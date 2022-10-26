@@ -1,8 +1,8 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
-import { Token } from '@sushiswap/currency'
-import { BENTOBOX_ADDRESS } from '@sushiswap/wagmi'
+import { Token } from 'soulswap-currency'
+import { BENTOBOX_ADDRESS } from 'soulswap-wagmi'
 import { KASHI_ADDRESS } from 'config'
 
 export const computePairAddress = ({

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { ChainId } from '@sushiswap/chain'
-import { Button, classNames, Loader, Typography } from '@sushiswap/ui'
+import { ChainId } from 'soulswap-chain'
+import { Button, classNames, Loader, Typography } from 'soulswap-ui'
 import { BackgroundImageMakerField, Form, ImageCanvas, NetworkModal, SizeSlider, UploadImageField } from 'components'
 import stringify from 'fast-json-stable-stringify'
 import { addressValidator, useTokenData } from 'lib'

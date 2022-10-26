@@ -1,4 +1,4 @@
-import { Button, Container } from '@sushiswap/ui'
+import { Button, Container } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { ArticleEntity } from '../.mesh'

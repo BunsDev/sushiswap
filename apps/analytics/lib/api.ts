@@ -1,10 +1,10 @@
-import { chainShortNameToChainId } from '@sushiswap/chain'
+import { chainShortNameToChainId } from 'soulswap-chain'
 import {
   getBuiltGraphSDK,
   Pagination,
   QuerycrossChainPairsArgs,
   QuerycrossChainTokensArgs,
-} from '@sushiswap/graph-client/.graphclient'
+} from 'soulswap-graph-client/.graphclient'
 
 import { SUPPORTED_CHAIN_IDS } from '../config'
 

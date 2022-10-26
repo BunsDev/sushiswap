@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from '@sushiswap/ui'
+import { Button, Container, Typography } from 'soulswap-ui'
 import Link from 'next/link'
 import { FC } from 'react'
 

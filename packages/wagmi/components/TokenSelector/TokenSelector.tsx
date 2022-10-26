@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { Token, Type } from '@sushiswap/currency'
-import { FundSource, useIsMounted } from '@sushiswap/hooks'
+import { ChainId } from 'soulswap-chain'
+import { Token, Type } from 'soulswap-currency'
+import { FundSource, useIsMounted } from 'soulswap-hooks'
 import { FC, memo, useMemo } from 'react'
 import { useAccount } from 'wagmi'
 

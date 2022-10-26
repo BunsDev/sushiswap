@@ -47,7 +47,7 @@
     "@commitlint/types": "^17.0.0",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "@types/jest": "^28.1.0",
     "@types/node": "^17.0.0",
     "eslint": "^8.20.0",

@@ -1,9 +1,9 @@
 import transpileModules from 'next-transpile-modules'
 
 const withTranspileModules = transpileModules([
-  '@sushiswap/redux-token-lists',
-  '@sushiswap/ui',
-  '@sushiswap/graph-client',
+  'soulswap-redux-token-lists',
+  'soulswap-ui',
+  'soulswap-graph-client',
 ])
 
 // @ts-check

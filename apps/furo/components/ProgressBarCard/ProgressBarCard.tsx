@@ -1,4 +1,4 @@
-import { Typography } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
 import { FC, HTMLAttributes } from 'react'
 
 interface ProgressBarCard extends HTMLAttributes<HTMLDivElement> {

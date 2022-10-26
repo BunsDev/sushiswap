@@ -1,5 +1,5 @@
 import { AddressZero } from '@ethersproject/constants'
-import { Amount, Token } from '@sushiswap/currency'
+import { Amount, Token } from 'soulswap-currency'
 import { useMemo } from 'react'
 import { erc20ABI, useContractRead } from 'wagmi'
 

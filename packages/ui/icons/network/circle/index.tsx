@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import * as React from 'react'
 
 import { ArbitrumCircle } from './ArbitrumCircle'

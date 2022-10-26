@@ -1,4 +1,4 @@
-import { ChainId, ChainKey } from '@sushiswap/chain'
+import { ChainId, ChainKey } from 'soulswap-chain'
 
 export const WETH_MAKER_SUPPORTED_CHAINS = [ChainId.ETHEREUM, ChainId.POLYGON, ChainId.ARBITRUM, ChainId.AVALANCHE]
 

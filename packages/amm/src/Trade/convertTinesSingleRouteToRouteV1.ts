@@ -1,5 +1,5 @@
-import { Type as Currency } from '@sushiswap/currency'
-import { MultiRoute } from '@sushiswap/tines'
+import { Type as Currency } from 'soulswap-currency'
+import { MultiRoute } from 'soulswap-tines'
 
 import { Pair } from '../Pair'
 import { RouteV1 } from '../Route'

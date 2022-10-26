@@ -1,5 +1,5 @@
 import { Result } from '@ethersproject/abi'
-import { Amount, Token } from '@sushiswap/currency'
+import { Amount, Token } from 'soulswap-currency'
 import { useMemo } from 'react'
 import { erc20ABI, useContractReads } from 'wagmi'
 

@@ -1,4 +1,4 @@
-import { Tooltip } from '@sushiswap/ui'
+import { Tooltip } from 'soulswap-ui'
 import { FC } from 'react'
 
 export const FarmRewardsAvailableTooltip: FC = () => {

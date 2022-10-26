@@ -36,12 +36,12 @@
     "preset": "soulswap-jest-config/node"
   },
   "dependencies": {
-    "@sushiswap/chain": "workspace:*",
-    "@sushiswap/core": "^2.0.0-canary.1",
-    "@sushiswap/currency": "workspace:*",
-    "@sushiswap/graph-client": "workspace:*",
-    "@sushiswap/graph-config": "workspace:*",
-    "@sushiswap/wagmi-config": "workspace:*",
+    "soulswap-chain": "workspace:*",
+    "soulswap-core": "^2.0.0-canary.1",
+    "soulswap-currency": "workspace:*",
+    "soulswap-graph-client": "workspace:*",
+    "soulswap-graph-config": "workspace:*",
+    "soulswap-wagmi-config": "workspace:*",
     "@wagmi/core": "^0.5.7",
     "express": "^4.18.1"
   },
@@ -56,7 +56,7 @@
     "@graphql-mesh/transform-type-merging": "latest",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
     "@swc/core": "^1.2.249",
     "@swc/helpers": "^0.4.11",

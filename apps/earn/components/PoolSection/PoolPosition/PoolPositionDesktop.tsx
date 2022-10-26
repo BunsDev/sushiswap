@@ -1,5 +1,5 @@
-import { formatUSD } from '@sushiswap/format'
-import { Currency, Typography } from '@sushiswap/ui'
+import { formatUSD } from 'soulswap-format'
+import { Currency, Typography } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { useTokensFromPair } from '../../../lib/hooks'

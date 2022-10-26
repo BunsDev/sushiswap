@@ -1,7 +1,7 @@
 import { createAppAuth } from '@octokit/auth-app'
-import { ChainId } from '@sushiswap/chain'
-import { getBuiltGraphSDK } from '@sushiswap/graph-client/.graphclient'
-import { SUSHI_DEFAULT_TOKEN_LIST } from '@sushiswap/redux-token-lists'
+import { ChainId } from 'soulswap-chain'
+import { getBuiltGraphSDK } from 'soulswap-graph-client/.graphclient'
+import { SUSHI_DEFAULT_TOKEN_LIST } from 'soulswap-redux-token-lists'
 import { Octokit } from 'octokit'
 
 export type Token = Awaited<ReturnType<typeof getTokens>>[0]

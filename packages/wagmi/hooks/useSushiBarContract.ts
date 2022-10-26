@@ -1,4 +1,4 @@
-import { XSUSHI_ADDRESS } from '@sushiswap/currency'
+import { XSUSHI_ADDRESS } from 'soulswap-currency'
 import { useContract, useProvider } from 'wagmi'
 
 const BAR_ABI = [

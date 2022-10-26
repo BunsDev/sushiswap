@@ -1,4 +1,4 @@
-import { Price, Token, Type as Currency } from '@sushiswap/currency'
+import { Price, Token, Type as Currency } from 'soulswap-currency'
 import invariant from 'tiny-invariant'
 
 import { Pair } from '../Pair'

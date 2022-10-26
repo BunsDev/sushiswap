@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { Native } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { Native } from 'soulswap-currency'
 import { useMemo } from 'react'
 
 export function useNativeCurrency({ chainId = ChainId.ETHEREUM }: { chainId?: number }): Native {

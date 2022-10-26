@@ -4,20 +4,20 @@ import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero, Zero } from '@ethersproject/constants'
 import { TransactionRequest } from '@ethersproject/providers'
-import { SushiSwapRouter, Trade, TradeType, Version } from '@sushiswap/amm'
-import { ChainId } from '@sushiswap/chain'
-import { Amount, Currency, Native } from '@sushiswap/currency'
-import { Percent } from '@sushiswap/math'
-import { getBigNumber, RouteStatus } from '@sushiswap/tines'
-import { Button, Dots } from '@sushiswap/ui'
-import { isZero } from '@sushiswap/validate'
+import { SushiSwapRouter, Trade, TradeType, Version } from 'soulswap-amm'
+import { ChainId } from 'soulswap-chain'
+import { Amount, Currency, Native } from 'soulswap-currency'
+import { Percent } from 'soulswap-math'
+import { getBigNumber, RouteStatus } from 'soulswap-tines'
+import { Button, Dots } from 'soulswap-ui'
+import { isZero } from 'soulswap-validate'
 import {
   Approve,
   BENTOBOX_ADDRESS,
   calculateGasMargin,
   getTridentRouterContractConfig,
   useBentoBoxTotal,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import stringify from 'fast-json-stable-stringify'
 import { approveMasterContractAction, batchAction, unwrapWETHAction } from 'lib/actions'
 import { useTransactionDeadline } from 'lib/hooks'

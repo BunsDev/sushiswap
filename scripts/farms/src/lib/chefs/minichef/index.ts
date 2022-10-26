@@ -1,5 +1,5 @@
-import { ChainId } from '@sushiswap/chain'
-import { SUSHI } from '@sushiswap/currency'
+import { ChainId } from 'soulswap-chain'
+import { SUSHI } from 'soulswap-currency'
 import { daysInYear, secondsInDay } from 'date-fns'
 import { Farm } from 'src/types'
 

@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid'
-import { Chip, classNames, Typography } from '@sushiswap/ui'
+import { Chip, classNames, Typography } from 'soulswap-ui'
 import { format } from 'date-fns'
 import { FC } from 'react'
 

@@ -1,4 +1,4 @@
-import { classNames, Dialog, Overlay, SlideIn } from '@sushiswap/ui'
+import { classNames, Dialog, Overlay, SlideIn } from 'soulswap-ui'
 import { FC, ReactElement, useCallback, useState } from 'react'
 
 interface RenderProps {

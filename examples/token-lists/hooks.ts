@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/chain'
+import { ChainId } from 'soulswap-chain'
 import { providers } from 'ethers'
 import { useMemo } from 'react'
 

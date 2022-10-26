@@ -1,6 +1,6 @@
 import transpileModules from 'next-transpile-modules'
 
-const withTranspileModules = transpileModules(['@sushiswap/wagmi', '@sushiswap/ui'])
+const withTranspileModules = transpileModules(['soulswap-wagmi', 'soulswap-ui'])
 
 // @ts-check
 /** @type {import('next').NextConfig} */

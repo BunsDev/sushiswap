@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { App, AppType, Button, Link, Menu } from '@sushiswap/ui'
+import { App, AppType, Button, Link, Menu } from 'soulswap-ui'
 import React, { FC } from 'react'
 export const Header: FC = () => {
   return (

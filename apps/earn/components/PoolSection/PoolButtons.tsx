@@ -1,7 +1,7 @@
 import { getAddress } from '@ethersproject/address'
-import { FundSource } from '@sushiswap/hooks'
-import { ZERO } from '@sushiswap/math'
-import { Button, Link } from '@sushiswap/ui'
+import { FundSource } from 'soulswap-hooks'
+import { ZERO } from 'soulswap-math'
+import { Button, Link } from 'soulswap-ui'
 import { FC } from 'react'
 
 import { PairWithAlias } from '../../types'

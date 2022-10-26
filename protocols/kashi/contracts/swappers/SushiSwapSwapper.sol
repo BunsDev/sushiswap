@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
-import "@sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
-import "@sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
 import "../interfaces/ISwapper.sol";
-import "@sushiswap/bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
 
 contract SushiSwapSwapper is ISwapper {
     using BoringMath for uint256;

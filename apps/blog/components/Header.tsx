@@ -1,5 +1,5 @@
-import { App } from '@sushiswap/ui'
-import { AppType } from '@sushiswap/ui/app/Header'
+import { App } from 'soulswap-ui'
+import { AppType } from 'soulswap-ui/app/Header'
 import { FC } from 'react'
 
 export const Header: FC = () => {

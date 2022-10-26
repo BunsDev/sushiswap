@@ -1,4 +1,4 @@
-import { AppearOnMount, Typography, useBreakpoint } from '@sushiswap/ui'
+import { AppearOnMount, Typography, useBreakpoint } from 'soulswap-ui'
 import { FC, Fragment, useState } from 'react'
 
 import { PairWithAlias } from '../../../types'

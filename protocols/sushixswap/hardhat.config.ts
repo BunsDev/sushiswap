@@ -50,8 +50,8 @@ const config: HardhatUserConfig = {
   // external: {
   //   contracts: [
   //     {
-  //       artifacts: 'node_modules/@sushiswap/bentobox/artifacts',
-  //       deploy: 'node_modules/@sushiswap/bentobox/deploy',
+  //       artifacts: 'node_modules/soulswap-bentobox/artifacts',
+  //       deploy: 'node_modules/soulswap-bentobox/deploy',
   //     },
   //   ],
   // },

@@ -1,8 +1,8 @@
 import { AddressZero } from '@ethersproject/constants'
-import { Amount, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
-import { ZERO } from '@sushiswap/math'
-import { Button } from '@sushiswap/ui'
+import { Amount, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
+import { ZERO } from 'soulswap-math'
+import { Button } from 'soulswap-ui'
 import { FC, useMemo } from 'react'
 import { useAccount } from 'wagmi'
 

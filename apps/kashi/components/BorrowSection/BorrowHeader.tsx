@@ -1,5 +1,5 @@
-import { chainName } from '@sushiswap/chain'
-import { Chip, Currency, NetworkIcon, Typography } from '@sushiswap/ui'
+import { chainName } from 'soulswap-chain'
+import { Chip, Currency, NetworkIcon, Typography } from 'soulswap-ui'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { FC } from 'react'
 

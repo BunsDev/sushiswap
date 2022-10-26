@@ -1,11 +1,11 @@
-import { Amount, Token } from '@sushiswap/currency'
-import { JSBI } from '@sushiswap/math'
+import { Amount, Token } from 'soulswap-currency'
+import { JSBI } from 'soulswap-math'
 import {
   getBentoBoxContractConfig,
   getFuroStreamContractConfig,
   useBentoBoxContract,
   useFuroStreamContract,
-} from '@sushiswap/wagmi'
+} from 'soulswap-wagmi'
 import { ListenerOptions } from '@uniswap/redux-multicall/dist/types'
 import { useSingleContractMultipleData } from 'lib/state/multicall'
 import { useMemo } from 'react'

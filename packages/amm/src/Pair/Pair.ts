@@ -1,5 +1,5 @@
-import { Amount, Price, Token } from '@sushiswap/currency'
-import { _997, _1000, BigintIsh, FIVE, JSBI, ONE, sqrt, ZERO } from '@sushiswap/math'
+import { Amount, Price, Token } from 'soulswap-currency'
+import { _997, _1000, BigintIsh, FIVE, JSBI, ONE, sqrt, ZERO } from 'soulswap-math'
 import invariant from 'tiny-invariant'
 
 import { InsufficientInputAmountError, InsufficientReservesError } from '../errors'

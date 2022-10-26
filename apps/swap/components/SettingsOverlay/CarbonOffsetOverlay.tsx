@@ -1,6 +1,6 @@
 import { ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import { useIsMounted } from '@sushiswap/hooks'
-import { Button, CarbonIcon, Link, Overlay, SlideIn, Switch, Tooltip, Typography } from '@sushiswap/ui'
+import { useIsMounted } from 'soulswap-hooks'
+import { Button, CarbonIcon, Link, Overlay, SlideIn, Switch, Tooltip, Typography } from 'soulswap-ui'
 import { useSettings } from 'lib/state/storage'
 import React, { FC, useState } from 'react'
 

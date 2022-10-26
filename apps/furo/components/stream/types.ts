@@ -1,5 +1,5 @@
-import { Amount, Currency, Type } from '@sushiswap/currency'
-import { FundSource } from '@sushiswap/hooks'
+import { Amount, Currency, Type } from 'soulswap-currency'
+import { FundSource } from 'soulswap-hooks'
 
 export interface CreateStreamFormData {
   currency: Type | undefined

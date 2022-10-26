@@ -1,5 +1,5 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/solid'
-import { classNames, LoadingOverlay, Table, Tooltip } from '@sushiswap/ui'
+import { classNames, LoadingOverlay, Table, Tooltip } from 'soulswap-ui'
 import { flexRender, Row, Table as ReactTableType } from '@tanstack/react-table'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'

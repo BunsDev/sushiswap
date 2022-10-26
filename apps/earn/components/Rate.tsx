@@ -1,6 +1,6 @@
-import { Price, Type } from '@sushiswap/currency'
-import { classNames, Typography } from '@sushiswap/ui'
-import { usePrices } from '@sushiswap/wagmi'
+import { Price, Type } from 'soulswap-currency'
+import { classNames, Typography } from 'soulswap-ui'
+import { usePrices } from 'soulswap-wagmi'
 import { FC, ReactElement, ReactNode, useCallback, useState } from 'react'
 
 interface RenderPayload {

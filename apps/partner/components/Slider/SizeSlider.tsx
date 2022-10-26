@@ -1,4 +1,4 @@
-import { Typography } from '@sushiswap/ui'
+import { Typography } from 'soulswap-ui'
 import { Form } from 'components/Form'
 import { FormType } from 'pages'
 import React, { FC } from 'react'

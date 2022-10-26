@@ -1,4 +1,4 @@
-import CHAIN from '@sushiswap/chain'
+import CHAIN from 'soulswap-chain'
 import invariant from 'tiny-invariant'
 
 import { WNATIVE } from './constants'

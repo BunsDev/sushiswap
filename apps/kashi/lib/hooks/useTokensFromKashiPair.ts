@@ -1,4 +1,4 @@
-import { Native, Token } from '@sushiswap/currency'
+import { Native, Token } from 'soulswap-currency'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { useMemo } from 'react'
 

@@ -7,12 +7,12 @@ import { withAxiom } from 'next-axiom'
 // })
 
 const withTranspileModules = transpileModules([
-  '@sushiswap/ui',
-  '@sushiswap/redux-localstorage',
-  '@sushiswap/redux-token-lists',
-  '@sushiswap/chain',
-  '@sushiswap/wagmi',
-  '@sushiswap/graph-client',
+  'soulswap-ui',
+  'soulswap-redux-localstorage',
+  'soulswap-redux-token-lists',
+  'soulswap-chain',
+  'soulswap-wagmi',
+  'soulswap-graph-client',
 ])
 
 // @ts-check

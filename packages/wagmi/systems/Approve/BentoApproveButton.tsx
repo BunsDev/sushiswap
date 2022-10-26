@@ -1,7 +1,7 @@
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero } from '@ethersproject/constants'
 import { Transition } from '@headlessui/react'
-import { Badge, BentoboxIcon, Button, classNames, IconButton, Tooltip, Typography } from '@sushiswap/ui'
+import { Badge, BentoboxIcon, Button, classNames, IconButton, Tooltip, Typography } from 'soulswap-ui'
 import { FC, memo, useEffect } from 'react'
 
 import { ApprovalState, useBentoBoxApproveCallback } from '../../hooks'

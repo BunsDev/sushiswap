@@ -1,4 +1,4 @@
-# @sushiswap/nextjs-config
+# soulswap-nextjs-config
 
 ## 0.1.0
 

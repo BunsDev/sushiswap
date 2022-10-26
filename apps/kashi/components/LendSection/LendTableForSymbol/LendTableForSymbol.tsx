@@ -1,5 +1,5 @@
-import { chainShortName } from '@sushiswap/chain'
-import { Chip, Typography, useBreakpoint } from '@sushiswap/ui'
+import { chainShortName } from 'soulswap-chain'
+import { Chip, Typography, useBreakpoint } from 'soulswap-ui'
 import {
   getCoreRowModel,
   getSortedRowModel,

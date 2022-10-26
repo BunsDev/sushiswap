@@ -1,4 +1,4 @@
-# @sushiswap/chain
+# soulswap-chain
 
 ## 0.1.0
 

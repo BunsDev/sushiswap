@@ -1,5 +1,5 @@
-import sushiXSwapExports from '@sushiswap/sushixswap/exports.json'
-import { SushiXSwap } from '@sushiswap/sushixswap/typechain'
+import sushiXSwapExports from 'soulswap-sushixswap/exports.json'
+import { SushiXSwap } from 'soulswap-sushixswap/typechain'
 import { useContract, useProvider, useSigner } from 'wagmi'
 
 export const getSushiXSwapContractConfig = (chainId: number | undefined) => ({

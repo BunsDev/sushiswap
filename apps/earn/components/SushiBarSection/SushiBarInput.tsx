@@ -1,6 +1,6 @@
-import { Amount, Type } from '@sushiswap/currency'
-import { useIsMounted } from '@sushiswap/hooks'
-import { Button, classNames, Currency, DEFAULT_INPUT_UNSTYLED, Input } from '@sushiswap/ui'
+import { Amount, Type } from 'soulswap-currency'
+import { useIsMounted } from 'soulswap-hooks'
+import { Button, classNames, Currency, DEFAULT_INPUT_UNSTYLED, Input } from 'soulswap-ui'
 import { FC, useCallback } from 'react'
 
 interface SushiBarInputProps {

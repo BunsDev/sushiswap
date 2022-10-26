@@ -1,7 +1,7 @@
-import { TradeType } from '@sushiswap/amm'
-import { ZERO } from '@sushiswap/math'
-import { usePrices, Web3Input } from '@sushiswap/wagmi'
-import { CurrencyInputProps } from '@sushiswap/wagmi/components/Web3Input/Currency'
+import { TradeType } from 'soulswap-amm'
+import { ZERO } from 'soulswap-math'
+import { usePrices, Web3Input } from 'soulswap-wagmi'
+import { CurrencyInputProps } from 'soulswap-wagmi/components/Web3Input/Currency'
 import React, { FC, useMemo } from 'react'
 
 import { useTrade } from './TradeProvider'

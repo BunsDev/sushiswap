@@ -1,4 +1,4 @@
-import { useMulticallContract } from '@sushiswap/wagmi'
+import { useMulticallContract } from 'soulswap-wagmi'
 import { useBlockNumber } from 'wagmi'
 
 import { multicall } from './multicall'

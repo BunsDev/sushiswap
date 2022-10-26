@@ -1,5 +1,5 @@
-import { App, AppType, BuyCrypto } from '@sushiswap/ui'
-import { NotificationCentre, Wallet } from '@sushiswap/wagmi'
+import { App, AppType, BuyCrypto } from 'soulswap-ui'
+import { NotificationCentre, Wallet } from 'soulswap-wagmi'
 import React, { FC } from 'react'
 import { useAccount } from 'wagmi'
 

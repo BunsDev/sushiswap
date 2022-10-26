@@ -1,5 +1,5 @@
-import { useInterval } from '@sushiswap/hooks'
-import { Typography } from '@sushiswap/ui'
+import { useInterval } from 'soulswap-hooks'
+import { Typography } from 'soulswap-ui'
 import { FuroStatus, Vesting } from 'lib'
 import { FC, useState } from 'react'
 

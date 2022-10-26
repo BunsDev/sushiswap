@@ -1,5 +1,5 @@
-import { Amount, Token, Type } from '@sushiswap/currency'
-import { ZERO } from '@sushiswap/math'
+import { Amount, Token, Type } from 'soulswap-currency'
+import { ZERO } from 'soulswap-math'
 import { useMemo } from 'react'
 
 interface Params {

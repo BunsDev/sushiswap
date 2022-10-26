@@ -1,5 +1,5 @@
-import { Amount, Currency } from '@sushiswap/currency'
-import { Fraction, JSBI, Percent } from '@sushiswap/math'
+import { Amount, Currency } from 'soulswap-currency'
+import { Fraction, JSBI, Percent } from 'soulswap-math'
 
 const ONE = new Fraction(1, 1)
 

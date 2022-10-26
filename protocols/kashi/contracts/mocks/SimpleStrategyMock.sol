@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
-import "@sushiswap/bentobox-sdk/contracts/IStrategy.sol";
+import "soulswap-bentobox-sdk/contracts/IStrategy.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringERC20.sol";
 

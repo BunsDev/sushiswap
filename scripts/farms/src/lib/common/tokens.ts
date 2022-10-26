@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/chain'
-import { ERC20 } from '@sushiswap/core'
-import { SUBGRAPH_HOST, SUSHISWAP_SUBGRAPH_NAME, TRIDENT_SUBGRAPH_NAME } from '@sushiswap/graph-config'
+import { ChainId } from 'soulswap-chain'
+import { ERC20 } from 'soulswap-core'
+import { SUBGRAPH_HOST, SUSHISWAP_SUBGRAPH_NAME, TRIDENT_SUBGRAPH_NAME } from 'soulswap-graph-config'
 import { erc20ABI, readContracts, ReadContractsConfig } from '@wagmi/core'
 
 import { divBigNumberToNumber } from './utils'
