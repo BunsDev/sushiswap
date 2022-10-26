@@ -1,6 +1,6 @@
 {
   "name": "soulswap-chain",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Soul Chain",
   "keywords": [
     "soul",
@@ -27,13 +27,13 @@
     "preset": "soulswap-jest-config/node"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "eslint": "^8.20.0",
+    "jest": "^28.1.0",
     "soulswap-eslint-config": "workspace:*",
     "soulswap-jest-config": "workspace:*",
     "soulswap-prettier-config": "workspace:*",
     "soulswap-typescript-config": "workspace:*",
-    "@types/jest": "^27.5.1",
-    "eslint": "^8.20.0",
-    "jest": "^28.1.0",
     "typescript": "4.8.2"
   }
 }
