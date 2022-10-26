@@ -1,6 +1,6 @@
 {
   "name": "soulswap-currency",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "Soul Currency",
   "keywords": [
     "soul",
@@ -35,16 +35,12 @@
   "dependencies": {
     "@ethersproject/address": "^5.7.0",
     "@ethersproject/units": "^5.7.0",
+    "lodash.flatmap": "^4.5.0",
     "soulswap-chain": "workspace:*",
     "soulswap-math": "workspace:*",
-    "lodash.flatmap": "^4.5.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "soulswap-eslint-config": "workspace:*",
-    "soulswap-jest-config": "workspace:*",
-    "soulswap-prettier-config": "workspace:*",
-    "soulswap-typescript-config": "workspace:*",
     "@types/jest": "^27.5.1",
     "@types/lodash.flatmap": "^4.5.7",
     "@types/react": "^18.0.0",
@@ -52,6 +48,10 @@
     "jest": "^28.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "soulswap-eslint-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "tsup": "^6.2.0",
     "typescript": "4.8.2"
   },
