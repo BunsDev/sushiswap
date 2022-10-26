@@ -8,10 +8,10 @@
     "farms",
     "script"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "scripts/farms"
   },
   "license": "MIT",

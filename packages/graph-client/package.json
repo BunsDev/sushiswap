@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/graph-client",
+  "name": "soulswap-graph-client",
   "version": "0.2.2",
   "description": "Soul Graph Client",
   "keywords": [
@@ -9,11 +9,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/graph-client"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": ".graphclient/index.js",
   "source": ".graphclient/index.ts",
   "typings": ".graphclient/index.d.ts",

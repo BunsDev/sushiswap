@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/wagmi",
+  "name": "soulswap-wagmi",
   "version": "0.0.0",
   "private": true,
   "description": "Soul Wagmi",
@@ -8,7 +8,7 @@
     "wagmi"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "sideEffects": false,
   "source": "./index.ts",
   "scripts": {

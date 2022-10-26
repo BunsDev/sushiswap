@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/masterchef",
+  "name": "soulswap-masterchef",
   "version": "0.0.0",
   "private": true,
   "description": "MasterChef contracts",
@@ -14,11 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "protocols/masterchef"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "files": [
     "artifacts",
     "contracts",

@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/chain",
+  "name": "soulswap-chain",
   "version": "0.1.0",
   "description": "Soul Chain",
   "keywords": [
@@ -7,7 +7,7 @@
     "chain"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "./dist/index.js",
   "source": "./index.ts",
   "types": "./dist/index.d.ts",

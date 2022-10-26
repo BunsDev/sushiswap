@@ -7,14 +7,14 @@
     "config",
     "hardhat"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/config/hardhat"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",

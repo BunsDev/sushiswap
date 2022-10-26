@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/sushiswap",
+  "name": "soulswap-sushiswap",
   "version": "0.1.0",
   "description": "SoulSwap",
   "keywords": [
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "protocols/sushiswap"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "files": [
     "artifacts",
     "contracts",

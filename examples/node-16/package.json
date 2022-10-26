@@ -8,14 +8,14 @@
     "config",
     "hardhat"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "examples/node-16"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",

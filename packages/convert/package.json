@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/convert",
+  "name": "soulswap-convert",
   "version": "0.1.1",
   "description": "Soul Convert",
   "keywords": [
@@ -8,11 +8,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/convert"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",

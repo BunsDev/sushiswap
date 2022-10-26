@@ -9,7 +9,7 @@
     "api"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "dependencies": {
     "@sushiswap/currency": "workspace:*",
     "@sushiswap/tines": "workspace:*",

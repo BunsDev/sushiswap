@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/token-lists",
+  "name": "soulswap-token-lists",
   "version": "0.0.0",
   "private": true,
   "description": "Soul Token Lists",
@@ -8,7 +8,7 @@
     "token list"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "./dist/index.js",
   "source": "./index.ts",
   "types": "./dist/index.d.ts",

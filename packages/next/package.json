@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/next",
+  "name": "soulswap-next",
   "version": "0.0.0",
   "private": true,
   "description": "Soul Next.js",
@@ -8,7 +8,7 @@
     "next.js"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",

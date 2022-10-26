@@ -4,7 +4,7 @@
   "private": true,
   "description": "Redux token lists example",
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "scripts": {
     "build": "next build",
     "dev": "next dev --port 4001",

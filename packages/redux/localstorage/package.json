@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/redux-localstorage",
+  "name": "soulswap-redux-localstorage",
   "version": "0.0.0",
   "private": true,
   "description": "Redux Local Storage",

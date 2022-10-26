@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/stargate",
+  "name": "soulswap-stargate",
   "version": "0.1.0",
   "description": "Soul Stargate",
   "keywords": [
@@ -7,7 +7,7 @@
     "stargate"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",

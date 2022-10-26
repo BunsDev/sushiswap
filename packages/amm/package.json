@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/amm",
+  "name": "soulswap-amm",
   "version": "0.1.1",
   "description": "Soul AMM",
   "keywords": [
@@ -8,11 +8,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/amm"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "source": "src/index.ts",
   "typings": "dist/index.d.ts",

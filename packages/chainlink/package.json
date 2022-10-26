@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/chainlink",
+  "name": "soulswap-chainlink",
   "version": "0.1.3",
   "description": "Soul Chainlink",
   "keywords": [
@@ -8,11 +8,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/chainlink"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",

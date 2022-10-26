@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/nextjs-config",
+  "name": "soulswap-nextjs-config",
   "version": "0.1.0",
   "description": "Soul Next.js Config",
   "keywords": [
@@ -7,14 +7,14 @@
     "nextjs",
     "config"
   ],
-  "homepage": "https://www.sushi.com",
+  "homepage": "https://soulswap.finance",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/config/nextjs"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "files": [
     "index.js"
   ],

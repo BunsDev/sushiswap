@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/redux-token-lists",
+  "name": "soulswap-redux-token-lists",
   "version": "0.0.0",
   "private": true,
   "description": "Redux token lists",
@@ -8,7 +8,7 @@
     "token lists"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "./index.ts",
   "source": "./index.ts",
   "dependencies": {

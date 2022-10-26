@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/furo",
+  "name": "soulswap-furo",
   "version": "0.0.0",
   "private": true,
   "description": "SoulXSwap",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "protocols/furo"
   },
   "license": "MIT",

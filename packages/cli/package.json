@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/cli",
+  "name": "soulswap-cli",
   "version": "0.1.7",
   "description": "Soul CLI",
   "keywords": [
@@ -7,7 +7,7 @@
     "cli"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "./dist/index.js",
   "source": "./src/index.ts",
   "types": "./dist/index.d.ts",

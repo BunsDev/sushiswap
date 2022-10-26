@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/redux-logs",
+  "name": "soulswap-redux-logs",
   "version": "0.0.0",
   "private": true,
   "description": "Redux logs",
@@ -8,7 +8,7 @@
     "logs"
   ],
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "./index.ts",
   "source": "./index.ts",
   "dependencies": {

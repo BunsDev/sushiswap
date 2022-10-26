@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/currency",
+  "name": "soulswap-currency",
   "version": "0.0.3",
   "description": "Soul Currency",
   "keywords": [
@@ -10,11 +10,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiswap/sushiswap.git",
+    "url": "https://github.com/soulswapfinance/soulswap.git",
     "directory": "packages/currency"
   },
   "license": "MIT",
-  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "author": "0xBuns",
   "main": "dist/index.js",
   "source": "src/index.ts",
   "typings": "dist/index.d.ts",
