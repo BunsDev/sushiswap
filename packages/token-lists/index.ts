@@ -1,7 +1,7 @@
 import { getAddress, isAddress } from '@ethersproject/address'
+import type { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { Token, Type } from 'soulswap-currency'
 import { JSBI } from 'soulswap-math'
-import type { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 
 type TagDetails = Tags[keyof Tags]
 

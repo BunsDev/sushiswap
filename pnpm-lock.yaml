@@ -1557,7 +1557,7 @@ importers:
       'soulswap-math': workspace:*
       'soulswap-prettier-config': workspace:*
       'soulswap-tines': workspace:*
-      'soulswap-trident': 1.0.0-canary.48
+      '@sushiswap/trident': 1.0.0-canary.48
       'soulswap-typescript-config': workspace:*
       '@types/node': ^17.0.33
       eslint: ^8.20.0
@@ -1574,7 +1574,7 @@ importers:
       'soulswap-currency': link:../currency
       'soulswap-math': link:../math
       'soulswap-tines': link:../tines
-      'soulswap-trident': 1.0.0-canary.48
+      '@sushiswap/trident': 1.0.0-canary.48
       tiny-invariant: 1.2.0
       tiny-warning: 1.0.3
     devDependencies:
@@ -2490,7 +2490,7 @@ importers:
       'soulswap-sushiswap': workspace:*
       'soulswap-sushixswap': workspace:*
       'soulswap-tines': workspace:*
-      'soulswap-trident': 1.0.0-canary.48
+      '@sushiswap/trident': 1.0.0-canary.48
       'soulswap-typescript-config': workspace:*
       'soulswap-ui': workspace:*
       'soulswap-wagmi-config': workspace:*
@@ -2530,7 +2530,7 @@ importers:
       'soulswap-sushiswap': link:../../protocols/sushiswap
       'soulswap-sushixswap': link:../../protocols/sushixswap
       'soulswap-tines': link:../tines
-      'soulswap-trident': 1.0.0-canary.48
+      '@sushiswap/trident': 1.0.0-canary.48
       'soulswap-ui': link:../ui
       'soulswap-wagmi-config': link:../config/wagmi
       '@tanstack/react-query': 4.3.4_biqbaboplfbrettd7655fr4n2y
@@ -9817,7 +9817,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /soulswap-trident/1.0.0-canary.48:
+  /@sushiswap/trident/1.0.0-canary.48:
     resolution: {integrity: sha512-dyeEtYuyE6hiGNh5F6eUNtKxT1TbRT5XwBPVxVPomTF1q3OUi1vmgZqklvFlzq8hAwPATw1wUTDhqz6Mc8EKCg==}
     dev: false
 

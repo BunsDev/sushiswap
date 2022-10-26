@@ -1,8 +1,8 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
+import stablePoolArtifact from '@sushiswap/trident/artifacts/contracts/pool/stable/StablePool.sol/StablePool.json'
 import { Token } from 'soulswap-currency'
-import stablePoolArtifact from 'soulswap-trident/artifacts/contracts/pool/stable/StablePool.sol/StablePool.json'
 
 import { Fee } from '../Fee'
 

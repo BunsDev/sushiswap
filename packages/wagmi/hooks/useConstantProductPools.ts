@@ -1,7 +1,7 @@
 import { Interface } from '@ethersproject/abi'
 import { Amount, Currency, Token } from 'soulswap-currency'
 import { computeConstantProductPoolAddress, ConstantProductPool, Fee } from 'soulswap-amm'
-import constantProductPoolArtifact from 'soulswap-trident/artifacts/contracts/pool/constant-product/ConstantProductPool.sol/ConstantProductPool.json'
+import constantProductPoolArtifact from '@sushiswap/trident/artifacts/contracts/pool/constant-product/ConstantProductPool.sol/ConstantProductPool.json'
 import { useMemo } from 'react'
 import { useContractReads } from 'wagmi'
 import { UseContractReadsConfig } from 'wagmi/dist/declarations/src/hooks/contracts/useContractReads'
