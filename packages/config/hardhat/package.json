@@ -1,6 +1,6 @@
 {
   "name": "soulswap-hardhat-config",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "Soul Hardhat Config",
   "keywords": [
     "soul",
@@ -44,13 +44,13 @@
     "typechain": "8.x"
   },
   "devDependencies": {
-    "soulswap-eslint-config": "workspace:*",
-    "soulswap-jest-config": "workspace:*",
-    "@sushiswap/prettier-config": "workspace:*",
-    "soulswap-typescript-config": "workspace:*",
     "@types/node": "17.x",
     "ethers": "^5.7.0",
     "hardhat": "2.x",
+    "soulswap-eslint-config": "workspace:*",
+    "soulswap-jest-config": "workspace:*",
+    "soulswap-prettier-config": "workspace:*",
+    "soulswap-typescript-config": "workspace:*",
     "tsup": "6.x",
     "typescript": "4.8.2"
   },
