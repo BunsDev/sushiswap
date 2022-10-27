@@ -22,15 +22,15 @@ library BoringMath {
     }
 }
 
-// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapFactory.sol@v1.4.2
 // License-Identifier: GPL-3.0
-interface IUniswapV2Factory {
+interface ISoulSwapFactory {
     function getPair(address tokenA, address tokenB) external view returns (address pair);
 }
 
-// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol@v1.4.2
 // License-Identifier: GPL-3.0
-interface IUniswapV2Pair {
+interface ISoulSwapPair {
     function token0() external view returns (address);
 
     function getReserves()
@@ -102,12 +102,12 @@ contract SushiSwapSwapperV1 {
 
     // Local variables
     ICoffinBoxV1 public immutable coffinBox;
-    IUniswapV2Factory public immutable factory;
+    ISoulSwapFactory public immutable factory;
     bytes32 public pairCodeHash;
 
     constructor(
         ICoffinBoxV1 coffinBox_,
-        IUniswapV2Factory factory_,
+        ISoulSwapFactory factory_,
         bytes32 pairCodeHash_
     ) public {
         coffinBox = coffinBox_;
@@ -152,8 +152,8 @@ contract SushiSwapSwapperV1 {
         uint256 shareFrom
     ) public returns (uint256 extraShare, uint256 shareReturned) {
         (IERC20 token0, IERC20 token1) = fromToken < toToken ? (fromToken, toToken) : (toToken, fromToken);
-        IUniswapV2Pair pair =
-            IUniswapV2Pair(
+        ISoulSwapPair pair =
+            ISoulSwapPair(
                 uint256(
                     keccak256(abi.encodePacked(hex"ff", factory, keccak256(abi.encodePacked(address(token0), address(token1))), pairCodeHash))
                 )
@@ -191,10 +191,10 @@ contract SushiSwapSwapperV1 {
         uint256 shareFromSupplied,
         uint256 shareToExact
     ) public returns (uint256 shareUsed, uint256 shareReturned) {
-        IUniswapV2Pair pair;
+        ISoulSwapPair pair;
         {
             (IERC20 token0, IERC20 token1) = fromToken < toToken ? (fromToken, toToken) : (toToken, fromToken);
-            pair = IUniswapV2Pair(
+            pair = ISoulSwapPair(
                 uint256(
                     keccak256(abi.encodePacked(hex"ff", factory, keccak256(abi.encodePacked(address(token0), address(token1))), pairCodeHash))
                 )

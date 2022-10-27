@@ -9,10 +9,10 @@ import {
   Approve,
   calculateGasMargin,
   Checker,
-  getSushiSwapRouterContractConfig,
+  getSoulSwapRouterContractConfig,
   PairState,
   usePair,
-  useSushiSwapRouterContract,
+  useSoulSwapRouterContract,
   useTotalSupply,
 } from 'soulswap-wagmi'
 import { FC, useCallback, useMemo, useState } from 'react'
@@ -35,7 +35,7 @@ export const RemoveSectionLegacy: FC<RemoveSectionLegacyProps> = ({ pair }) => {
   const isMounted = useIsMounted()
   const { address } = useAccount()
   const deadline = useTransactionDeadline(pair.chainId)
-  const contract = useSushiSwapRouterContract(pair.chainId)
+  const contract = useSoulSwapRouterContract(pair.chainId)
   const { sendTransactionAsync, isLoading: isWritePending } = useDeprecatedSendTransaction({ chainId: pair.chainId })
   const [{ slippageTolerance }] = useSettings()
   const [error, setError] = useState<string>()
@@ -270,7 +270,7 @@ export const RemoveSectionLegacy: FC<RemoveSectionLegacyProps> = ({ pair }) => {
                         className="whitespace-nowrap"
                         fullWidth
                         amount={balance?.[FundSource.WALLET].multiply(percentToRemove)}
-                        address={getSushiSwapRouterContractConfig(pair.chainId).addressOrName}
+                        address={getSoulSwapRouterContractConfig(pair.chainId).addressOrName}
                       />
                     </Approve.Components>
                   }

@@ -12,7 +12,7 @@ import { publicProvider } from 'wagmi/providers/public'
 export type Client = ReturnType<typeof createClient>
 
 const alchemyId = process.env.ALCHEMY_ID || process.env.NEXT_PUBLIC_ALCHEMY_ID
-const infuraId = process.env.INFURA_ID || process.env.NEXT_PUBLIC_INFURA_ID
+// const infuraId = process.env.INFURA_ID || process.env.NEXT_PUBLIC_INFURA_ID
 
 const { chains, provider }: CreateClientConfig & { chains: Chain[] } = configureChains(
   [...allChains, ...otherChains],
@@ -88,8 +88,8 @@ export const client: Client = createClient({
       // TODO: Flesh out coinbase wallet connect options?
       chains,
       options: {
-        appName: 'Sushi 2.0',
-        appLogoUrl: 'https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/sushi.jpg',
+        appName: 'Soul 2.0',
+        appLogoUrl: 'https://raw.githubusercontent.com/soulswapfinance/assets/prod/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png',
       },
     }),
     // @ts-ignore

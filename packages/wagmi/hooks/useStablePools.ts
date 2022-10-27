@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 import { useContractReads } from 'wagmi'
 import { UseContractReadsConfig } from 'wagmi/dist/declarations/src/hooks/contracts/useContractReads'
 
-import { useCoffinBoxTotals } from './useCoffinBoxTotals'
+import { useCoffinBoxTotals } from './useCoffinBox/useCoffinBoxTotals'
 import { getStablePoolFactoryContract, useStablePoolFactoryContract } from './useStablePoolFactoryContract'
 
 export enum StablePoolState {

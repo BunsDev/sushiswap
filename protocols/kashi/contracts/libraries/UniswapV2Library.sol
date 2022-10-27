@@ -2,7 +2,7 @@
 
 pragma solidity >=0.5.0;
 
-import 'soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol';
+import 'soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol';
 
 import "soulswap-core/contracts/uniswapv2/libraries/SafeMath.sol";
 
@@ -30,7 +30,7 @@ library UniswapV2Library {
     // fetches and sorts the reserves for a pair
     function getReserves(address factory, address tokenA, address tokenB, bytes32 pairCodeHash) internal view returns (uint reserveA, uint reserveB) {
         (address token0,) = sortTokens(tokenA, tokenB);
-        (uint reserve0, uint reserve1,) = IUniswapV2Pair(pairFor(factory, tokenA, tokenB, pairCodeHash)).getReserves();
+        (uint reserve0, uint reserve1,) = ISoulSwapPair(pairFor(factory, tokenA, tokenB, pairCodeHash)).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
     }
 

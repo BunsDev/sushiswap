@@ -25,7 +25,7 @@ interface IAggregator {
     function latestAnswer() external view returns (int256 answer);
 }
 
-interface IUniswapV2Pair {
+interface ISoulSwapPair {
     function totalSupply() external view returns (uint256);
 
     function getReserves()
@@ -45,10 +45,10 @@ interface IUniswapV2Pair {
 contract LPETHChainlinkOracleV1 is IAggregator {
     using BoringMath for uint256;
 
-    IUniswapV2Pair public immutable pair;
+    ISoulSwapPair public immutable pair;
     IAggregator public immutable tokenOracle;
 
-    constructor(IUniswapV2Pair pair_, IAggregator tokenOracle_) public {
+    constructor(ISoulSwapPair pair_, IAggregator tokenOracle_) public {
         pair = pair_;
         tokenOracle = tokenOracle_;
     }
@@ -99,7 +99,7 @@ contract LPETHChainlinkOracleV1 is IAggregator {
 
     // Calculates the lastest exchange rate
     function latestAnswer() external view override returns (int256) {
-        (uint256 reserve0, uint256 reserve1, ) = IUniswapV2Pair(pair).getReserves();
+        (uint256 reserve0, uint256 reserve1, ) = ISoulSwapPair(pair).getReserves();
         uint256 totalSupply = pair.totalSupply();
         uint256 k = reserve0.mul(reserve1);
         uint256 ethValue = sqrt((k / 1e18).mul(uint256(tokenOracle.latestAnswer())));

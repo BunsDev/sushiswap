@@ -3,8 +3,8 @@ pragma solidity 0.6.12;
 import "soulswap-coffinbox-sdk/contracts/IStrategy.sol";
 import "soulswap-coffinbox-sdk/contracts/IFlashBorrower.sol";
 import "soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol";
-import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
-import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapFactory.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringERC20.sol";
 import "../KashiPair.sol";
@@ -23,7 +23,7 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     ICoffinBoxV1 private immutable coffinBox;
     ISwapper private immutable swapper;
     address private immutable target;
-    IUniswapV2Factory public factory;
+    ISoulSwapFactory public factory;
 
     modifier onlyCoffinBox() {
         require(msg.sender == address(coffinBox), "only coffinBox");
@@ -36,7 +36,7 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
         IERC20 asset,
         IERC20 collateral,
         ISwapper _swapper,
-        IUniswapV2Factory _factory
+        ISoulSwapFactory _factory
     ) public {
         coffinBox = coffinBox_;
         kashiPair = _kashiPair;
@@ -122,7 +122,7 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
         kashiPair.liquidate(users, amounts, address(this), ISwapper(address(0)), true);
 
         // swap the collateral to asset
-        IUniswapV2Pair pair = IUniswapV2Pair(factory.getPair(address(collateralToken), address(assetToken)));
+        ISoulSwapPair pair = ISoulSwapPair(factory.getPair(address(collateralToken), address(assetToken)));
         // withdraw collateral to uniswap
         (uint256 amountFrom, ) =
             coffinBox.withdraw(collateralToken, address(this), address(pair), 0, coffinBox.balanceOf(collateralToken, address(this)));

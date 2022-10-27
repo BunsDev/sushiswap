@@ -1,7 +1,6 @@
 import { InformationCircleIcon } from '@heroicons/react/outline'
 import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/react/solid'
 import { ChainId } from 'soulswap-chain'
-import { TradeType } from 'soulswap-core-sdk'
 import { Native, SUSHI, tryParseAmount } from 'soulswap-currency'
 import { formatNumber, formatUSD } from 'soulswap-format'
 import sushiData from 'soulswap-sushi-data'
@@ -16,6 +15,11 @@ import getCoffinTVL from '../functions/graph/fetchers/coffinbox'
 import { getLegacyExchangeData } from '../functions/graph/fetchers/exchange'
 import { getTridentExchangeData } from '../functions/graph/queries/trident'
 import { useCustomTokens } from '../lib/state/storage'
+
+export enum TradeType {
+  EXACT_INPUT,
+  EXACT_OUTPUT,
+}
 
 export async function getStaticProps() {
   const [sushiPrice, coffinTVL, legacyExchangeData, tridentExchangeData] = await Promise.all([

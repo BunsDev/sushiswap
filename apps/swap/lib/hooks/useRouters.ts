@@ -1,7 +1,7 @@
 import { ChainId } from 'soulswap-chain'
 import {
   getSushiSwapKlimaRouterContractConfig,
-  getSushiSwapRouterContractConfig,
+  getSoulSwapRouterContractConfig,
   getTridentRouterContractConfig,
 } from 'soulswap-wagmi'
 import { AMM_ENABLED_NETWORKS, TRIDENT_ENABLED_NETWORKS } from 'config'
@@ -18,7 +18,7 @@ export function useRouters(
     return [
       chainId && AMM_ENABLED_NETWORKS.includes(chainId)
         ? getContract({
-            ...getSushiSwapRouterContractConfig(chainId),
+            ...getSoulSwapRouterContractConfig(chainId),
             signerOrProvider,
           })
         : undefined,

@@ -1,0 +1,1 @@
+[{"inputs":[{"internalType":"bytes2","name":"_partnerId","type":"bytes2"}],"name":"partnerSwap","outputs":[],"stateMutability":"nonpayable","type":"function"}]

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
-import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
-import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapFactory.sol";
+import "soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol";
 import "../interfaces/ISwapper.sol";
 import "soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol";
 
@@ -11,12 +11,12 @@ contract SushiSwapSwapper is ISwapper {
 
     // Local variables
     ICoffinBoxV1 public immutable coffinBox;
-    IUniswapV2Factory public immutable factory;
+    ISoulSwapFactory public immutable factory;
     bytes32 public immutable pairCodeHash;
 
     constructor(
         ICoffinBoxV1 coffinBox_,
-        IUniswapV2Factory factory_,
+        ISoulSwapFactory factory_,
         bytes32 pairCodeHash_
     ) public {
         coffinBox = coffinBox_;
@@ -57,8 +57,8 @@ contract SushiSwapSwapper is ISwapper {
         uint256 shareFrom
     ) public override returns (uint256 extraShare, uint256 shareReturned) {
         (IERC20 token0, IERC20 token1) = fromToken < toToken ? (fromToken, toToken) : (toToken, fromToken);
-        IUniswapV2Pair pair =
-            IUniswapV2Pair(
+        ISoulSwapPair pair =
+            ISoulSwapPair(
                 uint256(
                     keccak256(abi.encodePacked(hex"ff", factory, keccak256(abi.encodePacked(address(token0), address(token1))), pairCodeHash))
                 )
@@ -89,10 +89,10 @@ contract SushiSwapSwapper is ISwapper {
         uint256 shareFromSupplied,
         uint256 shareToExact
     ) public override returns (uint256 shareUsed, uint256 shareReturned) {
-        IUniswapV2Pair pair;
+        ISoulSwapPair pair;
         {
             (IERC20 token0, IERC20 token1) = fromToken < toToken ? (fromToken, toToken) : (toToken, fromToken);
-            pair = IUniswapV2Pair(
+            pair = ISoulSwapPair(
                 uint256(
                     keccak256(abi.encodePacked(hex"ff", factory, keccak256(abi.encodePacked(address(token0), address(token1))), pairCodeHash))
                 )

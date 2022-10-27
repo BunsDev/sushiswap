@@ -1,11 +1,11 @@
 import { Interface } from '@ethersproject/abi'
 import { ChainId } from 'soulswap-chain'
 import { Amount, Token } from 'soulswap-currency'
-import IUniswapV2PairArtifact from '@uniswap/v2-core/build/IUniswapV2Pair.json'
+import ISoulSwapPairArtifact from '@uniswap/v2-core/build/ISoulSwapPair.json'
 import { useMemo } from 'react'
 import { useContractRead } from 'wagmi'
 
-const PAIR_INTERFACE = new Interface(IUniswapV2PairArtifact.abi)
+const PAIR_INTERFACE = new Interface(ISoulSwapPairArtifact.abi)
 
 export const usePairTotalSupply = (address: string | undefined, chainId: ChainId) => {
   const { data: totalSupply } = useContractRead({

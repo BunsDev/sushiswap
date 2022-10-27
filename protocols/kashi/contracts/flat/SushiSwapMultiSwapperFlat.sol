@@ -51,10 +51,10 @@ library BoringMath {
     }
 }
 
-// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol@v1.4.2
 // License-Identifier: GPL-3.0
 
-interface IUniswapV2Pair {
+interface ISoulSwapPair {
     function getReserves()
         external
         view
@@ -115,7 +115,7 @@ library UniswapV2Library {
         bytes32 pairCodeHash
     ) internal view returns (uint256 reserveA, uint256 reserveB) {
         (address token0, ) = sortTokens(tokenA, tokenB);
-        (uint256 reserve0, uint256 reserve1, ) = IUniswapV2Pair(pairFor(factory, tokenA, tokenB, pairCodeHash)).getReserves();
+        (uint256 reserve0, uint256 reserve1, ) = ISoulSwapPair(pairFor(factory, tokenA, tokenB, pairCodeHash)).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
     }
 
@@ -267,7 +267,7 @@ contract SushiSwapMultiSwapper {
             uint256 amountOut = amounts[i + 1];
             (uint256 amount0Out, uint256 amount1Out) = input == token0 ? (uint256(0), amountOut) : (amountOut, uint256(0));
             address to = i < path.length - 2 ? UniswapV2Library.pairFor(factory, output, path[i + 2], pairCodeHash) : _to;
-            IUniswapV2Pair(UniswapV2Library.pairFor(factory, input, output, pairCodeHash)).swap(amount0Out, amount1Out, to, new bytes(0));
+            ISoulSwapPair(UniswapV2Library.pairFor(factory, input, output, pairCodeHash)).swap(amount0Out, amount1Out, to, new bytes(0));
         }
     }
 }

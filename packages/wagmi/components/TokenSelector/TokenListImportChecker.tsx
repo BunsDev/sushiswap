@@ -1,6 +1,6 @@
+import React, { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { Token } from 'soulswap-currency'
 import { Dialog } from 'soulswap-ui'
-import React, { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useTokens } from '../../hooks/useTokens'
 import { TokenSelectorImportRow } from './TokenSelectorImportRow'

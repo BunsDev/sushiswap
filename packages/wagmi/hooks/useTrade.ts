@@ -15,7 +15,7 @@ import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
 import { useFeeData } from 'wagmi'
 
-import { useCoffinBoxTotals } from './useCoffinBoxTotals'
+import { useCoffinBoxTotals } from './useCoffinBox/useCoffinBoxTotals'
 import { getConstantProductPoolFactoryContract } from './useConstantProductPoolFactoryContract'
 import { ConstantProductPoolState, useGetConstantProductPools } from './useConstantProductPools'
 import { useCurrencyCombinations } from './useCurrencyCombinations'

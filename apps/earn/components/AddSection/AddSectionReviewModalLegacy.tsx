@@ -6,9 +6,9 @@ import { Button, Dots } from 'soulswap-ui'
 import {
   Approve,
   calculateGasMargin,
-  getSushiSwapRouterContractConfig,
+  getSoulSwapRouterContractConfig,
   PairState,
-  useSushiSwapRouterContract,
+  useSoulSwapRouterContract,
 } from 'soulswap-wagmi'
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react'
 import { ProviderRpcError, useAccount, useDeprecatedSendTransaction, useNetwork, UserRejectedRequestError } from 'wagmi'
@@ -42,7 +42,7 @@ export const AddSectionReviewModalLegacy: FC<AddSectionReviewModalLegacyProps> =
   const { chain } = useNetwork()
 
   const [, { createNotification }] = useNotifications(address)
-  const contract = useSushiSwapRouterContract(chainId)
+  const contract = useSoulSwapRouterContract(chainId)
   const [{ slippageTolerance }] = useSettings()
   const { sendTransactionAsync, isLoading: isWritePending } = useDeprecatedSendTransaction({
     chainId,
@@ -179,14 +179,14 @@ export const AddSectionReviewModalLegacy: FC<AddSectionReviewModalLegacyProps> =
                   className="whitespace-nowrap"
                   fullWidth
                   amount={input0}
-                  address={getSushiSwapRouterContractConfig(chainId).addressOrName}
+                  address={getSoulSwapRouterContractConfig(chainId).addressOrName}
                 />
                 <Approve.Token
                   size="md"
                   className="whitespace-nowrap"
                   fullWidth
                   amount={input1}
-                  address={getSushiSwapRouterContractConfig(chainId).addressOrName}
+                  address={getSoulSwapRouterContractConfig(chainId).addressOrName}
                 />
               </Approve.Components>
             }

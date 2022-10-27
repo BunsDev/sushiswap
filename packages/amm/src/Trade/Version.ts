@@ -1,5 +1,5 @@
 export enum Version {
-  V1, // SushiSwapV1 === UniswapV2
+  V1, // SushiSwapV1 === SoulSwap
   V2, // SushiSwapV2 === Trident
   //   V3, // SushiSwapV3 === 😈
 }

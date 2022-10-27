@@ -1,12 +1,12 @@
 import { Interface } from '@ethersproject/abi'
 import { Amount, Type as Currency } from 'soulswap-currency'
 import { computePairAddress, FACTORY_ADDRESS, Pair } from 'soulswap-amm'
-import IUniswapV2PairArtifact from '@uniswap/v2-core/build/IUniswapV2Pair.json'
+import ISoulSwapPairArtifact from '@uniswap/v2-core/build/ISoulSwapPair.json'
 import { useMultipleContractSingleData } from 'lib/state/multicall'
 import { useMemo } from 'react'
 import { useBlockNumber } from 'wagmi'
 
-const PAIR_INTERFACE = new Interface(IUniswapV2PairArtifact.abi)
+const PAIR_INTERFACE = new Interface(ISoulSwapPairArtifact.abi)
 
 export enum PairState {
   LOADING,

@@ -113,10 +113,10 @@ library BoringMath32 {
     }
 }
 
-// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapFactory.sol@v1.4.2
 // License-Identifier: GPL-3.0
 
-interface IUniswapV2Factory {
+interface ISoulSwapFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint256);
 
     function feeTo() external view returns (address);
@@ -140,10 +140,10 @@ interface IUniswapV2Factory {
     function setMigrator(address) external;
 }
 
-// File soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol@v1.4.2
+// File soulswap-core/contracts/uniswapv2/interfaces/ISoulSwapPair.sol@v1.4.2
 // License-Identifier: GPL-3.0
 
-interface IUniswapV2Pair {
+interface ISoulSwapPair {
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event Transfer(address indexed from, address indexed to, uint256 value);
 
@@ -349,14 +349,14 @@ contract SimpleSLPTWAP1OracleV1 is IOracle {
         uint144 priceAverage;
     }
 
-    mapping(IUniswapV2Pair => PairInfo) public pairs; // Map of pairs and their info
-    mapping(address => IUniswapV2Pair) public callerInfo; // Map of callers to pairs
+    mapping(ISoulSwapPair => PairInfo) public pairs; // Map of pairs and their info
+    mapping(address => ISoulSwapPair) public callerInfo; // Map of callers to pairs
 
-    function _get(IUniswapV2Pair pair, uint32 blockTimestamp) public view returns (uint256) {
+    function _get(ISoulSwapPair pair, uint32 blockTimestamp) public view returns (uint256) {
         uint256 priceCumulative = pair.price1CumulativeLast();
 
         // if time has elapsed since the last update on the pair, mock the accumulated price values
-        (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast) = IUniswapV2Pair(pair).getReserves();
+        (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast) = ISoulSwapPair(pair).getReserves();
         priceCumulative += uint256(FixedPoint.fraction(reserve0, reserve1)._x) * (blockTimestamp - blockTimestampLast); // overflows ok
 
         // overflow is desired, casting never truncates
@@ -364,14 +364,14 @@ contract SimpleSLPTWAP1OracleV1 is IOracle {
         return priceCumulative;
     }
 
-    function getDataParameter(IUniswapV2Pair pair) public pure returns (bytes memory) {
+    function getDataParameter(ISoulSwapPair pair) public pure returns (bytes memory) {
         return abi.encode(pair);
     }
 
     // Get the latest exchange rate, if no valid (recent) rate is available, return false
     /// @inheritdoc IOracle
     function get(bytes calldata data) external override returns (bool, uint256) {
-        IUniswapV2Pair pair = abi.decode(data, (IUniswapV2Pair));
+        ISoulSwapPair pair = abi.decode(data, (ISoulSwapPair));
         uint32 blockTimestamp = uint32(block.timestamp);
         if (pairs[pair].blockTimestampLast == 0) {
             pairs[pair].blockTimestampLast = blockTimestamp;
@@ -397,7 +397,7 @@ contract SimpleSLPTWAP1OracleV1 is IOracle {
     // Check the last exchange rate without any state changes
     /// @inheritdoc IOracle
     function peek(bytes calldata data) public view override returns (bool, uint256) {
-        IUniswapV2Pair pair = abi.decode(data, (IUniswapV2Pair));
+        ISoulSwapPair pair = abi.decode(data, (ISoulSwapPair));
         uint32 blockTimestamp = uint32(block.timestamp);
         if (pairs[pair].blockTimestampLast == 0) {
             return (false, 0);
@@ -417,7 +417,7 @@ contract SimpleSLPTWAP1OracleV1 is IOracle {
     // Check the current spot exchange rate without any state changes
     /// @inheritdoc IOracle
     function peekSpot(bytes calldata data) external view override returns (uint256 rate) {
-        IUniswapV2Pair pair = abi.decode(data, (IUniswapV2Pair));
+        ISoulSwapPair pair = abi.decode(data, (ISoulSwapPair));
         (uint256 reserve0, uint256 reserve1, ) = pair.getReserves();
         rate = reserve0.mul(1e18) / reserve1;
     }

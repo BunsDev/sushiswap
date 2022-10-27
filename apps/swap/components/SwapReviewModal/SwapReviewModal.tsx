@@ -4,7 +4,7 @@ import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero, Zero } from '@ethersproject/constants'
 import { TransactionRequest } from '@ethersproject/providers'
-import { SushiSwapRouter, Trade, TradeType, Version } from 'soulswap-amm'
+import { SoulSwapRouter, Trade, TradeType, Version } from 'soulswap-amm'
 import { ChainId } from 'soulswap-chain'
 import { Amount, Currency, Native } from 'soulswap-currency'
 import { Percent } from 'soulswap-math'
@@ -163,7 +163,7 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
 
       if (trade.isV1()) {
         if (!sushiSwapRouter || !deadline) return
-        const swapCallParameters = SushiSwapRouter.swapCallParameters(
+        const swapCallParameters = SoulSwapRouter.swapCallParameters(
           trade as Trade<Currency, Currency, TradeType, Version.V1>,
           {
             feeOnTransfer: false,

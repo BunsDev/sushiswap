@@ -1,4 +1,4 @@
-import coffinBoxExports from 'soulswap-coffinbox/exports.json'
+import { coffinBoxExports } from './coffinBoxExports'
 import { INIT_CODE_HASH } from 'soulswap-amm'
 import {
   STARGATE_BRIDGE_TOKENS,
@@ -6,7 +6,7 @@ import {
   STARGATE_USDC_ADDRESS,
   STARGATE_WIDGET_ADDRESS,
 } from 'soulswap-stargate'
-import sushiSwapExports from 'soulswap-sushiswap/exports.json'
+import { soulSwapExports } from './soulSwapExports'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/types'
 
@@ -24,7 +24,7 @@ const func: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts()
 
   const coffinBox = await ethers.getContractOrNull('CoffinBoxV1')
-  const factory = await ethers.getContractOrNull('UniswapV2Factory')
+  const factory = await ethers.getContractOrNull('SoulSwapFactory')
 
   if (!coffinBox && !(chainId in coffinBoxExports)) {
     throw Error(`No COFFINBOX_ADDRESS for chain #${chainId}!`)
@@ -42,12 +42,12 @@ const func: DeployFunction = async function ({
     throw Error(`No STARGATE_WIDGET_ADDRESS for chain #${chainId}!`)
   }
 
-  if (!factory && !(chainId in sushiSwapExports)) {
+  if (!factory && !(chainId in soulSwapExports)) {
     // throw Error(`No FACTORY_ADDRESS for chain #${chainId}!`)
     console.warn(`No FACTORY_ADDRESS for chain #${chainId}!`)
   }
 
-  if ((factory || chainId in sushiSwapExports) && !(chainId in INIT_CODE_HASH)) {
+  if ((factory || chainId in soulSwapExports) && !(chainId in INIT_CODE_HASH)) {
     throw Error(`No INIT_CODE_HASH for chain #${chainId}!`)
   }
 
@@ -55,10 +55,11 @@ const func: DeployFunction = async function ({
     coffinBoxExports?.[chainId.toString() as keyof Omit<typeof coffinBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.address,
     STARGATE_ROUTER_ADDRESS[chainId],
-    sushiSwapExports?.[chainId.toString() as keyof Omit<typeof sushiSwapExports, '31337'>]?.[0]?.contracts
-      ?.UniswapV2Factory.address ?? ethers.constants.AddressZero,
+    soulSwapExports?.[chainId.toString() as keyof Omit<typeof soulSwapExports, '31337'>]?.[0]?.contracts
+      ?.SoulSwapFactory.address ?? ethers.constants.AddressZero,
     INIT_CODE_HASH?.[chainId] ?? ethers.constants.HashZero,
-    STARGATE_WIDGET_ADDRESS[chainId as keyof typeof STARGATE_WIDGET_ADDRESS],
+    // STARGATE_WIDGET_ADDRESS[chainId as keyof typeof STARGATE_WIDGET_ADDRESS],
+    STARGATE_WIDGET_ADDRESS[chainId],
   ]
 
   const { address } = await deploy('soulxswap', {

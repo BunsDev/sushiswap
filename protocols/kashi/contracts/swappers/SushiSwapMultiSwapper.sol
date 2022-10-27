@@ -66,7 +66,7 @@ contract SushiSwapMultiSwapper {
                 ? (uint256(0), amountOut)
                 : (amountOut, uint256(0));
             address to = i < path.length - 2 ? UniswapV2Library.pairFor(factory, output, path[i + 2], pairCodeHash) : _to;
-            IUniswapV2Pair(UniswapV2Library.pairFor(factory, input, output, pairCodeHash)).swap(
+            ISoulSwapPair(UniswapV2Library.pairFor(factory, input, output, pairCodeHash)).swap(
                 amount0Out,
                 amount1Out,
                 to,

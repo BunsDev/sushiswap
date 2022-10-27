@@ -100,7 +100,7 @@ export async function getRewarderInfos(chainId: ChainId) {
     rewarders.map(async (rewarder) => {
       try {
         // will always fail
-        if (chainId === 137 || chainId === 42161) throw new Error()
+        if (chainId === 137) throw new Error()
 
         // const poolLengthCall: ReadContractConfig = {
         //   addressOrName: rewarder.id,

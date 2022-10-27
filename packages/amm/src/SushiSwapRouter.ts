@@ -73,7 +73,7 @@ const ZERO_HEX = '0x0'
 /**
  * Represents the Uniswap V2 Router, and has static methods for helping execute trades.
  */
-export abstract class SushiSwapRouter {
+export abstract class SoulSwapRouter {
   /**
    * Cannot be constructed.
    */

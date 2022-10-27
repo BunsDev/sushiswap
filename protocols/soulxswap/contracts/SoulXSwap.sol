@@ -5,7 +5,7 @@ pragma solidity >=0.8.11;
 import "./interfaces/ISoulXSwap.sol";
 
 /// @title SoulXSwap
-/// @notice Enables cross chain swap for sushiswap.
+/// @notice Enables cross chain swap for soulswap.
 /// @dev Supports both CoffinBox and Wallet. Supports both Trident and Legacy AMM. Uses Stargate as bridge.
 contract SoulXSwap is
     ISoulXSwap,

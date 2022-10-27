@@ -42,18 +42,6 @@ export const GRAPH_HOST: Record<number | string, string> = {
 }
 
 export const EXCHANGE_SUBGRAPH_NAME: Record<number | string, string> = {
-  //   [ChainId.ETHEREUM]: 'sushi-graph/sushiswap-ethereum',
-  //   [ChainId.AVALANCHE]: 'sushiswap/sushiswap-avalanche',
-  //   [ChainId.ARBITRUM]: 'sushiswap/sushiswap-arbitrum',
-  //   [ChainId.BSC]: 'sushiswap/sushiswap-bsc',
-  //   [ChainId.CELO]: 'sushiswap/sushiswap-celo',
-  //   [ChainId.FANTOM]: 'sushiswap/sushiswap-fantom',
-  //   [ChainId.FUSE]: 'sushiswap/sushiswap-fuse',
-  //   [ChainId.GNOSIS]: 'sushiswap/sushiswap-gnosis',
-  //   [ChainId.MOONBEAM]: 'sushiswap/sushiswap-moonbeam',
-  //   [ChainId.MOONRIVER]: 'sushiswap/sushiswap-moonriver',
-  //   [ChainId.HARMONY]: 'sushi-graph/sushiswap-harmony',
-  //   [ChainId.POLYGON]: 'sushiswap/exchange-polygon',
 
   [ChainId.ETHEREUM]: 'subgraph-qa/sushiswap-ethereum',
   [ChainId.AVALANCHE]: 'sushi-0m/sushiswap-avalanche',

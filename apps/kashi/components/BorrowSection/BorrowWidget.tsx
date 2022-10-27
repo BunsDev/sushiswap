@@ -5,7 +5,7 @@ import { Button, classNames, Dialog, Typography } from 'soulswap-ui'
 import { Icon } from 'soulswap-ui/currency/Icon'
 import { Widget } from 'soulswap-ui/widget'
 import { Approve, usePrices, Web3Input } from 'soulswap-wagmi'
-import { getSushiSwapRouterContractConfig } from 'soulswap-wagmi/hooks'
+import { getSoulSwapRouterContractConfig } from 'soulswap-wagmi/hooks'
 import { KashiMediumRiskLendingPairV1 } from 'lib/KashiPair'
 import { FC, useCallback, useState } from 'react'
 import { useAccount } from 'wagmi'
@@ -260,7 +260,7 @@ export const BorrowWidget: FC<BorrowWidget> = ({ pair }) => {
                   className="whitespace-nowrap"
                   fullWidth
                   amount={collateralAsEntity}
-                  address={getSushiSwapRouterContractConfig(pair.chainId).addressOrName}
+                  address={getSoulSwapRouterContractConfig(pair.chainId).addressOrName}
                 />
               </Approve.Components>
             }

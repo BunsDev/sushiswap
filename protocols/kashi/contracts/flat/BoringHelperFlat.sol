@@ -487,7 +487,7 @@ contract BoringHelperV1 is Ownable {
     IERC20 public sushi; // ISushiToken(0x6B3595068778DD592e39A122f4f5a5cF09C90fE2);
     IERC20 public WETH; // 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
     IERC20 public WBTC; // 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599;
-    IFactory public sushiFactory; // IFactory(0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac);
+    IFactory public sushiFactory; // IFactory(0x794d858b0b152fb68a5CE465451D729EFfA67f08);
     IFactory public uniV2Factory; // IFactory(0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f);
     IERC20 public bar; // 0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272;
     ICoffinBox public coffinBox; // 0xB5891167796722331b7ea7824F036b3Bdcb4531C
