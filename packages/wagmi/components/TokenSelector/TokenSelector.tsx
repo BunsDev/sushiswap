@@ -54,7 +54,7 @@ export const TokenSelector: FC<TokenSelectorProps> = memo(
       account: address,
       chainId,
       currencies: _tokenMapValues,
-      loadBentobox: false,
+      loadCoffinbox: false,
       enabled: open,
     })
 

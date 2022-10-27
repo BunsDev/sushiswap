@@ -55,7 +55,7 @@ export interface StreamCreationActionProps {
   startDate: Date
   endDate: Date
   amount: Amount<Type>
-  fromBentobox: boolean
+  fromCoffinbox: boolean
   minShare: Share<Type>
 }
 
@@ -66,7 +66,7 @@ export const streamCreationAction = ({
   startDate,
   endDate,
   amount,
-  fromBentobox,
+  fromCoffinbox,
   minShare,
 }: StreamCreationActionProps): string => {
   return contract.interface.encodeFunctionData('createStream', [
@@ -75,7 +75,7 @@ export const streamCreationAction = ({
     startDate.getTime() / 1000,
     endDate.getTime() / 1000,
     amount.quotient.toString(),
-    fromBentobox,
+    fromCoffinbox,
     minShare.quotient.toString(),
   ])
 }
@@ -90,7 +90,7 @@ export interface VestingCreationProps {
   steps: string
   stepPercentage: string
   amount: string
-  fromBentobox: boolean
+  fromCoffinbox: boolean
   minShare: Share<Type>
 }
 
@@ -104,7 +104,7 @@ export const vestingCreationAction = ({
   steps,
   stepPercentage,
   amount,
-  fromBentobox,
+  fromCoffinbox,
   minShare,
 }: VestingCreationProps): string => {
   return contract.interface.encodeFunctionData('createVesting', [
@@ -117,7 +117,7 @@ export const vestingCreationAction = ({
       steps: steps,
       stepPercentage: stepPercentage,
       amount: amount,
-      fromCoffinBox: fromBentobox,
+      fromCoffinBox: fromCoffinbox,
     },
     minShare.quotient.toString(),
   ])

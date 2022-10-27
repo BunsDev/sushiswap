@@ -5,7 +5,7 @@ import { KashiPairMediumRiskV1 } from 'soulswap-kashi/typechain'
 import { Button, Dialog, Typography } from 'soulswap-ui'
 import { Icon } from 'soulswap-ui/currency/Icon'
 import { Widget } from 'soulswap-ui/widget'
-import { Approve, BENTOBOX_ADDRESS, useCoffinBoxContract, usePrices, Web3Input } from 'soulswap-wagmi'
+import { Approve, COFFINBOX_ADDRESS, useCoffinBoxContract, usePrices, Web3Input } from 'soulswap-wagmi'
 import { KASHI_ADDRESS } from 'config'
 import { BigNumber, Signature } from 'ethers'
 import KashiCooker from 'lib/KashiCooker'
@@ -23,7 +23,7 @@ interface LendWidget {
 export const LendWidget: FC<LendWidget> = ({ pair }) => {
   const { address: account } = useAccount()
   const [signature, setSignature] = useState<Signature>()
-  const bentoBoxContract = useCoffinBoxContract(pair.chainId)
+  const coffinBoxContract = useCoffinBoxContract(pair.chainId)
   const { data: signerOrProvider } = useSigner()
   const kashiMediumRiskV1Contract = useContract<KashiPairMediumRiskV1>({
     addressOrName: pair.address,
@@ -49,7 +49,7 @@ export const LendWidget: FC<LendWidget> = ({ pair }) => {
 
     cooker.updateExchangeRate(false)
 
-    const deadBalance = await bentoBoxContract.balanceOf(
+    const deadBalance = await coffinBoxContract.balanceOf(
       pair.asset.address,
       '0x000000000000000000000000000000000000dead'
     )
@@ -60,11 +60,11 @@ export const LendWidget: FC<LendWidget> = ({ pair }) => {
       // can't we do this alone?
       // cooker.removeAssetToCoffinBox(BigNumber.from(1000), '0x000000000000000000000000000000000000dead')
       cooker.removeAssetToCoffinBox(BigNumber.from(1000))
-      cooker.bentoBoxTransferAsset('0x000000000000000000000000000000000000dead', BigNumber.from(1000))
+      cooker.coffinBoxTransferAsset('0x000000000000000000000000000000000000dead', BigNumber.from(1000))
     }
 
     await cooker.cook()
-  }, [account, amount, bentoBoxContract, kashiMediumRiskV1Contract, pair, signature])
+  }, [account, amount, coffinBoxContract, kashiMediumRiskV1Contract, pair, signature])
   return (
     <>
       <Widget id="depositCollateral" maxWidth="md">
@@ -152,10 +152,10 @@ export const LendWidget: FC<LendWidget> = ({ pair }) => {
                   className="whitespace-nowrap"
                   fullWidth
                   amount={amount}
-                  address={BENTOBOX_ADDRESS[pair.chainId]}
-                  enabled={Boolean(BENTOBOX_ADDRESS[pair.chainId])}
+                  address={COFFINBOX_ADDRESS[pair.chainId]}
+                  enabled={Boolean(COFFINBOX_ADDRESS[pair.chainId])}
                 />
-                <Approve.Bentobox
+                <Approve.Coffinbox
                   size="md"
                   className="whitespace-nowrap"
                   fullWidth

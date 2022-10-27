@@ -81,20 +81,20 @@ export const SUBGRAPH_HOST = {
   [ChainId.KOVAN]: '',
 } as const
 
-export const BENTOBOX_SUBGRAPH_NAME = {
-  [ChainId.ETHEREUM]: 'sushiswap/bentobox-ethereum',
-  [ChainId.POLYGON]: 'sushiswap/bentobox-polygon',
-  [ChainId.AVALANCHE]: 'sushiswap/bentobox-avalanche',
-  [ChainId.BSC]: 'sushiswap/bentobox-bsc',
-  [ChainId.FANTOM]: 'sushiswap/bentobox-fantom',
-  [ChainId.GNOSIS]: 'sushiswap/bentobox-gnosis',
-  [ChainId.ARBITRUM]: 'sushiswap/bentobox-arbitrum',
-  [ChainId.CELO]: 'sushiswap/bentobox-celo',
-  [ChainId.MOONRIVER]: 'sushiswap/bentobox-moonriver',
-  [ChainId.MOONBEAM]: 'sushiswap/bentobox-moonbeam',
-  [ChainId.OPTIMISM]: 'sushiswap/bentobox-optimism',
-  [ChainId.HARMONY]: 'sushiswap/bentobox-harmony',
-  [ChainId.KAVA]: 'sushiswap/bentobox-kava',
+export const COFFINBOX_SUBGRAPH_NAME = {
+  [ChainId.ETHEREUM]: 'sushiswap/coffinbox-ethereum',
+  [ChainId.POLYGON]: 'sushiswap/coffinbox-polygon',
+  [ChainId.AVALANCHE]: 'sushiswap/coffinbox-avalanche',
+  [ChainId.BSC]: 'sushiswap/coffinbox-bsc',
+  [ChainId.FANTOM]: 'sushiswap/coffinbox-fantom',
+  [ChainId.GNOSIS]: 'sushiswap/coffinbox-gnosis',
+  [ChainId.ARBITRUM]: 'sushiswap/coffinbox-arbitrum',
+  [ChainId.CELO]: 'sushiswap/coffinbox-celo',
+  [ChainId.MOONRIVER]: 'sushiswap/coffinbox-moonriver',
+  [ChainId.MOONBEAM]: 'sushiswap/coffinbox-moonbeam',
+  [ChainId.OPTIMISM]: 'sushiswap/coffinbox-optimism',
+  [ChainId.HARMONY]: 'sushiswap/coffinbox-harmony',
+  [ChainId.KAVA]: 'sushiswap/coffinbox-kava',
 } as const
 
 export const BLOCKS_SUBGRAPH_NAME = {

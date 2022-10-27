@@ -61,8 +61,8 @@ const config: HardhatUserConfig = {
   // external: {
   //   contracts: [
   //     {
-  //       artifacts: 'node_modules/soulswap-bentobox/artifacts',
-  //       deploy: 'node_modules/soulswap-bentobox/deploy',
+  //       artifacts: 'node_modules/soulswap-coffinbox/artifacts',
+  //       deploy: 'node_modules/soulswap-coffinbox/deploy',
   //     },
   //   ],
   // },

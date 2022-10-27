@@ -5,7 +5,7 @@ pragma solidity 0.8.10;
 import './interfaces/IFuroVesting.sol';
 
 contract FuroVestingRouter is Multicall {
-  ICoffinBoxMinimal public immutable bentoBox;
+  ICoffinBoxMinimal public immutable coffinBox;
   IFuroVesting public immutable furoVesting;
   address public immutable wETH;
 
@@ -13,15 +13,15 @@ contract FuroVestingRouter is Multicall {
   error InsufficientShares();
 
   constructor(
-    ICoffinBoxMinimal _bentoBox,
+    ICoffinBoxMinimal _coffinBox,
     IFuroVesting _furoVesting,
     address _wETH
   ) {
-    bentoBox = _bentoBox;
+    coffinBox = _coffinBox;
     furoVesting = _furoVesting;
     wETH = _wETH;
-    _bentoBox.setMasterContractApproval(address(this), address(_furoVesting), true, 0, bytes32(0), bytes32(0));
-    _bentoBox.registerProtocol();
+    _coffinBox.setMasterContractApproval(address(this), address(_furoVesting), true, 0, bytes32(0), bytes32(0));
+    _coffinBox.registerProtocol();
   }
 
   function setCoffinBoxApproval(
@@ -31,7 +31,7 @@ contract FuroVestingRouter is Multicall {
     bytes32 r,
     bytes32 s
   ) external payable {
-    bentoBox.setMasterContractApproval(user, address(this), approved, v, r, s);
+    coffinBox.setMasterContractApproval(user, address(this), approved, v, r, s);
   }
 
   function createVesting(IFuroVesting.VestParams memory vestParams, uint256 minShare)
@@ -72,10 +72,10 @@ contract FuroVestingRouter is Multicall {
     bool fromCoffinBox
   ) internal returns (uint256 depositedShares) {
     if (fromCoffinBox) {
-      depositedShares = bentoBox.toShare(token, amount, false);
-      bentoBox.transfer(token, from, to, depositedShares);
+      depositedShares = coffinBox.toShare(token, amount, false);
+      coffinBox.transfer(token, from, to, depositedShares);
     } else {
-      (, depositedShares) = bentoBox.deposit{value: token == address(0) ? amount : 0}(token, from, to, amount, 0);
+      (, depositedShares) = coffinBox.deposit{value: token == address(0) ? amount : 0}(token, from, to, amount, 0);
     }
   }
 }

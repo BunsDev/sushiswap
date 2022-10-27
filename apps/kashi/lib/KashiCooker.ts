@@ -21,11 +21,11 @@ enum Action {
   UPDATE_EXCHANGE_RATE = 11,
 
   // Function on CoffinBox
-  BENTO_DEPOSIT = 20,
-  BENTO_WITHDRAW = 21,
-  BENTO_TRANSFER = 22,
-  BENTO_TRANSFER_MULTIPLE = 23,
-  BENTO_SETAPPROVAL = 24,
+  COFFIN_DEPOSIT = 20,
+  COFFIN_WITHDRAW = 21,
+  COFFIN_TRANSFER = 22,
+  COFFIN_TRANSFER_MULTIPLE = 23,
+  COFFIN_SETAPPROVAL = 24,
 
   // Any external call (except to CoffinBox)
   CALL = 30,
@@ -47,7 +47,7 @@ export class CoffinBoxCooker<T> {
   }
   transfer(token: string, to: string, share: BigNumber): T {
     return this.add(
-      Action.BENTO_TRANSFER,
+      Action.COFFIN_TRANSFER,
       defaultAbiCoder.encode(['address', 'address', 'int256'], [token, to, share]),
       0
     )
@@ -55,7 +55,7 @@ export class CoffinBoxCooker<T> {
 
   deposit(token: string, to: string, amount: BigNumberish, share: BigNumberish): T {
     return this.add(
-      Action.BENTO_DEPOSIT,
+      Action.COFFIN_DEPOSIT,
       defaultAbiCoder.encode(['address', 'address', 'int256', 'int256'], [token, to, amount, share]),
       amount
     )
@@ -67,7 +67,7 @@ export default class KashiCooker {
   private readonly chainId: number
   private readonly contract: KashiPairMediumRiskV1Contract
   private readonly pair: KashiMediumRiskLendingPairV1
-  //   private readonly bentoBoxCooker: CoffinBoxCooker<KashiCooker>
+  //   private readonly coffinBoxCooker: CoffinBoxCooker<KashiCooker>
   private readonly actions: Action[]
   private readonly values: BigNumber[]
   private readonly datas: string[]
@@ -95,7 +95,7 @@ export default class KashiCooker {
     this.actions = []
     this.values = []
     this.datas = []
-    // this.bentoBoxCooker = new CoffinBoxCooker(this.add)
+    // this.coffinBoxCooker = new CoffinBoxCooker(this.add)
   }
 
   add(action: Action, data: string, value: BigNumberish = Zero): KashiCooker {
@@ -107,7 +107,7 @@ export default class KashiCooker {
 
   setMasterContractApproval({ v, r, s }: Signature): KashiCooker {
     return this.add(
-      Action.BENTO_SETAPPROVAL,
+      Action.COFFIN_SETAPPROVAL,
       defaultAbiCoder.encode(
         ['address', 'address', 'bool', 'uint8', 'bytes32', 'bytes32'],
         [this.account, this.pair.masterContract, true, v, r, s]
@@ -115,21 +115,21 @@ export default class KashiCooker {
     )
   }
 
-  bentoBoxTransfer(token: string, to: string, share: BigNumber): KashiCooker {
-    return this.add(Action.BENTO_TRANSFER, defaultAbiCoder.encode(['address', 'address', 'int256'], [token, to, share]))
+  coffinBoxTransfer(token: string, to: string, share: BigNumber): KashiCooker {
+    return this.add(Action.COFFIN_TRANSFER, defaultAbiCoder.encode(['address', 'address', 'int256'], [token, to, share]))
   }
 
-  bentoBoxTransferCollateral(to: string, share: BigNumber): KashiCooker {
-    return this.bentoBoxTransfer(this.pair.collateral.wrapped.address, to, share)
+  coffinBoxTransferCollateral(to: string, share: BigNumber): KashiCooker {
+    return this.coffinBoxTransfer(this.pair.collateral.wrapped.address, to, share)
   }
 
-  bentoBoxTransferAsset(to: string, share: BigNumber): KashiCooker {
-    return this.bentoBoxTransfer(this.pair.asset.wrapped.address, to, share)
+  coffinBoxTransferAsset(to: string, share: BigNumber): KashiCooker {
+    return this.coffinBoxTransfer(this.pair.asset.wrapped.address, to, share)
   }
 
-  bentoBoxDeposit(to: string, amount: Amount<Currency>, share: Share<Currency>): KashiCooker {
+  coffinBoxDeposit(to: string, amount: Amount<Currency>, share: Share<Currency>): KashiCooker {
     return this.add(
-      Action.BENTO_DEPOSIT,
+      Action.COFFIN_DEPOSIT,
       defaultAbiCoder.encode(
         ['address', 'address', 'int256', 'int256'],
         [
@@ -143,9 +143,9 @@ export default class KashiCooker {
     )
   }
 
-  bentoBoxWithdraw(to: string, amount: Amount<Currency>, share: Share<Currency>): KashiCooker {
+  coffinBoxWithdraw(to: string, amount: Amount<Currency>, share: Share<Currency>): KashiCooker {
     return this.add(
-      Action.BENTO_WITHDRAW,
+      Action.COFFIN_WITHDRAW,
       defaultAbiCoder.encode(
         ['address', 'address', 'int256', 'int256'],
         [
@@ -171,9 +171,9 @@ export default class KashiCooker {
     to: string = this.account,
     skim = false
   ): KashiCooker {
-    this.bentoBoxDeposit(to, amount, share)
+    this.coffinBoxDeposit(to, amount, share)
     this.add(
-      Action.BENTO_DEPOSIT,
+      Action.COFFIN_DEPOSIT,
       defaultAbiCoder.encode(
         ['address', 'address', 'int256', 'int256'],
         [
@@ -199,7 +199,7 @@ export default class KashiCooker {
     this.removeAssetToCoffinBox(fraction, to)
     const useNative = this.pair.asset.wrapped.address === WNATIVE_ADDRESS[this.chainId]
     return this.add(
-      Action.BENTO_WITHDRAW,
+      Action.COFFIN_WITHDRAW,
       defaultAbiCoder.encode(
         ['address', 'address', 'int256', 'int256'],
         [useNative ? AddressZero : this.pair.asset.wrapped.address, to, Zero, this.USE_VALUE1]
@@ -217,7 +217,7 @@ export default class KashiCooker {
   addCollateralFromWallet(amount: Amount<Currency>, to = this.account, skim = false): KashiCooker {
     const useNative = this.pair.collateral.wrapped.address === WNATIVE_ADDRESS[this.chainId]
     this.add(
-      Action.BENTO_DEPOSIT,
+      Action.COFFIN_DEPOSIT,
       defaultAbiCoder.encode(
         ['address', 'address', 'int256', 'int256'],
         [useNative ? AddressZero : this.pair.collateral.wrapped.address, to, amount.quotient.toString(), Zero]

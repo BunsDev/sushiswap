@@ -5,7 +5,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { getBuiltGraphSDK } from '.graphclient'
 
-const bentoBoxKpiReducer = (previousValue, currentValue, i, array) => {
+const coffinBoxKpiReducer = (previousValue, currentValue, i, array) => {
   if (i === array.length - 1) {
     return previousValue.map((kpi) => ({ ...kpi, value: formatNumber(kpi.value) }))
   }
@@ -111,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
 export default function CoffinBoxPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const kpis: { name: string; value: string }[] = data.reduce(
-    bentoBoxKpiReducer,
+    coffinBoxKpiReducer,
     Array(13).fill({
       value: 0,
     })

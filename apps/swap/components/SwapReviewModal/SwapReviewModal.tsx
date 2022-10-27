@@ -13,7 +13,7 @@ import { Button, Dots } from 'soulswap-ui'
 import { isZero } from 'soulswap-validate'
 import {
   Approve,
-  BENTOBOX_ADDRESS,
+  COFFINBOX_ADDRESS,
   calculateGasMargin,
   getTridentRouterContractConfig,
   useCoffinBoxTotal,
@@ -268,7 +268,7 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
               {
                 token: string
                 to: string
-                unwrapBento: boolean
+                unwrapCoffin: boolean
                 minAmount: BigNumberish
               }[]
             ]
@@ -337,7 +337,7 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
                 {
                   token: trade.outputAmount.currency.wrapped.address,
                   to: trade.outputAmount.currency.isNative ? tridentRouter.address : account,
-                  unwrapBento: true,
+                  unwrapCoffin: true,
                   minAmount: trade
                     ?.minimumAmountOut(allowedSlippage)
                     ?.toShare(outputCurrencyRebase)
@@ -459,7 +459,7 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
     if (trade?.isV1()) {
       return chainId === ChainId.POLYGON && carbonOffset ? sushiSwapKlimaRouter?.address : sushiSwapRouter?.address
     } else if (trade?.isV2()) {
-      return chainId && chainId in BENTOBOX_ADDRESS ? BENTOBOX_ADDRESS[chainId] : undefined
+      return chainId && chainId in COFFINBOX_ADDRESS ? COFFINBOX_ADDRESS[chainId] : undefined
     }
   }, [trade, carbonOffset, sushiSwapKlimaRouter?.address, sushiSwapRouter?.address, chainId])
 
@@ -479,7 +479,7 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
           className="flex-grow !justify-end"
           components={
             <Approve.Components>
-              <Approve.Bentobox
+              <Approve.Coffinbox
                 size="md"
                 className="whitespace-nowrap"
                 fullWidth

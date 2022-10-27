@@ -152,7 +152,7 @@ export const TableSectionRow: FC<TableSectionRow> = ({ control, index, onRemove,
                       <Select.Option key={FundSource.WALLET} value={FundSource.WALLET}>
                         Wallet
                       </Select.Option>
-                      <Select.Option key={FundSource.BENTOBOX} value={FundSource.BENTOBOX}>
+                      <Select.Option key={FundSource.COFFINBOX} value={FundSource.COFFINBOX}>
                         CoffinBox
                       </Select.Option>
                     </Select.Options>

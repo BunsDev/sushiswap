@@ -14,14 +14,14 @@ export enum Action {
   SET_MASTER_CONTRACT_APPROVAL = 0,
 
   // Src Actions
-  SRC_DEPOSIT_TO_BENTOBOX = 1,
+  SRC_DEPOSIT_TO_COFFINBOX = 1,
   SRC_DEPOSIT = 11,
-  SRC_TRANSFER_FROM_BENTOBOX = 2,
+  SRC_TRANSFER_FROM_COFFINBOX = 2,
 
   // Dst Actions
-  DST_DEPOSIT_TO_BENTOBOX = 3,
+  DST_DEPOSIT_TO_COFFINBOX = 3,
   DST_WITHDRAW = 4,
-  DST_WITHDRAW_FROM_BENTOBOX = 5,
+  DST_WITHDRAW_FROM_COFFINBOX = 5,
 
   // Unwrap (to native)
   UNWRAP_AND_TRANSFER = 6,
@@ -74,7 +74,7 @@ export abstract class Cooker implements Cooker {
     share: BigNumberish = Zero
   ): void {
     if (this.debug)
-      console.debug('cook src depoit to bentobox', {
+      console.debug('cook src depoit to coffinbox', {
         currency,
         recipient,
         amount,
@@ -87,7 +87,7 @@ export abstract class Cooker implements Cooker {
 
     const value = currency.isNative ? amount : Zero
 
-    this.add(Action.SRC_DEPOSIT_TO_BENTOBOX, data, value)
+    this.add(Action.SRC_DEPOSIT_TO_COFFINBOX, data, value)
   }
 
   srcTransferFromCoffinBox(
@@ -98,7 +98,7 @@ export abstract class Cooker implements Cooker {
     unwrap: boolean
   ): void {
     if (this.debug)
-      console.debug('cook src transfer from bentobox', {
+      console.debug('cook src transfer from coffinbox', {
         token,
         to,
         amount,
@@ -106,7 +106,7 @@ export abstract class Cooker implements Cooker {
         unwrap,
       })
     this.add(
-      Action.SRC_TRANSFER_FROM_BENTOBOX,
+      Action.SRC_TRANSFER_FROM_COFFINBOX,
       defaultAbiCoder.encode(
         ['address', 'address', 'uint256', 'uint256', 'bool'],
         [token.wrapped.address, to, BigNumber.from(amount), BigNumber.from(share), unwrap]
@@ -121,7 +121,7 @@ export abstract class Cooker implements Cooker {
     share: BigNumberish = Zero
   ): void {
     this.add(
-      Action.DST_DEPOSIT_TO_BENTOBOX,
+      Action.DST_DEPOSIT_TO_COFFINBOX,
       defaultAbiCoder.encode(
         ['address', 'address', 'uint256', 'uint256'],
         [token.isToken ? token.address : AddressZero, to, BigNumber.from(amount), BigNumber.from(share)]
@@ -149,7 +149,7 @@ export abstract class Cooker implements Cooker {
       [token.isToken ? token.address : AddressZero, to, BigNumber.from(amount), BigNumber.from(share), unwrap]
     )
     const value = token.isNative ? amount : Zero
-    this.add(Action.DST_WITHDRAW_FROM_BENTOBOX, data, value)
+    this.add(Action.DST_WITHDRAW_FROM_COFFINBOX, data, value)
   }
 
   unwrapAndTransfer(token: Currency, to: string = this.user): void {

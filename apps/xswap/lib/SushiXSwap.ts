@@ -28,7 +28,7 @@ export type Complex = [
   {
     token: string
     to: string
-    unwrapBento: boolean
+    unwrapCoffin: boolean
     minAmount: BigNumberish
   }[]
 ]
@@ -38,14 +38,14 @@ export enum Action {
   SET_MASTER_CONTRACT_APPROVAL = 0,
 
   // Src Actions
-  SRC_DEPOSIT_TO_BENTOBOX = 1,
+  SRC_DEPOSIT_TO_COFFINBOX = 1,
   SRC_DEPOSIT = 11,
-  SRC_TRANSFER_FROM_BENTOBOX = 2,
+  SRC_TRANSFER_FROM_COFFINBOX = 2,
 
   // Dst Actions
-  DST_DEPOSIT_TO_BENTOBOX = 3,
+  DST_DEPOSIT_TO_COFFINBOX = 3,
   DST_WITHDRAW = 4,
-  DST_WITHDRAW_FROM_BENTOBOX = 5,
+  DST_WITHDRAW_FROM_COFFINBOX = 5,
 
   // Unwrap (to native)
   UNWRAP_AND_TRANSFER = 6,
@@ -105,7 +105,7 @@ export abstract class Cooker implements Cooker {
     share: BigNumberish = Zero
   ): void {
     if (this.debug)
-      console.debug('cook src depoit to bentobox', {
+      console.debug('cook src depoit to coffinbox', {
         currency,
         recipient,
         amount,
@@ -118,7 +118,7 @@ export abstract class Cooker implements Cooker {
 
     const value = currency.isNative ? amount : Zero
 
-    this.add(Action.SRC_DEPOSIT_TO_BENTOBOX, data, value)
+    this.add(Action.SRC_DEPOSIT_TO_COFFINBOX, data, value)
   }
 
   srcTransferFromCoffinBox(
@@ -129,7 +129,7 @@ export abstract class Cooker implements Cooker {
     unwrap: boolean
   ): void {
     if (this.debug)
-      console.debug('cook src transfer from bentobox', {
+      console.debug('cook src transfer from coffinbox', {
         token,
         to,
         amount,
@@ -137,7 +137,7 @@ export abstract class Cooker implements Cooker {
         unwrap,
       })
     this.add(
-      Action.SRC_TRANSFER_FROM_BENTOBOX,
+      Action.SRC_TRANSFER_FROM_COFFINBOX,
       defaultAbiCoder.encode(
         ['address', 'address', 'uint256', 'uint256', 'bool'],
         [token.wrapped.address, to, BigNumber.from(amount), BigNumber.from(share), unwrap]
@@ -152,7 +152,7 @@ export abstract class Cooker implements Cooker {
     share: BigNumberish = Zero
   ): void {
     this.add(
-      Action.DST_DEPOSIT_TO_BENTOBOX,
+      Action.DST_DEPOSIT_TO_COFFINBOX,
       defaultAbiCoder.encode(
         ['address', 'address', 'uint256', 'uint256'],
         [token.isToken ? token.address : AddressZero, to, BigNumber.from(amount), BigNumber.from(share)]
@@ -180,7 +180,7 @@ export abstract class Cooker implements Cooker {
       [token.isToken ? token.address : AddressZero, to, BigNumber.from(amount), BigNumber.from(share), unwrap]
     )
     const value = token.isNative ? amount : Zero
-    this.add(Action.DST_WITHDRAW_FROM_BENTOBOX, data, value)
+    this.add(Action.DST_WITHDRAW_FROM_COFFINBOX, data, value)
   }
 
   legacyExactInput(
@@ -211,7 +211,7 @@ export abstract class Cooker implements Cooker {
     to: string,
     shareIn: BigNumberish = Zero,
     shareOutMinimum: BigNumberish,
-    unwrapBento: boolean
+    unwrapCoffin: boolean
   ): void {
     this.add(
       Action.TRIDENT_EXACT_INPUT,
@@ -229,7 +229,7 @@ export abstract class Cooker implements Cooker {
               //   data: [
               //     leg.tokenFrom.address,
               //     isLastLeg ? to : trade.route.legs[i + 1].poolAddress,
-              //     isLastLeg && unwrapBento,
+              //     isLastLeg && unwrapCoffin,
               //   ],
               // })
               return {
@@ -239,7 +239,7 @@ export abstract class Cooker implements Cooker {
                   [
                     leg.tokenFrom.address,
                     isLastLeg ? to : trade.route.legs[i + 1].poolAddress,
-                    isLastLeg && unwrapBento,
+                    isLastLeg && unwrapCoffin,
                   ]
                 ),
               }
@@ -254,7 +254,7 @@ export abstract class Cooker implements Cooker {
     trade: Trade<Currency, Currency, TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT, TradeVersion.V1 | TradeVersion.V2>,
     to: string,
     minAmount: BigNumberish,
-    unwrapBento: boolean
+    unwrapCoffin: boolean
   ): void {
     const initialPathCount = trade.route.legs.filter(
       (leg) => leg.tokenFrom.address === trade.inputAmount.currency.wrapped.address
@@ -263,7 +263,7 @@ export abstract class Cooker implements Cooker {
       Action.TRIDENT_COMPLEX,
       defaultAbiCoder.encode(
         [
-          'tuple(tuple(address tokenIn, address pool, bool native, uint256 amount, bytes data)[], tuple(address tokenIn, address pool, uint64 balancePercentage, bytes data)[], tuple(address token, address to, bool unwrapBento, uint256 minAmount)[])',
+          'tuple(tuple(address tokenIn, address pool, bool native, uint256 amount, bytes data)[], tuple(address tokenIn, address pool, uint64 balancePercentage, bytes data)[], tuple(address token, address to, bool unwrapCoffin, uint256 minAmount)[])',
         ],
         [
           trade.route.legs.reduce<Complex>(
@@ -329,7 +329,7 @@ export abstract class Cooker implements Cooker {
                 {
                   token: trade.outputAmount.currency.wrapped.address,
                   to,
-                  unwrapBento,
+                  unwrapCoffin,
                   minAmount,
                 },
               ],
@@ -372,10 +372,10 @@ export class SrcCooker extends Cooker {
     to: string,
     shareIn: BigNumberish,
     shareOutMinimum: BigNumberish,
-    unwrapBento: boolean
+    unwrapCoffin: boolean
   ): void {
     if (this.debug) console.debug('cook src trident exact input')
-    super.tridentExactInput(trade, to, shareIn, shareOutMinimum, unwrapBento)
+    super.tridentExactInput(trade, to, shareIn, shareOutMinimum, unwrapCoffin)
   }
 }
 
@@ -613,7 +613,7 @@ export class soulxswap {
     // Src operations...
     if (isStargateBridgeToken(this.srcToken)) {
       // If cross chain & src token is stargate bridge token, there's no need for a src trade
-      // so deposit to bentobox (if neccasasry) and transfer shares to soulxswap Router
+      // so deposit to coffinbox (if neccasasry) and transfer shares to soulxswap Router
       if (!this.srcUseCoffinBox) {
         this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, 0, srcShare.quotient.toString())
       }
@@ -748,7 +748,7 @@ export class soulxswap {
           this.dstCooker.unwrapAndTransfer(this.dstToken)
         }
 
-        // If any excess input tokens remain, withdraw from bentobox
+        // If any excess input tokens remain, withdraw from coffinbox
         this.dstCooker.dstWithdrawFromCoffinBox(
           this.dstTrade.inputAmount.currency,
           this.user,

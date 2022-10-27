@@ -2,9 +2,9 @@
 
 pragma solidity >=0.8.11;
 
-import "../adapters/BentoAdapter.sol";
+import "../adapters/CoffinAdapter.sol";
 import "../adapters/TokenAdapter.sol";
-import "../adapters/SushiLegacyAdapter.sol";
+import "../adapters/SoulLegacyAdapter.sol";
 import "../adapters/TridentSwapAdapter.sol";
 import "../adapters/StargateAdapter.sol";
 

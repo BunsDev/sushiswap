@@ -1,6 +1,6 @@
 import { ChainId } from 'soulswap-chain'
 import {
-  BENTOBOX_SUBGRAPH_NAME,
+  COFFINBOX_SUBGRAPH_NAME,
   BLOCKS_SUBGRAPH_NAME,
   EXCHANGE_SUBGRAPH_NAME,
   FURO_SUBGRAPH_NAME,
@@ -16,7 +16,7 @@ import { getBuiltGraphSDK } from '.graphclient'
 export type Subgraph = Awaited<ReturnType<typeof getSubgraphs>>[0]
 
 const CATEGORIES = {
-  BENTOBOX: { ...BENTOBOX_SUBGRAPH_NAME },
+  COFFINBOX: { ...COFFINBOX_SUBGRAPH_NAME },
   BLOCKS: { ...BLOCKS_SUBGRAPH_NAME },
   EXCHANGE: { ...EXCHANGE_SUBGRAPH_NAME },
   TRIDENT: { ...TRIDENT_SUBGRAPH_NAME },
@@ -37,7 +37,7 @@ const parseCategories = () => {
   return Object.keys(CATEGORIES)
     .flatMap((categoryKey: keyof typeof CATEGORIES) =>
       // @ts-ignore
-      Object.keys(CATEGORIES[categoryKey]).map((chainKey: keyof typeof CATEGORIES['BENTOBOX']) => ({
+      Object.keys(CATEGORIES[categoryKey]).map((chainKey: keyof typeof CATEGORIES['COFFINBOX']) => ({
         chainId: Number(String(chainKey).split('-')[0]),
         subgraphName: CATEGORIES[categoryKey][chainKey] as string,
         category: lowerCaseAllWordsExceptFirstLetters(categoryKey),

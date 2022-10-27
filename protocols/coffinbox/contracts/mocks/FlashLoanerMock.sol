@@ -15,11 +15,11 @@ contract FlashLoanerMock is IFlashBorrower, IBatchFlashBorrower {
         uint256[] calldata fees,
         bytes calldata
     ) external override {
-        address bentoBox = address(msg.sender);
+        address coffinBox = address(msg.sender);
         uint256 payback = amounts[0].add(fees[0]);
         IERC20 token = tokens[0];
         uint256 money = token.balanceOf(address(this));
-        token.safeTransfer(address(bentoBox), payback);
+        token.safeTransfer(address(coffinBox), payback);
         uint256 winnings = money.sub(payback);
         token.safeTransfer(sender, winnings);
     }
@@ -31,10 +31,10 @@ contract FlashLoanerMock is IFlashBorrower, IBatchFlashBorrower {
         uint256 fee,
         bytes calldata
     ) external override {
-        address bentoBox = address(msg.sender);
+        address coffinBox = address(msg.sender);
         uint256 payback = amount.add(fee);
         uint256 money = token.balanceOf(address(this));
-        token.safeTransfer(address(bentoBox), payback);
+        token.safeTransfer(address(coffinBox), payback);
         uint256 winnings = money.sub(payback);
         token.safeTransfer(sender, winnings);
     }

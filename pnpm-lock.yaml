@@ -407,7 +407,7 @@ importers:
       '@layerzerolabs/scan-client': 0.0.0-beta.6
       '@reduxjs/toolkit': ^1.8.1
       'soulswap-amm': workspace:*
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -463,7 +463,7 @@ importers:
       '@layerzerolabs/scan-client': 0.0.0-beta.6
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
       'soulswap-amm': link:../../packages/amm
-      'soulswap-bentobox': link:../../protocols/bentobox
+      'soulswap-coffinbox': link:../../protocols/coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-currency': link:../../packages/currency
       'soulswap-format': link:../../packages/format
@@ -647,7 +647,7 @@ importers:
       '@heroicons/react': ^1.0.0
       '@hookform/resolvers': ^2.8.10
       '@reduxjs/toolkit': ^1.8.1
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -723,7 +723,7 @@ importers:
       '@heroicons/react': 1.0.6_react@18.2.0
       '@hookform/resolvers': 2.9.7_react-hook-form@7.33.1
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
-      'soulswap-bentobox': link:../../protocols/bentobox
+      'soulswap-coffinbox': link:../../protocols/coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-currency': link:../../packages/currency
       'soulswap-format': link:../../packages/format
@@ -879,7 +879,7 @@ importers:
       '@heroicons/react': ^1.0.0
       '@reduxjs/toolkit': ^1.8.1
       'soulswap-amm': workspace:*
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -932,7 +932,7 @@ importers:
       '@heroicons/react': 1.0.6_react@18.2.0
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
       'soulswap-amm': link:../../packages/amm
-      'soulswap-bentobox': link:../../protocols/bentobox
+      'soulswap-coffinbox': link:../../protocols/coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-currency': link:../../packages/currency
       'soulswap-format': link:../../packages/format
@@ -1215,7 +1215,7 @@ importers:
       '@heroicons/react': ^1.0.0
       '@reduxjs/toolkit': ^1.8.1
       'soulswap-amm': workspace:*
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -1269,7 +1269,7 @@ importers:
       '@heroicons/react': 1.0.6_react@18.2.0
       '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
       'soulswap-amm': link:../../packages/amm
-      'soulswap-bentobox': link:../../protocols/bentobox
+      'soulswap-coffinbox': link:../../protocols/coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-currency': link:../../packages/currency
       'soulswap-format': link:../../packages/format
@@ -2476,7 +2476,7 @@ importers:
       '@headlessui/react': ^1.7.3
       '@heroicons/react': ^1.0.6
       'soulswap-amm': workspace:*
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -2519,7 +2519,7 @@ importers:
       '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 1.0.6_react@18.2.0
       'soulswap-amm': link:../amm
-      'soulswap-bentobox': link:../../protocols/bentobox
+      'soulswap-coffinbox': link:../../protocols/coffinbox
       'soulswap-chain': link:../chain
       'soulswap-currency': link:../currency
       'soulswap-format': link:../format
@@ -2553,7 +2553,7 @@ importers:
       typechain: 8.1.0_typescript@4.8.2
       typescript: 4.8.2
 
-  protocols/bentobox:
+  protocols/coffinbox:
     specifiers:
       '@boringcrypto/boring-solidity': boringcrypto/BoringSolidity#8f2b54f645a7844ae266cc50dc3ae4c125c7b9fc
       '@ethersproject/abi': ^5.7.0
@@ -2597,7 +2597,7 @@ importers:
       '@nomiclabs/hardhat-etherscan': ^3.1.0
       '@openzeppelin/contracts': ^4.6.0
       '@rari-capital/solmate': 6.2.0
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-core': ^1.4.2
       'soulswap-core-sdk': 1.0.0-canary.110
@@ -2623,7 +2623,7 @@ importers:
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
       '@openzeppelin/contracts': 4.7.2
       '@rari-capital/solmate': 6.2.0
-      'soulswap-bentobox': link:../bentobox
+      'soulswap-coffinbox': link:../coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-core': 1.4.2
       'soulswap-core-sdk': 1.0.0-canary.110
@@ -2649,8 +2649,8 @@ importers:
       '@ethersproject/abi': ^5.7.0
       '@ethersproject/providers': ^5.7.0
       '@nomiclabs/hardhat-ethers': npm:hardhat-deploy-ethers@0.3.0-beta.13
-      'soulswap-bentobox': workspace:*
-      'soulswap-bentobox-sdk': sushiswap/bentobox-sdk#e3f809870b86afbd57e0930662221d2362a160db
+      'soulswap-coffinbox': workspace:*
+      'soulswap-coffinbox-sdk': sushiswap/coffinbox-sdk#e3f809870b86afbd57e0930662221d2362a160db
       'soulswap-core': 1.4.2
       'soulswap-currency': workspace:*
       'soulswap-eslint-config': workspace:*
@@ -2670,8 +2670,8 @@ importers:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.1
       '@nomiclabs/hardhat-ethers': /hardhat-deploy-ethers/0.3.0-beta.13_lcn3obx7j6hxzhed6lqrzaytkm
-      'soulswap-bentobox': link:../bentobox
-      'soulswap-bentobox-sdk': github.com/sushiswap/bentobox-sdk/e3f809870b86afbd57e0930662221d2362a160db
+      'soulswap-coffinbox': link:../coffinbox
+      'soulswap-coffinbox-sdk': github.com/sushiswap/coffinbox-sdk/e3f809870b86afbd57e0930662221d2362a160db
       'soulswap-core': 1.4.2
       'soulswap-currency': link:../../packages/currency
       'soulswap-eslint-config': link:../../packages/config/eslint
@@ -2760,7 +2760,7 @@ importers:
       '@nomiclabs/hardhat-ethers': npm:hardhat-deploy-ethers@0.3.0-beta.13
       '@openzeppelin/contracts': ^4.6.0
       'soulswap-amm': workspace:*
-      'soulswap-bentobox': workspace:*
+      'soulswap-coffinbox': workspace:*
       'soulswap-chain': workspace:*
       'soulswap-core': ^1.4.2
       'soulswap-core-sdk': 1.0.0-canary.110
@@ -2790,7 +2790,7 @@ importers:
       '@nomiclabs/hardhat-ethers': /hardhat-deploy-ethers/0.3.0-beta.13_lcn3obx7j6hxzhed6lqrzaytkm
       '@openzeppelin/contracts': 4.7.2
       'soulswap-amm': link:../../packages/amm
-      'soulswap-bentobox': link:../bentobox
+      'soulswap-coffinbox': link:../coffinbox
       'soulswap-chain': link:../../packages/chain
       'soulswap-core': 1.4.2
       'soulswap-core-sdk': 1.0.0-canary.110
@@ -27510,9 +27510,9 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/sushiswap/bentobox-sdk/e3f809870b86afbd57e0930662221d2362a160db:
-    resolution: {tarball: https://codeload.github.com/sushiswap/bentobox-sdk/tar.gz/e3f809870b86afbd57e0930662221d2362a160db}
-    name: 'soulswap-bentobox-sdk'
+  github.com/sushiswap/coffinbox-sdk/e3f809870b86afbd57e0930662221d2362a160db:
+    resolution: {tarball: https://codeload.github.com/sushiswap/coffinbox-sdk/tar.gz/e3f809870b86afbd57e0930662221d2362a160db}
+    name: 'soulswap-coffinbox-sdk'
     version: 1.0.2
     dependencies:
       '@boringcrypto/boring-solidity': github.com/boringcrypto/BoringSolidity/371a01c11465eb1c881193c60a53c0bf15ee8a19

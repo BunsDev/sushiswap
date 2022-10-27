@@ -11,17 +11,17 @@ contract DummyStrategyMock is IStrategy {
     using BoringERC20 for IERC20;
 
     IERC20 private immutable token;
-    address private immutable bentoBox;
+    address private immutable coffinBox;
 
     int256 public _harvestProfit;
 
     modifier onlyCoffinBox() {
-        require(msg.sender == bentoBox, "Ownable: caller is not the owner");
+        require(msg.sender == coffinBox, "Ownable: caller is not the owner");
         _;
     }
 
-    constructor(address bentoBox_, IERC20 token_) public {
-        bentoBox = bentoBox_;
+    constructor(address coffinBox_, IERC20 token_) public {
+        coffinBox = coffinBox_;
         token = token_;
     }
 

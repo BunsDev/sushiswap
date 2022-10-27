@@ -8,7 +8,7 @@ import { JSBI, Percent, ZERO } from 'soulswap-math'
 import { Button, Dots } from 'soulswap-ui'
 import {
   Approve,
-  BENTOBOX_ADDRESS,
+  COFFINBOX_ADDRESS,
   ConstantProductPoolState,
   getTridentRouterContractConfig,
   StablePoolState,
@@ -254,7 +254,7 @@ export const AddSectionReviewModalTrident: FC<AddSectionReviewModalTridentProps>
             className="flex-grow !justify-end"
             components={
               <Approve.Components>
-                <Approve.Bentobox
+                <Approve.Coffinbox
                   size="md"
                   className="whitespace-nowrap"
                   fullWidth
@@ -266,14 +266,14 @@ export const AddSectionReviewModalTrident: FC<AddSectionReviewModalTridentProps>
                   className="whitespace-nowrap"
                   fullWidth
                   amount={input0}
-                  address={chain ? BENTOBOX_ADDRESS[chain?.id] : undefined}
+                  address={chain ? COFFINBOX_ADDRESS[chain?.id] : undefined}
                 />
                 <Approve.Token
                   size="md"
                   className="whitespace-nowrap"
                   fullWidth
                   amount={input1}
-                  address={chain ? BENTOBOX_ADDRESS[chain?.id] : undefined}
+                  address={chain ? COFFINBOX_ADDRESS[chain?.id] : undefined}
                 />
               </Approve.Components>
             }

@@ -22,7 +22,7 @@ export const GeneralDetailsSection = () => {
   // @ts-ignore
   const currency = watch('currency')
 
-  const { data: balance } = useBalance({ account: address, chainId: activeChain?.id, currency, loadBentobox: true })
+  const { data: balance } = useBalance({ account: address, chainId: activeChain?.id, currency, loadCoffinbox: true })
 
   return (
     <Form.Section
@@ -117,9 +117,9 @@ export const GeneralDetailsSection = () => {
               <div className="flex items-center gap-3">
                 {!currency?.isNative && (
                   <div
-                    onClick={() => onChange(FundSource.BENTOBOX)}
+                    onClick={() => onChange(FundSource.COFFINBOX)}
                     className={classNames(
-                      value === FundSource.BENTOBOX ? 'ring-green/70' : 'ring-transparent',
+                      value === FundSource.COFFINBOX ? 'ring-green/70' : 'ring-transparent',
                       DEFAULT_INPUT_BG,
                       'ring-2 ring-offset-2 ring-offset-slate-900 rounded-xl px-5 py-3 cursor-pointer relative flex flex-col justify-center gap-3 min-w-[140px]'
                     )}
@@ -132,15 +132,15 @@ export const GeneralDetailsSection = () => {
                       <Typography weight={500} variant="xs" className="text-slate-200">
                         {isMounted ? (
                           <>
-                            {balance?.[FundSource.BENTOBOX] ? balance[FundSource.BENTOBOX].toSignificant(6) : '0.00'}{' '}
-                            <span className="text-slate-500">{balance?.[FundSource.BENTOBOX].currency.symbol}</span>
+                            {balance?.[FundSource.COFFINBOX] ? balance[FundSource.COFFINBOX].toSignificant(6) : '0.00'}{' '}
+                            <span className="text-slate-500">{balance?.[FundSource.COFFINBOX].currency.symbol}</span>
                           </>
                         ) : (
                           <div className="h-4" />
                         )}
                       </Typography>
                     </div>
-                    {value === FundSource.BENTOBOX && (
+                    {value === FundSource.COFFINBOX && (
                       <div className="absolute w-5 h-5 top-3 right-3">
                         <CheckCircleIcon className="text-green/70" />
                       </div>

@@ -2,7 +2,7 @@ import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
 import { Token } from 'soulswap-currency'
-import { BENTOBOX_ADDRESS } from 'soulswap-wagmi'
+import { COFFINBOX_ADDRESS } from 'soulswap-wagmi'
 import { KASHI_ADDRESS } from 'config'
 
 export const computePairAddress = ({
@@ -17,7 +17,7 @@ export const computePairAddress = ({
   oracleData: string
 }): string => {
   return getCreate2Address(
-    BENTOBOX_ADDRESS[collateral.chainId],
+    COFFINBOX_ADDRESS[collateral.chainId],
     keccak256(
       ['bytes'],
       [

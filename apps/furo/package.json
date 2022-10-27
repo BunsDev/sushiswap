@@ -27,7 +27,7 @@
     "@heroicons/react": "^1.0.0",
     "@hookform/resolvers": "^2.8.10",
     "@reduxjs/toolkit": "^1.8.1",
-    "soulswap-bentobox": "workspace:*",
+    "soulswap-coffinbox": "workspace:*",
     "soulswap-chain": "workspace:*",
     "soulswap-currency": "workspace:*",
     "soulswap-format": "workspace:*",

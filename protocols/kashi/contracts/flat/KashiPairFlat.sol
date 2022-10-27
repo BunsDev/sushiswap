@@ -475,7 +475,7 @@ library BoringERC20 {
     }
 }
 
-// File soulswap-bentobox-sdk/contracts/IBatchFlashBorrower.sol@v1.0.1
+// File soulswap-coffinbox-sdk/contracts/IBatchFlashBorrower.sol@v1.0.1
 // License-Identifier: MIT
 
 interface IBatchFlashBorrower {
@@ -488,7 +488,7 @@ interface IBatchFlashBorrower {
     ) external;
 }
 
-// File soulswap-bentobox-sdk/contracts/IFlashBorrower.sol@v1.0.1
+// File soulswap-coffinbox-sdk/contracts/IFlashBorrower.sol@v1.0.1
 // License-Identifier: MIT
 
 interface IFlashBorrower {
@@ -501,7 +501,7 @@ interface IFlashBorrower {
     ) external;
 }
 
-// File soulswap-bentobox-sdk/contracts/IStrategy.sol@v1.0.1
+// File soulswap-coffinbox-sdk/contracts/IStrategy.sol@v1.0.1
 // License-Identifier: MIT
 
 interface IStrategy {
@@ -519,7 +519,7 @@ interface IStrategy {
     function exit(uint256 balance) external returns (int256 amountAdded);
 }
 
-// File soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol@v1.0.1
+// File soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol@v1.0.1
 // License-Identifier: MIT
 
 interface ICoffinBoxV1 {
@@ -780,7 +780,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     event LogWithdrawFees(address indexed feeTo, uint256 feesEarnedFraction);
 
     // Immutables (for MasterContract and all clones)
-    ICoffinBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable coffinBox;
     KashiPairMediumRiskV1 public immutable masterContract;
 
     // MasterContract variables
@@ -862,8 +862,8 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     uint256 private constant BORROW_OPENING_FEE_PRECISION = 1e5;
 
     /// @notice The constructor is only used for the initial master contract. Subsequent clones are initialised via `init`.
-    constructor(ICoffinBoxV1 bentoBox_) public {
-        bentoBox = bentoBox_;
+    constructor(ICoffinBoxV1 coffinBox_) public {
+        coffinBox = coffinBox_;
         masterContract = this;
     }
 
@@ -905,7 +905,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         // Accrue interest
         extraAmount = uint256(_totalBorrow.elastic).mul(_accrueInfo.interestPerSecond).mul(elapsedTime) / 1e18;
         _totalBorrow.elastic = _totalBorrow.elastic.add(extraAmount.to128());
-        uint256 fullAssetAmount = bentoBox.toAmount(asset, _totalAsset.elastic, false).add(_totalBorrow.elastic);
+        uint256 fullAssetAmount = coffinBox.toAmount(asset, _totalAsset.elastic, false).add(_totalBorrow.elastic);
 
         uint256 feeAmount = extraAmount.mul(PROTOCOL_FEE) / PROTOCOL_FEE_DIVISOR; // % of interest paid goes to fee
         feeFraction = feeAmount.mul(_totalAsset.base) / fullAssetAmount;
@@ -953,7 +953,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         Rebase memory _totalBorrow = totalBorrow;
 
         return
-            bentoBox.toAmount(
+            coffinBox.toAmount(
                 collateral,
                 collateralShare.mul(EXCHANGE_RATE_PRECISION / COLLATERIZATION_RATE_PRECISION).mul(
                     open ? OPEN_COLLATERIZATION_RATE : CLOSED_COLLATERIZATION_RATE
@@ -992,7 +992,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     /// @param total Grand total amount to deduct from this contract's balance. Only applicable if `skim` is True.
     /// Only used for accounting checks.
     /// @param skim If True, only does a balance check on this contract.
-    /// False if tokens from msg.sender in `bentoBox` should be transferred.
+    /// False if tokens from msg.sender in `coffinBox` should be transferred.
     function _addTokens(
         IERC20 token,
         uint256 share,
@@ -1000,16 +1000,16 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         bool skim
     ) internal {
         if (skim) {
-            require(share <= bentoBox.balanceOf(token, address(this)).sub(total), "KashiPair: Skim too much");
+            require(share <= coffinBox.balanceOf(token, address(this)).sub(total), "KashiPair: Skim too much");
         } else {
-            bentoBox.transfer(token, msg.sender, address(this), share);
+            coffinBox.transfer(token, msg.sender, address(this), share);
         }
     }
 
     /// @notice Adds `collateral` from msg.sender to the account `to`.
     /// @param to The receiver of the tokens.
     /// @param skim True if the amount should be skimmed from the deposit balance of msg.sender.
-    /// False if tokens from msg.sender in `bentoBox` should be transferred.
+    /// False if tokens from msg.sender in `coffinBox` should be transferred.
     /// @param share The amount of shares to add for `to`.
     function addCollateral(
         address to,
@@ -1020,7 +1020,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         uint256 oldTotalCollateralShare = totalCollateralShare;
         totalCollateralShare = oldTotalCollateralShare.add(share);
         _addTokens(collateral, share, oldTotalCollateralShare, skim);
-        emit LogAddCollateral(skim ? address(bentoBox) : msg.sender, to, share);
+        emit LogAddCollateral(skim ? address(coffinBox) : msg.sender, to, share);
     }
 
     /// @dev Concrete implementation of `removeCollateral`.
@@ -1028,7 +1028,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         userCollateralShare[msg.sender] = userCollateralShare[msg.sender].sub(share);
         totalCollateralShare = totalCollateralShare.sub(share);
         emit LogRemoveCollateral(msg.sender, to, share);
-        bentoBox.transfer(collateral, address(this), to, share);
+        coffinBox.transfer(collateral, address(this), to, share);
     }
 
     /// @notice Removes `share` amount of collateral and transfers it to `to`.
@@ -1048,7 +1048,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     ) internal returns (uint256 fraction) {
         Rebase memory _totalAsset = totalAsset;
         uint256 totalAssetShare = _totalAsset.elastic;
-        uint256 allShare = _totalAsset.elastic + bentoBox.toShare(asset, totalBorrow.elastic, true);
+        uint256 allShare = _totalAsset.elastic + coffinBox.toShare(asset, totalBorrow.elastic, true);
         fraction = allShare == 0 ? share : share.mul(_totalAsset.base) / allShare;
         if (_totalAsset.base.add(fraction.to128()) < 1000) {
             return 0;
@@ -1057,13 +1057,13 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         balanceOf[to] = balanceOf[to].add(fraction);
         emit Transfer(address(0), to, fraction);
         _addTokens(asset, share, totalAssetShare, skim);
-        emit LogAddAsset(skim ? address(bentoBox) : msg.sender, to, share, fraction);
+        emit LogAddAsset(skim ? address(coffinBox) : msg.sender, to, share, fraction);
     }
 
     /// @notice Adds assets to the lending pair.
     /// @param to The address of the user to receive the assets.
     /// @param skim True if the amount should be skimmed from the deposit balance of msg.sender.
-    /// False if tokens from msg.sender in `bentoBox` should be transferred.
+    /// False if tokens from msg.sender in `coffinBox` should be transferred.
     /// @param share The amount of shares to add.
     /// @return fraction Total fractions added.
     function addAsset(
@@ -1078,7 +1078,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     /// @dev Concrete implementation of `removeAsset`.
     function _removeAsset(address to, uint256 fraction) internal returns (uint256 share) {
         Rebase memory _totalAsset = totalAsset;
-        uint256 allShare = _totalAsset.elastic + bentoBox.toShare(asset, totalBorrow.elastic, true);
+        uint256 allShare = _totalAsset.elastic + coffinBox.toShare(asset, totalBorrow.elastic, true);
         share = fraction.mul(allShare) / _totalAsset.base;
         balanceOf[msg.sender] = balanceOf[msg.sender].sub(fraction);
         emit Transfer(msg.sender, address(0), fraction);
@@ -1087,7 +1087,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         require(_totalAsset.base >= 1000, "Kashi: below minimum");
         totalAsset = _totalAsset;
         emit LogRemoveAsset(msg.sender, to, share, fraction);
-        bentoBox.transfer(asset, address(this), to, share);
+        coffinBox.transfer(asset, address(this), to, share);
     }
 
     /// @notice Removes an asset from msg.sender and transfers it to `to`.
@@ -1107,12 +1107,12 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         userBorrowPart[msg.sender] = userBorrowPart[msg.sender].add(part);
         emit LogBorrow(msg.sender, to, amount, feeAmount, part);
 
-        share = bentoBox.toShare(asset, amount, false);
+        share = coffinBox.toShare(asset, amount, false);
         Rebase memory _totalAsset = totalAsset;
         require(_totalAsset.base >= 1000, "Kashi: below minimum");
         _totalAsset.elastic = _totalAsset.elastic.sub(share.to128());
         totalAsset = _totalAsset;
-        bentoBox.transfer(asset, address(this), to, share);
+        coffinBox.transfer(asset, address(this), to, share);
     }
 
     /// @notice Sender borrows `amount` and transfers it to `to`.
@@ -1132,17 +1132,17 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         (totalBorrow, amount) = totalBorrow.sub(part, true);
         userBorrowPart[to] = userBorrowPart[to].sub(part);
 
-        uint256 share = bentoBox.toShare(asset, amount, true);
+        uint256 share = coffinBox.toShare(asset, amount, true);
         uint128 totalShare = totalAsset.elastic;
         _addTokens(asset, share, uint256(totalShare), skim);
         totalAsset.elastic = totalShare.add(share.to128());
-        emit LogRepay(skim ? address(bentoBox) : msg.sender, to, amount, part);
+        emit LogRepay(skim ? address(coffinBox) : msg.sender, to, amount, part);
     }
 
     /// @notice Repays a loan.
     /// @param to Address of the user this payment should go.
     /// @param skim True if the amount should be skimmed from the deposit balance of msg.sender.
-    /// False if tokens from msg.sender in `bentoBox` should be transferred.
+    /// False if tokens from msg.sender in `coffinBox` should be transferred.
     /// @param part The amount to repay. See `userBorrowPart`.
     /// @return amount The total amount repayed.
     function repay(
@@ -1169,11 +1169,11 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     uint8 internal constant ACTION_UPDATE_EXCHANGE_RATE = 11;
 
     // Function on CoffinBox
-    uint8 internal constant ACTION_BENTO_DEPOSIT = 20;
-    uint8 internal constant ACTION_BENTO_WITHDRAW = 21;
-    uint8 internal constant ACTION_BENTO_TRANSFER = 22;
-    uint8 internal constant ACTION_BENTO_TRANSFER_MULTIPLE = 23;
-    uint8 internal constant ACTION_BENTO_SETAPPROVAL = 24;
+    uint8 internal constant ACTION_COFFIN_DEPOSIT = 20;
+    uint8 internal constant ACTION_COFFIN_WITHDRAW = 21;
+    uint8 internal constant ACTION_COFFIN_TRANSFER = 22;
+    uint8 internal constant ACTION_COFFIN_TRANSFER_MULTIPLE = 23;
+    uint8 internal constant ACTION_COFFIN_SETAPPROVAL = 24;
 
     // Any external call (except to CoffinBox)
     uint8 internal constant ACTION_CALL = 30;
@@ -1190,8 +1190,8 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         outNum = inNum >= 0 ? uint256(inNum) : (inNum == USE_VALUE1 ? value1 : value2);
     }
 
-    /// @dev Helper function for depositing into `bentoBox`.
-    function _bentoDeposit(
+    /// @dev Helper function for depositing into `coffinBox`.
+    function _coffinDeposit(
         bytes memory data,
         uint256 value,
         uint256 value1,
@@ -1200,21 +1200,21 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         (IERC20 token, address to, int256 amount, int256 share) = abi.decode(data, (IERC20, address, int256, int256));
         amount = int256(_num(amount, value1, value2)); // Done this way to avoid stack too deep errors
         share = int256(_num(share, value1, value2));
-        return bentoBox.deposit{value: value}(token, msg.sender, to, uint256(amount), uint256(share));
+        return coffinBox.deposit{value: value}(token, msg.sender, to, uint256(amount), uint256(share));
     }
 
-    /// @dev Helper function to withdraw from the `bentoBox`.
-    function _bentoWithdraw(
+    /// @dev Helper function to withdraw from the `coffinBox`.
+    function _coffinWithdraw(
         bytes memory data,
         uint256 value1,
         uint256 value2
     ) internal returns (uint256, uint256) {
         (IERC20 token, address to, int256 amount, int256 share) = abi.decode(data, (IERC20, address, int256, int256));
-        return bentoBox.withdraw(token, msg.sender, to, _num(amount, value1, value2), _num(share, value1, value2));
+        return coffinBox.withdraw(token, msg.sender, to, _num(amount, value1, value2), _num(share, value1, value2));
     }
 
     /// @dev Helper function to perform a contract call and eventually extracting revert messages on failure.
-    /// Calls to `bentoBox` are not allowed for obvious security reasons.
+    /// Calls to `coffinBox` are not allowed for obvious security reasons.
     /// This also means that calls made from this contract shall *not* be trusted.
     function _call(
         uint256 value,
@@ -1233,7 +1233,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
             callData = abi.encodePacked(callData, value1, value2);
         }
 
-        require(callee != address(bentoBox) && callee != address(this), "KashiPair: can't call");
+        require(callee != address(coffinBox) && callee != address(this), "KashiPair: can't call");
 
         (bool success, bytes memory returnData) = callee.call{value: value}(callData);
         require(success, "KashiPair: call failed");
@@ -1248,7 +1248,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     /// @notice Executes a set of actions and allows composability (contract calls) to other contracts.
     /// @param actions An array with a sequence of actions to execute (see ACTION_ declarations).
     /// @param values A one-to-one mapped array to `actions`. ETH amounts to send along with the actions.
-    /// Only applicable to `ACTION_CALL`, `ACTION_BENTO_DEPOSIT`.
+    /// Only applicable to `ACTION_CALL`, `ACTION_COFFIN_DEPOSIT`.
     /// @param datas A one-to-one mapped array to `actions`. Contains abi encoded data of function arguments.
     /// @return value1 May contain the first positioned return value of the last executed action (if applicable).
     /// @return value2 May contain the second positioned return value of the last executed action which returns 2 values (if applicable).
@@ -1288,20 +1288,20 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
                 (bool must_update, uint256 minRate, uint256 maxRate) = abi.decode(datas[i], (bool, uint256, uint256));
                 (bool updated, uint256 rate) = updateExchangeRate();
                 require((!must_update || updated) && rate > minRate && (maxRate == 0 || rate > maxRate), "KashiPair: rate not ok");
-            } else if (action == ACTION_BENTO_SETAPPROVAL) {
+            } else if (action == ACTION_COFFIN_SETAPPROVAL) {
                 (address user, address _masterContract, bool approved, uint8 v, bytes32 r, bytes32 s) =
                     abi.decode(datas[i], (address, address, bool, uint8, bytes32, bytes32));
-                bentoBox.setMasterContractApproval(user, _masterContract, approved, v, r, s);
-            } else if (action == ACTION_BENTO_DEPOSIT) {
-                (value1, value2) = _bentoDeposit(datas[i], values[i], value1, value2);
-            } else if (action == ACTION_BENTO_WITHDRAW) {
-                (value1, value2) = _bentoWithdraw(datas[i], value1, value2);
-            } else if (action == ACTION_BENTO_TRANSFER) {
+                coffinBox.setMasterContractApproval(user, _masterContract, approved, v, r, s);
+            } else if (action == ACTION_COFFIN_DEPOSIT) {
+                (value1, value2) = _coffinDeposit(datas[i], values[i], value1, value2);
+            } else if (action == ACTION_COFFIN_WITHDRAW) {
+                (value1, value2) = _coffinWithdraw(datas[i], value1, value2);
+            } else if (action == ACTION_COFFIN_TRANSFER) {
                 (IERC20 token, address to, int256 share) = abi.decode(datas[i], (IERC20, address, int256));
-                bentoBox.transfer(token, msg.sender, to, _num(share, value1, value2));
-            } else if (action == ACTION_BENTO_TRANSFER_MULTIPLE) {
+                coffinBox.transfer(token, msg.sender, to, _num(share, value1, value2));
+            } else if (action == ACTION_COFFIN_TRANSFER_MULTIPLE) {
                 (IERC20 token, address[] memory tos, uint256[] memory shares) = abi.decode(datas[i], (IERC20, address[], uint256[]));
-                bentoBox.transferMultiple(token, msg.sender, tos, shares);
+                coffinBox.transferMultiple(token, msg.sender, tos, shares);
             } else if (action == ACTION_CALL) {
                 (bytes memory returnData, uint8 returnValues) = _call(values[i], datas[i], value1, value2);
 
@@ -1312,7 +1312,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
                 }
             } else if (action == ACTION_GET_REPAY_SHARE) {
                 int256 part = abi.decode(datas[i], (int256));
-                value1 = bentoBox.toShare(asset, totalBorrow.toElastic(_num(part, value1, value2), true), true);
+                value1 = coffinBox.toShare(asset, totalBorrow.toElastic(_num(part, value1, value2), true), true);
             } else if (action == ACTION_GET_REPAY_PART) {
                 int256 amount = abi.decode(datas[i], (int256));
                 value1 = totalBorrow.toBase(_num(amount, value1, value2), false);
@@ -1345,7 +1345,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         uint256 allBorrowAmount;
         uint256 allBorrowPart;
         Rebase memory _totalBorrow = totalBorrow;
-        Rebase memory bentoBoxTotals = bentoBox.totals(collateral);
+        Rebase memory coffinBoxTotals = coffinBox.totals(collateral);
         for (uint256 i = 0; i < users.length; i++) {
             address user = users[i];
             if (!_isSolvent(user, open, _exchangeRate)) {
@@ -1357,7 +1357,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
                 }
                 uint256 borrowAmount = _totalBorrow.toElastic(borrowPart, false);
                 uint256 collateralShare =
-                    bentoBoxTotals.toBase(
+                    coffinBoxTotals.toBase(
                         borrowAmount.mul(LIQUIDATION_MULTIPLIER).mul(_exchangeRate) /
                             (LIQUIDATION_MULTIPLIER_PRECISION * EXCHANGE_RATE_PRECISION),
                         false
@@ -1379,32 +1379,32 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
         totalBorrow = _totalBorrow;
         totalCollateralShare = totalCollateralShare.sub(allCollateralShare);
 
-        uint256 allBorrowShare = bentoBox.toShare(asset, allBorrowAmount, true);
+        uint256 allBorrowShare = coffinBox.toShare(asset, allBorrowAmount, true);
 
         if (!open) {
             // Closed liquidation using a pre-approved swapper for the benefit of the LPs
             require(masterContract.swappers(swapper), "KashiPair: Invalid swapper");
 
             // Swaps the users' collateral for the borrowed asset
-            bentoBox.transfer(collateral, address(this), address(swapper), allCollateralShare);
+            coffinBox.transfer(collateral, address(this), address(swapper), allCollateralShare);
             swapper.swap(collateral, asset, address(this), allBorrowShare, allCollateralShare);
 
-            uint256 returnedShare = bentoBox.balanceOf(asset, address(this)).sub(uint256(totalAsset.elastic));
+            uint256 returnedShare = coffinBox.balanceOf(asset, address(this)).sub(uint256(totalAsset.elastic));
             uint256 extraShare = returnedShare.sub(allBorrowShare);
             uint256 feeShare = extraShare.mul(PROTOCOL_FEE) / PROTOCOL_FEE_DIVISOR; // % of profit goes to fee
             // solhint-disable-next-line reentrancy
-            bentoBox.transfer(asset, address(this), masterContract.feeTo(), feeShare);
+            coffinBox.transfer(asset, address(this), masterContract.feeTo(), feeShare);
             totalAsset.elastic = totalAsset.elastic.add(returnedShare.sub(feeShare).to128());
             emit LogAddAsset(address(swapper), address(this), extraShare.sub(feeShare), 0);
         } else {
             // Swap using a swapper freely chosen by the caller
             // Open (flash) liquidation: get proceeds first and provide the borrow after
-            bentoBox.transfer(collateral, address(this), swapper == ISwapper(0) ? to : address(swapper), allCollateralShare);
+            coffinBox.transfer(collateral, address(this), swapper == ISwapper(0) ? to : address(swapper), allCollateralShare);
             if (swapper != ISwapper(0)) {
                 swapper.swap(collateral, asset, msg.sender, allBorrowShare, allCollateralShare);
             }
 
-            bentoBox.transfer(asset, msg.sender, address(this), allBorrowShare);
+            coffinBox.transfer(asset, msg.sender, address(this), allBorrowShare);
             totalAsset.elastic = totalAsset.elastic.add(allBorrowShare.to128());
         }
     }

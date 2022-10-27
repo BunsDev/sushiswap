@@ -4,37 +4,37 @@ pragma solidity >=0.8.11;
 
 import "./interfaces/ISoulXSwap.sol";
 
-/// @title soulxswap
+/// @title SoulXSwap
 /// @notice Enables cross chain swap for sushiswap.
 /// @dev Supports both CoffinBox and Wallet. Supports both Trident and Legacy AMM. Uses Stargate as bridge.
-contract soulxswap is
+contract SoulXSwap is
     ISoulXSwap,
-    BentoAdapter,
+    CoffinAdapter,
     TokenAdapter,
-    SushiLegacyAdapter,
+    SoulLegacyAdapter,
     TridentSwapAdapter,
     StargateAdapter
 {
     constructor(
-        ICoffinBoxMinimal _bentoBox,
+        ICoffinBoxMinimal _coffinBox,
         IStargateRouter _stargateRouter,
         address _factory,
         bytes32 _pairCodeHash,
         IStargateWidget _stargateWidget
-    ) ImmutableState(_bentoBox, _stargateRouter, _factory, _pairCodeHash, _stargateWidget) {
+    ) ImmutableState(_coffinBox, _stargateRouter, _factory, _pairCodeHash, _stargateWidget) {
         // Register to CoffinBox
-        _bentoBox.registerProtocol();
+        _coffinBox.registerProtocol();
     }
 
     /// @notice List of ACTIONS supported by the `cook()`.
 
-    // Bento and Token Operations
+    // Coffin and Token Operations
     uint8 internal constant ACTION_MASTER_CONTRACT_APPROVAL = 0;
-    uint8 internal constant ACTION_SRC_DEPOSIT_TO_BENTOBOX = 1;
-    uint8 internal constant ACTION_SRC_TRANSFER_FROM_BENTOBOX = 2;
-    uint8 internal constant ACTION_DST_DEPOSIT_TO_BENTOBOX = 3;
+    uint8 internal constant ACTION_SRC_DEPOSIT_TO_COFFINBOX = 1;
+    uint8 internal constant ACTION_SRC_TRANSFER_FROM_COFFINBOX = 2;
+    uint8 internal constant ACTION_DST_DEPOSIT_TO_COFFINBOX = 3;
     uint8 internal constant ACTION_DST_WITHDRAW_TOKEN = 4;
-    uint8 internal constant ACTION_DST_WITHDRAW_OR_TRANSFER_FROM_BENTOBOX = 5;
+    uint8 internal constant ACTION_DST_WITHDRAW_OR_TRANSFER_FROM_COFFINBOX = 5;
     uint8 internal constant ACTION_UNWRAP_AND_TRANSFER = 6;
 
     // Swap Operations
@@ -75,7 +75,7 @@ contract soulxswap is
                         (address, bool, uint8, bytes32, bytes32)
                     );
 
-                bentoBox.setMasterContractApproval(
+                coffinBox.setMasterContractApproval(
                     user,
                     address(this),
                     approved,
@@ -83,7 +83,7 @@ contract soulxswap is
                     r,
                     s
                 );
-            } else if (action == ACTION_SRC_DEPOSIT_TO_BENTOBOX) {
+            } else if (action == ACTION_SRC_DEPOSIT_TO_COFFINBOX) {
                 (address token, address to, uint256 amount, uint256 share) = abi
                     .decode(datas[i], (address, address, uint256, uint256));
                 _depositToCoffinBox(
@@ -94,13 +94,13 @@ contract soulxswap is
                     share,
                     values[i]
                 );
-            } else if (action == ACTION_SRC_TRANSFER_FROM_BENTOBOX) {
+            } else if (action == ACTION_SRC_TRANSFER_FROM_COFFINBOX) {
                 (
                     address token,
                     address to,
                     uint256 amount,
                     uint256 share,
-                    bool unwrapBento
+                    bool unwrapCoffin
                 ) = abi.decode(
                         datas[i],
                         (address, address, uint256, uint256, bool)
@@ -111,7 +111,7 @@ contract soulxswap is
                     to,
                     amount,
                     share,
-                    unwrapBento
+                    unwrapCoffin
                 );
             } else if (action == ACTION_SRC_TOKEN_TRANSFER) {
                 (address token, address to, uint256 amount) = abi.decode(
@@ -120,7 +120,7 @@ contract soulxswap is
                 );
 
                 _transferFromToken(IERC20(token), to, amount);
-            } else if (action == ACTION_DST_DEPOSIT_TO_BENTOBOX) {
+            } else if (action == ACTION_DST_DEPOSIT_TO_COFFINBOX) {
                 (address token, address to, uint256 amount, uint256 share) = abi
                     .decode(datas[i], (address, address, uint256, uint256));
 
@@ -130,11 +130,11 @@ contract soulxswap is
                     // values[i] = address(this).balance;
                 }
 
-                _transferTokens(IERC20(token), address(bentoBox), amount);
+                _transferTokens(IERC20(token), address(coffinBox), amount);
 
                 _depositToCoffinBox(
                     token,
-                    address(bentoBox),
+                    address(coffinBox),
                     to,
                     amount,
                     share,
@@ -154,20 +154,20 @@ contract soulxswap is
                 }
                 _transferTokens(IERC20(token), to, amount);
             } else if (
-                action == ACTION_DST_WITHDRAW_OR_TRANSFER_FROM_BENTOBOX
+                action == ACTION_DST_WITHDRAW_OR_TRANSFER_FROM_COFFINBOX
             ) {
                 (
                     address token,
                     address to,
                     uint256 amount,
                     uint256 share,
-                    bool unwrapBento
+                    bool unwrapCoffin
                 ) = abi.decode(
                         datas[i],
                         (address, address, uint256, uint256, bool)
                     );
                 if (amount == 0 && share == 0) {
-                    share = bentoBox.balanceOf(token, address(this));
+                    share = coffinBox.balanceOf(token, address(this));
                 }
                 _transferFromCoffinBox(
                     token,
@@ -175,7 +175,7 @@ contract soulxswap is
                     to,
                     amount,
                     share,
-                    unwrapBento
+                    unwrapCoffin
                 );
             } else if (action == ACTION_UNWRAP_AND_TRANSFER) {
                 (address token, address to) = abi.decode(

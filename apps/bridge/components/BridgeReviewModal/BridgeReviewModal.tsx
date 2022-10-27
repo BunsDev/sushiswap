@@ -1,6 +1,6 @@
 import { Signature } from '@ethersproject/bytes'
 import { Button, Dots } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, getsoulxswapContractConfig } from 'soulswap-wagmi'
+import { Approve, COFFINBOX_ADDRESS, getsoulxswapContractConfig } from 'soulswap-wagmi'
 import React, { FC, ReactNode, useCallback, useState } from 'react'
 import { useAccount } from 'wagmi'
 
@@ -38,7 +38,7 @@ export const BridgeReviewModal: FC<BridgeReviewModal> = ({ children }) => {
           onSuccess={createNotification}
           components={
             <Approve.Components>
-              <Approve.Bentobox
+              <Approve.Coffinbox
                 size="md"
                 className="whitespace-nowrap"
                 fullWidth
@@ -51,8 +51,8 @@ export const BridgeReviewModal: FC<BridgeReviewModal> = ({ children }) => {
                 className="whitespace-nowrap"
                 fullWidth
                 amount={amount}
-                address={BENTOBOX_ADDRESS[srcChainId]}
-                enabled={Boolean(BENTOBOX_ADDRESS[srcChainId])}
+                address={COFFINBOX_ADDRESS[srcChainId]}
+                enabled={Boolean(COFFINBOX_ADDRESS[srcChainId])}
               />
             </Approve.Components>
           }

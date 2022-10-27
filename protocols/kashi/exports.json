@@ -11,7 +11,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -520,7 +520,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -1191,7 +1191,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -1700,7 +1700,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -2371,7 +2371,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -2880,7 +2880,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -3551,7 +3551,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -4060,7 +4060,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -4731,7 +4731,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -5240,7 +5240,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -5918,7 +5918,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -6427,7 +6427,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
@@ -7098,7 +7098,7 @@
               "inputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",
-                  "name": "bentoBox_",
+                  "name": "coffinBox_",
                   "type": "address"
                 }
               ],
@@ -7607,7 +7607,7 @@
             },
             {
               "inputs": [],
-              "name": "bentoBox",
+              "name": "coffinBox",
               "outputs": [
                 {
                   "internalType": "contract ICoffinBoxV1",

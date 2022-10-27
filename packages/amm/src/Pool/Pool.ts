@@ -7,11 +7,11 @@ export abstract class Pool {
   public abstract readonly liquidityToken: Token
 
   // Swap gas cost, could be different depending on source & dest,
-  // wallet->wallet, bento->wallet/wallet->bento, bento->bento
+  // wallet->wallet, coffin->wallet/wallet->coffin, coffin->coffin
 
   // wallet->wallet: ???
-  // bento->wallet/wallet->bento: ???
-  // bento->bento: ???
+  // coffin->wallet/wallet->coffin: ???
+  // coffin->coffin: ???
   public abstract readonly swapGasCost: JSBI
 
   // Minimum pool liquidity, typically 1000

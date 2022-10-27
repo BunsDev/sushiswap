@@ -1,10 +1,10 @@
-import bentoBoxExports from 'soulswap-bentobox/exports.json'
-import { CoffinBoxV1 } from 'soulswap-bentobox/typechain'
+import coffinBoxExports from 'soulswap-coffinbox/exports.json'
+import { CoffinBoxV1 } from 'soulswap-coffinbox/typechain'
 import { ChainId } from 'soulswap-chain'
 import { useContract, useProvider } from 'wagmi'
 
 // TODO: Move to deployments
-export const BENTOBOX_ADDRESS: Record<number, string> = {
+export const COFFINBOX_ADDRESS: Record<number, string> = {
   [ChainId.ETHEREUM]: '0xF5BCE5077908a1b7370B9ae04AdC565EBd643966',
   [ChainId.ROPSTEN]: '0x6BdD85290001C8Aef74f35A7606065FA15aD5ACF',
   [ChainId.RINKEBY]: '0xF5BCE5077908a1b7370B9ae04AdC565EBd643966',
@@ -30,10 +30,10 @@ export const BENTOBOX_ADDRESS: Record<number, string> = {
 
 export const getCoffinBoxContractConfig = (chainId: number | undefined) => ({
   addressOrName:
-    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
+    coffinBoxExports[chainId?.toString() as keyof Omit<typeof coffinBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.address ?? '',
   contractInterface:
-    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
+    coffinBoxExports[chainId?.toString() as keyof Omit<typeof coffinBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.abi ?? [],
 })
 

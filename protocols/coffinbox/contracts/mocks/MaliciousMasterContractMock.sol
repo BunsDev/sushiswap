@@ -8,7 +8,7 @@ contract MaliciousMasterContractMock is IMasterContract {
         return;
     }
 
-    function attack(CoffinBox bentoBox) public {
-        bentoBox.setMasterContractApproval(address(this), address(this), true, 0, 0, 0);
+    function attack(CoffinBox coffinBox) public {
+        coffinBox.setMasterContractApproval(address(this), address(this), true, 0, 0, 0);
     }
 }

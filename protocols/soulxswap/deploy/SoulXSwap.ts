@@ -1,4 +1,4 @@
-import bentoBoxExports from 'soulswap-bentobox/exports.json'
+import coffinBoxExports from 'soulswap-coffinbox/exports.json'
 import { INIT_CODE_HASH } from 'soulswap-amm'
 import {
   STARGATE_BRIDGE_TOKENS,
@@ -23,11 +23,11 @@ const func: DeployFunction = async function ({
 
   const { deployer } = await getNamedAccounts()
 
-  const bentoBox = await ethers.getContractOrNull('CoffinBoxV1')
+  const coffinBox = await ethers.getContractOrNull('CoffinBoxV1')
   const factory = await ethers.getContractOrNull('UniswapV2Factory')
 
-  if (!bentoBox && !(chainId in bentoBoxExports)) {
-    throw Error(`No BENTOBOX_ADDRESS for chain #${chainId}!`)
+  if (!coffinBox && !(chainId in coffinBoxExports)) {
+    throw Error(`No COFFINBOX_ADDRESS for chain #${chainId}!`)
   }
 
   if (!(chainId in STARGATE_ROUTER_ADDRESS)) {
@@ -52,7 +52,7 @@ const func: DeployFunction = async function ({
   }
 
   const args = [
-    bentoBoxExports?.[chainId.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
+    coffinBoxExports?.[chainId.toString() as keyof Omit<typeof coffinBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.address,
     STARGATE_ROUTER_ADDRESS[chainId],
     sushiSwapExports?.[chainId.toString() as keyof Omit<typeof sushiSwapExports, '31337'>]?.[0]?.contracts

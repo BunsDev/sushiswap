@@ -4,22 +4,22 @@ import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
 import "../interfaces/ISwapper.sol";
-import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
+import "soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol";
 
 contract SushiSwapSwapper is ISwapper {
     using BoringMath for uint256;
 
     // Local variables
-    ICoffinBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable coffinBox;
     IUniswapV2Factory public immutable factory;
     bytes32 public immutable pairCodeHash;
 
     constructor(
-        ICoffinBoxV1 bentoBox_,
+        ICoffinBoxV1 coffinBox_,
         IUniswapV2Factory factory_,
         bytes32 pairCodeHash_
     ) public {
-        bentoBox = bentoBox_;
+        coffinBox = coffinBox_;
         factory = factory_;
         pairCodeHash = pairCodeHash_;
     }
@@ -64,18 +64,18 @@ contract SushiSwapSwapper is ISwapper {
                 )
             );
 
-        (uint256 amountFrom, ) = bentoBox.withdraw(fromToken, address(this), address(pair), 0, shareFrom);
+        (uint256 amountFrom, ) = coffinBox.withdraw(fromToken, address(this), address(pair), 0, shareFrom);
 
         (uint256 reserve0, uint256 reserve1, ) = pair.getReserves();
         uint256 amountTo;
         if (toToken > fromToken) {
             amountTo = getAmountOut(amountFrom, reserve0, reserve1);
-            pair.swap(0, amountTo, address(bentoBox), new bytes(0));
+            pair.swap(0, amountTo, address(coffinBox), new bytes(0));
         } else {
             amountTo = getAmountOut(amountFrom, reserve1, reserve0);
-            pair.swap(amountTo, 0, address(bentoBox), new bytes(0));
+            pair.swap(amountTo, 0, address(coffinBox), new bytes(0));
         }
-        (, shareReturned) = bentoBox.deposit(toToken, address(bentoBox), recipient, amountTo, 0);
+        (, shareReturned) = coffinBox.deposit(toToken, address(coffinBox), recipient, amountTo, 0);
         extraShare = shareReturned.sub(shareToMin);
     }
 
@@ -100,22 +100,22 @@ contract SushiSwapSwapper is ISwapper {
         }
         (uint256 reserve0, uint256 reserve1, ) = pair.getReserves();
 
-        uint256 amountToExact = bentoBox.toAmount(toToken, shareToExact, true);
+        uint256 amountToExact = coffinBox.toAmount(toToken, shareToExact, true);
 
         uint256 amountFrom;
         if (toToken > fromToken) {
             amountFrom = getAmountIn(amountToExact, reserve0, reserve1);
-            (, shareUsed) = bentoBox.withdraw(fromToken, address(this), address(pair), amountFrom, 0);
-            pair.swap(0, amountToExact, address(bentoBox), "");
+            (, shareUsed) = coffinBox.withdraw(fromToken, address(this), address(pair), amountFrom, 0);
+            pair.swap(0, amountToExact, address(coffinBox), "");
         } else {
             amountFrom = getAmountIn(amountToExact, reserve1, reserve0);
-            (, shareUsed) = bentoBox.withdraw(fromToken, address(this), address(pair), amountFrom, 0);
-            pair.swap(amountToExact, 0, address(bentoBox), "");
+            (, shareUsed) = coffinBox.withdraw(fromToken, address(this), address(pair), amountFrom, 0);
+            pair.swap(amountToExact, 0, address(coffinBox), "");
         }
-        bentoBox.deposit(toToken, address(bentoBox), recipient, 0, shareToExact);
+        coffinBox.deposit(toToken, address(coffinBox), recipient, 0, shareToExact);
         shareReturned = shareFromSupplied.sub(shareUsed);
         if (shareReturned > 0) {
-            bentoBox.transfer(fromToken, address(this), refundTo, shareReturned);
+            coffinBox.transfer(fromToken, address(this), refundTo, shareReturned);
         }
     }
 }

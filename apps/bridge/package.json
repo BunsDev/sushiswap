@@ -22,7 +22,7 @@
     "@heroicons/react": "^1.0.0",
     "@layerzerolabs/scan-client": "0.0.0-beta.6",
     "@reduxjs/toolkit": "^1.8.1",
-    "soulswap-bentobox": "workspace:*",
+    "soulswap-coffinbox": "workspace:*",
     "soulswap-chain": "workspace:*",
     "soulswap-currency": "workspace:*",
     "soulswap-amm": "workspace:*",

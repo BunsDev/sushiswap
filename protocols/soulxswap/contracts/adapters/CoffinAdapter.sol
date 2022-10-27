@@ -5,14 +5,14 @@ pragma solidity >=0.8.11;
 import "../interfaces/ICoffinBoxMinimal.sol";
 import "../base/ImmutableState.sol";
 
-/// @title BentoAdapter
+/// @title CoffinAdapter
 /// @notice Adapter which provides all functions of CoffinBox require by this contract.
-/// @dev These are generic functions, make sure, only msg.sender, address(this) and address(bentoBox)
-/// are passed in the from param, or else the attacker can sifu user's funds in bentobox.
-abstract contract BentoAdapter is ImmutableState {
+/// @dev These are generic functions, make sure, only msg.sender, address(this) and address(coffinBox)
+/// are passed in the from param, or else the attacker can sifu user's funds in coffinbox.
+abstract contract CoffinAdapter is ImmutableState {
     /// @notice Deposits the token from users wallet into the CoffinBox.
-    /// @dev Make sure, only msg.sender, address(this) and address(bentoBox)
-    /// are passed in the from param, or else the attacker can sifu user's funds in bentobox.
+    /// @dev Make sure, only msg.sender, address(this) and address(coffinBox)
+    /// are passed in the from param, or else the attacker can sifu user's funds in coffinbox.
     /// Pass either amount or share.
     /// @param token token to deposit. Use token as address(0) when depositing native token
     /// @param from sender
@@ -28,34 +28,34 @@ abstract contract BentoAdapter is ImmutableState {
         uint256 share,
         uint256 value
     ) internal {
-        bentoBox.deposit{value: value}(token, from, to, amount, share);
+        coffinBox.deposit{value: value}(token, from, to, amount, share);
     }
 
-    /// @notice Transfers the token from bentobox user to another or withdraw it to another address.
-    /// @dev Make sure, only msg.sender, address(this) and address(bentoBox)
-    /// are passed in the from param, or else the attacker can sifu user's funds in bentobox.
+    /// @notice Transfers the token from coffinbox user to another or withdraw it to another address.
+    /// @dev Make sure, only msg.sender, address(this) and address(coffinBox)
+    /// are passed in the from param, or else the attacker can sifu user's funds in coffinbox.
     /// Pass either amount or share.
     /// @param token token to transfer. For native tokens, use wnative token address
     /// @param from sender
     /// @param to receiver
     /// @param amount amount to transfer
     /// @param share share to transfer
-    /// @param unwrapBento use true for withdraw and false for transfer
+    /// @param unwrapCoffin use true for withdraw and false for transfer
     function _transferFromCoffinBox(
         address token,
         address from,
         address to,
         uint256 amount,
         uint256 share,
-        bool unwrapBento
+        bool unwrapCoffin
     ) internal {
-        if (unwrapBento) {
-            bentoBox.withdraw(token, from, to, amount, share);
+        if (unwrapCoffin) {
+            coffinBox.withdraw(token, from, to, amount, share);
         } else {
             if (amount > 0) {
-                share = bentoBox.toShare(token, amount, false);
+                share = coffinBox.toShare(token, amount, false);
             }
-            bentoBox.transfer(token, from, to, share);
+            coffinBox.transfer(token, from, to, share);
         }
     }
 }

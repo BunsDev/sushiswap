@@ -13,7 +13,7 @@ import {
 import { Button, Dots } from 'soulswap-ui'
 import {
   Approve,
-  BENTOBOX_ADDRESS,
+  COFFINBOX_ADDRESS,
   getTridentRouterContractConfig,
   PoolFinderType,
   useCoffinBoxTotals,
@@ -274,7 +274,7 @@ export const CreateSectionReviewModalTrident: FC<CreateSectionReviewModalTrident
           className="flex-grow !justify-end"
           components={
             <Approve.Components>
-              <Approve.Bentobox
+              <Approve.Coffinbox
                 size="md"
                 className="whitespace-nowrap"
                 fullWidth
@@ -286,16 +286,16 @@ export const CreateSectionReviewModalTrident: FC<CreateSectionReviewModalTrident
                 className="whitespace-nowrap"
                 fullWidth
                 amount={input0}
-                address={chain ? BENTOBOX_ADDRESS[chain?.id] : undefined}
-                enabled={Boolean(chain && BENTOBOX_ADDRESS[chain?.id])}
+                address={chain ? COFFINBOX_ADDRESS[chain?.id] : undefined}
+                enabled={Boolean(chain && COFFINBOX_ADDRESS[chain?.id])}
               />
               <Approve.Token
                 size="md"
                 className="whitespace-nowrap"
                 fullWidth
                 amount={input1}
-                address={chain ? BENTOBOX_ADDRESS[chain?.id] : undefined}
-                enabled={Boolean(chain && BENTOBOX_ADDRESS[chain?.id])}
+                address={chain ? COFFINBOX_ADDRESS[chain?.id] : undefined}
+                enabled={Boolean(chain && COFFINBOX_ADDRESS[chain?.id])}
               />
             </Approve.Components>
           }

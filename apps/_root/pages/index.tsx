@@ -12,22 +12,22 @@ import { useTokens } from 'lib/state/token-lists'
 import React, { useMemo } from 'react'
 
 import { Layout } from '../components'
-import getBentoTVL from '../functions/graph/fetchers/bentobox'
+import getCoffinTVL from '../functions/graph/fetchers/coffinbox'
 import { getLegacyExchangeData } from '../functions/graph/fetchers/exchange'
 import { getTridentExchangeData } from '../functions/graph/queries/trident'
 import { useCustomTokens } from '../lib/state/storage'
 
 export async function getStaticProps() {
-  const [sushiPrice, bentoTVL, legacyExchangeData, tridentExchangeData] = await Promise.all([
+  const [sushiPrice, coffinTVL, legacyExchangeData, tridentExchangeData] = await Promise.all([
     sushiData.sushi.priceUSD(),
-    getBentoTVL(),
+    getCoffinTVL(),
     getLegacyExchangeData(),
     getTridentExchangeData(),
   ])
 
-  console.log(bentoTVL)
+  console.log(coffinTVL)
 
-  const totalTVL = bentoTVL + legacyExchangeData.tvlUSD
+  const totalTVL = coffinTVL + legacyExchangeData.tvlUSD
   const totalVolume = legacyExchangeData.volumeUSD + tridentExchangeData.volumeUSD
   const totalPoolCount = legacyExchangeData.pairCount + tridentExchangeData.poolCount
   return {

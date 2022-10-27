@@ -62,7 +62,7 @@ export type UseStreamBalances = (
 
 export const useStreamBalances: UseStreamBalances = (chainId, streamIds, tokens, options) => {
   const furo = useFuroStreamContract(chainId)
-  const bento = useCoffinBoxContract(chainId)
+  const coffin = useCoffinBoxContract(chainId)
 
   const { data: latestBlockNumber } = useBlockNumber({ chainId })
 
@@ -77,7 +77,7 @@ export const useStreamBalances: UseStreamBalances = (chainId, streamIds, tokens,
   const totals = useSingleContractMultipleData(
     chainId,
     latestBlockNumber,
-    bento,
+    coffin,
     'totals',
     tokens.map((el) => [el.address]),
     options

@@ -26,7 +26,7 @@ import {
   Tooltip,
   Typography,
 } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, useCoffinBoxTotals, useFuroVestingRouterContract, usePrices } from 'soulswap-wagmi'
+import { Approve, COFFINBOX_ADDRESS, useCoffinBoxTotals, useFuroVestingRouterContract, usePrices } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import { useNotifications } from 'lib/state/storage'
 import Link from 'next/link'
@@ -150,7 +150,7 @@ export const CreateMultipleForm = () => {
                 steps: cur.stepPayouts.toString(),
                 stepPercentage: cur.stepPercentage.toString(),
                 amount: cur.totalAmount.quotient.toString(),
-                fromBentobox: cur.fundSource === FundSource.BENTOBOX,
+                fromCoffinbox: cur.fundSource === FundSource.COFFINBOX,
                 minShare: cur.totalAmount.toShare(rebases[cur.currency.wrapped.address]),
               })
             )
@@ -436,12 +436,12 @@ export const CreateMultipleForm = () => {
                   className="!items-end"
                   components={
                     <Approve.Components>
-                      <Approve.Bentobox address={contract?.address} onSignature={setSignature} />
+                      <Approve.Coffinbox address={contract?.address} onSignature={setSignature} />
                       {summedAmounts.map((amount, index) => (
                         <Approve.Token
                           key={index}
                           amount={amount}
-                          address={activeChain?.id ? BENTOBOX_ADDRESS[activeChain.id] : undefined}
+                          address={activeChain?.id ? COFFINBOX_ADDRESS[activeChain.id] : undefined}
                         />
                       ))}
                     </Approve.Components>

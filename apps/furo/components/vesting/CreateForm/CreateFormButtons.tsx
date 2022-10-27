@@ -3,7 +3,7 @@ import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { Fraction, JSBI, ZERO } from 'soulswap-math'
 import { Button, createToast, Dots } from 'soulswap-ui'
-import { BENTOBOX_ADDRESS, useCoffinBoxTotal, useFuroVestingRouterContract } from 'soulswap-wagmi'
+import { COFFINBOX_ADDRESS, useCoffinBoxTotal, useFuroVestingRouterContract } from 'soulswap-wagmi'
 import { Approve } from 'soulswap-wagmi/systems'
 import { CreateVestingFormDataTransformedAndValidated } from 'components/vesting'
 import { approveCoffinBoxAction, batchAction, vestingCreationAction } from 'lib'
@@ -89,7 +89,7 @@ const CreateFormButtons: FC<CreateFormButtons> = ({
         steps: stepPayouts.toString(),
         stepPercentage: stepPercentage.toString(),
         amount: totalAmountAsEntity.quotient.toString(),
-        fromBentobox: fundSource === FundSource.BENTOBOX,
+        fromCoffinbox: fundSource === FundSource.COFFINBOX,
         minShare: totalAmountAsEntity.toShare(rebase),
       }),
     ]
@@ -162,12 +162,12 @@ const CreateFormButtons: FC<CreateFormButtons> = ({
         onSuccess={createNotification}
         components={
           <Approve.Components>
-            <Approve.Bentobox fullWidth watch address={contract?.address} onSignature={setSignature} />
+            <Approve.Coffinbox fullWidth watch address={contract?.address} onSignature={setSignature} />
             <Approve.Token
               fullWidth
               watch
               amount={totalAmountAsEntity}
-              address={activeChain ? BENTOBOX_ADDRESS[activeChain?.id] : undefined}
+              address={activeChain ? COFFINBOX_ADDRESS[activeChain?.id] : undefined}
             />
           </Approve.Components>
         }

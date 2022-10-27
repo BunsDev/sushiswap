@@ -6,7 +6,7 @@ import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { JSBI } from 'soulswap-math'
 import { Button, createToast, Dots, Form } from 'soulswap-ui'
-import { BENTOBOX_ADDRESS, useCoffinBoxTotal, useFuroStreamRouterContract } from 'soulswap-wagmi'
+import { COFFINBOX_ADDRESS, useCoffinBoxTotal, useFuroStreamRouterContract } from 'soulswap-wagmi'
 import { Approve } from 'soulswap-wagmi/systems'
 import { approveCoffinBoxAction, batchAction, streamCreationAction } from 'lib'
 import { useNotifications } from 'lib/state/storage'
@@ -84,7 +84,7 @@ export const CreateForm: FC = () => {
           startDate: new Date(_data.startDate),
           endDate: new Date(_data.endDate),
           amount: amountAsEntity,
-          fromBentobox: _data.fundSource === FundSource.BENTOBOX,
+          fromCoffinbox: _data.fundSource === FundSource.COFFINBOX,
           minShare: amountAsEntity.toShare(rebase),
         }),
       ]
@@ -152,10 +152,10 @@ export const CreateForm: FC = () => {
               className="!items-end"
               components={
                 <Approve.Components>
-                  <Approve.Bentobox address={contract?.address} onSignature={setSignature} />
+                  <Approve.Coffinbox address={contract?.address} onSignature={setSignature} />
                   <Approve.Token
                     amount={amountAsEntity}
-                    address={activeChain?.id ? BENTOBOX_ADDRESS[activeChain.id] : undefined}
+                    address={activeChain?.id ? COFFINBOX_ADDRESS[activeChain.id] : undefined}
                   />
                 </Approve.Components>
               }

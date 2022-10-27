@@ -19,11 +19,11 @@ contract MoneySink is IStrategy, BoringOwnable {
     using BoringERC20 for IERC20;
 
     IERC20 public immutable sushi;
-    address public immutable bentoBox;
+    address public immutable coffinBox;
 
-    constructor(address _bentoBox, IERC20 _sushi) public {
+    constructor(address _coffinBox, IERC20 _sushi) public {
         sushi = _sushi;
-        bentoBox = _bentoBox;
+        coffinBox = _coffinBox;
     }
 
     function lose(uint256 amount) public {
@@ -42,7 +42,7 @@ contract MoneySink is IStrategy, BoringOwnable {
             amountAdded = -int256(balance.sub(realBalance));
         } else {
             amountAdded = int256(realBalance.sub(balance));
-            sushi.safeTransfer(bentoBox, uint256(amountAdded));
+            sushi.safeTransfer(coffinBox, uint256(amountAdded));
         }
     }
 
@@ -60,6 +60,6 @@ contract MoneySink is IStrategy, BoringOwnable {
         } else {
             amountAdded = int256(realBalance.sub(balance));
         }
-        sushi.safeTransfer(bentoBox, realBalance);
+        sushi.safeTransfer(coffinBox, realBalance);
     }
 }

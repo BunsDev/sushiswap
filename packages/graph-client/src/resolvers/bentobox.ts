@@ -1,11 +1,11 @@
-import { BENTOBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
+import { COFFINBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 
 import { QueryResolvers, Rebase, Resolvers } from '../../.graphclient'
 
 const crossChainRebases: QueryResolvers['crossChainRebases'] = async (root, args, context, info): Promise<Rebase[]> =>
   Promise.all(
     args.chainIds
-      .filter((chainId): chainId is keyof typeof BENTOBOX_SUBGRAPH_NAME => chainId in BENTOBOX_SUBGRAPH_NAME)
+      .filter((chainId): chainId is keyof typeof COFFINBOX_SUBGRAPH_NAME => chainId in COFFINBOX_SUBGRAPH_NAME)
       .map((chainId) =>
         context.CoffinBox.Query.rebases({
           root,
@@ -13,7 +13,7 @@ const crossChainRebases: QueryResolvers['crossChainRebases'] = async (root, args
           context: {
             ...context,
             chainId,
-            subgraphName: BENTOBOX_SUBGRAPH_NAME[chainId],
+            subgraphName: COFFINBOX_SUBGRAPH_NAME[chainId],
             subgraphHost: SUBGRAPH_HOST[chainId],
           },
           info,

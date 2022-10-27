@@ -13,7 +13,7 @@ contract FuroVesting is
     Multicall,
     BoringOwnable
 {
-    ICoffinBoxMinimal public immutable bentoBox;
+    ICoffinBoxMinimal public immutable coffinBox;
     address public immutable wETH;
 
     address public tokenURIFetcher;
@@ -30,11 +30,11 @@ contract FuroVesting is
     error NotVestReceiver();
     error InvalidStepSetting();
 
-    constructor(ICoffinBoxMinimal _bentoBox, address _wETH) {
-        bentoBox = _bentoBox;
+    constructor(ICoffinBoxMinimal _coffinBox, address _wETH) {
+        coffinBox = _coffinBox;
         wETH = _wETH;
         vestIds = 1;
-        _bentoBox.registerProtocol();
+        _coffinBox.registerProtocol();
     }
 
     function setTokenURIFetcher(address _fetcher) external onlyOwner {
@@ -52,7 +52,7 @@ contract FuroVesting is
         bytes32 r,
         bytes32 s
     ) external payable override {
-        bentoBox.setMasterContractApproval(
+        coffinBox.setMasterContractApproval(
             user,
             address(this),
             approved,
@@ -234,10 +234,10 @@ contract FuroVesting is
         bool fromCoffinBox
     ) internal returns (uint256 depositedShares) {
         if (fromCoffinBox) {
-            depositedShares = bentoBox.toShare(token, amount, false);
-            bentoBox.transfer(token, from, to, depositedShares);
+            depositedShares = coffinBox.toShare(token, amount, false);
+            coffinBox.transfer(token, from, to, depositedShares);
         } else {
-            (, depositedShares) = bentoBox.deposit{
+            (, depositedShares) = coffinBox.deposit{
                 value: token == address(0) ? amount : 0
             }(token, from, to, amount, 0);
         }
@@ -251,9 +251,9 @@ contract FuroVesting is
         bool toCoffinBox
     ) internal {
         if (toCoffinBox) {
-            bentoBox.transfer(token, from, to, shares);
+            coffinBox.transfer(token, from, to, shares);
         } else {
-            bentoBox.withdraw(token, from, to, 0, shares);
+            coffinBox.withdraw(token, from, to, 0, shares);
         }
     }
 }

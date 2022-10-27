@@ -11,7 +11,7 @@ import {
   useSignTypedData,
 } from 'wagmi'
 
-import { BENTOBOX_ADDRESS, getCoffinBoxContractConfig } from './useCoffinBoxContract'
+import { COFFINBOX_ADDRESS, getCoffinBoxContractConfig } from './useCoffinBoxContract'
 import { ApprovalState } from './useERC20ApproveCallback'
 
 // returns a variable indicating the state of the approval and a function which approves if necessary or early returns
@@ -73,8 +73,8 @@ export function useCoffinBoxApproveCallback({
       return
     }
 
-    if (!(chain.id in BENTOBOX_ADDRESS)) {
-      console.error(`no bentobox for active chain ${chain.id}`)
+    if (!(chain.id in COFFINBOX_ADDRESS)) {
+      console.error(`no coffinbox for active chain ${chain.id}`)
       return
     }
 
@@ -93,7 +93,7 @@ export function useCoffinBoxApproveCallback({
         domain: {
           name: 'CoffinBox V1',
           chainId: chain.id,
-          verifyingContract: BENTOBOX_ADDRESS[chain.id],
+          verifyingContract: COFFINBOX_ADDRESS[chain.id],
         },
         types: {
           SetMasterContractApproval: [

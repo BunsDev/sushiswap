@@ -12,7 +12,7 @@ import { App, Button, classNames, Dialog, Dots, Loader, NetworkIcon, SlideIn, To
 import { Icon } from 'soulswap-ui/currency/Icon'
 import {
   Approve,
-  BENTOBOX_ADDRESS,
+  COFFINBOX_ADDRESS,
   getsoulxswapContractConfig,
   useBalance,
   useCoffinBoxTotal,
@@ -1268,7 +1268,7 @@ const Widget: FC<Swap> = ({
                                 onSuccess={createNotification}
                                 components={
                                   <Approve.Components>
-                                    <Approve.Bentobox
+                                    <Approve.Coffinbox
                                       size="md"
                                       className="whitespace-nowrap"
                                       fullWidth
@@ -1280,7 +1280,7 @@ const Widget: FC<Swap> = ({
                                       className="whitespace-nowrap"
                                       fullWidth
                                       amount={srcAmount}
-                                      address={BENTOBOX_ADDRESS[srcChainId]}
+                                      address={COFFINBOX_ADDRESS[srcChainId]}
                                     />
                                   </Approve.Components>
                                 }

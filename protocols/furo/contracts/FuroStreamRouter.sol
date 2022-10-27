@@ -5,7 +5,7 @@ pragma solidity 0.8.10;
 import './interfaces/IFuroStream.sol';
 
 contract FuroStreamRouter is Multicall {
-  ICoffinBoxMinimal public immutable bentoBox;
+  ICoffinBoxMinimal public immutable coffinBox;
   IFuroStream public immutable furoStream;
   address public immutable wETH;
 
@@ -13,15 +13,15 @@ contract FuroStreamRouter is Multicall {
   error InsufficientShares();
 
   constructor(
-    ICoffinBoxMinimal _bentoBox,
+    ICoffinBoxMinimal _coffinBox,
     IFuroStream _furoStream,
     address _wETH
   ) {
-    bentoBox = _bentoBox;
+    coffinBox = _coffinBox;
     furoStream = _furoStream;
     wETH = _wETH;
-    _bentoBox.setMasterContractApproval(address(this), address(_furoStream), true, 0, bytes32(0), bytes32(0));
-    _bentoBox.registerProtocol();
+    _coffinBox.setMasterContractApproval(address(this), address(_furoStream), true, 0, bytes32(0), bytes32(0));
+    _coffinBox.registerProtocol();
   }
 
   function setCoffinBoxApproval(
@@ -31,7 +31,7 @@ contract FuroStreamRouter is Multicall {
     bytes32 r,
     bytes32 s
   ) external payable {
-    bentoBox.setMasterContractApproval(user, address(this), approved, v, r, s);
+    coffinBox.setMasterContractApproval(user, address(this), approved, v, r, s);
   }
 
   function createStream(
@@ -67,10 +67,10 @@ contract FuroStreamRouter is Multicall {
     bool fromCoffinBox
   ) internal returns (uint256 depositedShares) {
     if (fromCoffinBox) {
-      depositedShares = bentoBox.toShare(token, amount, false);
-      bentoBox.transfer(token, from, to, depositedShares);
+      depositedShares = coffinBox.toShare(token, amount, false);
+      coffinBox.transfer(token, from, to, depositedShares);
     } else {
-      (, depositedShares) = bentoBox.deposit{value: token == address(0) ? amount : 0}(token, from, to, amount, 0);
+      (, depositedShares) = coffinBox.deposit{value: token == address(0) ? amount : 0}(token, from, to, amount, 0);
     }
   }
 }

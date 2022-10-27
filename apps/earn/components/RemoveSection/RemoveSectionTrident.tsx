@@ -182,7 +182,7 @@ export const RemoveSectionTrident: FC<RemoveSectionTridentProps> = ({ pair }) =>
           router: contract,
           token: liquidityOutput[indexOfWETH === 0 ? 1 : 0].token,
           recipient: address,
-          fromBento: false,
+          fromCoffin: false,
         })
       )
     }
@@ -283,7 +283,7 @@ export const RemoveSectionTrident: FC<RemoveSectionTridentProps> = ({ pair }) =>
                     className="flex-grow !justify-end"
                     components={
                       <Approve.Components>
-                        <Approve.Bentobox
+                        <Approve.Coffinbox
                           size="md"
                           className="whitespace-nowrap"
                           fullWidth

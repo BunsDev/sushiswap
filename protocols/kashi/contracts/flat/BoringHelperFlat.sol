@@ -364,7 +364,7 @@ interface IKashiPair {
 
     function balanceOf(address) external view returns (uint256);
 
-    function bentoBox() external view returns (ICoffinBox);
+    function coffinBox() external view returns (ICoffinBox);
 
     function borrow(address to, uint256 amount) external returns (uint256 part, uint256 share);
 
@@ -490,7 +490,7 @@ contract BoringHelperV1 is Ownable {
     IFactory public sushiFactory; // IFactory(0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac);
     IFactory public uniV2Factory; // IFactory(0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f);
     IERC20 public bar; // 0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272;
-    ICoffinBox public bentoBox; // 0xB5891167796722331b7ea7824F036b3Bdcb4531C
+    ICoffinBox public coffinBox; // 0xB5891167796722331b7ea7824F036b3Bdcb4531C
 
     constructor(
         IMasterChef chef_,
@@ -501,7 +501,7 @@ contract BoringHelperV1 is Ownable {
         IFactory sushiFactory_,
         IFactory uniV2Factory_,
         IERC20 bar_,
-        ICoffinBox bentoBox_
+        ICoffinBox coffinBox_
     ) public {
         chef = chef_;
         maker = maker_;
@@ -511,7 +511,7 @@ contract BoringHelperV1 is Ownable {
         sushiFactory = sushiFactory_;
         uniV2Factory = uniV2Factory_;
         bar = bar_;
-        bentoBox = bentoBox_;
+        coffinBox = coffinBox_;
     }
 
     function setContracts(
@@ -523,7 +523,7 @@ contract BoringHelperV1 is Ownable {
         IFactory sushiFactory_,
         IFactory uniV2Factory_,
         IERC20 bar_,
-        ICoffinBox bentoBox_
+        ICoffinBox coffinBox_
     ) public onlyOwner {
         chef = chef_;
         maker = maker_;
@@ -533,7 +533,7 @@ contract BoringHelperV1 is Ownable {
         sushiFactory = sushiFactory_;
         uniV2Factory = uniV2Factory_;
         bar = bar_;
-        bentoBox = bentoBox_;
+        coffinBox = coffinBox_;
     }
 
     function getETHRate(IERC20 token) public view returns (uint256) {
@@ -617,7 +617,7 @@ contract BoringHelperV1 is Ownable {
 
         info.masterContractApproved = new bool[](masterContracts.length);
         for (uint256 i = 0; i < masterContracts.length; i++) {
-            info.masterContractApproved[i] = bentoBox.masterContractApproved(masterContracts[i], who);
+            info.masterContractApproved[i] = coffinBox.masterContractApproved(masterContracts[i], who);
         }
 
         if (currency != IERC20(0)) {
@@ -656,18 +656,18 @@ contract BoringHelperV1 is Ownable {
     struct Balance {
         IERC20 token;
         uint256 balance;
-        uint256 bentoBalance;
+        uint256 coffinBalance;
     }
 
     struct BalanceFull {
         IERC20 token;
         uint256 totalSupply;
         uint256 balance;
-        uint256 bentoBalance;
-        uint256 bentoAllowance;
+        uint256 coffinBalance;
+        uint256 coffinAllowance;
         uint256 nonce;
-        uint128 bentoAmount;
-        uint128 bentoShare;
+        uint128 coffinAmount;
+        uint128 coffinShare;
         uint256 rate;
     }
 
@@ -703,7 +703,7 @@ contract BoringHelperV1 is Ownable {
             IERC20 token = IERC20(addresses[i]);
             balances[i].token = token;
             balances[i].balance = token.balanceOf(who);
-            balances[i].bentoBalance = bentoBox.balanceOf(token, who);
+            balances[i].coffinBalance = coffinBox.balanceOf(token, who);
         }
 
         return balances;
@@ -717,10 +717,10 @@ contract BoringHelperV1 is Ownable {
             balances[i].totalSupply = token.totalSupply();
             balances[i].token = token;
             balances[i].balance = token.balanceOf(who);
-            balances[i].bentoAllowance = token.allowance(who, address(bentoBox));
+            balances[i].coffinAllowance = token.allowance(who, address(coffinBox));
             balances[i].nonce = token.nonces(who);
-            balances[i].bentoBalance = bentoBox.balanceOf(token, who);
-            (balances[i].bentoAmount, balances[i].bentoShare) = bentoBox.totals(token);
+            balances[i].coffinBalance = coffinBox.balanceOf(token, who);
+            (balances[i].coffinAmount, balances[i].coffinShare) = coffinBox.totals(token);
             balances[i].rate = getETHRate(token);
         }
 

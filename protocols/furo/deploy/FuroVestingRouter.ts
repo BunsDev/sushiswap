@@ -1,4 +1,4 @@
-import { BENTOBOX_ADDRESS, WNATIVE_ADDRESS } from 'soulswap-core-sdk'
+import { COFFINBOX_ADDRESS, WNATIVE_ADDRESS } from 'soulswap-core-sdk'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/types'
 
@@ -17,7 +17,7 @@ const func: DeployFunction = async ({
 
   const { address: furoVestingAddress } = await deployments.get('FuroVesting')
 
-  const args = [BENTOBOX_ADDRESS[chainId], furoVestingAddress, WNATIVE_ADDRESS[chainId]]
+  const args = [COFFINBOX_ADDRESS[chainId], furoVestingAddress, WNATIVE_ADDRESS[chainId]]
 
   const { address } = await deploy('FuroVestingRouter', {
     from: deployer,

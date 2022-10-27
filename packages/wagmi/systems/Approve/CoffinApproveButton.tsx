@@ -1,7 +1,7 @@
 import { Signature } from '@ethersproject/bytes'
 import { AddressZero } from '@ethersproject/constants'
 import { Transition } from '@headlessui/react'
-import { Badge, BentoboxIcon, Button, classNames, IconButton, Tooltip, Typography } from 'soulswap-ui'
+import { Badge, CoffinboxIcon, Button, classNames, IconButton, Tooltip, Typography } from 'soulswap-ui'
 import { FC, memo, useEffect } from 'react'
 
 import { ApprovalState, useCoffinBoxApproveCallback } from '../../hooks'
@@ -12,13 +12,13 @@ interface RenderPropPayload extends ApprovalButtonRenderProp {
   signature: Signature | undefined
 }
 
-export interface BentoApproveButton extends ApproveButton<RenderPropPayload> {
+export interface CoffinApproveButton extends ApproveButton<RenderPropPayload> {
   onSignature(sig?: Signature): void
   watch?: boolean
   address?: string
 }
 
-export const BentoApproveButton: FC<BentoApproveButton> = memo(
+export const CoffinApproveButton: FC<CoffinApproveButton> = memo(
   ({
     watch = true,
     address: masterContract,
@@ -122,7 +122,7 @@ export const BentoApproveButton: FC<BentoApproveButton> = memo(
                     onClick={onApprove}
                   >
                     <div className="bg-white bg-opacity-[0.24] flex items-center justify-center rounded-full w-6 h-6 min-w-6 min-h-6 ">
-                      <BentoboxIcon width={14} height={14} />
+                      <CoffinboxIcon width={14} height={14} />
                     </div>
                   </IconButton>
                 </Badge>

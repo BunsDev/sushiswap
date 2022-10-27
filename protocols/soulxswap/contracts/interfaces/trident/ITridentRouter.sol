@@ -52,7 +52,7 @@ interface ITridentRouter {
     struct Output {
         address token;
         address to;
-        bool unwrapBento;
+        bool unwrapCoffin;
         uint256 minAmount;
     }
 

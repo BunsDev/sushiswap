@@ -24,7 +24,7 @@
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^1.0.0",
     "@reduxjs/toolkit": "^1.8.1",
-    "soulswap-bentobox": "workspace:*",
+    "soulswap-coffinbox": "workspace:*",
     "soulswap-kashi": "workspace:*",
     "soulswap-chain": "workspace:*",
     "soulswap-currency": "workspace:*",

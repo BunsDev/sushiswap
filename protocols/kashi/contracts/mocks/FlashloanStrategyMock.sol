@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
-import "soulswap-bentobox-sdk/contracts/IStrategy.sol";
-import "soulswap-bentobox-sdk/contracts/IFlashBorrower.sol";
-import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
+import "soulswap-coffinbox-sdk/contracts/IStrategy.sol";
+import "soulswap-coffinbox-sdk/contracts/IFlashBorrower.sol";
+import "soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
@@ -20,25 +20,25 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     IERC20 private immutable assetToken;
     IERC20 private immutable collateralToken;
     KashiPair private immutable kashiPair;
-    ICoffinBoxV1 private immutable bentoBox;
+    ICoffinBoxV1 private immutable coffinBox;
     ISwapper private immutable swapper;
     address private immutable target;
     IUniswapV2Factory public factory;
 
     modifier onlyCoffinBox() {
-        require(msg.sender == address(bentoBox), "only bentoBox");
+        require(msg.sender == address(coffinBox), "only coffinBox");
         _;
     }
 
     constructor(
-        ICoffinBoxV1 bentoBox_,
+        ICoffinBoxV1 coffinBox_,
         KashiPair _kashiPair,
         IERC20 asset,
         IERC20 collateral,
         ISwapper _swapper,
         IUniswapV2Factory _factory
     ) public {
-        bentoBox = bentoBox_;
+        coffinBox = coffinBox_;
         kashiPair = _kashiPair;
         assetToken = asset;
         collateralToken = collateral;
@@ -56,24 +56,24 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     // Harvest any profits made converted to the asset and pass them to the caller
     function harvest(uint256 balance, address) external override onlyCoffinBox returns (int256 amountAdded) {
         // flashloan everything we can
-        uint256 flashAmount = assetToken.balanceOf(address(bentoBox));
-        bentoBox.flashLoan(IFlashBorrower(this), address(this), assetToken, flashAmount, new bytes(0));
+        uint256 flashAmount = assetToken.balanceOf(address(coffinBox));
+        coffinBox.flashLoan(IFlashBorrower(this), address(this), assetToken, flashAmount, new bytes(0));
 
         // Profit is any leftover after the flashloan and liquidation succeeded
         amountAdded = int256(assetToken.balanceOf(address(this)).sub(balance));
-        assetToken.safeTransfer(address(bentoBox), uint256(amountAdded));
+        assetToken.safeTransfer(address(coffinBox), uint256(amountAdded));
     }
 
     // Withdraw assets. The returned amount can differ from the requested amount due to rounding or if the request was more than there is.
     function withdraw(uint256 amount) external override onlyCoffinBox returns (uint256 actualAmount) {
-        assetToken.safeTransfer(address(bentoBox), uint256(amount));
+        assetToken.safeTransfer(address(coffinBox), uint256(amount));
         actualAmount = amount;
     }
 
     // Withdraw all assets in the safest way possible. This shouldn't fail.
     function exit(uint256 balance) external override onlyCoffinBox returns (int256 amountAdded) {
         amountAdded = 0;
-        assetToken.safeTransfer(address(bentoBox), balance);
+        assetToken.safeTransfer(address(coffinBox), balance);
     }
 
     // Given an input amount of an asset and pair reserves, returns the maximum output amount of the other asset
@@ -99,10 +99,10 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
         require(token == assetToken);
 
         // approve kashiPair
-        bentoBox.setMasterContractApproval(address(this), address(kashiPair.masterContract()), true, 0, 0, 0);
-        // approve & deposit asset into bentoBox
-        assetToken.approve(address(bentoBox), amount);
-        bentoBox.deposit(assetToken, address(this), address(this), amount, 0);
+        coffinBox.setMasterContractApproval(address(this), address(kashiPair.masterContract()), true, 0, 0, 0);
+        // approve & deposit asset into coffinBox
+        assetToken.approve(address(coffinBox), amount);
+        coffinBox.deposit(assetToken, address(this), address(this), amount, 0);
 
         // update exchange rate first
         kashiPair.updateExchangeRate();
@@ -125,9 +125,9 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
         IUniswapV2Pair pair = IUniswapV2Pair(factory.getPair(address(collateralToken), address(assetToken)));
         // withdraw collateral to uniswap
         (uint256 amountFrom, ) =
-            bentoBox.withdraw(collateralToken, address(this), address(pair), 0, bentoBox.balanceOf(collateralToken, address(this)));
+            coffinBox.withdraw(collateralToken, address(this), address(pair), 0, coffinBox.balanceOf(collateralToken, address(this)));
         // withdraw remaining assets
-        bentoBox.withdraw(assetToken, address(this), address(this), 0, bentoBox.balanceOf(assetToken, address(this)));
+        coffinBox.withdraw(assetToken, address(this), address(this), 0, coffinBox.balanceOf(assetToken, address(this)));
 
         {
             // swap
@@ -141,7 +141,7 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
             }
         }
 
-        // transfer flashloan + fee back to bentoBox
+        // transfer flashloan + fee back to coffinBox
         assetToken.safeTransfer(msg.sender, amount.add(fee));
     }
 }

@@ -117,7 +117,7 @@ additionalTypeDefs: |
       timestamp: Int!
       chainIds: [Int!]!
     ): [Block!]!
-    # BENTOBOX
+    # COFFINBOX
     crossChainRebases(
       first: Int!,
       chainIds: [Int!]!
@@ -191,14 +191,14 @@ additionalTypeDefs: |
   }
 
 additionalResolvers:
-  - .graphclient/resolvers/bentobox.js
+  - .graphclient/resolvers/coffinbox.js
   - .graphclient/resolvers/blocks.js
   - .graphclient/resolvers/sushiswap.js
 
 documents:
   - './src/queries/*.graphql'
   # - './queries/bar.graphql'
-  # - './queries/bentobox.graphql'
+  # - './queries/coffinbox.graphql'
   # - './queries/blocks.graphql'
   # - './queries/exchange.graphql'
   # - './queries/masterchef.graphql'

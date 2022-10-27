@@ -15,7 +15,7 @@ type UseBalancesParams = {
   currencies: (Type | undefined)[]
   chainId?: ChainId
   enabled?: boolean
-  loadBentobox?: boolean
+  loadCoffinbox?: boolean
   watch?: boolean
 }
 
@@ -32,7 +32,7 @@ export const useBalances: UseBalances = ({
   chainId,
   account,
   currencies,
-  loadBentobox = false,
+  loadCoffinbox = false,
 }) => {
   const {
     data: nativeBalance,
@@ -73,7 +73,7 @@ export const useBalances: UseBalances = ({
       }
     })
 
-    if (loadBentobox) {
+    if (loadCoffinbox) {
       const totals = validatedTokenAddresses.map((token) => ({
         chainId,
         ...getCoffinBoxContractConfig(chainId),
@@ -92,7 +92,7 @@ export const useBalances: UseBalances = ({
     }
 
     return input
-  }, [validatedTokenAddresses, loadBentobox, chainId, account])
+  }, [validatedTokenAddresses, loadCoffinbox, chainId, account])
 
   const { data, isError, isLoading } = useContractReads({
     contracts: contracts,
@@ -106,7 +106,7 @@ export const useBalances: UseBalances = ({
 
     if (data?.length !== contracts.length) return result
     for (let i = 0; i < validatedTokenAddresses.length; i++) {
-      if (loadBentobox) {
+      if (loadCoffinbox) {
         const { base, elastic } = data[i + validatedTokenAddresses.length]
         if (base && elastic) {
           const rebase = { base: JSBI.BigInt(base.toString()), elastic: JSBI.BigInt(elastic.toString()) }
@@ -117,12 +117,12 @@ export const useBalances: UseBalances = ({
           )
 
           result[validatedTokens[i].address] = {
-            [FundSource.BENTOBOX]: amount.greaterThan(ZERO) ? amount : Amount.fromRawAmount(validatedTokens[i], '0'),
+            [FundSource.COFFINBOX]: amount.greaterThan(ZERO) ? amount : Amount.fromRawAmount(validatedTokens[i], '0'),
             [FundSource.WALLET]: Amount.fromRawAmount(validatedTokens[i], '0'),
           }
         } else {
           result[validatedTokens[i].address] = {
-            [FundSource.BENTOBOX]: Amount.fromRawAmount(validatedTokens[i], '0'),
+            [FundSource.COFFINBOX]: Amount.fromRawAmount(validatedTokens[i], '0'),
             [FundSource.WALLET]: Amount.fromRawAmount(validatedTokens[i], '0'),
           }
         }
@@ -132,7 +132,7 @@ export const useBalances: UseBalances = ({
       const amount = value ? JSBI.BigInt(value.toString()) : undefined
       if (!result[validatedTokens[i].address]) {
         result[validatedTokens[i].address] = {
-          [FundSource.BENTOBOX]: Amount.fromRawAmount(validatedTokens[i], '0'),
+          [FundSource.COFFINBOX]: Amount.fromRawAmount(validatedTokens[i], '0'),
           [FundSource.WALLET]: Amount.fromRawAmount(validatedTokens[i], '0'),
         }
       }
@@ -143,7 +143,7 @@ export const useBalances: UseBalances = ({
     }
 
     return result
-  }, [contracts.length, data, loadBentobox, validatedTokenAddresses.length, validatedTokens])
+  }, [contracts.length, data, loadCoffinbox, validatedTokenAddresses.length, validatedTokens])
 
   return useMemo(() => {
     tokens[AddressZero] = {
@@ -151,9 +151,9 @@ export const useBalances: UseBalances = ({
         chainId && nativeBalance?.value
           ? Amount.fromRawAmount(Native.onChain(chainId), nativeBalance.value.toString())
           : undefined,
-      [FundSource.BENTOBOX]:
+      [FundSource.COFFINBOX]:
         chainId && tokens[Native.onChain(chainId).wrapped.address]
-          ? tokens[Native.onChain(chainId).wrapped.address][FundSource.BENTOBOX]
+          ? tokens[Native.onChain(chainId).wrapped.address][FundSource.COFFINBOX]
           : undefined,
     }
 
@@ -170,7 +170,7 @@ type UseBalanceParams = {
   currency: Type | undefined
   chainId?: ChainId
   enabled?: boolean
-  loadBentobox?: boolean
+  loadCoffinbox?: boolean
   watch?: boolean
 }
 
@@ -184,27 +184,27 @@ export const useBalance: UseBalance = ({
   account,
   currency,
   enabled = true,
-  loadBentobox = false,
+  loadCoffinbox = false,
 }) => {
   const currencies = useMemo(() => [currency], [currency])
-  const { data, isLoading, isError } = useBalances({ watch, chainId, currencies, account, enabled, loadBentobox })
+  const { data, isLoading, isError } = useBalances({ watch, chainId, currencies, account, enabled, loadCoffinbox })
 
   return useMemo(() => {
     const walletBalance = currency
       ? data?.[currency.isNative ? AddressZero : currency.wrapped.address]?.[FundSource.WALLET]
       : undefined
-    const bentoBalance = currency
-      ? data?.[currency.isNative ? AddressZero : currency.wrapped.address]?.[FundSource.BENTOBOX]
+    const coffinBalance = currency
+      ? data?.[currency.isNative ? AddressZero : currency.wrapped.address]?.[FundSource.COFFINBOX]
       : undefined
 
     return {
       isError: isError,
       isLoading: isLoading,
       data:
-        walletBalance && bentoBalance
+        walletBalance && coffinBalance
           ? {
               [FundSource.WALLET]: walletBalance,
-              [FundSource.BENTOBOX]: bentoBalance,
+              [FundSource.COFFINBOX]: coffinBalance,
             }
           : undefined,
     }

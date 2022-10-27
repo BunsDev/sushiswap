@@ -3,7 +3,7 @@ import { classNames, NotificationData } from 'soulswap-ui'
 import React, { Children, cloneElement, FC, isValidElement, ReactElement, ReactNode, useMemo, useReducer } from 'react'
 
 import { ApprovalState } from '../../hooks'
-import { BentoApproveButton } from './BentoApproveButton'
+import { CoffinApproveButton } from './CoffinApproveButton'
 import { ComponentsWrapper } from './ComponentsWrapper'
 import { TokenApproveButton } from './TokenApproveButton'
 import { ApproveButton } from './types'
@@ -71,7 +71,7 @@ const Controller: FC<Props> = ({ className, components, render, onSuccess }) => 
       components,
       components.props,
       Children.map(components.props.children, (component, index) => {
-        if (isValidElement<TokenApproveButton | BentoApproveButton>(component)) {
+        if (isValidElement<TokenApproveButton | CoffinApproveButton>(component)) {
           return cloneElement(component, {
             dispatch,
             index,
@@ -106,10 +106,10 @@ const Controller: FC<Props> = ({ className, components, render, onSuccess }) => 
 
 export const Approve: typeof Controller & {
   Components: typeof ComponentsWrapper
-  Bentobox: typeof BentoApproveButton
+  Coffinbox: typeof CoffinApproveButton
   Token: typeof TokenApproveButton
 } = Object.assign(Controller, {
   Components: ComponentsWrapper,
-  Bentobox: BentoApproveButton,
+  Coffinbox: CoffinApproveButton,
   Token: TokenApproveButton,
 })

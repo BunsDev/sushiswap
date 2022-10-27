@@ -343,7 +343,7 @@
     },
     {
       "inputs": [],
-      "name": "bento",
+      "name": "coffin",
       "outputs": [
         {
           "internalType": "contract ICoffinBoxMinimal",

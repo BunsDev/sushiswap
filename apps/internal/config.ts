@@ -1,7 +1,7 @@
 import { ChainId } from 'soulswap-chain'
 import { SUSHISWAP_ENABLED_NETWORKS, TRIDENT_ENABLED_NETWORKS } from 'soulswap-graph-config'
 
-export const BENTOBOX_ADDRESS: Record<number | string, string> = {
+export const COFFINBOX_ADDRESS: Record<number | string, string> = {
   [ChainId.ETHEREUM]: '0xF5BCE5077908a1b7370B9ae04AdC565EBd643966',
   [ChainId.POLYGON]: '0x0319000133d3AdA02600f0875d2cf03D442C3367',
   [ChainId.GNOSIS]: '0xE2d7F5dd869Fc7c126D21b13a9080e75a4bDb324',
@@ -21,19 +21,19 @@ export const KASHI_ADDRESS: Record<number | string, string> = {
   [ChainId.HECO]: '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42',
 }
 
-// "deploy-ethereum": "graph deploy --product hosted-service sushiswap/bentobox-ethereum",
-// "deploy-polygon": "graph deploy --product hosted-service sushiswap/bentobox-polygon",
-// "deploy-avalanche": "graph deploy --product hosted-service sushiswap/bentobox-avalanche",
-// "deploy-bsc": "graph deploy --product hosted-service sushiswap/bentobox-bsc",
-// "deploy-fantom": "graph deploy --product hosted-service sushiswap/bentobox-fantom",
-// "deploy-gnosis": "graph deploy --product hosted-service sushiswap/bentobox-gnosis",
-// "deploy-arbitrum": "graph deploy --product hosted-service sushiswap/bentobox-arbitrum",
-// "deploy-celo": "graph deploy --product hosted-service sushiswap/bentobox-celo",
-// "deploy-moonriver": "graph deploy --product hosted-service sushiswap/bentobox-moonriver",
-// "deploy-moonbeam": "graph deploy --product hosted-service sushiswap/bentobox-moonbeam",
-// "deploy-optimism": "graph deploy --product hosted-service sushiswap/bentobox-optimism",
-// "deploy-harmony": "graph deploy --product hosted-service sushiswap/bentobox-harmony",
-// "deploy-kava": "graph deploy --node https://pvt-admin.graph.kava.io sushiswap/bentobox-kava"
+// "deploy-ethereum": "graph deploy --product hosted-service sushiswap/coffinbox-ethereum",
+// "deploy-polygon": "graph deploy --product hosted-service sushiswap/coffinbox-polygon",
+// "deploy-avalanche": "graph deploy --product hosted-service sushiswap/coffinbox-avalanche",
+// "deploy-bsc": "graph deploy --product hosted-service sushiswap/coffinbox-bsc",
+// "deploy-fantom": "graph deploy --product hosted-service sushiswap/coffinbox-fantom",
+// "deploy-gnosis": "graph deploy --product hosted-service sushiswap/coffinbox-gnosis",
+// "deploy-arbitrum": "graph deploy --product hosted-service sushiswap/coffinbox-arbitrum",
+// "deploy-celo": "graph deploy --product hosted-service sushiswap/coffinbox-celo",
+// "deploy-moonriver": "graph deploy --product hosted-service sushiswap/coffinbox-moonriver",
+// "deploy-moonbeam": "graph deploy --product hosted-service sushiswap/coffinbox-moonbeam",
+// "deploy-optimism": "graph deploy --product hosted-service sushiswap/coffinbox-optimism",
+// "deploy-harmony": "graph deploy --product hosted-service sushiswap/coffinbox-harmony",
+// "deploy-kava": "graph deploy --node https://pvt-admin.graph.kava.io sushiswap/coffinbox-kava"
 
 export const SUPPORTED_CHAIN_IDS = [
   ChainId.ETHEREUM,

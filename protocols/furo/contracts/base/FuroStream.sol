@@ -13,7 +13,7 @@ contract FuroStream is
     Multicall,
     BoringOwnable
 {
-    ICoffinBoxMinimal public immutable bentoBox;
+    ICoffinBoxMinimal public immutable coffinBox;
     address public immutable wETH;
 
     uint256 public streamIds;
@@ -30,11 +30,11 @@ contract FuroStream is
     error NotSender();
     error Overflow();
 
-    constructor(ICoffinBoxMinimal _bentoBox, address _wETH) {
-        bentoBox = _bentoBox;
+    constructor(ICoffinBoxMinimal _coffinBox, address _wETH) {
+        coffinBox = _coffinBox;
         wETH = _wETH;
         streamIds = 1000;
-        _bentoBox.registerProtocol();
+        _coffinBox.registerProtocol();
     }
 
     function setTokenURIFetcher(address _fetcher) external onlyOwner {
@@ -52,7 +52,7 @@ contract FuroStream is
         bytes32 r,
         bytes32 s
     ) external payable override {
-        bentoBox.setMasterContractApproval(
+        coffinBox.setMasterContractApproval(
             user,
             address(this),
             approved,
@@ -93,7 +93,7 @@ contract FuroStream is
         streams[streamId] = Stream({
             sender: msg.sender,
             token: token == address(0) ? wETH : token,
-            depositedShares: uint128(depositedShares), // @dev safe since we know bento returns u128
+            depositedShares: uint128(depositedShares), // @dev safe since we know coffin returns u128
             withdrawnShares: 0,
             startTime: startTime,
             endTime: endTime
@@ -285,10 +285,10 @@ contract FuroStream is
         bool fromCoffinBox
     ) internal returns (uint256 depositedShares) {
         if (fromCoffinBox) {
-            depositedShares = bentoBox.toShare(token, amount, false);
-            bentoBox.transfer(token, from, to, depositedShares);
+            depositedShares = coffinBox.toShare(token, amount, false);
+            coffinBox.transfer(token, from, to, depositedShares);
         } else {
-            (, depositedShares) = bentoBox.deposit{
+            (, depositedShares) = coffinBox.deposit{
                 value: token == address(0) ? amount : 0
             }(token, from, to, amount, 0);
         }
@@ -302,9 +302,9 @@ contract FuroStream is
         bool toCoffinBox
     ) internal {
         if (toCoffinBox) {
-            bentoBox.transfer(token, from, to, share);
+            coffinBox.transfer(token, from, to, share);
         } else {
-            bentoBox.withdraw(token, from, to, 0, share);
+            coffinBox.withdraw(token, from, to, 0, share);
         }
     }
 }

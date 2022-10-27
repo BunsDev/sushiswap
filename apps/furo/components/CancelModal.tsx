@@ -32,7 +32,7 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
 
   const cancelStream = useCallback(async () => {
     if (!stream || !address || !activeChain?.id) return
-    const data = await writeAsync({ args: [stream.id, fundSource === FundSource.BENTOBOX] })
+    const data = await writeAsync({ args: [stream.id, fundSource === FundSource.COFFINBOX] })
     const ts = new Date().getTime()
     createToast({
       type: 'cancelStream',
@@ -85,9 +85,9 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
               )}
             </div>
             <div
-              onClick={() => setFundSource(FundSource.BENTOBOX)}
+              onClick={() => setFundSource(FundSource.COFFINBOX)}
               className={classNames(
-                fundSource === FundSource.BENTOBOX
+                fundSource === FundSource.COFFINBOX
                   ? 'border-green/70 ring-green/70'
                   : 'ring-transparent border-slate-700',
                 'ring-1 bg-slate-800 rounded-2xl px-5 py-3 cursor-pointer relative flex flex-col justify-center gap-3 min-w-[140px]'
@@ -99,7 +99,7 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
               <Typography variant="xs" className="text-slate-400">
                 Receive funds in your CoffinBox
               </Typography>
-              {fundSource === FundSource.BENTOBOX && (
+              {fundSource === FundSource.COFFINBOX && (
                 <div className="absolute w-5 h-5 top-3 right-3">
                   <CheckCircleIcon className="text-green/70" />
                 </div>
@@ -113,7 +113,7 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
             </span>{' '}
             to your{' '}
             <span className="font-medium text-slate-200">
-              {fundSource === FundSource.BENTOBOX ? 'CoffinBox' : 'Wallet'}
+              {fundSource === FundSource.COFFINBOX ? 'CoffinBox' : 'Wallet'}
             </span>
           </Typography>
           <Dialog.Actions>

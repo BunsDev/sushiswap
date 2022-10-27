@@ -55,7 +55,7 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
     using BoringERC20 for IERC20;
     using BoringERC20 for IcToken;
 
-    address public immutable bentobox;
+    address public immutable coffinbox;
     IERC20 public immutable token;
     IcToken public immutable cToken;
     IERC20 public immutable compToken;
@@ -64,14 +64,14 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
     bool public exited;
 
     constructor(
-        address bentobox_,
+        address coffinbox_,
         IFactory factory_,
         IERC20 token_,
         IcToken cToken_,
         IERC20 compToken_,
         IERC20 weth_
     ) public {
-        bentobox = bentobox_;
+        coffinbox = coffinbox_;
         factory = factory_;
         token = token_;
         cToken = cToken_;
@@ -81,9 +81,9 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
         token_.approve(address(cToken_), type(uint256).max);
     }
 
-    modifier onlyBentobox {
-        // Only the bentobox can call harvest on this strategy
-        require(msg.sender == bentobox, "CompoundStrategy: only bento");
+    modifier onlyCoffinbox {
+        // Only the coffinbox can call harvest on this strategy
+        require(msg.sender == coffinbox, "CompoundStrategy: only coffin");
         require(!exited, "CompoundStrategy: exited");
         _;
     }
@@ -111,13 +111,13 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
 
     // Send the assets to the Strategy and call skim to invest them
     /// @inheritdoc IStrategy
-    function skim(uint256 amount) external override onlyBentobox {
+    function skim(uint256 amount) external override onlyCoffinbox {
         require(cToken.mint(amount) == 0, "CompoundStrategy: mint error");
     }
 
     // Harvest any profits made converted to the asset and pass them to the caller
     /// @inheritdoc IStrategy
-    function harvest(uint256 balance, address sender) external override onlyBentobox returns (int256 amountAdded) {
+    function harvest(uint256 balance, address sender) external override onlyCoffinbox returns (int256 amountAdded) {
         // To prevent anyone from using flash loans to 'steal' part of the profits, only EOA is allowed to call harvest
         require(sender == tx.origin, "CompoundStrategy: EOA only");
         // Get the amount of tokens that the cTokens currently represent
@@ -128,8 +128,8 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
 
         // Find out how much has been added (+ sitting on the contract from harvestCOMP)
         uint256 amountAdded_ = token.balanceOf(address(this));
-        // Transfer the profit to the bentobox, the amountAdded at this point matches the amount transferred
-        token.safeTransfer(bentobox, amountAdded_);
+        // Transfer the profit to the coffinbox, the amountAdded at this point matches the amount transferred
+        token.safeTransfer(coffinbox, amountAdded_);
 
         return int256(amountAdded_);
     }
@@ -144,18 +144,18 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
 
     // Withdraw assets.
     /// @inheritdoc IStrategy
-    function withdraw(uint256 amount) external override onlyBentobox returns (uint256 actualAmount) {
+    function withdraw(uint256 amount) external override onlyCoffinbox returns (uint256 actualAmount) {
         // Convert enough cToken to take out 'amount' tokens
         require(cToken.redeemUnderlying(amount) == 0, "CompoundStrategy: redeem fail");
 
         // Make sure we send and report the exact same amount of tokens by using balanceOf
         actualAmount = token.balanceOf(address(this));
-        token.safeTransfer(bentobox, actualAmount);
+        token.safeTransfer(coffinbox, actualAmount);
     }
 
     // Withdraw all assets in the safest way possible. This shouldn't fail.
     /// @inheritdoc IStrategy
-    function exit(uint256 balance) external override onlyBentobox returns (int256 amountAdded) {
+    function exit(uint256 balance) external override onlyCoffinbox returns (int256 amountAdded) {
         // Get the amount of tokens that the cTokens currently represent
         uint256 tokenBalance = cToken.balanceOfUnderlying(address(this));
         // Get the actual token balance of the cToken contract
@@ -174,8 +174,8 @@ contract CompoundStrategy is IStrategy, BoringOwnable {
         uint256 amount = token.balanceOf(address(this));
         // Calculate tokens added (or lost)
         amountAdded = int256(amount) - int256(balance);
-        // Transfer all tokens to bentobox
-        token.safeTransfer(bentobox, amount);
+        // Transfer all tokens to coffinbox
+        token.safeTransfer(coffinbox, amount);
         // Flag as exited, allowing the owner to manually deal with any amounts available later
         exited = true;
     }

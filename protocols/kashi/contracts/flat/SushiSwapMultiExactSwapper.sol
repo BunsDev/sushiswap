@@ -170,7 +170,7 @@ library UniswapV2Library {
     }
 }
 
-// File soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol@v1.0.2
+// File soulswap-coffinbox-sdk/contracts/ICoffinBoxV1.sol@v1.0.2
 // License-Identifier: MIT
 
 interface ICoffinBoxV1 {
@@ -218,16 +218,16 @@ contract SushiSwapMultiExactSwapper {
     using BoringMath for uint256;
 
     address private immutable factory;
-    ICoffinBoxV1 private immutable bentoBox;
+    ICoffinBoxV1 private immutable coffinBox;
     bytes32 private immutable pairCodeHash;
 
     constructor(
         address _factory,
-        ICoffinBoxV1 _bentoBox,
+        ICoffinBoxV1 _coffinBox,
         bytes32 _pairCodeHash
     ) public {
         factory = _factory;
-        bentoBox = _bentoBox;
+        coffinBox = _coffinBox;
         pairCodeHash = _pairCodeHash;
     }
 
@@ -236,7 +236,7 @@ contract SushiSwapMultiExactSwapper {
         address[] memory path,
         uint256 shareOut
     ) public view returns (uint256 amountIn) {
-        uint256 amountOut = bentoBox.toAmount(tokenOut, shareOut, true);
+        uint256 amountOut = coffinBox.toAmount(tokenOut, shareOut, true);
         uint256[] memory amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path, pairCodeHash);
         amountIn = amounts[0];
     }
@@ -270,11 +270,11 @@ contract SushiSwapMultiExactSwapper {
         path[0] = address(tokenIn);
         uint256 amountIn = getInputAmount(tokenOut, path, shareOut);
         require(amountIn <= amountMaxIn, "insufficient-amount-in");
-        uint256 difference = shareIn.sub(bentoBox.toShare(tokenIn, amountIn, true));
-        bentoBox.withdraw(tokenIn, address(this), UniswapV2Library.pairFor(factory, path[0], path[1], pairCodeHash), amountIn, 0);
-        _swapExactTokensForTokens(amountIn, path, address(bentoBox));
-        bentoBox.transfer(tokenIn, address(this), to, difference);
-        bentoBox.deposit(tokenOut, address(bentoBox), to, 0, shareOut);
+        uint256 difference = shareIn.sub(coffinBox.toShare(tokenIn, amountIn, true));
+        coffinBox.withdraw(tokenIn, address(this), UniswapV2Library.pairFor(factory, path[0], path[1], pairCodeHash), amountIn, 0);
+        _swapExactTokensForTokens(amountIn, path, address(coffinBox));
+        coffinBox.transfer(tokenIn, address(this), to, difference);
+        coffinBox.deposit(tokenOut, address(coffinBox), to, 0, shareOut);
         return (difference);
     }
 

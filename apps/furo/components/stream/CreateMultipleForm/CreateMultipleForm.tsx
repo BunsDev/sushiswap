@@ -8,7 +8,7 @@ import { shortenAddress } from 'soulswap-format'
 import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { Button, classNames, createToast, Currency, Dots, Form, Link as UILink, Table, Typography } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, useCoffinBoxTotals, useFuroStreamRouterContract, usePrices } from 'soulswap-wagmi'
+import { Approve, COFFINBOX_ADDRESS, useCoffinBoxTotals, useFuroStreamRouterContract, usePrices } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import { useNotifications } from 'lib/state/storage'
 import Link from 'next/link'
@@ -120,7 +120,7 @@ export const CreateMultipleForm: FC = () => {
                   startDate: new Date(startDate),
                   endDate: new Date(endDate),
                   amount: parsedAmount,
-                  fromBentobox: fundSource === FundSource.BENTOBOX,
+                  fromCoffinbox: fundSource === FundSource.COFFINBOX,
                   minShare: parsedAmount.toShare(rebases[_currency.wrapped.address]),
                 })
               )
@@ -380,12 +380,12 @@ export const CreateMultipleForm: FC = () => {
                   className="!items-end"
                   components={
                     <Approve.Components>
-                      <Approve.Bentobox address={contract?.address} onSignature={setSignature} />
+                      <Approve.Coffinbox address={contract?.address} onSignature={setSignature} />
                       {summedAmounts.map((amount, index) => (
                         <Approve.Token
                           key={index}
                           amount={amount}
-                          address={activeChain?.id ? BENTOBOX_ADDRESS[activeChain.id] : undefined}
+                          address={activeChain?.id ? COFFINBOX_ADDRESS[activeChain.id] : undefined}
                         />
                       ))}
                     </Approve.Components>

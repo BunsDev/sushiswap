@@ -257,14 +257,14 @@ query streamTransactions(
   }
 }
 
-query bentoBoxRebase($block: Block_height, $id: ID!) {
+query coffinBoxRebase($block: Block_height, $id: ID!) {
   rebase(block: $block, id: $id) {
     id
     base
     elastic
   }
 }
-query bentoBoxRebases(
+query coffinBoxRebases(
   $block: Block_height
   $first: Int = 1000
   $orderBy: Rebase_orderBy

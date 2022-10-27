@@ -7,7 +7,7 @@ import "./stargate/IStargateRouter.sol";
 import "./stargate/IStargateWidget.sol";
 
 interface IImmutableState {
-    function bentoBox() external view returns (ICoffinBoxMinimal);
+    function coffinBox() external view returns (ICoffinBoxMinimal);
 
     function stargateRouter() external view returns (IStargateRouter);
 

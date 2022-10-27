@@ -8,7 +8,7 @@ import "../interfaces/IImmutableState.sol";
 /// @notice Stores the immutable state
 abstract contract ImmutableState is IImmutableState {
     /// @notice CoffinBox token vault
-    ICoffinBoxMinimal public immutable override bentoBox;
+    ICoffinBoxMinimal public immutable override coffinBox;
 
     /// @notice Stargate Router for cross chain interaction
     IStargateRouter public immutable override stargateRouter;
@@ -23,13 +23,13 @@ abstract contract ImmutableState is IImmutableState {
     bytes32 public immutable override pairCodeHash;
 
     constructor(
-        ICoffinBoxMinimal _bentoBox,
+        ICoffinBoxMinimal _coffinBox,
         IStargateRouter _stargateRouter,
         address _factory,
         bytes32 _pairCodeHash,
         IStargateWidget _stargateWidget
     ) {
-        bentoBox = _bentoBox;
+        coffinBox = _coffinBox;
         stargateRouter = _stargateRouter;
         stargateWidget = _stargateWidget;
         factory = _factory;

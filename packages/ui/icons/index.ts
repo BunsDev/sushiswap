@@ -1,5 +1,5 @@
 export * from './ArrowFlatLinesUp'
-export * from './BentoboxIcon'
+export * from './CoffinboxIcon'
 export * from './CalendarIcon'
 export * from './CarbonIcon'
 export * from './CheckIcon'

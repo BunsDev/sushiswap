@@ -13,7 +13,7 @@ export const getRebase = async (chainId: string, id: string) => {
   }
   const sdk = await getBuiltGraphSDK({ chainId, host: GRAPH_HOST, name: FURO_SUBGRAPH_NAME[chainId] })
   return (
-    (await sdk.bentoBoxRebase({ id: id === AddressZero ? WNATIVE_ADDRESS[chainId].toLowerCase() : id })).rebase ?? []
+    (await sdk.coffinBoxRebase({ id: id === AddressZero ? WNATIVE_ADDRESS[chainId].toLowerCase() : id })).rebase ?? []
   )
 }
 
@@ -24,7 +24,7 @@ export const getRebases = async (chainId: string | number, tokens: string[]) => 
   const sdk = await getBuiltGraphSDK({ chainId, host: GRAPH_HOST, name: FURO_SUBGRAPH_NAME[chainId] })
   return (
     (
-      await sdk.bentoBoxRebases({
+      await sdk.coffinBoxRebases({
         where: {
           token_in: tokens.map((token) => (token === AddressZero ? WNATIVE_ADDRESS[chainId].toLowerCase() : token)),
         },

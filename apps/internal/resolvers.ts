@@ -1,4 +1,4 @@
-import { BENTOBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
+import { COFFINBOX_SUBGRAPH_NAME, SUBGRAPH_HOST } from 'soulswap-graph-config'
 
 import { Resolvers, SubgraphStatus } from '.graphclient'
 import { getBuiltGraphSDK } from '.graphclient'
@@ -14,13 +14,13 @@ export const resolvers: Resolvers = {
     crossChainCoffinBoxKpis: async (root, args, context, info) =>
       Promise.all(
         args.chainIds.map((chainId) =>
-          context.CoffinBox.Query.bentoBoxKpis({
+          context.CoffinBox.Query.coffinBoxKpis({
             root,
             args,
             context: {
               ...context,
               chainId,
-              name: BENTOBOX_SUBGRAPH_NAME[chainId],
+              name: COFFINBOX_SUBGRAPH_NAME[chainId],
               host: SUBGRAPH_HOST[chainId],
             },
             info,
@@ -42,7 +42,7 @@ export const resolvers: Resolvers = {
             context: {
               ...context,
               chainId,
-              name: BENTOBOX_SUBGRAPH_NAME[chainId],
+              name: COFFINBOX_SUBGRAPH_NAME[chainId],
               host: SUBGRAPH_HOST[chainId],
             },
             info,

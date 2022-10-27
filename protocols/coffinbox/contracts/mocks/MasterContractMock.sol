@@ -6,14 +6,14 @@ import "@boringcrypto/boring-solidity/contracts/interfaces/IMasterContract.sol";
 import "../CoffinBox.sol";
 
 contract MasterContractMock is IMasterContract {
-    CoffinBox public immutable bentoBox;
+    CoffinBox public immutable coffinBox;
 
-    constructor(CoffinBox _bentoBox) public {
-        bentoBox = _bentoBox;
+    constructor(CoffinBox _coffinBox) public {
+        coffinBox = _coffinBox;
     }
 
     function deposit(IERC20 token, uint256 amount) public {
-        bentoBox.deposit(token, msg.sender, address(this), 0, amount);
+        coffinBox.deposit(token, msg.sender, address(this), 0, amount);
     }
 
     function init(bytes calldata) external payable override {

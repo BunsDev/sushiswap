@@ -10,13 +10,13 @@ import "../interfaces/trident/ITridentSwapAdapter.sol";
 abstract contract TridentSwapAdapter is
     ITridentRouter,
     ImmutableState,
-    BentoAdapter,
+    CoffinAdapter,
     TokenAdapter
 {
     // Custom Error
     error TooLittleReceived();
 
-    /// @notice Swaps token A to token B directly. Swaps are done on `bento` tokens.
+    /// @notice Swaps token A to token B directly. Swaps are done on `coffin` tokens.
     /// @param params This includes the address of token A, pool, amount of token A to swap,
     /// minimum amount of token B after the swap and data required by the pool for the swap.
     /// @dev Ensure that the pool is trusted before calling this function. The pool can steal users' tokens.
@@ -30,13 +30,13 @@ abstract contract TridentSwapAdapter is
             );
             _transferTokens(
                 IERC20(params.tokenIn),
-                address(bentoBox),
+                address(coffinBox),
                 tokenBalance
             );
             // Pay the first pool directly.
-            (, params.amountIn) = bentoBox.deposit(
+            (, params.amountIn) = coffinBox.deposit(
                 params.tokenIn,
-                address(bentoBox),
+                address(coffinBox),
                 params.path[0].pool,
                 tokenBalance,
                 0
@@ -67,7 +67,7 @@ abstract contract TridentSwapAdapter is
         // Input tokens come from the user - output goes to following pools.
         uint256 n = params.initialPath.length;
         for (uint256 i = 0; i < n; i = _increment(i)) {
-            bentoBox.transfer(
+            coffinBox.transfer(
                 params.initialPath[i].tokenIn,
                 address(this),
                 params.initialPath[i].pool,
@@ -78,13 +78,13 @@ abstract contract TridentSwapAdapter is
         // Do all the middle swaps. Input comes from previous pools.
         n = params.percentagePath.length;
         for (uint256 i = 0; i < n; i = _increment(i)) {
-            uint256 balanceShares = bentoBox.balanceOf(
+            uint256 balanceShares = coffinBox.balanceOf(
                 params.percentagePath[i].tokenIn,
                 address(this)
             );
             uint256 transferShares = (balanceShares *
                 params.percentagePath[i].balancePercentage) / uint256(10)**8;
-            bentoBox.transfer(
+            coffinBox.transfer(
                 params.percentagePath[i].tokenIn,
                 address(this),
                 params.percentagePath[i].pool,
@@ -97,14 +97,14 @@ abstract contract TridentSwapAdapter is
         // Ensure enough was received and transfer the ouput to the recipient.
         n = params.output.length;
         for (uint256 i = 0; i < n; i = _increment(i)) {
-            uint256 balanceShares = bentoBox.balanceOf(
+            uint256 balanceShares = coffinBox.balanceOf(
                 params.output[i].token,
                 address(this)
             );
             if (balanceShares < params.output[i].minAmount)
                 revert TooLittleReceived();
-            if (params.output[i].unwrapBento) {
-                bentoBox.withdraw(
+            if (params.output[i].unwrapCoffin) {
+                coffinBox.withdraw(
                     params.output[i].token,
                     address(this),
                     params.output[i].to,
@@ -112,7 +112,7 @@ abstract contract TridentSwapAdapter is
                     balanceShares
                 );
             } else {
-                bentoBox.transfer(
+                coffinBox.transfer(
                     params.output[i].token,
                     address(this),
                     params.output[i].to,

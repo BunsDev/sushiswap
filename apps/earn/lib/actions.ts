@@ -90,12 +90,12 @@ interface BurnLiquidityAction {
 }
 
 /**
- * Burn liquidity tokens to get back `bento` tokens.
+ * Burn liquidity tokens to get back `coffin` tokens.
  * @param router Router contract
  * @param address address of liquidity token
  * @param amount amount of SLP to burn
  * @param recipient receiver of underlying SLP tokens
- * @param receiveToWallet true if underlying SLP tokens should be send to wallet instead of bentobox
+ * @param receiveToWallet true if underlying SLP tokens should be send to wallet instead of coffinbox
  * @param liquidityOutput array with minimum output amounts for underlying tokens
  */
 export const burnLiquidityAction = ({
@@ -160,7 +160,7 @@ interface Sweep {
   router: Contract
   token: string
   recipient: string
-  fromBento: boolean
+  fromCoffin: boolean
 }
 
 /**
@@ -169,8 +169,8 @@ interface Sweep {
  * @param token address of token
  * @param recipient address to sent funds to
  */
-export const sweep = ({ router, token, recipient, fromBento = false }: Sweep) => {
-  return router.interface.encodeFunctionData('sweep', [token, recipient, fromBento])
+export const sweep = ({ router, token, recipient, fromCoffin = false }: Sweep) => {
+  return router.interface.encodeFunctionData('sweep', [token, recipient, fromCoffin])
 }
 
 export interface ApproveMasterContractActionProps {

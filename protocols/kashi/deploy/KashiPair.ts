@@ -11,15 +11,15 @@ const deployFunction: DeployFunction = async function ({
   const chainId = parseInt(await getChainId())
   const { deployer } = await getNamedAccounts()
 
-  const bentoBox = await ethers.getContractOrNull('CoffinBoxV1')
+  const coffinBox = await ethers.getContractOrNull('CoffinBoxV1')
 
-  if (!bentoBox) {
-    throw Error(`No bentoBox for chain #${chainId}!`)
+  if (!coffinBox) {
+    throw Error(`No coffinBox for chain #${chainId}!`)
   }
 
   await deploy('KashiPairMediumRiskV1', {
     from: deployer,
-    args: [bentoBox.address],
+    args: [coffinBox.address],
     log: true,
     deterministicDeployment: false,
   })

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
-import "soulswap-bentobox-sdk/contracts/IStrategy.sol";
+import "soulswap-coffinbox-sdk/contracts/IStrategy.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringERC20.sol";
 
@@ -11,15 +11,15 @@ contract SimpleStrategyMock is IStrategy {
     using BoringERC20 for IERC20;
 
     IERC20 private immutable token;
-    address private immutable bentoBox;
+    address private immutable coffinBox;
 
     modifier onlyCoffinBox() {
-        require(msg.sender == bentoBox, "Ownable: caller is not the owner");
+        require(msg.sender == coffinBox, "Ownable: caller is not the owner");
         _;
     }
 
-    constructor(address bentoBox_, IERC20 token_) public {
-        bentoBox = bentoBox_;
+    constructor(address coffinBox_, IERC20 token_) public {
+        coffinBox = coffinBox_;
         token = token_;
     }
 
@@ -32,18 +32,18 @@ contract SimpleStrategyMock is IStrategy {
     // Harvest any profits made converted to the asset and pass them to the caller
     function harvest(uint256 balance, address) external override onlyCoffinBox returns (int256 amountAdded) {
         amountAdded = int256(token.balanceOf(address(this)).sub(balance));
-        token.safeTransfer(bentoBox, uint256(amountAdded)); // Add as profit
+        token.safeTransfer(coffinBox, uint256(amountAdded)); // Add as profit
     }
 
     // Withdraw assets. The returned amount can differ from the requested amount due to rounding or if the request was more than there is.
     function withdraw(uint256 amount) external override onlyCoffinBox returns (uint256 actualAmount) {
-        token.safeTransfer(bentoBox, uint256(amount)); // Add as profit
+        token.safeTransfer(coffinBox, uint256(amount)); // Add as profit
         actualAmount = amount;
     }
 
     // Withdraw all assets in the safest way possible. This shouldn't fail.
     function exit(uint256 balance) external override onlyCoffinBox returns (int256 amountAdded) {
         amountAdded = 0;
-        token.safeTransfer(bentoBox, balance);
+        token.safeTransfer(coffinBox, balance);
     }
 }

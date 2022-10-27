@@ -1,4 +1,4 @@
-# soulswap-bentobox
+# soulswap-coffinbox
 
 ## 0.5.0
 

@@ -93,7 +93,7 @@ https://pnpm.io/installation
 
 ## Protocols
 
-- `soulswap-bentobox`
+- `soulswap-coffinbox`
 - `soulswap-furo`
 - `soulswap-kashi`
 - `soulswap-miso`

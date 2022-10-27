@@ -2,11 +2,11 @@
 #   - name: CoffinBox
 #     handler:
 #       graphql:
-#         endpoint: https://{context.host:api.thegraph.com}/subgraphs/name/{context.name:matthewlilley/bentobox-ethereum}
+#         endpoint: https://{context.host:api.thegraph.com}/subgraphs/name/{context.name:matthewlilley/coffinbox-ethereum}
 #     transforms:
 #       - addSourceName: true
 #       - prefix:
-#           value: bentobox_
+#           value: coffinbox_
 #           includeRootOperations: true
 #           includeTypes: false
 #       - autoPagination:
@@ -16,9 +16,9 @@ sources:
   - name: CoffinBox
     handler:
       graphql:
-        # Default value is bentobox-polygon
+        # Default value is coffinbox-polygon
         # This is needed for the initial introspection on buildtime
-        endpoint: https://{context.host:api.thegraph.com/subgraphs/name}/{context.name:sushiswap/bentobox-polygon}
+        endpoint: https://{context.host:api.thegraph.com/subgraphs/name}/{context.name:sushiswap/coffinbox-polygon}
   - name: TheGraph
     handler:
       graphql:

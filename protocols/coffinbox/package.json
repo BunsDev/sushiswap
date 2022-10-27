@@ -1,12 +1,12 @@
 {
-  "name": "soulswap-bentobox",
+  "name": "soulswap-coffinbox",
   "version": "0.5.0",
   "description": "CoffinBox",
   "keywords": [
-    "bentobox",
+    "coffinbox",
     "vault"
   ],
-  "homepage": "https://github.com/sushiswap/sushiswap/protocols/bentobox#readme",
+  "homepage": "https://github.com/sushiswap/sushiswap/protocols/coffinbox#readme",
   "bugs": {
     "url": "https://github.com/soulswapfinance/soulswap/issues"
   },

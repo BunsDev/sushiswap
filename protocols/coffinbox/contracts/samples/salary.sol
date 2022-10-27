@@ -11,7 +11,7 @@ import "../CoffinBox.sol";
 contract Salary is BoringBatchable {
     using BoringMath for uint256;
 
-    CoffinBox public bentoBox;
+    CoffinBox public coffinBox;
 
     event LogCreate(
         address indexed funder,
@@ -26,9 +26,9 @@ contract Salary is BoringBatchable {
     event LogWithdraw(uint256 indexed salaryId, address indexed to, uint256 shares);
     event LogCancel(uint256 indexed salaryId, address indexed to, uint256 shares);
 
-    constructor(CoffinBox _bentoBox) public {
-        bentoBox = _bentoBox;
-        _bentoBox.registerProtocol();
+    constructor(CoffinBox _coffinBox) public {
+        coffinBox = _coffinBox;
+        _coffinBox.registerProtocol();
     }
 
     // Included to be able to approve CoffinBox and create in the same transaction (using batch)
@@ -39,7 +39,7 @@ contract Salary is BoringBatchable {
         bytes32 r,
         bytes32 s
     ) public {
-        bentoBox.setMasterContractApproval(user, address(this), approved, v, r, s);
+        coffinBox.setMasterContractApproval(user, address(this), approved, v, r, s);
     }
 
     ///     now                      cliffTimestamp
@@ -78,7 +78,7 @@ contract Salary is BoringBatchable {
     /// The funder of each salary, separated out for gas optimization
     address[] public funder;
 
-    uint8 private constant MODE_BENTO = 0; // Use CoffinBox balance
+    uint8 private constant MODE_COFFIN = 0; // Use CoffinBox balance
     uint8 private constant MODE_ERC20_SKIM = 1; // Use ERC20 tokens deposited onto the CoffinBox contract
     uint8 private constant MODE_ERC20 = 2; // Use ERC20 tokens in the users wallet (transferFrom with approval)
 
@@ -98,15 +98,15 @@ contract Salary is BoringBatchable {
         // You cannot have a cliff greater than 100%, important check, without the contract will lose funds
         require(cliffPercent <= 1e18, "Salary: cliff too large");
 
-        if (mode == MODE_BENTO) {
+        if (mode == MODE_COFFIN) {
             // Fund this salary using the funder's CoffinBox balance. Convert the amoutn to shares, then transfer the shares
-            shares = bentoBox.toShare(token, amount, false);
-            bentoBox.transfer(token, msg.sender, address(this), shares);
+            shares = coffinBox.toShare(token, amount, false);
+            coffinBox.transfer(token, msg.sender, address(this), shares);
         } else {
             // Fund this salary with ERC20 tokens
             // This is a potential reentrancy target, funds in this contract could be higher than the total of salaries during this call
             // Since this contract doesn't have a skim function, this is ok
-            (, shares) = bentoBox.deposit(token, mode == MODE_ERC20_SKIM ? address(bentoBox) : msg.sender, address(this), amount, 0);
+            (, shares) = coffinBox.deposit(token, mode == MODE_ERC20_SKIM ? address(coffinBox) : msg.sender, address(this), amount, 0);
         }
 
         salaryId = salaries.length;
@@ -174,9 +174,9 @@ contract Salary is BoringBatchable {
         uint256 pendingShares = _available(salary);
         salaries[salaryId].withdrawnShares = salary.withdrawnShares.add(pendingShares);
         if (toCoffinBox) {
-            bentoBox.transfer(salary.token, address(this), to, pendingShares);
+            coffinBox.transfer(salary.token, address(this), to, pendingShares);
         } else {
-            bentoBox.withdraw(salary.token, address(this), to, 0, pendingShares);
+            coffinBox.withdraw(salary.token, address(this), to, 0, pendingShares);
         }
         emit LogWithdraw(salaryId, to, pendingShares);
     }
@@ -195,9 +195,9 @@ contract Salary is BoringBatchable {
     ) public onlyFunder(salaryId) {
         uint256 sharesLeft = uint256(salaries[salaryId].shares).sub(salaries[salaryId].withdrawnShares);
         if (toCoffinBox) {
-            bentoBox.transfer(salaries[salaryId].token, address(this), to, sharesLeft);
+            coffinBox.transfer(salaries[salaryId].token, address(this), to, sharesLeft);
         } else {
-            bentoBox.withdraw(salaries[salaryId].token, address(this), to, 0, sharesLeft);
+            coffinBox.withdraw(salaries[salaryId].token, address(this), to, 0, sharesLeft);
         }
         emit LogCancel(salaryId, to, sharesLeft);
     }

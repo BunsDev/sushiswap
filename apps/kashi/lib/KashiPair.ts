@@ -43,7 +43,7 @@ export class KashiMediumRiskLendingPairV1 {
   readonly chainId: keyof typeof KASHI_ADDRESS
   readonly id: string
   readonly address: string
-  readonly bentoBox: string
+  readonly coffinBox: string
   readonly masterContract: string
   readonly collateral: Token
   readonly asset: Token
@@ -123,7 +123,7 @@ export class KashiMediumRiskLendingPairV1 {
 
     this.chainId = pair.chainId
 
-    // this.bentoBox = getAddress(pair.bentoBox.id)
+    // this.coffinBox = getAddress(pair.coffinBox.id)
     this.masterContract = getAddress(pair.masterContract.id)
 
     this.collateral = new Token({

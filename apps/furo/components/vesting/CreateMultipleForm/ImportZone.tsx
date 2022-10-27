@@ -127,7 +127,7 @@ export const ImportZone: FC<ImportZone> = ({ onErrors }) => {
                     tokenAddress.toLowerCase() === AddressZero.toLowerCase()
                       ? Native.onChain(chain.id)
                       : tokenMap?.[tokenAddress.toLowerCase()],
-                  fundSource: Number(fundSource) === 0 ? FundSource.WALLET : FundSource.BENTOBOX,
+                  fundSource: Number(fundSource) === 0 ? FundSource.WALLET : FundSource.COFFINBOX,
                   recipient,
                   startDate: _startDate,
                   cliff: Number(cliff) === 1,
