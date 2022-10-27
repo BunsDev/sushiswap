@@ -4,13 +4,13 @@ pragma solidity 0.8.10;
 
 import "./ITasker.sol";
 import "./ITokenURIFetcher.sol";
-import "./IBentoBoxMinimal.sol";
+import "./ICoffinBoxMinimal.sol";
 import "../utils/Multicall.sol";
 import "../utils/BoringOwnable.sol";
 import "@rari-capital/solmate/src/tokens/ERC721.sol";
 
 interface IFuroStream {
-    function setBentoBoxApproval(
+    function setCoffinBoxApproval(
         address user,
         bool approved,
         uint8 v,
@@ -31,11 +31,11 @@ interface IFuroStream {
         uint256 streamId,
         uint256 sharesToWithdraw,
         address withdrawTo,
-        bool toBentoBox,
+        bool toCoffinBox,
         bytes memory taskData
     ) external returns (uint256 recipientBalance, address to);
 
-    function cancelStream(uint256 streamId, bool toBentoBox)
+    function cancelStream(uint256 streamId, bool toCoffinBox)
         external
         returns (uint256 senderBalance, uint256 recipientBalance);
 
@@ -45,7 +45,7 @@ interface IFuroStream {
         uint256 streamId,
         uint128 topUpAmount,
         uint64 extendTime,
-        bool fromBentoBox
+        bool fromCoffinBox
     ) external payable returns (uint256 depositedShares);
 
     function streamBalanceOf(uint256 streamId)
@@ -63,14 +63,14 @@ interface IFuroStream {
         uint256 amount,
         uint256 startTime,
         uint256 endTime,
-        bool fromBentoBox
+        bool fromCoffinBox
     );
 
     event UpdateStream(
         uint256 indexed streamId,
         uint128 indexed topUpAmount,
         uint64 indexed extendTime,
-        bool fromBentoBox
+        bool fromCoffinBox
     );
 
     event Withdraw(
@@ -78,7 +78,7 @@ interface IFuroStream {
         uint256 indexed sharesToWithdraw,
         address indexed withdrawTo,
         address token,
-        bool toBentoBox
+        bool toCoffinBox
     );
 
     event CancelStream(
@@ -86,7 +86,7 @@ interface IFuroStream {
         uint256 indexed senderBalance,
         uint256 indexed recipientBalance,
         address token,
-        bool toBentoBox
+        bool toCoffinBox
     );
 
     struct Stream {

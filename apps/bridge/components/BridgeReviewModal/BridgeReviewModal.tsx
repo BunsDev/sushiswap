@@ -1,6 +1,6 @@
 import { Signature } from '@ethersproject/bytes'
 import { Button, Dots } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { Approve, BENTOBOX_ADDRESS, getsoulxswapContractConfig } from 'soulswap-wagmi'
 import React, { FC, ReactNode, useCallback, useState } from 'react'
 import { useAccount } from 'wagmi'
 
@@ -42,9 +42,9 @@ export const BridgeReviewModal: FC<BridgeReviewModal> = ({ children }) => {
                 size="md"
                 className="whitespace-nowrap"
                 fullWidth
-                address={getSushiXSwapContractConfig(srcChainId).addressOrName}
+                address={getsoulxswapContractConfig(srcChainId).addressOrName}
                 onSignature={onSig}
-                enabled={Boolean(getSushiXSwapContractConfig(srcChainId).addressOrName)}
+                enabled={Boolean(getsoulxswapContractConfig(srcChainId).addressOrName)}
               />
               <Approve.Token
                 size="md"

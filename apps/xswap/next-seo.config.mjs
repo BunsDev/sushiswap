@@ -3,7 +3,7 @@
 export default {
   titleTemplate: '%s | Sushi',
   title: 'SushiSwap',
-  defaultTitle: 'SushiXSwap',
+  defaultTitle: 'soulxswap',
   description: 'Easiest way to trade your tokens across 7 networks.',
   //   canonical: 'https://www.sushi.com/pool',
   //   mobileAlternate: {
@@ -19,14 +19,14 @@ export default {
   openGraph: {
     url: 'https://www.sushi.com/xswap',
     type: 'website',
-    title: 'SushiXSwap',
+    title: 'soulxswap',
     description: 'Easiest way to trade your tokens across 7 networks.',
     images: [
       {
         url: 'https://www.sushi.com/xswap/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'SushiXSwap',
+        alt: 'soulxswap',
       },
     ],
     // videos: [],

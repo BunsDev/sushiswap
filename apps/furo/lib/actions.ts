@@ -31,21 +31,21 @@ export const batchAction = <T extends BaseContract>({ contract, actions = [] }: 
   }
 }
 
-export interface ApproveBentoBoxActionProps<T> {
+export interface ApproveCoffinBoxActionProps<T> {
   contract: T
   user: string
   signature?: Signature
 }
 
-export const approveBentoBoxAction = <T extends BaseContract>({
+export const approveCoffinBoxAction = <T extends BaseContract>({
   contract,
   user,
   signature,
-}: ApproveBentoBoxActionProps<T>) => {
+}: ApproveCoffinBoxActionProps<T>) => {
   if (!signature) return undefined
 
   const { v, r, s } = signature
-  return contract.interface.encodeFunctionData('setBentoBoxApproval', [user, true, v, r, s])
+  return contract.interface.encodeFunctionData('setCoffinBoxApproval', [user, true, v, r, s])
 }
 
 export interface StreamCreationActionProps {
@@ -117,7 +117,7 @@ export const vestingCreationAction = ({
       steps: steps,
       stepPercentage: stepPercentage,
       amount: amount,
-      fromBentoBox: fromBentobox,
+      fromCoffinBox: fromBentobox,
     },
     minShare.quotient.toString(),
   ])

@@ -13,12 +13,12 @@ import { Icon } from 'soulswap-ui/currency/Icon'
 import {
   Approve,
   BENTOBOX_ADDRESS,
-  getSushiXSwapContractConfig,
+  getsoulxswapContractConfig,
   useBalance,
-  useBentoBoxTotal,
+  useCoffinBoxTotal,
   usePrices,
-  useSushiXSwapContract,
-  useSushiXSwapContractWithProvider,
+  usesoulxswapContract,
+  usesoulxswapContractWithProvider,
   Wallet,
 } from 'soulswap-wagmi'
 import {
@@ -37,7 +37,7 @@ import { defaultTheme } from 'config'
 import { useTrade } from 'lib/hooks'
 import { useBridgeFees } from 'lib/hooks/useBridgeFees'
 import { useTokens } from 'lib/state/token-lists'
-import { SushiXSwap } from 'lib/SushiXSwap'
+import { soulxswap } from 'lib/soulxswap'
 import { nanoid } from 'nanoid'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
@@ -233,11 +233,11 @@ const Widget: FC<Swap> = ({
   // A transfer swap, no swap on the source, but a swap on the destination
   const transferSwap = crossChain && isStargateBridgeToken(srcToken) && !isStargateBridgeToken(dstToken)
 
-  const srcInputCurrencyRebase = useBentoBoxTotal(srcChainId, srcToken)
-  const srcOutputCurrencyRebase = useBentoBoxTotal(srcChainId, sameChainSwap ? dstToken : srcBridgeToken)
+  const srcInputCurrencyRebase = useCoffinBoxTotal(srcChainId, srcToken)
+  const srcOutputCurrencyRebase = useCoffinBoxTotal(srcChainId, sameChainSwap ? dstToken : srcBridgeToken)
 
-  const dstInputCurrencyRebase = useBentoBoxTotal(dstChainId, dstBridgeToken)
-  const dstOutputCurrencyRebase = useBentoBoxTotal(dstChainId, dstToken)
+  const dstInputCurrencyRebase = useCoffinBoxTotal(dstChainId, dstBridgeToken)
+  const dstOutputCurrencyRebase = useCoffinBoxTotal(dstChainId, dstToken)
 
   // console.log('INDEX', srcTokenRebase?.base?.toString(), srcTokenRebase?.elastic?.toString())
 
@@ -281,9 +281,9 @@ const Widget: FC<Swap> = ({
     )
   }, [srcToken, dstToken, srcChainId, dstChainId, srcTypedAmount, router])
 
-  const contract = useSushiXSwapContract(srcChainId)
+  const contract = usesoulxswapContract(srcChainId)
 
-  const contractWithProvider = useSushiXSwapContractWithProvider(srcChainId)
+  const contractWithProvider = usesoulxswapContractWithProvider(srcChainId)
 
   // Parse the srcTypedAmount into a srcAmount
   const srcAmount = useMemo<Amount<Currency> | undefined>(() => {
@@ -471,32 +471,32 @@ const Widget: FC<Swap> = ({
 
     setIsWritePending(true)
 
-    const sushiXSwap = new SushiXSwap({
+    const soulxswap = new soulxswap({
       contract,
       srcToken,
       dstToken,
       srcTrade,
       dstTrade,
-      srcUseBentoBox: false,
-      dstUseBentoBox: false,
+      srcUseCoffinBox: false,
+      dstUseCoffinBox: false,
       user: address,
       debug: true,
     })
 
     if (signature) {
-      sushiXSwap.srcCooker.setMasterContractApproval(signature)
+      soulxswap.srcCooker.setMasterContractApproval(signature)
     }
 
     if (transfer) {
-      sushiXSwap.transfer(srcAmount, srcShare)
+      soulxswap.transfer(srcAmount, srcShare)
     } else if (sameChainSwap && srcTrade && srcTrade.route.legs.length && srcMinimumAmountOut) {
-      sushiXSwap.swap(srcAmount, srcShare, srcMinimumAmountOut, srcMinimumAmountOut.toShare(srcOutputCurrencyRebase))
+      soulxswap.swap(srcAmount, srcShare, srcMinimumAmountOut, srcMinimumAmountOut.toShare(srcOutputCurrencyRebase))
     } else if (
       crossChain &&
       ((srcTrade && srcTrade.route.legs.length && srcMinimumAmountOut) ||
         (dstTrade && dstTrade.route.legs.length && dstMinimumAmountOut))
     ) {
-      sushiXSwap.crossChainSwap({
+      soulxswap.crossChainSwap({
         srcAmount,
         srcShare,
         srcMinimumAmountOut,
@@ -507,7 +507,7 @@ const Widget: FC<Swap> = ({
     }
 
     if (crossChain && srcAmountOut && dstAmountIn) {
-      sushiXSwap.teleport(
+      soulxswap.teleport(
         srcBridgeToken,
         dstBridgeToken,
         dstTrade ? dstTrade.route.gasSpent + 1000000 : undefined,
@@ -520,7 +520,7 @@ const Widget: FC<Swap> = ({
     }
 
     console.debug('attempt cook')
-    sushiXSwap
+    soulxswap
       .cook(dstTrade ? dstTrade.route.gasSpent + 1000000 : undefined)
       .then((res) => {
         if (res) {
@@ -670,28 +670,28 @@ const Widget: FC<Swap> = ({
     const getFee = async () => {
       const srcShare = srcAmount.toShare(srcInputCurrencyRebase)
 
-      const sushiXSwap = new SushiXSwap({
+      const soulxswap = new soulxswap({
         contract: contractWithProvider,
         srcToken,
         dstToken,
         srcTrade,
         dstTrade,
-        srcUseBentoBox: false,
-        dstUseBentoBox: false,
+        srcUseCoffinBox: false,
+        dstUseCoffinBox: false,
         user: AddressZero,
         debug: false,
       })
 
       if (transfer) {
-        sushiXSwap.transfer(srcAmount, srcShare)
+        soulxswap.transfer(srcAmount, srcShare)
       } else if (sameChainSwap && srcTrade && srcTrade.route.legs.length && srcMinimumAmountOut) {
-        sushiXSwap.swap(srcAmount, srcShare, srcMinimumAmountOut, srcMinimumAmountOut.toShare(srcOutputCurrencyRebase))
+        soulxswap.swap(srcAmount, srcShare, srcMinimumAmountOut, srcMinimumAmountOut.toShare(srcOutputCurrencyRebase))
       } else if (
         crossChain &&
         ((srcTrade && srcTrade.route.legs.length && srcMinimumAmountOut) ||
           (dstTrade && dstTrade.route.legs.length && dstMinimumAmountOut))
       ) {
-        sushiXSwap.crossChainSwap({
+        soulxswap.crossChainSwap({
           srcAmount,
           srcShare,
           srcMinimumAmountOut,
@@ -702,7 +702,7 @@ const Widget: FC<Swap> = ({
       }
 
       if (crossChain && srcAmountOut && dstAmountIn) {
-        sushiXSwap.teleport(
+        soulxswap.teleport(
           srcBridgeToken,
           dstBridgeToken,
           dstTrade ? dstTrade.route.gasSpent + 1000000 : undefined,
@@ -715,7 +715,7 @@ const Widget: FC<Swap> = ({
       }
 
       try {
-        const [fee] = await sushiXSwap.getFee(dstTrade ? dstTrade.route.gasSpent + 1000000 : undefined)
+        const [fee] = await soulxswap.getFee(dstTrade ? dstTrade.route.gasSpent + 1000000 : undefined)
         feeRef.current = Amount.fromRawAmount(Native.onChain(srcChainId), fee.toString())
       } catch (e) {
         console.log(e)
@@ -920,7 +920,7 @@ const Widget: FC<Swap> = ({
     () => (
       <>
         <article
-          id="sushixswap"
+          id="soulxswap"
           className={classNames(
             theme.background.primary,
             'flex flex-col mx-auto rounded-2xl relative overflow-hidden min-w-[320px] shadow shadow-slate-900'
@@ -1272,7 +1272,7 @@ const Widget: FC<Swap> = ({
                                       size="md"
                                       className="whitespace-nowrap"
                                       fullWidth
-                                      address={getSushiXSwapContractConfig(srcChainId).addressOrName}
+                                      address={getsoulxswapContractConfig(srcChainId).addressOrName}
                                       onSignature={setSignature}
                                     />
                                     <Approve.Token

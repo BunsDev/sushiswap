@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 import { useContractReads } from 'wagmi'
 import { UseContractReadsConfig } from 'wagmi/dist/declarations/src/hooks/contracts/useContractReads'
 
-import { useBentoBoxTotals } from './useBentoBoxTotals'
+import { useCoffinBoxTotals } from './useCoffinBoxTotals'
 import { getStablePoolFactoryContract, useStablePoolFactoryContract } from './useStablePoolFactoryContract'
 
 export enum StablePoolState {
@@ -155,7 +155,7 @@ export function useGetStablePools(
     watch: !config?.enabled,
   })
 
-  const totals = useBentoBoxTotals(chainId, tokensUnique)
+  const totals = useCoffinBoxTotals(chainId, tokensUnique)
 
   return useMemo(() => {
     return {

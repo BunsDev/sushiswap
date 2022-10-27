@@ -10,7 +10,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -523,7 +523,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -1190,7 +1190,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -1703,7 +1703,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -2370,7 +2370,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -2883,7 +2883,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -3550,7 +3550,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -4063,7 +4063,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -4730,7 +4730,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -5243,7 +5243,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -5917,7 +5917,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -6430,7 +6430,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }
@@ -7097,7 +7097,7 @@
             {
               "inputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "bentoBox_",
                   "type": "address"
                 }
@@ -7610,7 +7610,7 @@
               "name": "bentoBox",
               "outputs": [
                 {
-                  "internalType": "contract IBentoBoxV1",
+                  "internalType": "contract ICoffinBoxV1",
                   "name": "",
                   "type": "address"
                 }

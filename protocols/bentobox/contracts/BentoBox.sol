@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 
-// The BentoBox
+// The CoffinBox
 
 //  ▄▄▄▄· ▄▄▄ . ▐ ▄ ▄▄▄▄▄      ▄▄▄▄·       ▐▄• ▄
 //  ▐█ ▀█▪▀▄.▀·█▌▐█•██  ▪     ▐█ ▀█▪▪      █▌█▌▪
@@ -26,13 +26,13 @@ import "@boringcrypto/boring-solidity/contracts/BoringBatchable.sol";
 // solhint-disable avoid-low-level-calls
 // solhint-disable not-rely-on-time
 
-/// @title BentoBox
+/// @title CoffinBox
 /// @author BoringCrypto, Keno
-/// @notice The BentoBox is a vault for tokens. The stored tokens can be flash loaned and used in strategies.
+/// @notice The CoffinBox is a vault for tokens. The stored tokens can be flash loaned and used in strategies.
 /// Yield from this will go to the token depositors.
 /// Rebasing tokens ARE NOT supported and WILL cause loss of funds.
-/// Any funds transfered directly onto the BentoBox will be lost, use the deposit function instead.
-contract BentoBox is MasterContractManager, BoringBatchable {
+/// Any funds transfered directly onto the CoffinBox will be lost, use the deposit function instead.
+contract CoffinBox is MasterContractManager, BoringBatchable {
     using BoringMath for uint256;
     using BoringMath128 for uint128;
     using BoringERC20 for IERC20;
@@ -63,7 +63,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
     struct StrategyData {
         uint64 strategyStartDate;
         uint64 targetPercentage;
-        uint128 balance; // the balance of the strategy that BentoBox thinks is in there
+        uint128 balance; // the balance of the strategy that CoffinBox thinks is in there
     }
 
     // ******************************** //
@@ -109,7 +109,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
 
     /// Modifier to check if the msg.sender is allowed to use funds belonging to the 'from' address.
     /// If 'from' is msg.sender, it's allowed.
-    /// If 'from' is the BentoBox itself, it's allowed. Any ETH, token balances (above the known balances) or BentoBox balances
+    /// If 'from' is the CoffinBox itself, it's allowed. Any ETH, token balances (above the known balances) or CoffinBox balances
     /// can be taken by anyone.
     /// This is to enable skimming, not just for deposits, but also for withdrawals or transfers, enabling better composability.
     /// If 'from' is a clone of a masterContract AND the 'from' address has approved that masterContract, it's allowed.
@@ -117,8 +117,8 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         if (from != msg.sender && from != address(this)) {
             // From is sender or you are skimming
             address masterContract = masterContractOf[msg.sender];
-            require(masterContract != address(0), "BentoBox: no masterContract");
-            require(masterContractApproved[masterContract][from], "BentoBox: Transfer not approved");
+            require(masterContract != address(0), "CoffinBox: no masterContract");
+            require(masterContractApproved[masterContract][from], "CoffinBox: Transfer not approved");
         }
         _;
     }
@@ -179,14 +179,14 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         uint256 share
     ) public payable allowed(from) returns (uint256 amountOut, uint256 shareOut) {
         // Checks
-        require(to != address(0), "BentoBox: to not set"); // To avoid a bad UI from burning funds
+        require(to != address(0), "CoffinBox: to not set"); // To avoid a bad UI from burning funds
 
         // Effects
         IERC20 token = token_ == USE_ETHEREUM ? wethToken : token_;
         Rebase memory total = totals[token];
 
         // If a new token gets added, the tokenSupply call checks that this is a deployed contract. Needed for security.
-        require(total.elastic != 0 || token.totalSupply() > 0, "BentoBox: No tokens");
+        require(total.elastic != 0 || token.totalSupply() > 0, "CoffinBox: No tokens");
         if (share == 0) {
             // value of the share may be lower than the amount due to rounding, that's ok
             share = total.toBase(amount, false);
@@ -204,7 +204,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         // During flashloans the _tokenBalanceOf is lower than 'reality', so skimming deposits will mostly fail during a flashloan.
         require(
             from != address(this) || token_ == USE_ETHEREUM || amount <= _tokenBalanceOf(token).sub(total.elastic),
-            "BentoBox: Skim too much"
+            "CoffinBox: Skim too much"
         );
 
         balanceOf[token][to] = balanceOf[token][to].add(share);
@@ -242,7 +242,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         uint256 share
     ) public allowed(from) returns (uint256 amountOut, uint256 shareOut) {
         // Checks
-        require(to != address(0), "BentoBox: to not set"); // To avoid a bad UI from burning funds
+        require(to != address(0), "CoffinBox: to not set"); // To avoid a bad UI from burning funds
 
         // Effects
         IERC20 token = token_ == USE_ETHEREUM ? wethToken : token_;
@@ -259,7 +259,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         total.elastic = total.elastic.sub(amount.to128());
         total.base = total.base.sub(share.to128());
         // There have to be at least 1000 shares left to prevent reseting the share/amount ratio (unless it's fully emptied)
-        require(total.base >= MINIMUM_SHARE_BALANCE || total.base == 0, "BentoBox: cannot empty");
+        require(total.base >= MINIMUM_SHARE_BALANCE || total.base == 0, "CoffinBox: cannot empty");
         totals[token] = total;
 
         // Interactions
@@ -268,7 +268,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
             IWETH(address(wethToken)).withdraw(amount);
             // X2, X3: A revert or big gas usage could block, however, the to address is under control of the caller.
             (bool success, ) = to.call{value: amount}("");
-            require(success, "BentoBox: ETH transfer failed");
+            require(success, "CoffinBox: ETH transfer failed");
         } else {
             // X2, X3: A malicious token could block withdrawal of just THAT token.
             //         masterContracts may want to take care not to rely on withdraw always succeeding.
@@ -294,7 +294,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         uint256 share
     ) public allowed(from) {
         // Checks
-        require(to != address(0), "BentoBox: to not set"); // To avoid a bad UI from burning funds
+        require(to != address(0), "CoffinBox: to not set"); // To avoid a bad UI from burning funds
 
         // Effects
         balanceOf[token][from] = balanceOf[token][from].sub(share);
@@ -317,7 +317,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         uint256[] calldata shares
     ) public allowed(from) {
         // Checks
-        require(tos[0] != address(0), "BentoBox: to[0] not set"); // To avoid a bad UI from burning funds
+        require(tos[0] != address(0), "CoffinBox: to[0] not set"); // To avoid a bad UI from burning funds
 
         // Effects
         uint256 totalAmount;
@@ -353,7 +353,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
 
         borrower.onFlashLoan(msg.sender, token, amount, fee, data);
 
-        require(_tokenBalanceOf(token) >= totals[token].addElastic(fee.to128()), "BentoBox: Wrong amount");
+        require(_tokenBalanceOf(token) >= totals[token].addElastic(fee.to128()), "CoffinBox: Wrong amount");
         emit LogFlashLoan(address(borrower), token, amount, fee, receiver);
     }
 
@@ -388,7 +388,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
 
         for (uint256 i = 0; i < len; i++) {
             IERC20 token = tokens[i];
-            require(_tokenBalanceOf(token) >= totals[token].addElastic(fees[i].to128()), "BentoBox: Wrong amount");
+            require(_tokenBalanceOf(token) >= totals[token].addElastic(fees[i].to128()), "CoffinBox: Wrong amount");
             emit LogFlashLoan(address(borrower), token, amounts[i], fees[i], receivers[i]);
         }
     }
@@ -459,7 +459,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
     /// @param maxChangeAmount The maximum amount for either pulling or pushing from/to the `IStrategy` contract.
     // F5 - Checks-Effects-Interactions pattern followed? (SWC-107)
     // F5: Total amount is updated AFTER interaction. But strategy is under our control.
-    // F5: Not followed to prevent reentrancy issues with flashloans and BentoBox skims?
+    // F5: Not followed to prevent reentrancy issues with flashloans and CoffinBox skims?
     function harvest(
         IERC20 token,
         bool balance,
@@ -482,7 +482,7 @@ contract BentoBox is MasterContractManager, BoringBatchable {
         } else if (balanceChange < 0) {
             // C1 - All math done through BoringMath (SWC-101)
             // C1: balanceChange could overflow if it's max negative int128.
-            // But tokens with balances that large are not supported by the BentoBox.
+            // But tokens with balances that large are not supported by the CoffinBox.
             uint256 sub = uint256(-balanceChange);
             totalElastic = totalElastic.sub(sub);
             totals[token].elastic = totalElastic.to128();

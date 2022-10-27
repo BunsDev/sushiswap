@@ -13,7 +13,7 @@ contract FuroStream is
     Multicall,
     BoringOwnable
 {
-    IBentoBoxMinimal public immutable bentoBox;
+    ICoffinBoxMinimal public immutable bentoBox;
     address public immutable wETH;
 
     uint256 public streamIds;
@@ -30,7 +30,7 @@ contract FuroStream is
     error NotSender();
     error Overflow();
 
-    constructor(IBentoBoxMinimal _bentoBox, address _wETH) {
+    constructor(ICoffinBoxMinimal _bentoBox, address _wETH) {
         bentoBox = _bentoBox;
         wETH = _wETH;
         streamIds = 1000;
@@ -45,7 +45,7 @@ contract FuroStream is
         return ITokenURIFetcher(tokenURIFetcher).fetchTokenURIData(id);
     }
 
-    function setBentoBoxApproval(
+    function setCoffinBoxApproval(
         address user,
         bool approved,
         uint8 v,
@@ -68,7 +68,7 @@ contract FuroStream is
         uint64 startTime,
         uint64 endTime,
         uint256 amount, /// @dev in token amount and not in shares
-        bool fromBentoBox
+        bool fromCoffinBox
     )
         external
         payable
@@ -83,7 +83,7 @@ contract FuroStream is
             msg.sender,
             address(this),
             amount,
-            fromBentoBox
+            fromCoffinBox
         );
 
         streamId = streamIds++;
@@ -107,7 +107,7 @@ contract FuroStream is
             depositedShares,
             startTime,
             endTime,
-            fromBentoBox
+            fromCoffinBox
         );
     }
 
@@ -115,7 +115,7 @@ contract FuroStream is
         uint256 streamId,
         uint256 sharesToWithdraw,
         address withdrawTo,
-        bool toBentoBox,
+        bool toCoffinBox,
         bytes calldata taskData
     ) external override returns (uint256 recipientBalance, address to) {
         address recipient = ownerOf[streamId];
@@ -139,7 +139,7 @@ contract FuroStream is
             address(this),
             to,
             sharesToWithdraw,
-            toBentoBox
+            toCoffinBox
         );
 
         if (taskData.length != 0 && msg.sender == recipient)
@@ -150,11 +150,11 @@ contract FuroStream is
             sharesToWithdraw,
             withdrawTo,
             stream.token,
-            toBentoBox
+            toCoffinBox
         );
     }
 
-    function cancelStream(uint256 streamId, bool toBentoBox)
+    function cancelStream(uint256 streamId, bool toCoffinBox)
         external
         override
         returns (uint256 senderBalance, uint256 recipientBalance)
@@ -173,14 +173,14 @@ contract FuroStream is
             address(this),
             recipient,
             recipientBalance,
-            toBentoBox
+            toCoffinBox
         );
         _transferToken(
             stream.token,
             address(this),
             stream.sender,
             senderBalance,
-            toBentoBox
+            toCoffinBox
         );
 
         emit CancelStream(
@@ -188,7 +188,7 @@ contract FuroStream is
             senderBalance,
             recipientBalance,
             stream.token,
-            toBentoBox
+            toCoffinBox
         );
     }
 
@@ -240,7 +240,7 @@ contract FuroStream is
         uint256 streamId,
         uint128 topUpAmount,
         uint64 extendTime,
-        bool fromBentoBox
+        bool fromCoffinBox
     ) external payable override returns (uint256 depositedShares) {
         Stream storage stream = streams[streamId];
         if (msg.sender != stream.sender) revert NotSender();
@@ -250,7 +250,7 @@ contract FuroStream is
             stream.sender,
             address(this),
             topUpAmount,
-            fromBentoBox
+            fromCoffinBox
         );
 
         address recipient = ownerOf[streamId];
@@ -274,7 +274,7 @@ contract FuroStream is
             true
         );
 
-        emit UpdateStream(streamId, topUpAmount, extendTime, fromBentoBox);
+        emit UpdateStream(streamId, topUpAmount, extendTime, fromCoffinBox);
     }
 
     function _depositToken(
@@ -282,9 +282,9 @@ contract FuroStream is
         address from,
         address to,
         uint256 amount,
-        bool fromBentoBox
+        bool fromCoffinBox
     ) internal returns (uint256 depositedShares) {
-        if (fromBentoBox) {
+        if (fromCoffinBox) {
             depositedShares = bentoBox.toShare(token, amount, false);
             bentoBox.transfer(token, from, to, depositedShares);
         } else {
@@ -299,9 +299,9 @@ contract FuroStream is
         address from,
         address to,
         uint256 share,
-        bool toBentoBox
+        bool toCoffinBox
     ) internal {
-        if (toBentoBox) {
+        if (toCoffinBox) {
             bentoBox.transfer(token, from, to, share);
         } else {
             bentoBox.withdraw(token, from, to, 0, share);

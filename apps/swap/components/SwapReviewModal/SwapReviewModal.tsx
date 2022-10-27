@@ -16,7 +16,7 @@ import {
   BENTOBOX_ADDRESS,
   calculateGasMargin,
   getTridentRouterContractConfig,
-  useBentoBoxTotal,
+  useCoffinBoxTotal,
 } from 'soulswap-wagmi'
 import stringify from 'fast-json-stable-stringify'
 import { approveMasterContractAction, batchAction, unwrapWETHAction } from 'lib/actions'
@@ -142,8 +142,8 @@ export const SwapReviewModalLegacy: FC<SwapReviewModalLegacy> = ({ chainId, chil
 
   // console.log({ deadline })
 
-  const inputCurrencyRebase = useBentoBoxTotal(chainId, trade?.inputAmount.currency)
-  const outputCurrencyRebase = useBentoBoxTotal(chainId, trade?.outputAmount.currency)
+  const inputCurrencyRebase = useCoffinBoxTotal(chainId, trade?.inputAmount.currency)
+  const outputCurrencyRebase = useCoffinBoxTotal(chainId, trade?.outputAmount.currency)
 
   const [{ slippageTolerance, carbonOffset }] = useSettings()
 

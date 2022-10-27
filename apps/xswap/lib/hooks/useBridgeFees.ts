@@ -1,6 +1,6 @@
 import { Amount, Currency, Token } from 'soulswap-currency'
 import { STARGATE_CHAIN_ID, STARGATE_POOL_ADDRESS, STARGATE_POOL_ID } from 'soulswap-stargate'
-import { useSushiXSwapContractWithProvider } from 'soulswap-wagmi'
+import { usesoulxswapContractWithProvider } from 'soulswap-wagmi'
 import STARGATE_FEE_LIBRARY_V03_ABI from 'abis/stargate-fee-library-v03.json'
 import STARGATE_POOL_ABI from 'abis/stargate-pool.json'
 import { useMemo } from 'react'
@@ -19,7 +19,7 @@ export const useBridgeFees = ({
   dstChainId: number
   dstBridgeToken: Token
 }) => {
-  const contract = useSushiXSwapContractWithProvider(srcChainId)
+  const contract = usesoulxswapContractWithProvider(srcChainId)
 
   const { data: stargatePoolResults } = useContractReads({
     contracts: [

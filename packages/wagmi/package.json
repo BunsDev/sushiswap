@@ -36,7 +36,7 @@
     "soulswap-hooks": "workspace:*",
     "soulswap-math": "workspace:*",
     "@sushiswap/sushiswap": "0.1.0",
-    "@sushiswap/sushixswap": "0.1.0",
+    "@sushiswap/soulxswap": "0.1.0",
     "@sushiswap/wagmi-config": "0.1.0",
     "soulswap-tines": "workspace:*",
     "@sushiswap/trident": "1.0.0-canary.48",

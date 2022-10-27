@@ -11,11 +11,11 @@ import {
   useSignTypedData,
 } from 'wagmi'
 
-import { BENTOBOX_ADDRESS, getBentoBoxContractConfig } from './useBentoBoxContract'
+import { BENTOBOX_ADDRESS, getCoffinBoxContractConfig } from './useCoffinBoxContract'
 import { ApprovalState } from './useERC20ApproveCallback'
 
 // returns a variable indicating the state of the approval and a function which approves if necessary or early returns
-export function useBentoBoxApproveCallback({
+export function useCoffinBoxApproveCallback({
   masterContract,
   watch,
   onSignature,
@@ -30,13 +30,13 @@ export function useBentoBoxApproveCallback({
   const { chain } = useNetwork()
 
   const { writeAsync } = useDeprecatedContractWrite({
-    ...getBentoBoxContractConfig(chain?.id),
+    ...getCoffinBoxContractConfig(chain?.id),
     functionName: 'setMasterContractApproval',
     args: [address, masterContract, true, 0, HashZero, HashZero],
   })
 
-  const { data: isBentoBoxApproved, isLoading } = useContractRead({
-    ...getBentoBoxContractConfig(chain?.id),
+  const { data: isCoffinBoxApproved, isLoading } = useContractRead({
+    ...getCoffinBoxContractConfig(chain?.id),
     functionName: 'masterContractApproved',
     args: [masterContract, address],
     // This should probably always be true anyway...
@@ -45,7 +45,7 @@ export function useBentoBoxApproveCallback({
   })
 
   const { refetch: getNonces } = useContractRead({
-    ...getBentoBoxContractConfig(chain?.id),
+    ...getCoffinBoxContractConfig(chain?.id),
     functionName: 'nonces',
     args: [address ? address : AddressZero],
     enabled: false,
@@ -57,12 +57,12 @@ export function useBentoBoxApproveCallback({
 
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
-    if (isLoading || isBentoBoxApproved === undefined) return ApprovalState.UNKNOWN
-    if (signature && !isBentoBoxApproved) return ApprovalState.PENDING
-    return isBentoBoxApproved ? ApprovalState.APPROVED : ApprovalState.NOT_APPROVED
-  }, [isBentoBoxApproved, signature, isLoading])
+    if (isLoading || isCoffinBoxApproved === undefined) return ApprovalState.UNKNOWN
+    if (signature && !isCoffinBoxApproved) return ApprovalState.PENDING
+    return isCoffinBoxApproved ? ApprovalState.APPROVED : ApprovalState.NOT_APPROVED
+  }, [isCoffinBoxApproved, signature, isLoading])
 
-  const approveBentoBox = useCallback(async (): Promise<void> => {
+  const approveCoffinBox = useCallback(async (): Promise<void> => {
     if (!address) {
       console.error('no account connected')
       return
@@ -91,7 +91,7 @@ export function useBentoBoxApproveCallback({
     try {
       const data = await signTypedDataAsync({
         domain: {
-          name: 'BentoBox V1',
+          name: 'CoffinBox V1',
           chainId: chain.id,
           verifyingContract: BENTOBOX_ADDRESS[chain.id],
         },
@@ -105,7 +105,7 @@ export function useBentoBoxApproveCallback({
           ],
         },
         value: {
-          warning: 'Give FULL access to funds in (and approved to) BentoBox?',
+          warning: 'Give FULL access to funds in (and approved to) CoffinBox?',
           user: address,
           masterContract,
           approved: true,
@@ -116,7 +116,7 @@ export function useBentoBoxApproveCallback({
       onSignature && onSignature(splitSignature(data))
     } catch (e: unknown) {
       if (e instanceof UserRejectedRequestError) return
-      console.error('Error approving BentoBox, attempting regular approval instead', e)
+      console.error('Error approving CoffinBox, attempting regular approval instead', e)
       // Regular approval as fallback
       const data = await writeAsync()
       if (onSuccess) {
@@ -127,7 +127,7 @@ export function useBentoBoxApproveCallback({
           txHash: data.hash,
           promise: data.wait(),
           summary: {
-            pending: `Approving BentoBox Master Contract`,
+            pending: `Approving CoffinBox Master Contract`,
             completed: `Successfully approved the master contract`,
             failed: 'Something went wrong approving the master contract',
           },
@@ -138,5 +138,5 @@ export function useBentoBoxApproveCallback({
     }
   }, [address, chain, masterContract, approvalState, getNonces, signTypedDataAsync, onSignature, writeAsync, onSuccess])
 
-  return useMemo(() => [approvalState, signature, approveBentoBox], [approvalState, approveBentoBox, signature])
+  return useMemo(() => [approvalState, signature, approveCoffinBox], [approvalState, approveCoffinBox, signature])
 }

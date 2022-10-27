@@ -18,7 +18,7 @@ const deployFunction: DeployFunction = async function ({
     throw Error(`No WNATIVE_ADDRESS for chain #${chainId}!`)
   }
 
-  await deploy('BentoBoxV1', {
+  await deploy('CoffinBoxV1', {
     from: deployer,
     args: [WNATIVE_ADDRESS[chainId as keyof typeof WNATIVE_ADDRESS]],
     log: true,
@@ -30,4 +30,4 @@ export default deployFunction
 
 // deployFunction.dependencies = ['WETH9']
 
-deployFunction.tags = ['BentoBoxV1']
+deployFunction.tags = ['CoffinBoxV1']

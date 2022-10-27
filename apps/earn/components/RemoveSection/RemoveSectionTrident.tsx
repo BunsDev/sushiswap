@@ -11,7 +11,7 @@ import {
   ConstantProductPoolState,
   getTridentRouterContractConfig,
   StablePoolState,
-  useBentoBoxTotals,
+  useCoffinBoxTotals,
   useConstantProductPool,
   useStablePool,
   useTotalSupply,
@@ -54,7 +54,7 @@ export const RemoveSectionTrident: FC<RemoveSectionTridentProps> = ({ pair }) =>
   const [percentage, setPercentage] = useState<string>('')
   const percentToRemove = useMemo(() => new Percent(percentage, 100), [percentage])
   const tokens = useMemo(() => [token0, token1], [token0, token1])
-  const rebases = useBentoBoxTotals(pair.chainId, tokens)
+  const rebases = useCoffinBoxTotals(pair.chainId, tokens)
   const { balance } = usePoolPosition()
 
   const slpAmountToRemove = useMemo(() => {

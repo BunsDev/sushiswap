@@ -8,7 +8,7 @@ import './IBatchFlashBorrower.sol';
 import './IFlashBorrower.sol';
 import './IStrategy.sol';
 
-interface IBentoBoxV1 {
+interface ICoffinBoxV1 {
     event LogDeploy(address indexed masterContract, bytes data, address indexed cloneAddress);
     event LogDeposit(address indexed token, address indexed from, address indexed to, uint256 amount, uint256 share);
     event LogFlashLoan(address indexed borrower, address indexed token, uint256 amount, uint256 feeAmount, address indexed receiver);

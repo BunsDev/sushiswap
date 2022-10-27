@@ -1,4 +1,4 @@
-# BentoBox V1
+# CoffinBox V1
 
 ...
 

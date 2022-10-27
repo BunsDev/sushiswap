@@ -519,10 +519,10 @@ interface IStrategy {
     function exit(uint256 balance) external returns (int256 amountAdded);
 }
 
-// File soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.1
+// File soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol@v1.0.1
 // License-Identifier: MIT
 
-interface IBentoBoxV1 {
+interface ICoffinBoxV1 {
     event LogDeploy(address indexed masterContract, bytes data, address indexed cloneAddress);
     event LogDeposit(address indexed token, address indexed from, address indexed to, uint256 amount, uint256 share);
     event LogFlashLoan(address indexed borrower, address indexed token, uint256 amount, uint256 feeAmount, address indexed receiver);
@@ -724,11 +724,11 @@ interface IOracle {
 // License-Identifier: MIT
 
 interface ISwapper {
-    /// @notice Withdraws 'amountFrom' of token 'from' from the BentoBox account for this swapper.
+    /// @notice Withdraws 'amountFrom' of token 'from' from the CoffinBox account for this swapper.
     /// Swaps it for at least 'amountToMin' of token 'to'.
-    /// Transfers the swapped tokens of 'to' into the BentoBox using a plain ERC20 transfer.
-    /// Returns the amount of tokens 'to' transferred to BentoBox.
-    /// (The BentoBox skim function will be used by the caller to get the swapped funds).
+    /// Transfers the swapped tokens of 'to' into the CoffinBox using a plain ERC20 transfer.
+    /// Returns the amount of tokens 'to' transferred to CoffinBox.
+    /// (The CoffinBox skim function will be used by the caller to get the swapped funds).
     function swap(
         IERC20 fromToken,
         IERC20 toToken,
@@ -739,12 +739,12 @@ interface ISwapper {
 
     /// @notice Calculates the amount of token 'from' needed to complete the swap (amountFrom),
     /// this should be less than or equal to amountFromMax.
-    /// Withdraws 'amountFrom' of token 'from' from the BentoBox account for this swapper.
+    /// Withdraws 'amountFrom' of token 'from' from the CoffinBox account for this swapper.
     /// Swaps it for exactly 'exactAmountTo' of token 'to'.
-    /// Transfers the swapped tokens of 'to' into the BentoBox using a plain ERC20 transfer.
-    /// Transfers allocated, but unused 'from' tokens within the BentoBox to 'refundTo' (amountFromMax - amountFrom).
-    /// Returns the amount of 'from' tokens withdrawn from BentoBox (amountFrom).
-    /// (The BentoBox skim function will be used by the caller to get the swapped funds).
+    /// Transfers the swapped tokens of 'to' into the CoffinBox using a plain ERC20 transfer.
+    /// Transfers allocated, but unused 'from' tokens within the CoffinBox to 'refundTo' (amountFromMax - amountFrom).
+    /// Returns the amount of 'from' tokens withdrawn from CoffinBox (amountFrom).
+    /// (The CoffinBox skim function will be used by the caller to get the swapped funds).
     function swapExact(
         IERC20 fromToken,
         IERC20 toToken,
@@ -760,7 +760,7 @@ interface ISwapper {
 // Kashi Lending Medium Risk
 
 /// @title KashiPair
-/// @dev This contract allows contract calls to any contract (except BentoBox)
+/// @dev This contract allows contract calls to any contract (except CoffinBox)
 /// from arbitrary callers thus, don't trust calls from this contract in any circumstances.
 contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     using BoringMath for uint256;
@@ -780,7 +780,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     event LogWithdrawFees(address indexed feeTo, uint256 feesEarnedFraction);
 
     // Immutables (for MasterContract and all clones)
-    IBentoBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable bentoBox;
     KashiPairMediumRiskV1 public immutable masterContract;
 
     // MasterContract variables
@@ -796,7 +796,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
 
     // Total amounts
     uint256 public totalCollateralShare; // Total collateral supplied
-    Rebase public totalAsset; // elastic = BentoBox shares held by the KashiPair, base = Total fractions held by asset suppliers
+    Rebase public totalAsset; // elastic = CoffinBox shares held by the KashiPair, base = Total fractions held by asset suppliers
     Rebase public totalBorrow; // elastic = Total token amount to be repayed by borrowers, base = Total parts of the debt held by borrowers
 
     // User balances
@@ -862,7 +862,7 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     uint256 private constant BORROW_OPENING_FEE_PRECISION = 1e5;
 
     /// @notice The constructor is only used for the initial master contract. Subsequent clones are initialised via `init`.
-    constructor(IBentoBoxV1 bentoBox_) public {
+    constructor(ICoffinBoxV1 bentoBox_) public {
         bentoBox = bentoBox_;
         masterContract = this;
     }
@@ -1168,14 +1168,14 @@ contract KashiPairMediumRiskV1 is ERC20, BoringOwnable, IMasterContract {
     uint8 internal constant ACTION_ADD_COLLATERAL = 10;
     uint8 internal constant ACTION_UPDATE_EXCHANGE_RATE = 11;
 
-    // Function on BentoBox
+    // Function on CoffinBox
     uint8 internal constant ACTION_BENTO_DEPOSIT = 20;
     uint8 internal constant ACTION_BENTO_WITHDRAW = 21;
     uint8 internal constant ACTION_BENTO_TRANSFER = 22;
     uint8 internal constant ACTION_BENTO_TRANSFER_MULTIPLE = 23;
     uint8 internal constant ACTION_BENTO_SETAPPROVAL = 24;
 
-    // Any external call (except to BentoBox)
+    // Any external call (except to CoffinBox)
     uint8 internal constant ACTION_CALL = 30;
 
     int256 internal constant USE_VALUE1 = -1;

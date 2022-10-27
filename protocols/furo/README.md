@@ -1,3 +1,3 @@
 # Furo
 
-Streaming Money on Steroids via BentoBox
+Streaming Money on Steroids via CoffinBox

@@ -4,18 +4,18 @@ import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
 import "../interfaces/ISwapper.sol";
-import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
 
 contract SushiSwapSwapper is ISwapper {
     using BoringMath for uint256;
 
     // Local variables
-    IBentoBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable bentoBox;
     IUniswapV2Factory public immutable factory;
     bytes32 public immutable pairCodeHash;
 
     constructor(
-        IBentoBoxV1 bentoBox_,
+        ICoffinBoxV1 bentoBox_,
         IUniswapV2Factory factory_,
         bytes32 pairCodeHash_
     ) public {

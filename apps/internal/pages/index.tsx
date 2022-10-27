@@ -6,7 +6,7 @@ import { getBuiltGraphSDK } from '.graphclient'
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
   const sdk = getBuiltGraphSDK()
-  const { crossChainBentoBoxKpis: data } = await sdk.CrossChainBentoBoxKpis({
+  const { crossChainCoffinBoxKpis: data } = await sdk.CrossChainCoffinBoxKpis({
     chainIds: [
       ChainId.ETHEREUM,
       ChainId.POLYGON,

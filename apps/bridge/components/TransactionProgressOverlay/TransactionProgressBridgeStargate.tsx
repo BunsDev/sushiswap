@@ -3,7 +3,7 @@ import chains from 'soulswap-chain'
 import { STARGATE_CHAIN_ID, STARGATE_TOKEN } from 'soulswap-stargate'
 import { Link, Typography } from 'soulswap-ui'
 import { Icon } from 'soulswap-ui/currency/Icon'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { formatBytes32String } from 'ethers/lib/utils'
 import { FC, ReactNode, useEffect, useState } from 'react'
 import { useAccount, useContractEvent, useWaitForTransaction } from 'wagmi'
@@ -43,9 +43,9 @@ export const TransactionProgressBridgeStargate: FC<TransactionProgressBridgeStar
   const [lzLink, setLzLink] = useState<string>()
 
   useContractEvent({
-    ...getSushiXSwapContractConfig(dstAmountOut?.currency.chainId),
+    ...getsoulxswapContractConfig(dstAmountOut?.currency.chainId),
     chainId: dstAmountOut?.currency.chainId,
-    eventName: 'StargateSushiXSwapDst',
+    eventName: 'StargatesoulxswapDst',
     listener: (event) => {
       const [context, success, { transactionHash }] = event
       if (context === formatBytes32String(id)) {

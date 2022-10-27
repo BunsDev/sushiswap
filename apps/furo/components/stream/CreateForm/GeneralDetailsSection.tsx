@@ -12,7 +12,7 @@ export const GeneralDetailsSection = () => {
   return (
     <Form.Section
       title="General Details"
-      description="Furo allows you to create a vested or non vested stream using your wallet or BentoBox balance."
+      description="Furo allows you to create a vested or non vested stream using your wallet or CoffinBox balance."
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <Form.Control label="Start date">

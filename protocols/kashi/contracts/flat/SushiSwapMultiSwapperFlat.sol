@@ -150,10 +150,10 @@ library UniswapV2Library {
     }
 }
 
-// File soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.2
+// File soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol@v1.0.2
 // License-Identifier: MIT
 
-interface IBentoBoxV1 {
+interface ICoffinBoxV1 {
     function deposit(
         IERC20 token_,
         address from,
@@ -185,12 +185,12 @@ contract SushiSwapMultiSwapper {
     using BoringMath for uint256;
 
     address private immutable factory;
-    IBentoBoxV1 private immutable bentoBox;
+    ICoffinBoxV1 private immutable bentoBox;
     bytes32 private immutable pairCodeHash;
 
     constructor(
         address _factory,
-        IBentoBoxV1 _bentoBox,
+        ICoffinBoxV1 _bentoBox,
         bytes32 _pairCodeHash
     ) public {
         factory = _factory;

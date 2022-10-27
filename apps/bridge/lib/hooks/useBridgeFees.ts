@@ -2,7 +2,7 @@ import { Amount, Token } from 'soulswap-currency'
 import { STARGATE_CHAIN_ID, STARGATE_POOL_ADDRESS, STARGATE_POOL_ID } from 'soulswap-stargate'
 import STARGATE_FEE_LIBRARY_V03_ABI from 'soulswap-stargate/abis/stargate-fee-library-v03.json'
 import STARGATE_POOL_ABI from 'soulswap-stargate/abis/stargate-pool.json'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { isAddress } from 'ethers/lib/utils'
 import { useMemo } from 'react'
 import { useContractRead, useContractReads } from 'wagmi'
@@ -57,7 +57,7 @@ export const useBridgeFees = ({
       srcToken ? STARGATE_POOL_ID[srcChainId][srcToken.wrapped.address] : undefined,
       dstToken ? STARGATE_POOL_ID[dstChainId][dstToken.wrapped.address] : undefined,
       STARGATE_CHAIN_ID[dstChainId],
-      getSushiXSwapContractConfig(srcChainId).addressOrName,
+      getsoulxswapContractConfig(srcChainId).addressOrName,
       amount?.quotient?.toString(),
     ],
     contractInterface: STARGATE_FEE_LIBRARY_V03_ABI,

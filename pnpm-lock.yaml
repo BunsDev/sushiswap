@@ -419,7 +419,7 @@ importers:
       'soulswap-redux-localstorage': workspace:*
       'soulswap-redux-token-lists': workspace:*
       'soulswap-stargate': workspace:*
-      'soulswap-sushixswap': workspace:*
+      'soulswap-soulxswap': workspace:*
       'soulswap-tines': workspace:*
       'soulswap-token-lists': workspace:*
       'soulswap-typescript-config': workspace:*
@@ -472,7 +472,7 @@ importers:
       'soulswap-redux-localstorage': link:../../packages/redux/localstorage
       'soulswap-redux-token-lists': link:../../packages/redux/token-lists
       'soulswap-stargate': link:../../packages/stargate
-      'soulswap-sushixswap': link:../../protocols/sushixswap
+      'soulswap-soulxswap': link:../../protocols/soulxswap
       'soulswap-tines': link:../../packages/tines
       'soulswap-token-lists': link:../../packages/token-lists
       'soulswap-ui': link:../../packages/ui
@@ -1227,7 +1227,7 @@ importers:
       'soulswap-redux-localstorage': workspace:*
       'soulswap-redux-token-lists': workspace:*
       'soulswap-stargate': workspace:*
-      'soulswap-sushixswap': workspace:*
+      'soulswap-soulxswap': workspace:*
       'soulswap-tines': workspace:*
       'soulswap-token-lists': workspace:*
       'soulswap-typescript-config': workspace:*
@@ -1278,7 +1278,7 @@ importers:
       'soulswap-redux-localstorage': link:../../packages/redux/localstorage
       'soulswap-redux-token-lists': link:../../packages/redux/token-lists
       'soulswap-stargate': link:../../packages/stargate
-      'soulswap-sushixswap': link:../../protocols/sushixswap
+      'soulswap-soulxswap': link:../../protocols/soulxswap
       'soulswap-tines': link:../../packages/tines
       'soulswap-token-lists': link:../../packages/token-lists
       'soulswap-ui': link:../../packages/ui
@@ -2488,7 +2488,7 @@ importers:
       'soulswap-math': workspace:*
       'soulswap-prettier-config': workspace:*
       'soulswap-sushiswap': workspace:*
-      'soulswap-sushixswap': workspace:*
+      'soulswap-soulxswap': workspace:*
       'soulswap-tines': workspace:*
       '@sushiswap/trident': 1.0.0-canary.48
       'soulswap-typescript-config': workspace:*
@@ -2528,7 +2528,7 @@ importers:
       'soulswap-kashi': link:../../protocols/kashi
       'soulswap-math': link:../math
       'soulswap-sushiswap': link:../../protocols/sushiswap
-      'soulswap-sushixswap': link:../../protocols/sushixswap
+      'soulswap-soulxswap': link:../../protocols/soulxswap
       'soulswap-tines': link:../tines
       '@sushiswap/trident': 1.0.0-canary.48
       'soulswap-ui': link:../ui
@@ -2753,7 +2753,7 @@ importers:
       ts-node: 10.9.1_vxrnv5tlr43u5xabofdb6zoswy
       typescript: 4.8.2
 
-  protocols/sushixswap:
+  protocols/soulxswap:
     specifiers:
       '@ethersproject/abi': ^5.7.0
       '@ethersproject/providers': ^5.7.0

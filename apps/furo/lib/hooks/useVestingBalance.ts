@@ -1,6 +1,6 @@
 import { Amount, Token } from 'soulswap-currency'
 import { JSBI } from 'soulswap-math'
-import { getBentoBoxContractConfig, getFuroVestingContractConfig } from 'soulswap-wagmi'
+import { getCoffinBoxContractConfig, getFuroVestingContractConfig } from 'soulswap-wagmi'
 import { useMemo } from 'react'
 import { useContractRead } from 'wagmi'
 export function useVestingBalance(chainId?: number, vestingId?: string, token?: Token): Amount<Token> | undefined {
@@ -22,7 +22,7 @@ export function useVestingBalance(chainId?: number, vestingId?: string, token?: 
     error: rebaseError,
     isLoading: rebaseLoading,
   } = useContractRead({
-    ...getBentoBoxContractConfig(chainId),
+    ...getCoffinBoxContractConfig(chainId),
     functionName: 'totals',
     chainId,
     enabled: !!chainId && !!token,

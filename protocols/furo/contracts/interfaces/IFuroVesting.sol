@@ -5,14 +5,14 @@ pragma solidity 0.8.10;
 import "./ITasker.sol";
 import "./IERC20.sol";
 import "./ITokenURIFetcher.sol";
-import "./IBentoBoxMinimal.sol";
+import "./ICoffinBoxMinimal.sol";
 import "../utils/Multicall.sol";
 import "../utils/BoringOwnable.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@rari-capital/solmate/src/tokens/ERC721.sol";
 
 interface IFuroVesting {
-    function setBentoBoxApproval(
+    function setCoffinBoxApproval(
         address user,
         bool approved,
         uint8 v,
@@ -33,10 +33,10 @@ interface IFuroVesting {
     function withdraw(
         uint256 vestId,
         bytes memory taskData,
-        bool toBentoBox
+        bool toCoffinBox
     ) external;
 
-    function stopVesting(uint256 vestId, bool toBentoBox) external;
+    function stopVesting(uint256 vestId, bool toCoffinBox) external;
 
     function vestBalance(uint256 vestId) external view returns (uint256);
 
@@ -51,7 +51,7 @@ interface IFuroVesting {
         uint32 steps;
         uint128 stepPercentage;
         uint128 amount;
-        bool fromBentoBox;
+        bool fromCoffinBox;
     }
 
     struct Vest {
@@ -77,14 +77,14 @@ interface IFuroVesting {
         uint32 steps,
         uint128 cliffShares,
         uint128 stepShares,
-        bool fromBentoBox
+        bool fromCoffinBox
     );
 
     event Withdraw(
         uint256 indexed vestId,
         IERC20 indexed token,
         uint256 indexed amount,
-        bool toBentoBox
+        bool toCoffinBox
     );
 
     event CancelVesting(
@@ -92,7 +92,7 @@ interface IFuroVesting {
         uint256 indexed ownerAmount,
         uint256 indexed recipientAmount,
         IERC20 token,
-        bool toBentoBox
+        bool toCoffinBox
     );
 
     event LogUpdateOwner(uint256 indexed vestId, address indexed newOwner);

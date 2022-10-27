@@ -5,9 +5,9 @@ import { AddressZero, Zero } from '@ethersproject/constants'
 import { Amount, Currency, Native, Share, Token } from 'soulswap-currency'
 import { Trade, TradeType, Version as TradeVersion } from 'soulswap-amm'
 import { isStargateBridgeToken, STARGATE_BRIDGE_TOKENS, STARGATE_CHAIN_ID, STARGATE_POOL_ID } from 'soulswap-stargate'
-import { SushiXSwap as SushiXSwapContract } from 'soulswap-sushixswap/typechain'
+import { soulxswap as soulxswapContract } from 'soulswap-soulxswap/typechain'
 import { getBigNumber } from 'soulswap-tines'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { ContractTransaction } from 'ethers'
 import { formatBytes32String } from 'ethers/lib/utils'
 
@@ -98,7 +98,7 @@ export abstract class Cooker implements Cooker {
     this.values.push(BigNumber.from(value))
   }
 
-  srcDepositToBentoBox(
+  srcDepositToCoffinBox(
     currency: Currency,
     recipient = this.user,
     amount: BigNumberish = Zero,
@@ -121,7 +121,7 @@ export abstract class Cooker implements Cooker {
     this.add(Action.SRC_DEPOSIT_TO_BENTOBOX, data, value)
   }
 
-  srcTransferFromBentoBox(
+  srcTransferFromCoffinBox(
     token: Currency,
     to: string,
     amount: BigNumberish,
@@ -145,7 +145,7 @@ export abstract class Cooker implements Cooker {
     )
   }
 
-  dstDepositToBentoBox(
+  dstDepositToCoffinBox(
     token: Currency,
     to: string = this.user,
     amount: BigNumberish = Zero,
@@ -168,7 +168,7 @@ export abstract class Cooker implements Cooker {
     )
   }
 
-  dstWithdrawFromBentoBox(
+  dstWithdrawFromCoffinBox(
     token: Currency,
     to: string = this.user,
     amount: BigNumberish = Zero,
@@ -290,7 +290,7 @@ export abstract class Cooker implements Cooker {
                         ['address', 'address', 'bool'],
                         [
                           leg.tokenFrom.address,
-                          getSushiXSwapContractConfig(trade.inputAmount.currency.chainId).addressOrName,
+                          getsoulxswapContractConfig(trade.inputAmount.currency.chainId).addressOrName,
                           false,
                         ]
                       ),
@@ -312,7 +312,7 @@ export abstract class Cooker implements Cooker {
                         ['address', 'address', 'bool'],
                         [
                           leg.tokenFrom.address,
-                          getSushiXSwapContractConfig(trade.inputAmount.currency.chainId).addressOrName,
+                          getsoulxswapContractConfig(trade.inputAmount.currency.chainId).addressOrName,
                           false,
                         ]
                       ),
@@ -393,15 +393,15 @@ export class StargateAdapter implements Adapter {
 // export class AnycallAdapter implements Adapter {}
 // export class SocketAdapter implements Adapter {}
 
-// SushiXSwap
-export class SushiXSwap {
+// soulxswap
+export class soulxswap {
   readonly adapter: Adapter = new StargateAdapter()
 
   readonly srcCooker: SrcCooker
 
   readonly dstCooker: DstCooker
 
-  readonly contract: SushiXSwapContract
+  readonly contract: soulxswapContract
 
   readonly crossChain: boolean
 
@@ -419,8 +419,8 @@ export class SushiXSwap {
     | Trade<Currency, Currency, TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT, TradeVersion.V1 | TradeVersion.V2>
     | undefined
 
-  readonly srcUseBentoBox: boolean
-  readonly dstUseBentoBox: boolean
+  readonly srcUseCoffinBox: boolean
+  readonly dstUseCoffinBox: boolean
 
   readonly user: string
   readonly debug: boolean
@@ -430,8 +430,8 @@ export class SushiXSwap {
     dstToken,
     srcTrade,
     dstTrade,
-    srcUseBentoBox = false,
-    dstUseBentoBox = false,
+    srcUseCoffinBox = false,
+    dstUseCoffinBox = false,
     user,
     contract,
     debug = false,
@@ -444,17 +444,17 @@ export class SushiXSwap {
     dstTrade:
       | Trade<Currency, Currency, TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT, TradeVersion.V1 | TradeVersion.V2>
       | undefined
-    srcUseBentoBox: boolean
-    dstUseBentoBox: boolean
+    srcUseCoffinBox: boolean
+    dstUseCoffinBox: boolean
     user: string
-    contract: SushiXSwapContract
+    contract: soulxswapContract
     debug?: boolean
   }) {
     this.srcToken = srcToken
     this.dstToken = dstToken
 
-    this.srcUseBentoBox = srcUseBentoBox
-    this.dstUseBentoBox = dstUseBentoBox
+    this.srcUseCoffinBox = srcUseCoffinBox
+    this.dstUseCoffinBox = dstUseCoffinBox
 
     this.srcChainId = this.srcToken.chainId
     this.dstChainId = this.dstToken.chainId
@@ -472,43 +472,43 @@ export class SushiXSwap {
     this.srcCooker = new SrcCooker({
       chainId: this.srcChainId,
       debug,
-      masterContract: getSushiXSwapContractConfig(this.srcToken.chainId).addressOrName,
+      masterContract: getsoulxswapContractConfig(this.srcToken.chainId).addressOrName,
       user,
     })
 
     this.dstCooker = new DstCooker({
       chainId: this.dstChainId,
       debug,
-      masterContract: getSushiXSwapContractConfig(this.dstToken.chainId).addressOrName,
+      masterContract: getsoulxswapContractConfig(this.dstToken.chainId).addressOrName,
       user,
     })
   }
 
   // Transfers Scenarios
-  // T1: BentoBox - Stargate - BentoBox
+  // T1: CoffinBox - Stargate - CoffinBox
   // T2: Wallet - Stargate - Wallet
-  // T3: Wallet - Stargate - BentoBox
-  // T4: BentoBox - Stargate - Wallet
+  // T3: Wallet - Stargate - CoffinBox
+  // T4: CoffinBox - Stargate - Wallet
   transfer(amountIn: Amount<Currency>, shareIn: Share<Currency>): void {
     // T1-T4
-    if (!this.srcUseBentoBox) {
-      this.srcCooker.srcDepositToBentoBox(this.srcToken, this.user, 0, shareIn.quotient.toString())
+    if (!this.srcUseCoffinBox) {
+      this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, 0, shareIn.quotient.toString())
     }
-    this.srcCooker.srcTransferFromBentoBox(
+    this.srcCooker.srcTransferFromCoffinBox(
       this.srcToken,
       this.srcCooker.masterContract,
       0,
       shareIn.quotient.toString(),
       true
     )
-    this.dstCooker[this.dstUseBentoBox ? 'dstDepositToBentoBox' : 'dstWithdraw'](this.dstToken)
+    this.dstCooker[this.dstUseCoffinBox ? 'dstDepositToCoffinBox' : 'dstWithdraw'](this.dstToken)
   }
 
   // Regular Swap Scenarios
-  // S1: BentoBox - Swap - BentoBox
+  // S1: CoffinBox - Swap - CoffinBox
   // S2: Wallet - Swap - Wallet
-  // S3: Wallet - Swap - BentoBox
-  // S4: BentoBox - Swap - Wallet
+  // S3: Wallet - Swap - CoffinBox
+  // S4: CoffinBox - Swap - Wallet
   swap(
     amountIn: Amount<Currency>,
     shareIn: Share<Currency>,
@@ -517,10 +517,10 @@ export class SushiXSwap {
   ): void {
     // S1-S4
     if (this.srcTrade && this.srcTrade.isV1()) {
-      if (!this.srcUseBentoBox) {
-        this.srcCooker.srcDepositToBentoBox(this.srcToken, this.user, amountIn.quotient.toString(), 0)
+      if (!this.srcUseCoffinBox) {
+        this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, amountIn.quotient.toString(), 0)
       }
-      this.srcCooker.srcTransferFromBentoBox(
+      this.srcCooker.srcTransferFromCoffinBox(
         this.srcToken,
         this.srcCooker.masterContract,
         0,
@@ -531,21 +531,21 @@ export class SushiXSwap {
         this.srcTrade,
         0,
         minimumAmountOut.quotient.toString(),
-        this.dstToken.isNative || this.dstUseBentoBox ? this.srcCooker.masterContract : this.user
+        this.dstToken.isNative || this.dstUseCoffinBox ? this.srcCooker.masterContract : this.user
       )
-      if (this.dstUseBentoBox) {
-        this.srcCooker.dstDepositToBentoBox(this.dstToken.wrapped)
+      if (this.dstUseCoffinBox) {
+        this.srcCooker.dstDepositToCoffinBox(this.dstToken.wrapped)
       }
     } else if (this.srcTrade && this.srcTrade.isV2() && this.srcTrade.isSingle()) {
-      if (!this.srcUseBentoBox) {
-        this.srcCooker.srcDepositToBentoBox(
+      if (!this.srcUseCoffinBox) {
+        this.srcCooker.srcDepositToCoffinBox(
           this.srcToken,
           this.srcTrade.route.legs[0].poolAddress,
           amountIn.quotient.toString(),
           0
         )
       } else {
-        this.srcCooker.srcTransferFromBentoBox(
+        this.srcCooker.srcTransferFromCoffinBox(
           this.srcToken,
           this.srcTrade.route.legs[0].poolAddress,
           0,
@@ -555,21 +555,21 @@ export class SushiXSwap {
       }
       this.srcCooker.tridentExactInput(
         this.srcTrade,
-        this.dstToken.isNative && !this.dstUseBentoBox ? this.srcCooker.masterContract : this.user,
+        this.dstToken.isNative && !this.dstUseCoffinBox ? this.srcCooker.masterContract : this.user,
         shareIn.quotient.toString(),
         minimumShareOut.quotient.toString(),
-        (this.dstToken.isNative && !this.dstUseBentoBox) || !this.dstUseBentoBox
+        (this.dstToken.isNative && !this.dstUseCoffinBox) || !this.dstUseCoffinBox
       )
     } else if (this.srcTrade && this.srcTrade.isV2() && this.srcTrade.isComplex()) {
-      if (!this.srcUseBentoBox) {
-        this.srcCooker.srcDepositToBentoBox(
+      if (!this.srcUseCoffinBox) {
+        this.srcCooker.srcDepositToCoffinBox(
           this.srcToken,
           this.srcCooker.masterContract,
           amountIn.quotient.toString(),
           0
         )
       } else {
-        this.srcCooker.srcTransferFromBentoBox(
+        this.srcCooker.srcTransferFromCoffinBox(
           this.srcToken,
           this.srcCooker.masterContract,
           0,
@@ -579,21 +579,21 @@ export class SushiXSwap {
       }
       this.srcCooker.tridentComplex(
         this.srcTrade,
-        this.dstToken.isNative && !this.dstUseBentoBox ? this.srcCooker.masterContract : this.user,
+        this.dstToken.isNative && !this.dstUseCoffinBox ? this.srcCooker.masterContract : this.user,
         minimumShareOut.quotient.toString(),
-        (this.dstToken.isNative && !this.dstUseBentoBox) || !this.dstUseBentoBox
+        (this.dstToken.isNative && !this.dstUseCoffinBox) || !this.dstUseCoffinBox
       )
     }
-    if (this.dstToken.isNative && !this.dstUseBentoBox) {
+    if (this.dstToken.isNative && !this.dstUseCoffinBox) {
       this.srcCooker.unwrapAndTransfer(this.dstToken)
     }
   }
 
   // Cross Chain Swap Scenarios
-  // X1: BentoBox - Swap - Stargate - Swap - BentoBox
+  // X1: CoffinBox - Swap - Stargate - Swap - CoffinBox
   // X2: Wallet - Swap - Stargate - Swap - Wallet
-  // X3: Wallet - Swap - Stargate - Swap - BentoBox
-  // X4: BentoBox - Swap - Stargate - Swap - Wallet
+  // X3: Wallet - Swap - Stargate - Swap - CoffinBox
+  // X4: CoffinBox - Swap - Stargate - Swap - Wallet
   crossChainSwap({
     srcAmount,
     srcShare,
@@ -613,11 +613,11 @@ export class SushiXSwap {
     // Src operations...
     if (isStargateBridgeToken(this.srcToken)) {
       // If cross chain & src token is stargate bridge token, there's no need for a src trade
-      // so deposit to bentobox (if neccasasry) and transfer shares to SushiXSwap Router
-      if (!this.srcUseBentoBox) {
-        this.srcCooker.srcDepositToBentoBox(this.srcToken, this.user, 0, srcShare.quotient.toString())
+      // so deposit to bentobox (if neccasasry) and transfer shares to soulxswap Router
+      if (!this.srcUseCoffinBox) {
+        this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, 0, srcShare.quotient.toString())
       }
-      this.srcCooker.srcTransferFromBentoBox(
+      this.srcCooker.srcTransferFromCoffinBox(
         this.srcToken,
         this.srcCooker.masterContract,
         0,
@@ -625,10 +625,10 @@ export class SushiXSwap {
         true
       )
     } else if (this.srcTrade && this.srcTrade.isV1() && this.srcTrade.route.legs.length && srcMinimumAmountOut) {
-      if (!this.srcUseBentoBox) {
-        this.srcCooker.srcDepositToBentoBox(this.srcToken, this.user, srcAmount.quotient.toString(), 0)
+      if (!this.srcUseCoffinBox) {
+        this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, srcAmount.quotient.toString(), 0)
       }
-      this.srcCooker.srcTransferFromBentoBox(
+      this.srcCooker.srcTransferFromCoffinBox(
         this.srcToken,
         this.srcCooker.masterContract,
         0,
@@ -650,15 +650,15 @@ export class SushiXSwap {
     ) {
       if (this.srcTrade.isSingle()) {
         console.debug('cook trident exact input')
-        if (!this.srcUseBentoBox) {
-          this.srcCooker.srcDepositToBentoBox(
+        if (!this.srcUseCoffinBox) {
+          this.srcCooker.srcDepositToCoffinBox(
             this.srcToken,
             this.srcTrade.route.legs[0].poolAddress,
             srcAmount.quotient.toString(),
             0
           )
         } else {
-          this.srcCooker.srcTransferFromBentoBox(
+          this.srcCooker.srcTransferFromCoffinBox(
             this.srcToken,
             this.srcTrade.route.legs[0].poolAddress,
             0,
@@ -675,15 +675,15 @@ export class SushiXSwap {
         )
       } else if (this.srcTrade.isComplex()) {
         console.debug('cook trident complex')
-        if (!this.srcUseBentoBox) {
-          this.srcCooker.srcDepositToBentoBox(
+        if (!this.srcUseCoffinBox) {
+          this.srcCooker.srcDepositToCoffinBox(
             this.srcToken,
             this.srcCooker.masterContract,
             srcAmount.quotient.toString(),
             0
           )
         } else {
-          this.srcCooker.srcTransferFromBentoBox(
+          this.srcCooker.srcTransferFromCoffinBox(
             this.srcToken,
             this.srcCooker.masterContract,
             0,
@@ -704,21 +704,21 @@ export class SushiXSwap {
     if (isStargateBridgeToken(this.dstToken)) {
       // If cross chain & dst token is stargate bridge token, there's no need for a dst trade
       // so either deposit to the users bentboxbox or withdraw to users wallet
-      this.dstCooker[this.dstUseBentoBox ? 'dstDepositToBentoBox' : 'dstWithdraw'](this.dstToken)
+      this.dstCooker[this.dstUseCoffinBox ? 'dstDepositToCoffinBox' : 'dstWithdraw'](this.dstToken)
     } else if (this.dstTrade && this.dstTrade.isV1() && this.dstTrade.route.legs.length) {
       console.debug('cook teleport legacy exact in')
       this.dstCooker.legacyExactInput(
         this.dstTrade,
         0,
         dstMinimumAmountOut.quotient.toString(),
-        this.dstToken.isNative || this.dstUseBentoBox ? this.dstCooker.masterContract : this.user
+        this.dstToken.isNative || this.dstUseCoffinBox ? this.dstCooker.masterContract : this.user
       )
 
-      if (this.dstUseBentoBox) {
-        this.dstCooker.dstDepositToBentoBox(this.dstToken.wrapped)
+      if (this.dstUseCoffinBox) {
+        this.dstCooker.dstDepositToCoffinBox(this.dstToken.wrapped)
       }
 
-      if (this.dstToken.isNative && !this.dstUseBentoBox) {
+      if (this.dstToken.isNative && !this.dstUseCoffinBox) {
         this.dstCooker.unwrapAndTransfer(this.dstToken)
       }
     } else if (this.dstTrade && this.dstTrade.isV2() && this.dstTrade.route.legs.length) {
@@ -726,35 +726,35 @@ export class SushiXSwap {
         console.debug('dst cook teleport trident exact input')
         this.dstCooker.tridentExactInput(
           this.dstTrade,
-          this.dstToken.isNative && !this.dstUseBentoBox ? this.dstCooker.masterContract : this.user,
+          this.dstToken.isNative && !this.dstUseCoffinBox ? this.dstCooker.masterContract : this.user,
           0,
           dstMinimumShareOut.quotient.toString(),
-          (this.dstToken.isNative && !this.dstUseBentoBox) || !this.dstUseBentoBox
+          (this.dstToken.isNative && !this.dstUseCoffinBox) || !this.dstUseCoffinBox
         )
-        if (this.dstToken.isNative && !this.dstUseBentoBox) {
+        if (this.dstToken.isNative && !this.dstUseCoffinBox) {
           this.dstCooker.unwrapAndTransfer(this.dstToken)
         }
       } else if (this.dstTrade.isComplex()) {
         console.debug('dst cook teleport trident complex')
-        this.dstCooker.dstDepositToBentoBox(this.dstTrade.inputAmount.currency, this.dstCooker.masterContract)
+        this.dstCooker.dstDepositToCoffinBox(this.dstTrade.inputAmount.currency, this.dstCooker.masterContract)
         this.dstCooker.tridentComplex(
           this.dstTrade,
-          this.dstToken.isNative && !this.dstUseBentoBox ? this.dstCooker.masterContract : this.user,
+          this.dstToken.isNative && !this.dstUseCoffinBox ? this.dstCooker.masterContract : this.user,
           dstMinimumShareOut.quotient.toString(),
-          (this.dstToken.isNative && !this.dstUseBentoBox) || !this.dstUseBentoBox
+          (this.dstToken.isNative && !this.dstUseCoffinBox) || !this.dstUseCoffinBox
         )
 
-        if (this.dstToken.isNative && !this.dstUseBentoBox) {
+        if (this.dstToken.isNative && !this.dstUseCoffinBox) {
           this.dstCooker.unwrapAndTransfer(this.dstToken)
         }
 
         // If any excess input tokens remain, withdraw from bentobox
-        this.dstCooker.dstWithdrawFromBentoBox(
+        this.dstCooker.dstWithdrawFromCoffinBox(
           this.dstTrade.inputAmount.currency,
           this.user,
           0,
           0,
-          !this.dstUseBentoBox
+          !this.dstUseCoffinBox
         )
       }
     }
@@ -775,7 +775,7 @@ export class SushiXSwap {
     // uint256 amount; // amount to bridge
     // uint256 amountMin; // amount to bridge minimum
     // uint256 dustAmount; // native token to be received on dst chain
-    // address receiver; // sushiXswap on dst chain
+    // address receiver; // soulxswap on dst chain
     // address to; // receiver bridge token incase of transaction reverts on dst chain
     // uint256 gas; // extra gas to be sent for dst chain operations
     // bytes32 srcContext; // random bytes32 as source context
@@ -887,7 +887,7 @@ export class SushiXSwap {
         value,
       })
     } catch (error) {
-      console.error('SushiXSwap Fee Error', error)
+      console.error('soulxswap Fee Error', error)
     }
   }
 }

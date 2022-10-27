@@ -7,7 +7,7 @@ const crossChainRebases: QueryResolvers['crossChainRebases'] = async (root, args
     args.chainIds
       .filter((chainId): chainId is keyof typeof BENTOBOX_SUBGRAPH_NAME => chainId in BENTOBOX_SUBGRAPH_NAME)
       .map((chainId) =>
-        context.BentoBox.Query.rebases({
+        context.CoffinBox.Query.rebases({
           root,
           args,
           context: {

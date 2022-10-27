@@ -3,7 +3,7 @@ pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringRebase.sol";
-import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
 import "./KashiPair.sol";
 
 /// @dev This contract provides useful helper functions for `KashiPair`.

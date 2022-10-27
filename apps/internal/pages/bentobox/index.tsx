@@ -85,7 +85,7 @@ const bentoBoxKpiReducer = (previousValue, currentValue, i, array) => {
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
   const sdk = getBuiltGraphSDK()
-  const { crossChainBentoBoxKpis: data } = await sdk.CrossChainBentoBoxKpis({
+  const { crossChainCoffinBoxKpis: data } = await sdk.CrossChainCoffinBoxKpis({
     chainIds: [
       ChainId.ETHEREUM,
       ChainId.POLYGON,
@@ -109,7 +109,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   }
 }
 
-export default function BentoBoxPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function CoffinBoxPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const kpis: { name: string; value: string }[] = data.reduce(
     bentoBoxKpiReducer,
     Array(13).fill({
@@ -120,7 +120,7 @@ export default function BentoBoxPage({ data }: InferGetServerSidePropsType<typeo
     <div className="h-full bg-slate-100">
       <div className="max-w-full px-4 py-12 mx-auto sm:px-6 lg:px-8">
         <div>
-          <h3 className="text-lg font-medium leading-6 text-gray-900">Cross Chain BentoBox Kpis</h3>
+          <h3 className="text-lg font-medium leading-6 text-gray-900">Cross Chain CoffinBox Kpis</h3>
           <Kpis kpis={kpis} />
         </div>
       </div>

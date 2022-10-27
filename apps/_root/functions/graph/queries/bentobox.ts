@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request'
 
 export const bentoBoxQuery = gql`
-  query bentoBoxQuery($block: Block_height, $where: BentoBox_filter) {
+  query bentoBoxQuery($block: Block_height, $where: CoffinBox_filter) {
     bentoBoxes(first: 1, block: $block, where: $where) {
       id
       protocolCount

@@ -94,10 +94,10 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
               )}
             >
               <Typography weight={500} variant="sm" className="!leading-5 tracking-widest text-slate-200">
-                BentoBox
+                CoffinBox
               </Typography>
               <Typography variant="xs" className="text-slate-400">
-                Receive funds in your BentoBox
+                Receive funds in your CoffinBox
               </Typography>
               {fundSource === FundSource.BENTOBOX && (
                 <div className="absolute w-5 h-5 top-3 right-3">
@@ -113,7 +113,7 @@ export const CancelModal: FC<CancelModalProps> = ({ stream, abi, address: contra
             </span>{' '}
             to your{' '}
             <span className="font-medium text-slate-200">
-              {fundSource === FundSource.BENTOBOX ? 'BentoBox' : 'Wallet'}
+              {fundSource === FundSource.BENTOBOX ? 'CoffinBox' : 'Wallet'}
             </span>
           </Typography>
           <Dialog.Actions>

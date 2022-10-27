@@ -1,9 +1,9 @@
 import { Amount, Token } from 'soulswap-currency'
 import { JSBI } from 'soulswap-math'
 import {
-  getBentoBoxContractConfig,
+  getCoffinBoxContractConfig,
   getFuroStreamContractConfig,
-  useBentoBoxContract,
+  useCoffinBoxContract,
   useFuroStreamContract,
 } from 'soulswap-wagmi'
 import { ListenerOptions } from '@uniswap/redux-multicall/dist/types'
@@ -31,7 +31,7 @@ export function useStreamBalance(chainId?: number, streamId?: string, token?: To
     error: rebaseError,
     isLoading: rebaseLoading,
   } = useContractRead({
-    ...getBentoBoxContractConfig(chainId),
+    ...getCoffinBoxContractConfig(chainId),
     functionName: 'totals',
     chainId,
     enabled: !!chainId && !!token?.address,
@@ -62,7 +62,7 @@ export type UseStreamBalances = (
 
 export const useStreamBalances: UseStreamBalances = (chainId, streamIds, tokens, options) => {
   const furo = useFuroStreamContract(chainId)
-  const bento = useBentoBoxContract(chainId)
+  const bento = useCoffinBoxContract(chainId)
 
   const { data: latestBlockNumber } = useBlockNumber({ chainId })
 

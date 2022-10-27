@@ -11,7 +11,7 @@ const deployFunction: DeployFunction = async function ({
   const chainId = parseInt(await getChainId())
   const { deployer } = await getNamedAccounts()
 
-  const bentoBox = await ethers.getContractOrNull('BentoBoxV1')
+  const bentoBox = await ethers.getContractOrNull('CoffinBoxV1')
 
   if (!bentoBox) {
     throw Error(`No bentoBox for chain #${chainId}!`)
@@ -27,6 +27,6 @@ const deployFunction: DeployFunction = async function ({
 
 export default deployFunction
 
-deployFunction.dependencies = ['BentoBoxV1']
+deployFunction.dependencies = ['CoffinBoxV1']
 
 deployFunction.tags = ['KashiPairMediumRiskV1']

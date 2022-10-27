@@ -1,5 +1,5 @@
 import { Amount, Native } from 'soulswap-currency'
-import { useBentoBoxTotal, useSushiXSwapContractWithProvider } from 'soulswap-wagmi'
+import { useCoffinBoxTotal, usesoulxswapContractWithProvider } from 'soulswap-wagmi'
 import { useSendTransaction } from 'soulswap-wagmi/hooks/useSendTransaction'
 import { FC, useCallback } from 'react'
 import { useAccount } from 'wagmi'
@@ -19,8 +19,8 @@ export const BridgeExecuteProvider: FC<BridgeExecuteProvider> = ({ approved, chi
   const [, { createInlineNotification }] = useNotifications(address)
   const { setSourceTx, setSignature, setTimestamp, setGasFee } = useBridgeStateActions()
   const { id, signature, srcChainId, amount, srcToken, dstToken } = useBridgeState()
-  const contract = useSushiXSwapContractWithProvider(srcChainId)
-  const srcInputCurrencyRebase = useBentoBoxTotal(srcChainId, srcToken)
+  const contract = usesoulxswapContractWithProvider(srcChainId)
+  const srcInputCurrencyRebase = useCoffinBoxTotal(srcChainId, srcToken)
 
   const onSettled = useCallback(
     async (data: SendTransactionResult | undefined) => {
@@ -58,8 +58,8 @@ export const BridgeExecuteProvider: FC<BridgeExecuteProvider> = ({ approved, chi
       contract,
       srcToken,
       dstToken,
-      srcUseBentoBox: false,
-      dstUseBentoBox: false,
+      srcUseCoffinBox: false,
+      dstUseCoffinBox: false,
       user: address,
       debug: true,
     })

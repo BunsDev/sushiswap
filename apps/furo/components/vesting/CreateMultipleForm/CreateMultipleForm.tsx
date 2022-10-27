@@ -26,7 +26,7 @@ import {
   Tooltip,
   Typography,
 } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, useBentoBoxTotals, useFuroVestingRouterContract, usePrices } from 'soulswap-wagmi'
+import { Approve, BENTOBOX_ADDRESS, useCoffinBoxTotals, useFuroVestingRouterContract, usePrices } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import { useNotifications } from 'lib/state/storage'
 import Link from 'next/link'
@@ -34,7 +34,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useAccount, useDeprecatedSendTransaction, useNetwork } from 'wagmi'
 
-import { approveBentoBoxAction, batchAction, vestingCreationAction } from '../../../lib'
+import { approveCoffinBoxAction, batchAction, vestingCreationAction } from '../../../lib'
 import {
   CreateMultipleVestingFormData,
   CreateMultipleVestingFormDataTransformed,
@@ -93,7 +93,7 @@ export const CreateMultipleForm = () => {
   // @ts-ignore
   const vestings = watch('vestings')
 
-  const rebases = useBentoBoxTotals(
+  const rebases = useCoffinBoxTotals(
     activeChain?.id,
     vestings.map(({ currency }) => {
       if (!currency) return undefined
@@ -124,7 +124,7 @@ export const CreateMultipleForm = () => {
       const actions = []
 
       if (signature) {
-        actions.push(approveBentoBoxAction({ contract, user: address, signature }))
+        actions.push(approveCoffinBoxAction({ contract, user: address, signature }))
       }
 
       data.vestings

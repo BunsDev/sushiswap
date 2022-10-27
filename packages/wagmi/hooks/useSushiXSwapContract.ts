@@ -1,28 +1,28 @@
-import sushiXSwapExports from 'soulswap-sushixswap/exports.json'
-import { SushiXSwap } from 'soulswap-sushixswap/typechain'
+import soulxswapExports from 'soulswap-soulxswap/exports.json'
+import { soulxswap } from 'soulswap-soulxswap/typechain'
 import { useContract, useProvider, useSigner } from 'wagmi'
 
-export const getSushiXSwapContractConfig = (chainId: number | undefined) => ({
+export const getsoulxswapContractConfig = (chainId: number | undefined) => ({
   addressOrName:
-    sushiXSwapExports[chainId?.toString() as keyof Omit<typeof sushiXSwapExports, '31337'>]?.[0]?.contracts?.SushiXSwap
+    soulxswapExports[chainId?.toString() as keyof Omit<typeof soulxswapExports, '31337'>]?.[0]?.contracts?.soulxswap
       ?.address ?? '',
   contractInterface:
-    sushiXSwapExports[chainId?.toString() as keyof Omit<typeof sushiXSwapExports, '31337'>]?.[0]?.contracts?.SushiXSwap
+    soulxswapExports[chainId?.toString() as keyof Omit<typeof soulxswapExports, '31337'>]?.[0]?.contracts?.soulxswap
       ?.abi ?? [],
 })
 
-export function useSushiXSwapContract(chainId: number | undefined) {
+export function usesoulxswapContract(chainId: number | undefined) {
   const { data: signerOrProvider } = useSigner()
-  return useContract<SushiXSwap>({
-    ...getSushiXSwapContractConfig(chainId),
+  return useContract<soulxswap>({
+    ...getsoulxswapContractConfig(chainId),
     signerOrProvider,
   })
 }
 
-export function useSushiXSwapContractWithProvider(chainId: number | undefined) {
+export function usesoulxswapContractWithProvider(chainId: number | undefined) {
   const provider = useProvider({ chainId })
-  return useContract<SushiXSwap>({
-    ...getSushiXSwapContractConfig(chainId),
+  return useContract<soulxswap>({
+    ...getsoulxswapContractConfig(chainId),
     signerOrProvider: provider,
   })
 }

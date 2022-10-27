@@ -3,12 +3,12 @@
 pragma solidity 0.6.12;
 
 import "@boringcrypto/boring-solidity/contracts/interfaces/IMasterContract.sol";
-import "../BentoBox.sol";
+import "../CoffinBox.sol";
 
 contract MasterContractMock is IMasterContract {
-    BentoBox public immutable bentoBox;
+    CoffinBox public immutable bentoBox;
 
-    constructor(BentoBox _bentoBox) public {
+    constructor(CoffinBox _bentoBox) public {
         bentoBox = _bentoBox;
     }
 

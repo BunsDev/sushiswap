@@ -2,7 +2,7 @@
 pragma solidity 0.6.12;
 import "soulswap-bentobox-sdk/contracts/IStrategy.sol";
 import "soulswap-bentobox-sdk/contracts/IFlashBorrower.sol";
-import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Factory.sol";
 import "soulswap-core/contracts/uniswapv2/interfaces/IUniswapV2Pair.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringMath.sol";
@@ -20,18 +20,18 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     IERC20 private immutable assetToken;
     IERC20 private immutable collateralToken;
     KashiPair private immutable kashiPair;
-    IBentoBoxV1 private immutable bentoBox;
+    ICoffinBoxV1 private immutable bentoBox;
     ISwapper private immutable swapper;
     address private immutable target;
     IUniswapV2Factory public factory;
 
-    modifier onlyBentoBox() {
+    modifier onlyCoffinBox() {
         require(msg.sender == address(bentoBox), "only bentoBox");
         _;
     }
 
     constructor(
-        IBentoBoxV1 bentoBox_,
+        ICoffinBoxV1 bentoBox_,
         KashiPair _kashiPair,
         IERC20 asset,
         IERC20 collateral,
@@ -48,13 +48,13 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     }
 
     // Send the assets to the Strategy and call skim to invest them
-    function skim(uint256) external override onlyBentoBox {
+    function skim(uint256) external override onlyCoffinBox {
         // Leave the tokens on the contract
         return;
     }
 
     // Harvest any profits made converted to the asset and pass them to the caller
-    function harvest(uint256 balance, address) external override onlyBentoBox returns (int256 amountAdded) {
+    function harvest(uint256 balance, address) external override onlyCoffinBox returns (int256 amountAdded) {
         // flashloan everything we can
         uint256 flashAmount = assetToken.balanceOf(address(bentoBox));
         bentoBox.flashLoan(IFlashBorrower(this), address(this), assetToken, flashAmount, new bytes(0));
@@ -65,13 +65,13 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
     }
 
     // Withdraw assets. The returned amount can differ from the requested amount due to rounding or if the request was more than there is.
-    function withdraw(uint256 amount) external override onlyBentoBox returns (uint256 actualAmount) {
+    function withdraw(uint256 amount) external override onlyCoffinBox returns (uint256 actualAmount) {
         assetToken.safeTransfer(address(bentoBox), uint256(amount));
         actualAmount = amount;
     }
 
     // Withdraw all assets in the safest way possible. This shouldn't fail.
-    function exit(uint256 balance) external override onlyBentoBox returns (int256 amountAdded) {
+    function exit(uint256 balance) external override onlyCoffinBox returns (int256 amountAdded) {
         amountAdded = 0;
         assetToken.safeTransfer(address(bentoBox), balance);
     }
@@ -95,7 +95,7 @@ contract FlashloanStrategyMock is IStrategy, IFlashBorrower, KashiPairHelper {
         uint256 amount,
         uint256 fee,
         bytes calldata /*data*/
-    ) external override onlyBentoBox {
+    ) external override onlyCoffinBox {
         require(token == assetToken);
 
         // approve kashiPair

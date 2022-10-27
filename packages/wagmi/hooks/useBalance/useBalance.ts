@@ -7,7 +7,7 @@ import { JSBI, ZERO } from 'soulswap-math'
 import { useMemo } from 'react'
 import { erc20ABI, useBalance as useWagmiBalance, useContractReads } from 'wagmi'
 
-import { getBentoBoxContractConfig } from '../useBentoBoxContract'
+import { getCoffinBoxContractConfig } from '../useCoffinBoxContract'
 import { BalanceMap } from './types'
 
 type UseBalancesParams = {
@@ -76,14 +76,14 @@ export const useBalances: UseBalances = ({
     if (loadBentobox) {
       const totals = validatedTokenAddresses.map((token) => ({
         chainId,
-        ...getBentoBoxContractConfig(chainId),
+        ...getCoffinBoxContractConfig(chainId),
         functionName: 'totals',
         args: token,
       }))
 
       const balanceInputs = validatedTokenAddresses.map((token, i) => ({
         chainId,
-        ...getBentoBoxContractConfig(chainId),
+        ...getCoffinBoxContractConfig(chainId),
         functionName: 'balanceOf',
         args: [validatedTokenAddresses[i][0], account],
       }))

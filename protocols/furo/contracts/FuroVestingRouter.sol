@@ -5,7 +5,7 @@ pragma solidity 0.8.10;
 import './interfaces/IFuroVesting.sol';
 
 contract FuroVestingRouter is Multicall {
-  IBentoBoxMinimal public immutable bentoBox;
+  ICoffinBoxMinimal public immutable bentoBox;
   IFuroVesting public immutable furoVesting;
   address public immutable wETH;
 
@@ -13,7 +13,7 @@ contract FuroVestingRouter is Multicall {
   error InsufficientShares();
 
   constructor(
-    IBentoBoxMinimal _bentoBox,
+    ICoffinBoxMinimal _bentoBox,
     IFuroVesting _furoVesting,
     address _wETH
   ) {
@@ -24,7 +24,7 @@ contract FuroVestingRouter is Multicall {
     _bentoBox.registerProtocol();
   }
 
-  function setBentoBoxApproval(
+  function setCoffinBoxApproval(
     address user,
     bool approved,
     uint8 v,
@@ -49,7 +49,7 @@ contract FuroVestingRouter is Multicall {
       msg.sender,
       address(this),
       vestParams.amount,
-      vestParams.fromBentoBox
+      vestParams.fromCoffinBox
     );
 
     if (depositedShares < minShare) revert InsufficientShares();
@@ -57,7 +57,7 @@ contract FuroVestingRouter is Multicall {
     if (address(vestParams.token) == address(0)) {
       vestParams.token = IERC20(wETH);
     }
-    vestParams.fromBentoBox = true;
+    vestParams.fromCoffinBox = true;
 
     (depositedShares, vestId, stepShares, cliffShares) = furoVesting.createVesting(vestParams);
 
@@ -69,9 +69,9 @@ contract FuroVestingRouter is Multicall {
     address from,
     address to,
     uint256 amount,
-    bool fromBentoBox
+    bool fromCoffinBox
   ) internal returns (uint256 depositedShares) {
-    if (fromBentoBox) {
+    if (fromCoffinBox) {
       depositedShares = bentoBox.toShare(token, amount, false);
       bentoBox.transfer(token, from, to, depositedShares);
     } else {

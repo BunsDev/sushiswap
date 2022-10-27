@@ -15,7 +15,7 @@ query userVestings($block: Block_height, $id: String!) {
     initialShares
     remainingShares
     withdrawnAmount
-    fromBentoBox
+    fromCoffinBox
     token {
       id
       name
@@ -45,7 +45,7 @@ query userVestings($block: Block_height, $id: String!) {
     initialShares
     remainingShares
     withdrawnAmount
-    fromBentoBox
+    fromCoffinBox
     token {
       id
       name
@@ -78,7 +78,7 @@ query vesting($block: Block_height, $id: ID!) {
     initialAmount
     remainingShares
     withdrawnAmount
-    fromBentoBox
+    fromCoffinBox
     txHash
     token {
       id
@@ -115,7 +115,7 @@ query vestingTransactions(
     id
     type
     amount
-    toBentoBox
+    toCoffinBox
     createdAtBlock
     createdAtTimestamp
     txHash
@@ -241,7 +241,7 @@ query streamTransactions(
     id
     type
     amount
-    toBentoBox
+    toCoffinBox
     createdAtBlock
     createdAtTimestamp
     txHash

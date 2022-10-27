@@ -16,5 +16,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "eslint.packageManager": "pnpm"
+  "eslint.packageManager": "pnpm",
+  "solidity.compileUsingRemoteVersion": "v0.8.17+commit.8df45f5f",
+  "solidity.defaultCompiler": "remote"
 }

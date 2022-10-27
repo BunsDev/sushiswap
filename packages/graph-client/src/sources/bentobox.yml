@@ -1,4 +1,4 @@
-name: BentoBox
+name: CoffinBox
 handler:
   graphql:
     endpoint: https://{context.subgraphHost:api.thegraph.com/subgraphs/name}/{context.subgraphName:matthewlilley/bentobox-ethereum}

@@ -5,8 +5,8 @@ import { AddressZero, Zero } from '@ethersproject/constants'
 import { TransactionRequest } from '@ethersproject/providers'
 import { Amount, Currency, Native, Share, Token } from 'soulswap-currency'
 import { STARGATE_BRIDGE_TOKENS, STARGATE_CHAIN_ID, STARGATE_POOL_ID } from 'soulswap-stargate'
-import { SushiXSwap as SushiXSwapContract } from 'soulswap-sushixswap/typechain'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { soulxswap as soulxswapContract } from 'soulswap-soulxswap/typechain'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { formatBytes32String } from 'ethers/lib/utils'
 
 export enum Action {
@@ -67,7 +67,7 @@ export abstract class Cooker implements Cooker {
     this.values.push(BigNumber.from(value))
   }
 
-  srcDepositToBentoBox(
+  srcDepositToCoffinBox(
     currency: Currency,
     recipient = this.user,
     amount: BigNumberish = Zero,
@@ -90,7 +90,7 @@ export abstract class Cooker implements Cooker {
     this.add(Action.SRC_DEPOSIT_TO_BENTOBOX, data, value)
   }
 
-  srcTransferFromBentoBox(
+  srcTransferFromCoffinBox(
     token: Currency,
     to: string,
     amount: BigNumberish,
@@ -114,7 +114,7 @@ export abstract class Cooker implements Cooker {
     )
   }
 
-  dstDepositToBentoBox(
+  dstDepositToCoffinBox(
     token: Currency,
     to: string = this.user,
     amount: BigNumberish = Zero,
@@ -137,7 +137,7 @@ export abstract class Cooker implements Cooker {
     )
   }
 
-  dstWithdrawFromBentoBox(
+  dstWithdrawFromCoffinBox(
     token: Currency,
     to: string = this.user,
     amount: BigNumberish = Zero,
@@ -184,7 +184,7 @@ export class StargateAdapter implements Adapter {
 // export class AnycallAdapter implements Adapter {}
 // export class SocketAdapter implements Adapter {}
 
-// SushiXSwap
+// soulxswap
 export class SushiBridge {
   readonly adapter: Adapter = new StargateAdapter()
 
@@ -192,7 +192,7 @@ export class SushiBridge {
 
   readonly dstCooker: DstCooker
 
-  readonly contract: SushiXSwapContract
+  readonly contract: soulxswapContract
 
   readonly crossChain: boolean
 
@@ -202,8 +202,8 @@ export class SushiBridge {
   readonly srcToken: Currency
   readonly dstToken: Currency
 
-  readonly srcUseBentoBox: boolean
-  readonly dstUseBentoBox: boolean
+  readonly srcUseCoffinBox: boolean
+  readonly dstUseCoffinBox: boolean
 
   readonly user: string
   readonly debug: boolean
@@ -211,25 +211,25 @@ export class SushiBridge {
   constructor({
     srcToken,
     dstToken,
-    srcUseBentoBox = false,
-    dstUseBentoBox = false,
+    srcUseCoffinBox = false,
+    dstUseCoffinBox = false,
     user,
     contract,
     debug = false,
   }: {
     srcToken: Currency
     dstToken: Currency
-    srcUseBentoBox: boolean
-    dstUseBentoBox: boolean
+    srcUseCoffinBox: boolean
+    dstUseCoffinBox: boolean
     user: string
-    contract: SushiXSwapContract
+    contract: soulxswapContract
     debug?: boolean
   }) {
     this.srcToken = srcToken
     this.dstToken = dstToken
 
-    this.srcUseBentoBox = srcUseBentoBox
-    this.dstUseBentoBox = dstUseBentoBox
+    this.srcUseCoffinBox = srcUseCoffinBox
+    this.dstUseCoffinBox = dstUseCoffinBox
 
     this.srcChainId = this.srcToken.chainId
     this.dstChainId = this.dstToken.chainId
@@ -244,36 +244,36 @@ export class SushiBridge {
     this.srcCooker = new SrcCooker({
       chainId: this.srcChainId,
       debug,
-      masterContract: getSushiXSwapContractConfig(this.srcToken.chainId).addressOrName,
+      masterContract: getsoulxswapContractConfig(this.srcToken.chainId).addressOrName,
       user,
     })
 
     this.dstCooker = new DstCooker({
       chainId: this.dstChainId,
       debug,
-      masterContract: getSushiXSwapContractConfig(this.dstToken.chainId).addressOrName,
+      masterContract: getsoulxswapContractConfig(this.dstToken.chainId).addressOrName,
       user,
     })
   }
 
   // Transfers Scenarios
-  // T1: BentoBox - Stargate - BentoBox
+  // T1: CoffinBox - Stargate - CoffinBox
   // T2: Wallet - Stargate - Wallet
-  // T3: Wallet - Stargate - BentoBox
-  // T4: BentoBox - Stargate - Wallet
+  // T3: Wallet - Stargate - CoffinBox
+  // T4: CoffinBox - Stargate - Wallet
   transfer(amountIn: Amount<Currency>, shareIn: Share<Currency>): void {
     // T1-T4
-    if (!this.srcUseBentoBox) {
-      this.srcCooker.srcDepositToBentoBox(this.srcToken, this.user, 0, shareIn.quotient.toString())
+    if (!this.srcUseCoffinBox) {
+      this.srcCooker.srcDepositToCoffinBox(this.srcToken, this.user, 0, shareIn.quotient.toString())
     }
-    this.srcCooker.srcTransferFromBentoBox(
+    this.srcCooker.srcTransferFromCoffinBox(
       this.srcToken,
       this.srcCooker.masterContract,
       0,
       shareIn.quotient.toString(),
       true
     )
-    this.dstCooker[this.dstUseBentoBox ? 'dstDepositToBentoBox' : 'dstWithdraw'](this.dstToken)
+    this.dstCooker[this.dstUseCoffinBox ? 'dstDepositToCoffinBox' : 'dstWithdraw'](this.dstToken)
   }
 
   teleport(
@@ -291,7 +291,7 @@ export class SushiBridge {
     // uint256 amount; // amount to bridge
     // uint256 amountMin; // amount to bridge minimum
     // uint256 dustAmount; // native token to be received on dst chain
-    // address receiver; // sushiXswap on dst chain
+    // address receiver; // soulxswap on dst chain
     // address to; // receiver bridge token incase of transaction reverts on dst chain
     // uint256 gas; // extra gas to be sent for dst chain operations
     // bytes32 srcContext; // random bytes32 as source context
@@ -410,7 +410,7 @@ export class SushiBridge {
         value,
       }
     } catch (error) {
-      console.log('SushiXSwap Fee Error', error)
+      console.log('soulxswap Fee Error', error)
     }
   }
 }

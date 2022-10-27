@@ -1,5 +1,5 @@
 # sources:
-#   - name: BentoBox
+#   - name: CoffinBox
 #     handler:
 #       graphql:
 #         endpoint: https://{context.host:api.thegraph.com}/subgraphs/name/{context.name:matthewlilley/bentobox-ethereum}
@@ -13,7 +13,7 @@
 #           validateSchema: true
 
 sources:
-  - name: BentoBox
+  - name: CoffinBox
     handler:
       graphql:
         # Default value is bentobox-polygon
@@ -25,14 +25,14 @@ sources:
         endpoint: https://api.thegraph.com/index-node/graphql
 
 additionalTypeDefs: |
-  extend type BentoBoxKpi {
+  extend type CoffinBoxKpi {
     chainId: BigInt
   }
   extend type StrategyKpi {
     chainId: BigInt
   }
   extend type Query {
-    crossChainBentoBoxKpis(first: Int!, chainIds: [BigInt!]!): [BentoBoxKpi!]!
+    crossChainCoffinBoxKpis(first: Int!, chainIds: [BigInt!]!): [CoffinBoxKpi!]!
     crossChainStrategyKpis(first: Int!, chainIds: [BigInt!]!): [StrategyKpi!]!
   }
 

@@ -6,9 +6,9 @@ import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { JSBI } from 'soulswap-math'
 import { Button, createToast, Dots, Form } from 'soulswap-ui'
-import { BENTOBOX_ADDRESS, useBentoBoxTotal, useFuroStreamRouterContract } from 'soulswap-wagmi'
+import { BENTOBOX_ADDRESS, useCoffinBoxTotal, useFuroStreamRouterContract } from 'soulswap-wagmi'
 import { Approve } from 'soulswap-wagmi/systems'
-import { approveBentoBoxAction, batchAction, streamCreationAction } from 'lib'
+import { approveCoffinBoxAction, batchAction, streamCreationAction } from 'lib'
 import { useNotifications } from 'lib/state/storage'
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
@@ -64,7 +64,7 @@ export const CreateForm: FC = () => {
     return value
   }, [amount, currency])
 
-  const rebase = useBentoBoxTotal(activeChain?.id, amountAsEntity?.currency)
+  const rebase = useCoffinBoxTotal(activeChain?.id, amountAsEntity?.currency)
 
   const onSubmit: SubmitHandler<CreateStreamFormData> = useCallback(
     async (data) => {
@@ -76,7 +76,7 @@ export const CreateForm: FC = () => {
       setError(undefined)
 
       const actions = [
-        approveBentoBoxAction({ contract, user: address, signature }),
+        approveCoffinBoxAction({ contract, user: address, signature }),
         streamCreationAction({
           contract,
           recipient: _data.recipient,

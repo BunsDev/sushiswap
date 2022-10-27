@@ -346,7 +346,7 @@
       "name": "bento",
       "outputs": [
         {
-          "internalType": "contract IBentoBoxMinimal",
+          "internalType": "contract ICoffinBoxMinimal",
           "name": "",
           "type": "address"
         }

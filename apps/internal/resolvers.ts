@@ -4,17 +4,17 @@ import { Resolvers, SubgraphStatus } from '.graphclient'
 import { getBuiltGraphSDK } from '.graphclient'
 
 export const resolvers: Resolvers = {
-  BentoBoxKpi: {
+  CoffinBoxKpi: {
     chainId: (root, args, context) => root.chainId || context.chainId || 137,
   },
   StrategyKpi: {
     chainId: (root, args, context) => root.chainId || context.chainId || 137,
   },
   Query: {
-    crossChainBentoBoxKpis: async (root, args, context, info) =>
+    crossChainCoffinBoxKpis: async (root, args, context, info) =>
       Promise.all(
         args.chainIds.map((chainId) =>
-          context.BentoBox.Query.bentoBoxKpis({
+          context.CoffinBox.Query.bentoBoxKpis({
             root,
             args,
             context: {
@@ -36,7 +36,7 @@ export const resolvers: Resolvers = {
     crossChainStrategyKpis: async (root, args, context, info) =>
       Promise.all(
         args.chainIds.map((chainId) =>
-          context.BentoBox.Query.strategyKpis({
+          context.CoffinBox.Query.strategyKpis({
             root,
             args,
             context: {

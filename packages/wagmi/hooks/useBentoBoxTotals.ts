@@ -5,15 +5,15 @@ import { useMemo } from 'react'
 import { useContractReads } from 'wagmi'
 import { UseContractReadsConfig } from 'wagmi/dist/declarations/src/hooks/contracts/useContractReads'
 
-import { getBentoBoxContractConfig } from './useBentoBoxContract'
+import { getCoffinBoxContractConfig } from './useCoffinBoxContract'
 
-type UseBentoBoxTotals = (
+type UseCoffinBoxTotals = (
   chainId: number | undefined,
   currencies: (Currency | undefined)[],
   config?: Omit<UseContractReadsConfig, 'contracts'>
 ) => Record<string, { base: JSBI; elastic: JSBI }> | undefined
 
-export const useBentoBoxTotals: UseBentoBoxTotals = (chainId, currencies, config) => {
+export const useCoffinBoxTotals: UseCoffinBoxTotals = (chainId, currencies, config) => {
   const addresses = useMemo(
     () =>
       currencies
@@ -25,7 +25,7 @@ export const useBentoBoxTotals: UseBentoBoxTotals = (chainId, currencies, config
     () =>
       addresses.map((address) => ({
         chainId,
-        ...getBentoBoxContractConfig(chainId),
+        ...getCoffinBoxContractConfig(chainId),
         functionName: 'totals',
         args: [address],
       })),
@@ -36,7 +36,7 @@ export const useBentoBoxTotals: UseBentoBoxTotals = (chainId, currencies, config
     contracts,
     watch: !(typeof config?.enabled !== undefined && !config?.enabled),
     keepPreviousData: true,
-    enabled: Boolean(getBentoBoxContractConfig(chainId).addressOrName !== AddressZero),
+    enabled: Boolean(getCoffinBoxContractConfig(chainId).addressOrName !== AddressZero),
   })
 
   return useMemo(() => {
@@ -50,12 +50,12 @@ export const useBentoBoxTotals: UseBentoBoxTotals = (chainId, currencies, config
   }, [totals, addresses])
 }
 
-export const useBentoBoxTotal = (
+export const useCoffinBoxTotal = (
   chainId: number | undefined,
   currency: Currency | undefined,
   config?: Omit<UseContractReadsConfig, 'contracts'>
 ): { base: JSBI; elastic: JSBI } | undefined => {
-  const totals = useBentoBoxTotals(
+  const totals = useCoffinBoxTotals(
     chainId,
     useMemo(() => [currency], [currency]),
     config

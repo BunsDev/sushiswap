@@ -56,9 +56,9 @@ interface IERC20 {
 
 }
 
-// File soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol@v1.0.0
+// File soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol@v1.0.0
 // License-Identifier: MIT
-interface IBentoBoxV1 {
+interface ICoffinBoxV1 {
     function deposit(
         IERC20 token_,
         address from,
@@ -101,12 +101,12 @@ contract SushiSwapSwapperV1 {
     using BoringMath for uint256;
 
     // Local variables
-    IBentoBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable bentoBox;
     IUniswapV2Factory public immutable factory;
     bytes32 public pairCodeHash;
 
     constructor(
-        IBentoBoxV1 bentoBox_,
+        ICoffinBoxV1 bentoBox_,
         IUniswapV2Factory factory_,
         bytes32 pairCodeHash_
     ) public {
@@ -139,11 +139,11 @@ contract SushiSwapSwapperV1 {
     }
 
     // Swaps to a flexible amount, from an exact input amount
-    /// @notice Withdraws 'amountFrom' of token 'from' from the BentoBox account for this swapper.
+    /// @notice Withdraws 'amountFrom' of token 'from' from the CoffinBox account for this swapper.
     /// Swaps it for at least 'amountToMin' of token 'to'.
-    /// Transfers the swapped tokens of 'to' into the BentoBox using a plain ERC20 transfer.
-    /// Returns the amount of tokens 'to' transferred to BentoBox.
-    /// (The BentoBox skim function will be used by the caller to get the swapped funds).
+    /// Transfers the swapped tokens of 'to' into the CoffinBox using a plain ERC20 transfer.
+    /// Returns the amount of tokens 'to' transferred to CoffinBox.
+    /// (The CoffinBox skim function will be used by the caller to get the swapped funds).
     function swap(
         IERC20 fromToken,
         IERC20 toToken,
@@ -177,12 +177,12 @@ contract SushiSwapSwapperV1 {
     // Swaps to an exact amount, from a flexible input amount
     /// @notice Calculates the amount of token 'from' needed to complete the swap (amountFrom),
     /// this should be less than or equal to amountFromMax.
-    /// Withdraws 'amountFrom' of token 'from' from the BentoBox account for this swapper.
+    /// Withdraws 'amountFrom' of token 'from' from the CoffinBox account for this swapper.
     /// Swaps it for exactly 'exactAmountTo' of token 'to'.
-    /// Transfers the swapped tokens of 'to' into the BentoBox using a plain ERC20 transfer.
-    /// Transfers allocated, but unused 'from' tokens within the BentoBox to 'refundTo' (amountFromMax - amountFrom).
-    /// Returns the amount of 'from' tokens withdrawn from BentoBox (amountFrom).
-    /// (The BentoBox skim function will be used by the caller to get the swapped funds).
+    /// Transfers the swapped tokens of 'to' into the CoffinBox using a plain ERC20 transfer.
+    /// Transfers allocated, but unused 'from' tokens within the CoffinBox to 'refundTo' (amountFromMax - amountFrom).
+    /// Returns the amount of 'from' tokens withdrawn from CoffinBox (amountFrom).
+    /// (The CoffinBox skim function will be used by the caller to get the swapped funds).
     function swapExact(
         IERC20 fromToken,
         IERC20 toToken,

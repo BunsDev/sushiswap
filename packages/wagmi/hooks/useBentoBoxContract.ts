@@ -1,5 +1,5 @@
 import bentoBoxExports from 'soulswap-bentobox/exports.json'
-import { BentoBoxV1 } from 'soulswap-bentobox/typechain'
+import { CoffinBoxV1 } from 'soulswap-bentobox/typechain'
 import { ChainId } from 'soulswap-chain'
 import { useContract, useProvider } from 'wagmi'
 
@@ -28,18 +28,18 @@ export const BENTOBOX_ADDRESS: Record<number, string> = {
   [ChainId.METIS]: '0xc35DADB65012eC5796536bD9864eD8773aBc74C4',
 }
 
-export const getBentoBoxContractConfig = (chainId: number | undefined) => ({
+export const getCoffinBoxContractConfig = (chainId: number | undefined) => ({
   addressOrName:
-    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.BentoBoxV1
+    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.address ?? '',
   contractInterface:
-    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.BentoBoxV1
+    bentoBoxExports[chainId?.toString() as keyof Omit<typeof bentoBoxExports, '31337'>]?.[0]?.contracts?.CoffinBoxV1
       ?.abi ?? [],
 })
 
-export function useBentoBoxContract(chainId: number | undefined) {
-  return useContract<BentoBoxV1>({
-    ...getBentoBoxContractConfig(chainId),
+export function useCoffinBoxContract(chainId: number | undefined) {
+  return useContract<CoffinBoxV1>({
+    ...getCoffinBoxContractConfig(chainId),
     signerOrProvider: useProvider({ chainId }),
   })
 }

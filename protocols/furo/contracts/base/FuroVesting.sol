@@ -13,7 +13,7 @@ contract FuroVesting is
     Multicall,
     BoringOwnable
 {
-    IBentoBoxMinimal public immutable bentoBox;
+    ICoffinBoxMinimal public immutable bentoBox;
     address public immutable wETH;
 
     address public tokenURIFetcher;
@@ -30,7 +30,7 @@ contract FuroVesting is
     error NotVestReceiver();
     error InvalidStepSetting();
 
-    constructor(IBentoBoxMinimal _bentoBox, address _wETH) {
+    constructor(ICoffinBoxMinimal _bentoBox, address _wETH) {
         bentoBox = _bentoBox;
         wETH = _wETH;
         vestIds = 1;
@@ -45,7 +45,7 @@ contract FuroVesting is
         return ITokenURIFetcher(tokenURIFetcher).fetchTokenURIData(id);
     }
 
-    function setBentoBoxApproval(
+    function setCoffinBoxApproval(
         address user,
         bool approved,
         uint8 v,
@@ -84,7 +84,7 @@ contract FuroVesting is
             msg.sender,
             address(this),
             vestParams.amount,
-            vestParams.fromBentoBox
+            vestParams.fromCoffinBox
         );
         stepShares = uint128(
             (vestParams.stepPercentage * depositedShares) / PERCENTAGE_PRECISION
@@ -121,14 +121,14 @@ contract FuroVesting is
             vestParams.steps,
             cliffShares,
             stepShares,
-            vestParams.fromBentoBox
+            vestParams.fromCoffinBox
         );
     }
 
     function withdraw(
         uint256 vestId,
         bytes calldata taskData,
-        bool toBentoBox
+        bool toCoffinBox
     ) external override {
         Vest storage vest = vests[vestId];
         address recipient = ownerOf[vestId];
@@ -144,15 +144,15 @@ contract FuroVesting is
             address(this),
             recipient,
             canClaim,
-            toBentoBox
+            toCoffinBox
         );
 
         if (taskData.length != 0) ITasker(recipient).onTaskReceived(taskData);
 
-        emit Withdraw(vestId, vest.token, canClaim, toBentoBox);
+        emit Withdraw(vestId, vest.token, canClaim, toCoffinBox);
     }
 
-    function stopVesting(uint256 vestId, bool toBentoBox) external override {
+    function stopVesting(uint256 vestId, bool toCoffinBox) external override {
         Vest memory vest = vests[vestId];
 
         if (vest.owner != msg.sender) revert NotOwner();
@@ -169,7 +169,7 @@ contract FuroVesting is
             address(this),
             ownerOf[vestId],
             canClaim,
-            toBentoBox
+            toCoffinBox
         );
 
         _transferToken(
@@ -177,14 +177,14 @@ contract FuroVesting is
             address(this),
             msg.sender,
             returnShares,
-            toBentoBox
+            toCoffinBox
         );
         emit CancelVesting(
             vestId,
             returnShares,
             canClaim,
             vest.token,
-            toBentoBox
+            toCoffinBox
         );
     }
 
@@ -231,9 +231,9 @@ contract FuroVesting is
         address from,
         address to,
         uint256 amount,
-        bool fromBentoBox
+        bool fromCoffinBox
     ) internal returns (uint256 depositedShares) {
-        if (fromBentoBox) {
+        if (fromCoffinBox) {
             depositedShares = bentoBox.toShare(token, amount, false);
             bentoBox.transfer(token, from, to, depositedShares);
         } else {
@@ -248,9 +248,9 @@ contract FuroVesting is
         address from,
         address to,
         uint256 shares,
-        bool toBentoBox
+        bool toCoffinBox
     ) internal {
-        if (toBentoBox) {
+        if (toCoffinBox) {
             bentoBox.transfer(token, from, to, shares);
         } else {
             bentoBox.withdraw(token, from, to, 0, shares);

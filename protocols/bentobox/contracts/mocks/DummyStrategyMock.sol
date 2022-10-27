@@ -15,7 +15,7 @@ contract DummyStrategyMock is IStrategy {
 
     int256 public _harvestProfit;
 
-    modifier onlyBentoBox() {
+    modifier onlyCoffinBox() {
         require(msg.sender == bentoBox, "Ownable: caller is not the owner");
         _;
     }
@@ -30,7 +30,7 @@ contract DummyStrategyMock is IStrategy {
     }
 
     // Send the assets to the Strategy and call skim to invest them
-    function skim(uint256) external override onlyBentoBox {
+    function skim(uint256) external override onlyCoffinBox {
         return;
     }
 
@@ -38,7 +38,7 @@ contract DummyStrategyMock is IStrategy {
     function harvest(
         uint256 balance,
         address /*sender*/
-    ) external override onlyBentoBox returns (int256 amountAdded) {
+    ) external override onlyCoffinBox returns (int256 amountAdded) {
         if (_harvestProfit > 0) {
             amountAdded = int256(balance) + _harvestProfit;
         } else {
@@ -47,7 +47,7 @@ contract DummyStrategyMock is IStrategy {
     }
 
     // Withdraw assets. The returned amount can differ from the requested amount due to rounding or if the request was more than there is.
-    function withdraw(uint256 amount) external override onlyBentoBox returns (uint256 actualAmount) {
+    function withdraw(uint256 amount) external override onlyCoffinBox returns (uint256 actualAmount) {
         actualAmount = token.balanceOf(address(this));
         if (amount > actualAmount) {
             actualAmount = amount;
@@ -56,10 +56,10 @@ contract DummyStrategyMock is IStrategy {
     }
 
     // Withdraw all assets in the safest way possible. This shouldn't fail.
-    function exit(uint256 balance) external override onlyBentoBox returns (int256 amountAdded) {
+    function exit(uint256 balance) external override onlyCoffinBox returns (int256 amountAdded) {
         uint256 moneyToBeTransferred = token.balanceOf(address(this));
         amountAdded = int256(moneyToBeTransferred) - int256(balance);
-        // that is here to reach some branches in BentoBox
+        // that is here to reach some branches in CoffinBox
         if (_harvestProfit > 0) {
             amountAdded += _harvestProfit;
         } else {

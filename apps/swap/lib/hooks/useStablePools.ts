@@ -1,7 +1,7 @@
 import { Interface } from '@ethersproject/abi'
 import { Amount, Token, Type as Currency } from 'soulswap-currency'
 import { StablePool } from 'soulswap-amm'
-import { useBentoBoxTotals } from 'soulswap-wagmi'
+import { useCoffinBoxTotals } from 'soulswap-wagmi'
 import STABLE_POOL_ABI from 'abis/stable-pool.json'
 import { useMultipleContractSingleData, useSingleContractMultipleData } from 'lib/state/multicall'
 import { useMemo } from 'react'
@@ -114,7 +114,7 @@ export function useStablePools(
     'swapFee'
   )
 
-  const totals = useBentoBoxTotals(chainId, tokensUnique)
+  const totals = useCoffinBoxTotals(chainId, tokensUnique)
 
   return useMemo(
     () =>

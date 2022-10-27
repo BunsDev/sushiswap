@@ -5,7 +5,7 @@ import { KashiPairMediumRiskV1 } from 'soulswap-kashi/typechain'
 import { Button, Dialog, Typography } from 'soulswap-ui'
 import { Icon } from 'soulswap-ui/currency/Icon'
 import { Widget } from 'soulswap-ui/widget'
-import { Approve, BENTOBOX_ADDRESS, useBentoBoxContract, usePrices, Web3Input } from 'soulswap-wagmi'
+import { Approve, BENTOBOX_ADDRESS, useCoffinBoxContract, usePrices, Web3Input } from 'soulswap-wagmi'
 import { KASHI_ADDRESS } from 'config'
 import { BigNumber, Signature } from 'ethers'
 import KashiCooker from 'lib/KashiCooker'
@@ -23,7 +23,7 @@ interface LendWidget {
 export const LendWidget: FC<LendWidget> = ({ pair }) => {
   const { address: account } = useAccount()
   const [signature, setSignature] = useState<Signature>()
-  const bentoBoxContract = useBentoBoxContract(pair.chainId)
+  const bentoBoxContract = useCoffinBoxContract(pair.chainId)
   const { data: signerOrProvider } = useSigner()
   const kashiMediumRiskV1Contract = useContract<KashiPairMediumRiskV1>({
     addressOrName: pair.address,
@@ -58,8 +58,8 @@ export const LendWidget: FC<LendWidget> = ({ pair }) => {
 
     if (deadBalance.isZero()) {
       // can't we do this alone?
-      // cooker.removeAssetToBentoBox(BigNumber.from(1000), '0x000000000000000000000000000000000000dead')
-      cooker.removeAssetToBentoBox(BigNumber.from(1000))
+      // cooker.removeAssetToCoffinBox(BigNumber.from(1000), '0x000000000000000000000000000000000000dead')
+      cooker.removeAssetToCoffinBox(BigNumber.from(1000))
       cooker.bentoBoxTransferAsset('0x000000000000000000000000000000000000dead', BigNumber.from(1000))
     }
 

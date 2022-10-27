@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
-import "../BentoBox.sol";
+import "../CoffinBox.sol";
 
 // solhint-disable not-rely-on-time
 
@@ -11,7 +11,7 @@ import "../BentoBox.sol";
 contract Salary is BoringBatchable {
     using BoringMath for uint256;
 
-    BentoBox public bentoBox;
+    CoffinBox public bentoBox;
 
     event LogCreate(
         address indexed funder,
@@ -26,13 +26,13 @@ contract Salary is BoringBatchable {
     event LogWithdraw(uint256 indexed salaryId, address indexed to, uint256 shares);
     event LogCancel(uint256 indexed salaryId, address indexed to, uint256 shares);
 
-    constructor(BentoBox _bentoBox) public {
+    constructor(CoffinBox _bentoBox) public {
         bentoBox = _bentoBox;
         _bentoBox.registerProtocol();
     }
 
-    // Included to be able to approve BentoBox and create in the same transaction (using batch)
-    function setBentoBoxApproval(
+    // Included to be able to approve CoffinBox and create in the same transaction (using batch)
+    function setCoffinBoxApproval(
         address user,
         bool approved,
         uint8 v,
@@ -78,8 +78,8 @@ contract Salary is BoringBatchable {
     /// The funder of each salary, separated out for gas optimization
     address[] public funder;
 
-    uint8 private constant MODE_BENTO = 0; // Use BentoBox balance
-    uint8 private constant MODE_ERC20_SKIM = 1; // Use ERC20 tokens deposited onto the BentoBox contract
+    uint8 private constant MODE_BENTO = 0; // Use CoffinBox balance
+    uint8 private constant MODE_ERC20_SKIM = 1; // Use ERC20 tokens deposited onto the CoffinBox contract
     uint8 private constant MODE_ERC20 = 2; // Use ERC20 tokens in the users wallet (transferFrom with approval)
 
     /// Create a salary
@@ -99,7 +99,7 @@ contract Salary is BoringBatchable {
         require(cliffPercent <= 1e18, "Salary: cliff too large");
 
         if (mode == MODE_BENTO) {
-            // Fund this salary using the funder's BentoBox balance. Convert the amoutn to shares, then transfer the shares
+            // Fund this salary using the funder's CoffinBox balance. Convert the amoutn to shares, then transfer the shares
             shares = bentoBox.toShare(token, amount, false);
             bentoBox.transfer(token, msg.sender, address(this), shares);
         } else {
@@ -165,7 +165,7 @@ contract Salary is BoringBatchable {
     function withdraw(
         uint256 salaryId,
         address to,
-        bool toBentoBox
+        bool toCoffinBox
     ) public {
         UserSalary memory salary = salaries[salaryId];
         // Only pay out to the recipient
@@ -173,7 +173,7 @@ contract Salary is BoringBatchable {
 
         uint256 pendingShares = _available(salary);
         salaries[salaryId].withdrawnShares = salary.withdrawnShares.add(pendingShares);
-        if (toBentoBox) {
+        if (toCoffinBox) {
             bentoBox.transfer(salary.token, address(this), to, pendingShares);
         } else {
             bentoBox.withdraw(salary.token, address(this), to, 0, pendingShares);
@@ -191,10 +191,10 @@ contract Salary is BoringBatchable {
     function cancel(
         uint256 salaryId,
         address to,
-        bool toBentoBox
+        bool toCoffinBox
     ) public onlyFunder(salaryId) {
         uint256 sharesLeft = uint256(salaries[salaryId].shares).sub(salaries[salaryId].withdrawnShares);
-        if (toBentoBox) {
+        if (toCoffinBox) {
             bentoBox.transfer(salaries[salaryId].token, address(this), to, sharesLeft);
         } else {
             bentoBox.withdraw(salaries[salaryId].token, address(this), to, 0, sharesLeft);

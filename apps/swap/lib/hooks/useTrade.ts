@@ -13,7 +13,7 @@ import { Amount, Type as Currency, WNATIVE } from 'soulswap-currency'
 import { MultiRoute, RouteStatus } from 'soulswap-tines'
 import {
   PairState,
-  useBentoBoxTotals,
+  useCoffinBoxTotals,
   useCurrencyCombinations,
   useGetConstantProductPools,
   useGetStablePools,
@@ -117,7 +117,7 @@ export function useTrade(
   //   }, [])
   // )
 
-  const totals = useBentoBoxTotals(
+  const totals = useCoffinBoxTotals(
     chainId,
     useMemo(() => [currencyIn, currencyOut], [currencyIn, currencyOut])
   )

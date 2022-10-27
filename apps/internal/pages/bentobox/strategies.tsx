@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   }
 }
 
-export default function BentoBoxStrategiesPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function CoffinBoxStrategiesPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="grid grid-cols-4 gap-4 p-8">
       {data.map((kpi) => (

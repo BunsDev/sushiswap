@@ -16,7 +16,7 @@ import {
   BENTOBOX_ADDRESS,
   getTridentRouterContractConfig,
   PoolFinderType,
-  useBentoBoxTotals,
+  useCoffinBoxTotals,
   useConstantProductPoolFactoryContract,
   useStablePoolFactoryContract,
   useTridentRouterContract,
@@ -65,7 +65,7 @@ export const CreateSectionReviewModalTrident: FC<CreateSectionReviewModalTrident
   const stablePoolFactory = useStablePoolFactoryContract(chainId)
   const [, { createNotification }] = useNotifications(address)
 
-  const totals = useBentoBoxTotals(chainId, [token0, token1])
+  const totals = useCoffinBoxTotals(chainId, [token0, token1])
 
   const pool = useMemo(() => {
     if (!token0 || !token1 || !fee) return

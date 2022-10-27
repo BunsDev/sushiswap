@@ -154,10 +154,10 @@ export const WithdrawModal: FC<WithdrawModalProps> = ({ stream }) => {
               )}
             >
               <Typography weight={500} variant="sm" className="!leading-5 tracking-widest text-slate-200">
-                BentoBox
+                CoffinBox
               </Typography>
               <Typography variant="xs" className="text-slate-400">
-                Receive funds in your BentoBox
+                Receive funds in your CoffinBox
               </Typography>
               {fundSource === FundSource.BENTOBOX && (
                 <div className="absolute w-5 h-5 top-3 right-3">

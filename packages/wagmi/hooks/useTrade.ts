@@ -15,7 +15,7 @@ import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
 import { useFeeData } from 'wagmi'
 
-import { useBentoBoxTotals } from './useBentoBoxTotals'
+import { useCoffinBoxTotals } from './useCoffinBoxTotals'
 import { getConstantProductPoolFactoryContract } from './useConstantProductPoolFactoryContract'
 import { ConstantProductPoolState, useGetConstantProductPools } from './useConstantProductPools'
 import { useCurrencyCombinations } from './useCurrencyCombinations'
@@ -109,7 +109,7 @@ export const useTrade: UseTrade = ({
     [pools]
   )
 
-  const rebases = useBentoBoxTotals(chainId, currencies)
+  const rebases = useCoffinBoxTotals(chainId, currencies)
   const currencyInRebase = currencyIn ? rebases?.[currencyIn.wrapped.address] : undefined
   const currencyOutRebase = currencyOut ? rebases?.[currencyOut.wrapped.address] : undefined
 

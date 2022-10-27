@@ -23,7 +23,7 @@ import "@boringcrypto/boring-solidity/contracts/ERC20.sol";
 import "@boringcrypto/boring-solidity/contracts/interfaces/IMasterContract.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringRebase.sol";
 import "@boringcrypto/boring-solidity/contracts/libraries/BoringERC20.sol";
-import "soulswap-bentobox-sdk/contracts/IBentoBoxV1.sol";
+import "soulswap-bentobox-sdk/contracts/ICoffinBoxV1.sol";
 import "./interfaces/IOracle.sol";
 import "./interfaces/ISwapper.sol";
 
@@ -31,7 +31,7 @@ import "./interfaces/ISwapper.sol";
 // solhint-disable no-inline-assembly
 
 /// @title KashiPair
-/// @dev This contract allows contract calls to any contract (except BentoBox)
+/// @dev This contract allows contract calls to any contract (except CoffinBox)
 /// from arbitrary callers thus, don't trust calls from this contract in any circumstances.
 contract KashiPair is ERC20, BoringOwnable, IMasterContract {
     using BoringMath for uint256;
@@ -51,7 +51,7 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
     event LogWithdrawFees(address indexed feeTo, uint256 feesEarnedFraction);
 
     // Immutables (for MasterContract and all clones)
-    IBentoBoxV1 public immutable bentoBox;
+    ICoffinBoxV1 public immutable bentoBox;
     KashiPair public immutable masterContract;
 
     // MasterContract variables
@@ -67,7 +67,7 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
 
     // Total amounts
     uint256 public totalCollateralShare; // Total collateral supplied
-    Rebase public totalAsset; // elastic = BentoBox shares held by the KashiPair, base = Total fractions held by asset suppliers
+    Rebase public totalAsset; // elastic = CoffinBox shares held by the KashiPair, base = Total fractions held by asset suppliers
     Rebase public totalBorrow; // elastic = Total token amount to be repayed by borrowers, base = Total parts of the debt held by borrowers
 
     // User balances
@@ -133,7 +133,7 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
     uint256 private constant BORROW_OPENING_FEE_PRECISION = 1e5;
 
     /// @notice The constructor is only used for the initial master contract. Subsequent clones are initialised via `init`.
-    constructor(IBentoBoxV1 bentoBox_) public {
+    constructor(ICoffinBoxV1 bentoBox_) public {
         bentoBox = bentoBox_;
         masterContract = this;
     }
@@ -442,14 +442,14 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
     uint8 internal constant ACTION_ADD_COLLATERAL = 10;
     uint8 internal constant ACTION_UPDATE_EXCHANGE_RATE = 11;
 
-    // Function on BentoBox
+    // Function on CoffinBox
     uint8 internal constant ACTION_BENTO_DEPOSIT = 20;
     uint8 internal constant ACTION_BENTO_WITHDRAW = 21;
     uint8 internal constant ACTION_BENTO_TRANSFER = 22;
     uint8 internal constant ACTION_BENTO_TRANSFER_MULTIPLE = 23;
     uint8 internal constant ACTION_BENTO_SETAPPROVAL = 24;
 
-    // Any external call (except to BentoBox)
+    // Any external call (except to CoffinBox)
     uint8 internal constant ACTION_CALL = 30;
 
     int256 internal constant USE_VALUE1 = -1;

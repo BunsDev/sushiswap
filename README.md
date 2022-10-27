@@ -98,7 +98,7 @@ https://pnpm.io/installation
 - `soulswap-kashi`
 - `soulswap-miso`
 - `soulswap-sushiswap`
-- `soulswap-sushixswap`
+- `soulswap-soulxswap`
 
 ### Creating a new protocol
 

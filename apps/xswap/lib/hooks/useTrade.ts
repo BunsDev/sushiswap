@@ -12,7 +12,7 @@ import {
 import { ChainId } from 'soulswap-chain'
 import { Amount, Type as Currency, WNATIVE } from 'soulswap-currency'
 import { RouteStatus } from 'soulswap-tines'
-import { useBentoBoxTotal, useCurrencyCombinations } from 'soulswap-wagmi'
+import { useCoffinBoxTotal, useCurrencyCombinations } from 'soulswap-wagmi'
 import { CONSTANT_PRODUCT_POOL_FACTORY_ADDRESS, STABLE_POOL_FACTORY_ADDRESS } from 'config'
 import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
@@ -90,8 +90,8 @@ export function useTrade(
     [pools]
   )
 
-  const currencyInRebase = useBentoBoxTotal(chainId, currencyIn)
-  const currencyOutRebase = useBentoBoxTotal(chainId, currencyOut)
+  const currencyInRebase = useCoffinBoxTotal(chainId, currencyIn)
+  const currencyOutRebase = useCoffinBoxTotal(chainId, currencyOut)
 
   return useMemo(() => {
     if (

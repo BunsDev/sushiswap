@@ -1,5 +1,5 @@
-query CrossChainBentoBoxKpis($chainIds: [BigInt!]!) {
-  crossChainBentoBoxKpis(first: 1000, chainIds: $chainIds) {
+query CrossChainCoffinBoxKpis($chainIds: [BigInt!]!) {
+  crossChainCoffinBoxKpis(first: 1000, chainIds: $chainIds) {
     chainId
     depositCount
     withdrawCount

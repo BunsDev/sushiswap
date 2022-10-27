@@ -3,10 +3,10 @@ import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { Fraction, JSBI, ZERO } from 'soulswap-math'
 import { Button, createToast, Dots } from 'soulswap-ui'
-import { BENTOBOX_ADDRESS, useBentoBoxTotal, useFuroVestingRouterContract } from 'soulswap-wagmi'
+import { BENTOBOX_ADDRESS, useCoffinBoxTotal, useFuroVestingRouterContract } from 'soulswap-wagmi'
 import { Approve } from 'soulswap-wagmi/systems'
 import { CreateVestingFormDataTransformedAndValidated } from 'components/vesting'
-import { approveBentoBoxAction, batchAction, vestingCreationAction } from 'lib'
+import { approveCoffinBoxAction, batchAction, vestingCreationAction } from 'lib'
 import { useNotifications } from 'lib/state/storage'
 import { FC, useCallback, useMemo, useState } from 'react'
 import { useAccount, useDeprecatedSendTransaction, useNetwork } from 'wagmi'
@@ -60,7 +60,7 @@ const CreateFormButtons: FC<CreateFormButtons> = ({
     ]
   }, [cliffAmount, stepAmount, stepPayouts, currency])
 
-  const rebase = useBentoBoxTotal(activeChain?.id, totalAmountAsEntity?.currency)
+  const rebase = useCoffinBoxTotal(activeChain?.id, totalAmountAsEntity?.currency)
 
   const createVesting = useCallback(async () => {
     if (!contract || !address || !activeChain?.id) return
@@ -78,7 +78,7 @@ const CreateFormButtons: FC<CreateFormButtons> = ({
     }
 
     const actions = [
-      approveBentoBoxAction({ contract, user: address, signature }),
+      approveCoffinBoxAction({ contract, user: address, signature }),
       vestingCreationAction({
         contract,
         recipient,

@@ -174,7 +174,7 @@ interface IStrategy {
     function exit(uint256 balance) external returns (int256 amountAdded);
 }
 
-interface IBentoBox {
+interface ICoffinBox {
     event LogDeploy(address indexed masterContract, bytes data, address indexed cloneAddress);
     event LogDeposit(address indexed token, address indexed from, address indexed to, uint256 amount, uint256 share);
     event LogFlashLoan(address indexed borrower, address indexed token, uint256 amount, uint256 feeAmount, address indexed receiver);
@@ -364,7 +364,7 @@ interface IKashiPair {
 
     function balanceOf(address) external view returns (uint256);
 
-    function bentoBox() external view returns (IBentoBox);
+    function bentoBox() external view returns (ICoffinBox);
 
     function borrow(address to, uint256 amount) external returns (uint256 part, uint256 share);
 
@@ -490,7 +490,7 @@ contract BoringHelperV1 is Ownable {
     IFactory public sushiFactory; // IFactory(0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac);
     IFactory public uniV2Factory; // IFactory(0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f);
     IERC20 public bar; // 0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272;
-    IBentoBox public bentoBox; // 0xB5891167796722331b7ea7824F036b3Bdcb4531C
+    ICoffinBox public bentoBox; // 0xB5891167796722331b7ea7824F036b3Bdcb4531C
 
     constructor(
         IMasterChef chef_,
@@ -501,7 +501,7 @@ contract BoringHelperV1 is Ownable {
         IFactory sushiFactory_,
         IFactory uniV2Factory_,
         IERC20 bar_,
-        IBentoBox bentoBox_
+        ICoffinBox bentoBox_
     ) public {
         chef = chef_;
         maker = maker_;
@@ -523,7 +523,7 @@ contract BoringHelperV1 is Ownable {
         IFactory sushiFactory_,
         IFactory uniV2Factory_,
         IERC20 bar_,
-        IBentoBox bentoBox_
+        ICoffinBox bentoBox_
     ) public onlyOwner {
         chef = chef_;
         maker = maker_;

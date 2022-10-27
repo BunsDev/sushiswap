@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react'
 import { Badge, BentoboxIcon, Button, classNames, IconButton, Tooltip, Typography } from 'soulswap-ui'
 import { FC, memo, useEffect } from 'react'
 
-import { ApprovalState, useBentoBoxApproveCallback } from '../../hooks'
+import { ApprovalState, useCoffinBoxApproveCallback } from '../../hooks'
 import { DefaultButton } from './DefaultButton'
 import { ApprovalButtonRenderProp, ApproveButton } from './types'
 
@@ -34,7 +34,7 @@ export const BentoApproveButton: FC<BentoApproveButton> = memo(
     enabled = true,
     ...props
   }) => {
-    const [approvalState, signature, onApprove] = useBentoBoxApproveCallback({
+    const [approvalState, signature, onApprove] = useCoffinBoxApproveCallback({
       watch,
       masterContract,
       onSignature,
@@ -71,7 +71,7 @@ export const BentoApproveButton: FC<BentoApproveButton> = memo(
               onClick={onApprove}
               disabled={disabled || approvalState === ApprovalState.PENDING}
             >
-              Approve BentoBox
+              Approve CoffinBox
             </Button>,
             true,
           ],
@@ -146,13 +146,13 @@ export const BentoApproveButton: FC<BentoApproveButton> = memo(
                   </span>
                 </Typography>
                 <Typography variant="xs" weight={500} className="text-slate-400">
-                  We need your approval first to access your wallet using BentoBox; you will only have to approve this
+                  We need your approval first to access your wallet using CoffinBox; you will only have to approve this
                   master contract once.
                 </Typography>
                 <Typography variant="xs" weight={500} className="flex flex-col gap-1 text-slate-400">
                   <span className="text-slate-200">Why should I approve this?</span>
                   <span>
-                    BentoBox is a token vault that provides its users with passive income on their deposits from yield
+                    CoffinBox is a token vault that provides its users with passive income on their deposits from yield
                     strategies while reducing gas costs.
                   </span>
                 </Typography>

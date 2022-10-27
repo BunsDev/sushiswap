@@ -8,7 +8,7 @@ import { shortenAddress } from 'soulswap-format'
 import { FundSource } from 'soulswap-hooks'
 import log from 'soulswap-log'
 import { Button, classNames, createToast, Currency, Dots, Form, Link as UILink, Table, Typography } from 'soulswap-ui'
-import { Approve, BENTOBOX_ADDRESS, useBentoBoxTotals, useFuroStreamRouterContract, usePrices } from 'soulswap-wagmi'
+import { Approve, BENTOBOX_ADDRESS, useCoffinBoxTotals, useFuroStreamRouterContract, usePrices } from 'soulswap-wagmi'
 import { format } from 'date-fns'
 import { useNotifications } from 'lib/state/storage'
 import Link from 'next/link'
@@ -16,7 +16,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 import { useAccount, useDeprecatedSendTransaction, useNetwork } from 'wagmi'
 
-import { approveBentoBoxAction, batchAction, streamCreationAction } from '../../../lib'
+import { approveCoffinBoxAction, batchAction, streamCreationAction } from '../../../lib'
 import { CreateMultipleStreamFormData, CreateStreamFormDataValidated } from '../types'
 import { ImportZone } from './ImportZone'
 import { createMultipleStreamSchema } from './schema'
@@ -61,7 +61,7 @@ export const CreateMultipleForm: FC = () => {
   // @ts-ignore
   const streams = watch('streams')
 
-  const rebases = useBentoBoxTotals(
+  const rebases = useCoffinBoxTotals(
     activeChain?.id,
     streams.map(({ currency }) => {
       if (!currency) return undefined
@@ -94,7 +94,7 @@ export const CreateMultipleForm: FC = () => {
       const actions = []
 
       if (signature) {
-        actions.push(approveBentoBoxAction({ contract, user: address, signature }))
+        actions.push(approveCoffinBoxAction({ contract, user: address, signature }))
       }
 
       data.streams

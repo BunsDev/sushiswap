@@ -20,14 +20,14 @@ enum Action {
   ADD_COLLATERAL = 10,
   UPDATE_EXCHANGE_RATE = 11,
 
-  // Function on BentoBox
+  // Function on CoffinBox
   BENTO_DEPOSIT = 20,
   BENTO_WITHDRAW = 21,
   BENTO_TRANSFER = 22,
   BENTO_TRANSFER_MULTIPLE = 23,
   BENTO_SETAPPROVAL = 24,
 
-  // Any external call (except to BentoBox)
+  // Any external call (except to CoffinBox)
   CALL = 30,
 }
 
@@ -39,8 +39,8 @@ import { calculateGasMargin } from 'soulswap-wagmi'
 import { Signature } from 'ethers'
 import { UserRejectedRequestError } from 'wagmi'
 
-// Not really neccasary here, but could be a nice pattern for SushiXSwap
-export class BentoBoxCooker<T> {
+// Not really neccasary here, but could be a nice pattern for soulxswap
+export class CoffinBoxCooker<T> {
   private readonly add: (action: Action, data: string, value: BigNumberish) => T
   constructor(add: (action: Action, data: string, value: BigNumberish) => T) {
     this.add = add
@@ -67,7 +67,7 @@ export default class KashiCooker {
   private readonly chainId: number
   private readonly contract: KashiPairMediumRiskV1Contract
   private readonly pair: KashiMediumRiskLendingPairV1
-  //   private readonly bentoBoxCooker: BentoBoxCooker<KashiCooker>
+  //   private readonly bentoBoxCooker: CoffinBoxCooker<KashiCooker>
   private readonly actions: Action[]
   private readonly values: BigNumber[]
   private readonly datas: string[]
@@ -95,7 +95,7 @@ export default class KashiCooker {
     this.actions = []
     this.values = []
     this.datas = []
-    // this.bentoBoxCooker = new BentoBoxCooker(this.add)
+    // this.bentoBoxCooker = new CoffinBoxCooker(this.add)
   }
 
   add(action: Action, data: string, value: BigNumberish = Zero): KashiCooker {
@@ -191,12 +191,12 @@ export default class KashiCooker {
     )
   }
 
-  removeAssetToBentoBox(fraction: BigNumber, to: string = this.account): KashiCooker {
+  removeAssetToCoffinBox(fraction: BigNumber, to: string = this.account): KashiCooker {
     return this.add(Action.REMOVE_ASSET, defaultAbiCoder.encode(['int256', 'address'], [fraction, to]))
   }
 
   removeAssetToWallet(fraction: BigNumber, to: string = this.account): KashiCooker {
-    this.removeAssetToBentoBox(fraction, to)
+    this.removeAssetToCoffinBox(fraction, to)
     const useNative = this.pair.asset.wrapped.address === WNATIVE_ADDRESS[this.chainId]
     return this.add(
       Action.BENTO_WITHDRAW,
@@ -207,7 +207,7 @@ export default class KashiCooker {
     )
   }
 
-  addCollateralFromBentoBox(amount: Amount<Currency>, to = this.account, skim = false): KashiCooker {
+  addCollateralFromCoffinBox(amount: Amount<Currency>, to = this.account, skim = false): KashiCooker {
     return this.add(
       Action.ADD_COLLATERAL,
       defaultAbiCoder.encode(['int256', 'address', 'bool'], [amount.quotient.toString(), to, skim])

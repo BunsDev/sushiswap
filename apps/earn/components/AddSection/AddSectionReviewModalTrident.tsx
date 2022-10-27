@@ -12,7 +12,7 @@ import {
   ConstantProductPoolState,
   getTridentRouterContractConfig,
   StablePoolState,
-  useBentoBoxTotals,
+  useCoffinBoxTotals,
   useTotalSupply,
   useTridentRouterContract,
 } from 'soulswap-wagmi'
@@ -64,7 +64,7 @@ export const AddSectionReviewModalTrident: FC<AddSectionReviewModalTridentProps>
 
   const [, { createNotification }] = useNotifications(address)
   const totalSupply = useTotalSupply(liquidityToken)
-  const rebases = useBentoBoxTotals(chainId, [token0, token1])
+  const rebases = useCoffinBoxTotals(chainId, [token0, token1])
   const contract = useTridentRouterContract(chainId)
   const [{ slippageTolerance }] = useSettings()
   const { sendTransactionAsync, isLoading: isWritePending } = useDeprecatedSendTransaction({

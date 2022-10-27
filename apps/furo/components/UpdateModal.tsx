@@ -26,7 +26,7 @@ export const UpdateModal: FC<UpdateModalProps> = ({ stream, abi, address: contra
   const [changeEndDate, setChangeEndDate] = useState(false)
   const [amount, setAmount] = useState<string>('')
   const [endDate, setEndDate] = useState<string>()
-  const [fromBentoBox, setFromBentoBox] = useState(false)
+  const [fromCoffinBox, setFromCoffinBox] = useState(false)
   const [error, setError] = useState<string>()
 
   const amountAsEntity = useMemo(() => {
@@ -67,7 +67,7 @@ export const UpdateModal: FC<UpdateModalProps> = ({ stream, abi, address: contra
           BigNumber.from(stream.id),
           BigNumber.from(topUp ? topUpAmount : '0'),
           changeEndDate ? difference : 0,
-          fromBentoBox,
+          fromCoffinBox,
         ],
       })
 
@@ -88,7 +88,7 @@ export const UpdateModal: FC<UpdateModalProps> = ({ stream, abi, address: contra
     } catch (e: any) {
       setError(e.message)
     }
-  }, [activeChain?.id, amount, amountAsEntity, changeEndDate, endDate, fromBentoBox, stream, topUp, writeAsync])
+  }, [activeChain?.id, amount, amountAsEntity, changeEndDate, endDate, fromCoffinBox, stream, topUp, writeAsync])
 
   if (!stream || !address || !stream?.canUpdate(address)) return null
 

@@ -3,7 +3,7 @@ import { Amount, Token, Type } from 'soulswap-currency'
 import { STARGATE_TOKEN } from 'soulswap-stargate'
 import { Link, NetworkIcon, Typography } from 'soulswap-ui'
 import { Icon } from 'soulswap-ui/currency/Icon'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { formatBytes32String } from 'ethers/lib/utils'
 import { FC, useEffect, useState } from 'react'
 import { useContractEvent, useWaitForTransaction } from 'wagmi'
@@ -39,9 +39,9 @@ export const TransactionProgressStepper: FC<TransactionProgressStepper> = ({
   const [delayed, setDelayed] = useState<boolean>(false)
 
   useContractEvent({
-    ...getSushiXSwapContractConfig(outputAmount?.currency.chainId),
+    ...getsoulxswapContractConfig(outputAmount?.currency.chainId),
     chainId: outputAmount?.currency.chainId,
-    eventName: 'StargateSushiXSwapDst',
+    eventName: 'StargatesoulxswapDst',
     listener: (event) => {
       const [context, success, { transactionHash }] = event
       // console.log(event, formatBytes32String(id), context === formatBytes32String(id))

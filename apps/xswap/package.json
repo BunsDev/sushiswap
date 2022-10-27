@@ -31,7 +31,7 @@
     "soulswap-redux-localstorage": "workspace:*",
     "soulswap-redux-token-lists": "workspace:*",
     "soulswap-stargate": "workspace:*",
-    "@sushiswap/sushixswap": "0.1.0",
+    "@sushiswap/soulxswap": "0.1.0",
     "soulswap-tines": "workspace:*",
     "soulswap-token-lists": "workspace:*",
     "soulswap-ui": "workspace:*",

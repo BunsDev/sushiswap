@@ -29,7 +29,7 @@ export const StreamAmountDetails = () => {
   return (
     <Form.Section
       title="Stream Details"
-      description="Furo allows you to create a stream from BentoBox to allow the recipient to gain yield whilst receiving the stream if the token that's being used has a BentoBox strategy set on it."
+      description="Furo allows you to create a stream from CoffinBox to allow the recipient to gain yield whilst receiving the stream if the token that's being used has a CoffinBox strategy set on it."
     >
       <Form.Control label="Token">
         <Controller
@@ -90,7 +90,7 @@ export const StreamAmountDetails = () => {
                     )}
                   >
                     <Typography weight={500} variant="sm" className="!leading-5 tracking-widest text-slate-300">
-                      BentoBox
+                      CoffinBox
                     </Typography>
                     <div className="flex flex-col gap-1">
                       <Typography variant="xs">Available Balance</Typography>

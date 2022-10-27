@@ -2,9 +2,9 @@
 
 pragma solidity 0.8.10;
 
-/// @notice Minimal BentoBox vault interface.
+/// @notice Minimal CoffinBox vault interface.
 /// @dev `token` is aliased as `address` from `IERC20` for simplicity.
-interface IBentoBoxMinimal {
+interface ICoffinBoxMinimal {
     /// @notice Balance per ERC-20 token per account in shares.
     function balanceOf(address, address) external view returns (uint256);
 
@@ -30,7 +30,7 @@ interface IBentoBoxMinimal {
         bool roundUp
     ) external view returns (uint256 amount);
 
-    /// @notice Registers this contract so that users can approve it for BentoBox.
+    /// @notice Registers this contract so that users can approve it for CoffinBox.
     function registerProtocol() external;
 
     /// @notice Deposit an amount of `token` represented in either `amount` or `share`.

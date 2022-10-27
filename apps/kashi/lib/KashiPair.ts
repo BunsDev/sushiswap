@@ -19,7 +19,7 @@ export type Rebase = {
 
 export class Strategy {}
 
-export class BentoBox {
+export class CoffinBox {
   readonly totals: Record<string, Rebase>
   readonly strategy: Record<string, Strategy>
   readonly pendingStrategy: Record<string, Strategy>

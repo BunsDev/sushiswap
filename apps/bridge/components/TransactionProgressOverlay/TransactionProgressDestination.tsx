@@ -1,7 +1,7 @@
 import chain from 'soulswap-chain'
 import chains from 'soulswap-chain'
 import { NetworkIcon } from 'soulswap-ui'
-import { getSushiXSwapContractConfig } from 'soulswap-wagmi'
+import { getsoulxswapContractConfig } from 'soulswap-wagmi'
 import { formatBytes32String } from 'ethers/lib/utils'
 import { FC, useEffect, useState } from 'react'
 import { useAccount, useContractEvent, useWaitForTransaction } from 'wagmi'
@@ -30,9 +30,9 @@ export const TransactionProgressDestination: FC<TransactionProgressDestination> 
   const [, { createSuccessNotification, createFailedNotification }] = useNotifications(address)
 
   useContractEvent({
-    ...getSushiXSwapContractConfig(dstAmountOut?.currency.chainId),
+    ...getsoulxswapContractConfig(dstAmountOut?.currency.chainId),
     chainId: dstAmountOut?.currency.chainId,
-    eventName: 'StargateSushiXSwapDst',
+    eventName: 'StargatesoulxswapDst',
     listener: (event) => {
       const [context, success, { transactionHash }] = event
       if (context === formatBytes32String(id)) {
